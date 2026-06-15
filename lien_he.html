@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIET TRAVEL</title>
+    <link rel="stylesheet" href="main_style.css">
+    <link rel="stylesheet" href="lien_he.css">
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <div class="logo-area">
+                <img src="logo_travel.png" alt="VIET TRAVEL Logo">
+            </div>
+            <nav class="nav-links">
+                <a href="trang_chu.html">Trang chủ</a>
+                <a href="tour_trong_nuoc.html">Tour trong nước</a>
+                <a href="tour_quoc_te.html">Tour quốc tế</a>
+                <a href="cam_nang.html">Cẩm nang du lịch</a>
+                <a href="lien_he.html">Liên hệ</a>
+            </nav>
+        </div>
+    </header>
+<div class="form-wrapper">
+ 
+        <div class="form-head">
+            <h2>✉️ Gửi Yêu Cầu Tư Vấn</h2>
+            <p>Vui lòng điền đầy đủ thông tin, chúng tôi sẽ liên hệ lại trong 24 giờ</p>
+        </div>
+ 
+        <div class="form-body">
+ 
+            <!-- Họ tên + SĐT -->
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="ho-ten">Họ và tên <span class="required">*</span></label>
+                    <input type="text" id="ho-ten" placeholder="Nguyễn Văn A">
+                </div>
+                <div class="form-field">
+                    <label for="sdt">Số điện thoại <span class="required">*</span></label>
+                    <input type="tel" id="sdt" placeholder="0912 345 678">
+                </div>
+            </div>
+ 
+            <!-- Gmail -->
+            <div class="form-field">
+                <label for="email">Gmail <span class="required">*</span></label>
+                <input type="email" id="email" placeholder="example@gmail.com">
+            </div>
+ 
+            <!-- Địa chỉ -->
+            <div class="form-field">
+                <label for="dia-chi">
+                    Địa chỉ <span class="optional">(không bắt buộc)</span>
+                </label>
+                <input type="text" id="dia-chi" placeholder="Số nhà, đường, quận, tỉnh/thành phố...">
+            </div>
+ 
+            <hr class="divider">
+ 
+            <!-- Loại thông tin -->
+            <div class="form-field">
+                <label>Loại thông tin cần hỏi <span class="required">*</span></label>
+                <div class="radio-group">
+ 
+                    <label class="radio-option">
+                        <input type="radio" name="loai-tt" value="cham-soc">
+                        <div>
+                            <span class="radio-label">🎧 Chăm sóc khách hàng</span>
+                            <span class="radio-desc">Khiếu nại, góp ý, hỗ trợ sau tour</span>
+                        </div>
+                    </label>
+ 
+                    <label class="radio-option">
+                        <input type="radio" name="loai-tt" value="thong-tin-tour">
+                        <div>
+                            <span class="radio-label">🗺️ Thông tin tour du lịch</span>
+                            <span class="radio-desc">Tư vấn lịch trình, giá cả, đặt chỗ</span>
+                        </div>
+                    </label>
+ 
+                    <label class="radio-option">
+                        <input type="radio" name="loai-tt" value="khac">
+                        <div>
+                            <span class="radio-label">💬 Khác</span>
+                            <span class="radio-desc">Hợp tác, truyền thông, câu hỏi khác</span>
+                        </div>
+                    </label>
+ 
+                </div>
+            </div>
+ 
+            <hr class="divider">
+ 
+            <!-- Chi tiết -->
+            <div class="form-field">
+                <label for="chi-tiet">Chi tiết thông tin cụ thể <span class="required">*</span></label>
+                <textarea id="chi-tiet" placeholder="Mô tả chi tiết câu hỏi hoặc yêu cầu của bạn..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-send">📨 Gửi Yêu Cầu</button>
+ 
+            
+        </div>
+    </div>
+        <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>VIET TRAVEL</h4>
+                <p>Công ty lữ hành và tổ chức tour du lịch hàng đầu Việt Nam. Mang lại những trải nghiệm xê dịch đích thực.</p>
+                <p>📍 Địa chỉ: Vạn Phúc Building, Đường Tố Hữu, Phường Vạn Phúc, Quận Hà Đông, TP. Hà Nội.</p>
+                <p>📞 Hotline: 12345678</p>
+            </div>
+            <div class="footer-col">
+                <h4>Về Chúng Tôi</h4>
+                <ul>
+                    <li><a href="#">Giới thiệu công ty</a></li>
+                    <li><a href="#">Đội ngũ hướng dẫn viên</a></li>
+                    <li><a href="#">Tin tức tuyển dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Chính Sách</h4>
+                <ul>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản điều kiện</a></li>
+                    <li><a href="#">Chính sách hoàn hủy tour</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+    <h4>Chứng Nhận</h4>
+        <img src="https://s3.hcm-1.cloud.cmctelecom.vn/static/web-travel/logo/dmca.png"
+             alt="DMCA Protected"
+             style="margin-bottom: 12px; display: block;">
+
+        <img src="https://s3.hcm-1.cloud.cmctelecom.vn/static/web-travel/logo/bo-cong-thuong.png"
+             alt="Đã thông báo Bộ Công Thương"
+             style="display: block; width: 120px;">
+    
+</div>
+        </div>    
+        <div class="footer-bottom">
+            <p>&copy; 2026 VIET TRAVEL. Tất cả các quyền được bảo lưu. Thiết kế website demo dành riêng cho học viên.</p>
+        </div>
+    </footer>
+</body>
+</html>
