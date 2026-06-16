@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET & CẤU HÌNH CHUNG (Màu sắc, Font chữ)
+   1. CẤU HÌNH CHUNG (Màu sắc, Font chữ)
    ========================================================================== */
 * {
     box-sizing: border-box;
@@ -16,6 +16,8 @@
     --bg-light: #f8f9fa;       /* Màu nền xám nhạt */
     --white: #ffffff;
     --transition-smooth: all 0.3s ease;
+    --cta-start: #78d9dc;
+    --cta-end: #4bc3c7;
 }
 
 body {
@@ -40,62 +42,128 @@ ul {
 }
 
 /* ==========================================================================
-   2. THANH ĐIỀU HƯỚNG (HEADER & NAVIGATION) - Dùng Flexbox
+   2. THANH ĐIỀU HƯỚNG (HEADER & NAVIGATION) - Dùng Flexbox, Responsive
    ========================================================================== */
+
+/* Header base */
 header {
     background-color: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
+/* Navbar container */
 .navbar {
     display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 0;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
 }
 
-.logo-area {
-    display: flex;
-    align-items: center;
-}
-
-.logo-area img {
-    height: auto;
-    max-height: 55px; /* Giới hạn chiều cao tối đa giúp logo cân đối */
+/* Logo */
+.logo-area { flex: 0 0 auto; }
+.logo-link img {
+    max-height: 56px;
     width: auto;
     display: block;
     object-fit: contain;
 }
 
+/* Nav links: center / flexible */
 .nav-links {
     display: flex;
-    gap: 30px;
-    margin-left: auto; /* Đẩy menu menu về bên phải khi bỏ nút đăng nhập */
-}
-
-.nav-links a {
-    font-weight: 600;
-    color: var(--primary-blue);
-    padding: 5px 0;
-    border-bottom: 2px solid transparent;
+    gap: 28px;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
     transition: var(--transition-smooth);
 }
 
-/* Hiệu ứng hover cho menu đường gạch chân */
-.nav-links a:hover {
+/* Right side (hotline + CTA) */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex: 0 0 auto;
+}
+
+/* Tweak hotline and CTA */
+.hotline {
+    color: #0b4b5e;
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-contact {
+    background: linear-gradient(180deg, var(--cta-start), var(--cta-end));
+    color: #063a3f;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(75,195,199,0.18);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    display: inline-block;
+}
+
+.btn-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(75,195,199,0.22);
+}
+
+/* Nav link style */
+.nav-links a {
+    font-weight: 600;
+    color: var(--primary-blue);
+    padding: 8px 6px;
+    border-radius: 6px;
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
     color: var(--accent-teal);
-    border-bottom: 2px solid var(--accent-teal);
+    background: rgba(2,128,144,0.06);
+    outline: none;
+}
+
+/* Small subtle underline for active state (optional class .active) */
+.nav-links a.active {
+    border-bottom: 3px solid var(--accent-teal);
+    padding-bottom: 5px;
+}
+
+/* Mobile hamburger toggle */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    margin-left: 8px;
+}
+
+.nav-toggle .bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--primary-blue);
+    margin: 4px 0;
+    transition: transform 0.2s ease;
 }
 
 /* ==========================================================================
-   3. BANNER CHÍNH & BỘ LỌC (HERO SECTION)
+   3. HERO, SEARCH, CATEGORIES, TOURS, FOOTER (unchanged except responsive)
    ========================================================================== */
+
 .hero {
-    /* Thay ảnh nền phong cảnh Việt Nam chất lượng cao */
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
                 url('https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
     height: 550px;
     display: flex;
@@ -129,7 +197,7 @@ header {
     width: 90%;
     max-width: 900px;
     position: absolute;
-    bottom: -40px; /* Đẩy một nửa thanh tìm kiếm lồi xuống dưới */
+    bottom: -40px;
     display: grid;
     grid-template-columns: repeat(4, 1fr) auto;
     gap: 15px;
@@ -167,7 +235,7 @@ header {
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
-    height: calc(100% - 20px); /* Cân bằng chiều cao với input */
+    height: calc(100% - 20px);
     margin-top: 20px;
     transition: var(--transition-smooth);
 }
@@ -177,8 +245,9 @@ header {
 }
 
 /* ==========================================================================
-   4. DANH MỤC KHÁM PHÁ (CATEGORIES) - Dùng Flexbox / Grid
+   4. CATEGORIES, TOURS, FOOTER (kept from original with minor responsive tweaks)
    ========================================================================== */
+
 .section-padding {
     padding: 100px 0 60px 0;
 }
@@ -196,7 +265,6 @@ header {
     padding-bottom: 10px;
 }
 
-/* Đường gạch chân trang trí dưới tiêu đề */
 .section-title h2::after {
     content: '';
     position: absolute;
@@ -241,9 +309,6 @@ header {
     color: var(--primary-blue);
 }
 
-/* ==========================================================================
-   5. DANH SÁCH TOUR NỔI BẬT (FEATURED TOURS) - Dùng CSS Grid
-   ========================================================================== */
 .tours-section {
     padding: 40px 0 80px 0;
 }
@@ -257,7 +322,7 @@ header {
 .tour-card {
     background-color: var(--white);
     border-radius: 12px;
-    overflow: hidden; /* Cắt các phần thừa ra ngoài bo góc */
+    overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     transition: var(--transition-smooth);
     display: flex;
@@ -294,8 +359,8 @@ header {
 
 .tour-content {
     padding: 20px;
-    display: flex;          
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
     flex: 1;
 }
 
@@ -342,7 +407,7 @@ header {
 .tour-price {
     font-size: 1.3rem;
     font-weight: bold;
-    color: #e53935; 
+    color: #e53935;
 }
 
 .btn-detail {
@@ -361,10 +426,10 @@ header {
 }
 
 /* ==========================================================================
-   6. CHÂN TRANG (FOOTER) - Dùng CSS Grid
+   5. CHÂN TRANG (FOOTER) - Dùng CSS Grid
    ========================================================================== */
 footer {
-    background-color: #111a24; 
+    background-color: #111a24;
     color: #b0bec5;
     padding: 60px 0 30px 0;
     font-size: 0.95rem;
@@ -416,16 +481,16 @@ footer {
     font-size: 0.85rem;
 }
 
-/*bonus: texterea for note*/
+/*bonus: textarea for note*/
 textarea {
-    width: 100%;       
-    height: 100px;     
+    width: 100%;
+    height: 100px;
     padding: 10px;
     border: 1px solid #008080;
     border-radius: 8px;
     font-family: Arial, sans-serif;
     resize: vertical;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 /* Hiệu ứng khi click vào khung */
@@ -434,3 +499,50 @@ textarea:focus {
     border-color: #005f5f;
     box-shadow: 0 0 5px rgba(0, 128, 128, 0.3);
 }
+
+/* ==========================================================================
+   6. RESPONSIVE RULES
+   ========================================================================== */
+
+/* Layout adjustments for smaller screens */
+@media (max-width: 1100px) {
+    .container { width: 92%; }
+    .tour-grid { grid-template-columns: repeat(2, 1fr); }
+    .category-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+    .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        margin: 0 auto;
+        width: calc(100% - 40px);
+        max-width: 480px;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        display: none;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 12px 14px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .nav-toggle { display: block; }
+
+    .hotline { font-size: 0.9rem; }
+    .btn-contact { padding: 8px 14px; font-size: 0.95rem; }
+
+    .hero { height: 480px; }
+    .search-box { grid-template-columns: 1fr; position: static; transform: translateY(0); margin-top: 16px; bottom: auto; }
+}
+
+/* Show nav when open (JS toggles .open) */
+.nav-links.open { display: flex; }
