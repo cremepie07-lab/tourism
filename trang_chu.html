@@ -4,105 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIET TRAVEL</title>
+
+    <!-- Google Fonts: Montserrat (heading) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="main_style.css">
 </head>
 <body>
 
     <header>
-        <div class="container navbar">
-            <div class="logo-area">
-                <img src="logo_travel.png" alt="VIET TRAVEL Logo">
-            </div>
-            <nav class="nav-links">
-                <a href="trang_chu.html">Trang chủ</a>
-                <a href="tour_trong_nuoc.html">Tour trong nước</a>
-                <a href="tour_quoc_te.html">Tour quốc tế</a>
-                <a href="cam_nang.html">Cẩm nang du lịch</a>
-                <a href="lien_he.html">Liên hệ</a>
-            </nav>
+      <div class="container navbar">
+        <div class="logo-area">
+          <a href="trang_chu.html" class="logo-link">
+            <img src="logo_travel.png" alt="VIET TRAVEL Logo">
+          </a>
         </div>
+
+        <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+
+        <nav class="nav-links" role="navigation" aria-label="Main navigation">
+          <a href="trang_chu.html" class="active">Trang chủ</a>
+          <a href="tour_trong_nuoc.html">Tour trong nước</a>
+          <a href="tour_quoc_te.html">Tour quốc tế</a>
+          <a href="cam_nang.html">Cẩm nang du lịch</a>
+        </nav>
+
+        <div class="nav-right">
+          <a href="tel:0922222016" class="hotline">📞 <strong>Hotline:</strong> 0922222016</a>
+          <a href="lien_he.html" class="btn-contact">Liên hệ ngay</a>
+        </div>
+      </div>
     </header>
 
-    <section class="hero">
-        <h1>ĐẶT TOUR DU LỊCH TẠI VIET TRAVEL</h1>
-        <p>Trải nghiệm những dịch vụ du lịch chất lượng cao và những gói tour hấp dẫn nhất.</p>
-        
-        <div class="search-box">
-            <div class="search-item">
-                <label for="destination">Bạn muốn đi đâu?</label>
-                <input type="text" id="destination" placeholder="Ví dụ: Hà Giang, Phú Quốc...">
-        </div>
-            <div class="search-item">
-                <label for="date">Ngày đi</label>
-                <input type="date" id="date">
-            </div>
-            <div class="search-item">
-                <label for="price">Ngân sách</label>
-                <select id="price">
-                    <option value="">Mọi mức giá</option>
-                    <option value="1">Dưới 3 triệu</option>
-                    <option value="2">Từ 3 - 7 triệu</option>
-                    <option value="3">Trên 7 triệu</option>
-                </select>
-            </div>
-            <button class="btn-search" type="button">Tìm kiếm</button>
-        </div>
-    </section>
+    <main>
+      <section class="hero">
+          <h1>ĐẶT TOUR DU LỊCH TẠI VIET TRAVEL</h1>
+          <span class="title-accent" aria-hidden="true"></span>
+          <p>Trải nghiệm những dịch vụ du lịch chất lượng cao và những gói tour hấp dẫn nhất.</p>
+          
+          <div class="search-box">
+              <div class="search-item">
+                  <label for="destination">Bạn muốn đi đâu?</label>
+                  <input type="text" id="destination" placeholder="Ví dụ: Hà Giang, Phú Quốc..." />
+              </div>
+              <div class="search-item">
+                  <label for="date">Ngày đi</label>
+                  <input type="date" id="date" />
+              </div>
+              <div class="search-item">
+                  <label for="price">Ngân sách</label>
+                  <select id="price">
+                      <option value="">Mọi mức giá</option>
+                      <option value="1">Dưới 3 triệu</option>
+                      <option value="2">Từ 3 - 7 triệu</option>
+                      <option value="3">Trên 7 triệu</option>
+                  </select>
+              </div>
+              <button class="btn-search" type="button">Tìm kiếm</button>
+          </div>
+      </section>
 
-    <section class="container tours-section">
-        <div class="section-title">
-            <h2>Tour Du Lịch Nổi Bật</h2>
-        </div>
-        <div class="tour-grid">
-            
-            <div class="tour-card">
-                <div class="tour-img">
-                    <img src="https://images.unsplash.com/photo-1605538032432-a9f0c8d9baac?auto=format&fit=crop&w=600&q=80" alt="Hà Giang">
-                    <span class="tour-tag">Bán Chạy Nhất</span>
-                </div>
-                <div class="tour-content">
-                    <div class="tour-info">✈ Khởi hành từ Hà Nội | 🕒 4 Ngày 3 Đêm</div>
-                    <div class="tour-title">Tour Khám Phá Vòng Cung Đông Bắc: Hà Giang - Sông Nho Quế hùng vĩ</div>
-                    <div class="tour-footer">
-                        <div class="tour-price">3.950.000 đ</div>
-                        <a href="ha_giang.html" class="btn-detail">Chi tiết</a>
-                    </div>
-                </div>
-            </div>
+      <section class="container tours-section">
+          <div class="section-title">
+              <h2>Tour Du Lịch Nổi Bật</h2>
+          </div>
+          <div class="tour-grid">
+              
+              <div class="tour-card">
+                  <div class="tour-img">
+                      <img src="https://images.unsplash.com/photo-1605538032432-a9f0c8d9baac?auto=format&fit=crop&w=600&q=80" alt="Hà Giang" loading="lazy">
+                      <span class="tour-tag">Bán Chạy Nhất</span>
+                  </div>
+                  <div class="tour-content">
+                      <div class="tour-info">✈ Khởi hành từ Hà Nội | 🕒 4 Ngày 3 Đêm</div>
+                      <div class="tour-title">Tour Khám Phá Vòng Cung Đông Bắc: Hà Giang - Sông Nho Quế hùng vĩ</div>
+                      <div class="tour-footer">
+                          <div class="tour-price">3.950.000 đ</div>
+                          <a href="ha_giang.html" class="btn-detail">Chi tiết</a>
+                      </div>
+                  </div>
+              </div>
 
-            <div class="tour-card">
-                <div class="tour-img">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Phú Quốc">
-                    <span class="tour-tag">Giờ Chót Giảm Giá</span>
-                </div>
-                <div class="tour-content">
-                    <div class="tour-info">✈ Khởi hành từ TP.HCM | 🕒 3 Ngày 2 Đêm</div>
-                    <div class="tour-title">Tour Nghỉ Dưỡng Thiên Đường Biển Ngọc Phú Quốc - Combo Vé Máy Bay + Khách Sạn</div>
-                    <div class="tour-footer">
-                        <div class="tour-price">5.200.000 đ</div>
-                        <span class="tour-discount">Giá gốc:<s>6.500.000 đ</s></span>
-                        <a href="phu_quoc.html" class="btn-detail">Chi tiết</a>
-                    </div>
-                </div>
-            </div>
+              <div class="tour-card">
+                  <div class="tour-img">
+                      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Phú Quốc" loading="lazy">
+                      <span class="tour-tag">Giờ Chót Giảm Giá</span>
+                  </div>
+                  <div class="tour-content">
+                      <div class="tour-info">✈ Khởi hành từ TP.HCM | 🕒 3 Ngày 2 Đêm</div>
+                      <div class="tour-title">Tour Nghỉ Dưỡng Thiên Đường Biển Ngọc Phú Quốc - Combo Vé Máy Bay + Khách Sạn</div>
+                      <div class="tour-footer">
+                          <div class="tour-price">5.200.000 đ</div>
+                          <span class="tour-discount">Giá gốc:<s>6.500.000 đ</s></span>
+                          <a href="phu_quoc.html" class="btn-detail">Chi tiết</a>
+                      </div>
+                  </div>
+              </div>
 
-            <div class="tour-card">
-                <div class="tour-img">
-                    <img src="https://datviettour.com.vn/uploads/images/mien-bac/ha-long/hinh-danh-thang/hang-sung-sot.jpg" alt="Hạ Long">
-                    <span class="tour-tag">Mới Lạ</span>
-                </div>
-                <div class="tour-content">
-                    <div class="tour-info">✈ Khởi hành toàn quốc | 🕒 2 Ngày 1 Đêm</div>
-                    <div class="tour-title">Trải Nghiệm Du Thuyền 5 Sao Đẳng Cấp Tại Vịnh Hạ Long - Khám phá hang Sửng Sốt</div>
-                    <div class="tour-footer">
-                        <div class="tour-price">2.850.000 đ</div>
-                        <a href="ha_long.html" class="btn-detail">Chi tiết</a>
-                    </div>
-                </div>
-            </div>
+              <div class="tour-card">
+                  <div class="tour-img">
+                      <img src="https://datviettour.com.vn/uploads/images/mien-bac/ha-long/hinh-danh-thang/hang-sung-sot.jpg" alt="Hạ Long" loading="lazy">
+                      <span class="tour-tag">Mới Lạ</span>
+                  </div>
+                  <div class="tour-content">
+                      <div class="tour-info">✈ Khởi hành toàn quốc | 🕒 2 Ngày 1 Đêm</div>
+                      <div class="tour-title">Trải Nghiệm Du Thuyền 5 Sao Đẳng Cấp Tại Vịnh Hạ Long - Khám phá hang Sửng Sốt</div>
+                      <div class="tour-footer">
+                          <div class="tour-price">2.850.000 đ</div>
+                          <a href="ha_long.html" class="btn-detail">Chi tiết</a>
+                      </div>
+                  </div>
+              </div>
 
-        </div>
-    </section>
+          </div>
+      </section>
+    </main>
 
     <footer>
         <div class="container footer-grid">
@@ -143,5 +165,30 @@
             <p>&copy; 2026 VIET TRAVEL. Tất cả các quyền được bảo lưu. Thiết kế website demo dành riêng cho học viên.</p>
         </div>
     </footer>
+
+    <!-- Small JS to toggle mobile menu -->
+    <script>
+      (function() {
+        const toggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('.nav-links');
+
+        if (!toggle || !nav) return;
+
+        toggle.addEventListener('click', () => {
+          const isOpen = nav.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          toggle.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+            nav.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.classList.remove('active');
+          }
+        });
+      })();
+    </script>
 </body>
 </html>
