@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /* ==========================================================================
    IMPORT FONTS — Playfair Display · Raleway · Dancing Script
    ========================================================================== */
@@ -516,3 +517,557 @@ textarea:focus {
     border-color: var(--accent-teal);
     box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
 }
+=======
+/* ==========================================================================
+   1. CẤU HÌNH CHUNG (Màu sắc, Font chữ)
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --primary-blue: #004b8d;   /* Xanh dương đậm từ chữ VIET TRAVEL */
+    --accent-teal: #028090;    /* Xanh ngọc từ cung đường */
+    --mountain-green: #2e7d32; /* Xanh lá từ đỉnh núi */
+    --text-dark: #222222;      /* Màu chữ chính */
+    --bg-light: #f8f9fa;       /* Màu nền xám nhạt */
+    --white: #ffffff;
+    --transition-smooth: all 0.3s ease;
+    --cta-start: #78d9dc;
+    --cta-end: #4bc3c7;
+}
+
+body {
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. THANH ĐIỀU HƯỚNG (HEADER & NAVIGATION) - Dùng Flexbox, Responsive
+   ========================================================================== */
+
+/* Header base */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 0;
+    justify-content: space-between;
+}
+
+/* Nav links: center / flexible */
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    transition: var(--transition-smooth);
+}
+
+/* Right side (hotline + CTA) */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex: 0 0 auto;
+}
+
+/* Tweak hotline and CTA */
+.hotline {
+    color: #0b4b5e;
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-contact {
+    background: linear-gradient(180deg, var(--cta-start), var(--cta-end));
+    color: #063a3f;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(75,195,199,0.18);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    display: inline-block;
+}
+
+.btn-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(75,195,199,0.22);
+}
+
+/* Nav link style */
+.nav-links a {
+    font-weight: 600;
+    color: var(--primary-blue);
+    padding: 8px 6px;
+    border-radius: 6px;
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+    color: var(--accent-teal);
+    background: rgba(2,128,144,0.06);
+    outline: none;
+}
+
+/* Small subtle underline for active state (optional class .active) */
+.nav-links a.active {
+    border-bottom: 3px solid var(--accent-teal);
+    padding-bottom: 5px;
+}
+
+/* Mobile hamburger toggle */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    margin-left: 8px;
+}
+
+.nav-toggle .bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--primary-blue);
+    margin: 4px 0;
+    transition: transform 0.2s ease;
+}
+
+/* ==========================================================================
+   3. HERO, SEARCH, CATEGORIES, TOURS, FOOTER (unchanged except responsive)
+   ========================================================================== */
+
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+/* Thanh tìm kiếm dùng CSS Grid */
+.search-box {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 900px;
+    position: absolute;
+    bottom: -40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) auto;
+    gap: 15px;
+    align-items: center;
+}
+
+.search-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.search-item label {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.search-item input, .search-item select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    color: var(--text-dark);
+}
+
+.search-box .btn-search {
+    background-color: var(--accent-teal);
+    color: var(--white);
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    height: calc(100% - 20px);
+    margin-top: 20px;
+    transition: var(--transition-smooth);
+}
+
+.search-box .btn-search:hover {
+    background-color: var(--primary-blue);
+}
+
+/* ==========================================================================
+   4. CATEGORIES, TOURS, FOOTER (kept from original with minor responsive tweaks)
+   ========================================================================== */
+
+.section-padding {
+    padding: 100px 0 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 2.2rem;
+    color: var(--primary-blue);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background-color: var(--accent-teal);
+    border-radius: 2px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.category-card {
+    background-color: var(--white);
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border-top: 4px solid transparent;
+    transition: var(--transition-smooth);
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid var(--mountain-green);
+}
+
+.category-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.category-card h3 {
+    font-size: 1.15rem;
+    color: var(--primary-blue);
+}
+
+.tours-section {
+    padding: 40px 0 80px 0;
+}
+
+.tour-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.tour-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tour-img {
+    height: 220px;
+    position: relative;
+}
+
+.tour-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tour-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--mountain-green);
+    color: var(--white);
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.tour-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.tour-info {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.tour-title {
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+    margin-bottom: 12px;
+    min-height: auto;
+    overflow: visible;
+    flex-grow: 1;
+}
+
+.tour-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: auto;
+}
+
+.tour-badge-discount {
+    background-color: #e74c3c;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.tour-discount s {
+    color: #999;
+    font-size: 13px;
+}
+
+.tour-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #e53935;
+}
+
+.btn-detail {
+    border: 1px solid var(--accent-teal);
+    color: var(--accent-teal);
+    padding: 7px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition-smooth);
+}
+
+.btn-detail:hover {
+    background-color: var(--accent-teal);
+    color: var(--white);
+}
+
+/* ==========================================================================
+   5. CHÂN TRANG (FOOTER) - Dùng CSS Grid
+   ========================================================================== */
+footer {
+    background-color: #111a24;
+    color: #b0bec5;
+    padding: 60px 0 30px 0;
+    font-size: 0.95rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 1fr) 1.5fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    color: var(--white);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent-teal);
+}
+
+.footer-col p {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a:hover {
+    color: var(--white);
+    padding-left: 5px;
+    transition: var(--transition-smooth);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #263238;
+    padding-top: 20px;
+    font-size: 0.85rem;
+}
+
+/*bonus: textarea for note*/
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #008080;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+/* Hiệu ứng khi click vào khung */
+textarea:focus {
+    outline: none;
+    border-color: #005f5f;
+    box-shadow: 0 0 5px rgba(0, 128, 128, 0.3);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE RULES
+   ========================================================================== */
+
+/* Layout adjustments for smaller screens */
+@media (max-width: 1100px) {
+    .container { width: 92%; }
+    .tour-grid { grid-template-columns: repeat(2, 1fr); }
+    .category-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+    .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        margin: 0 auto;
+        width: calc(100% - 40px);
+        max-width: 480px;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        display: none;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 12px 14px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .nav-toggle { display: block; }
+
+    .hotline { font-size: 0.9rem; }
+    .btn-contact { padding: 8px 14px; font-size: 0.95rem; }
+
+    .hero { height: 480px; }
+    .search-box { grid-template-columns: 1fr; position: static; transform: translateY(0); margin-top: 16px; bottom: auto; }
+}
+
+/* Show nav when open (JS toggles .open) */
+.nav-links.open { display: flex; }
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+/* Định dạng trực tiếp cho thẻ ảnh logo */
+.logo-area img {
+    height: 56px;       /* Đặt chiều cao cố định cho logo vừa vặn với thanh navbar */
+    width: auto;        /* Tự động tính toán chiều rộng theo tỷ lệ ảnh để không bị méo */
+    object-fit: contain;/* Đảm bảo ảnh luôn nằm gọn trong khung hình */
+}
+>>>>>>> Stashed changes
