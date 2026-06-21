@@ -1,0 +1,518 @@
+/* ==========================================================================
+   IMPORT FONTS — Playfair Display · Raleway · Dancing Script
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap');
+
+/* ==========================================================================
+   1. RESET & BIẾN MÀU — chủ đề Dark Green + Gold
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-blue: #1A3A2A;      /* Deep green — thay thế xanh dương */
+    --primary-dark: #0D2118;      /* Xanh lá đậm hơn */
+    --accent-teal: #C9A84C;       /* Gold — thay thế teal */
+    --gold-light: #E8C97A;
+    --mountain-green: #3D8B6F;    /* Jade — thay thế mountain-green */
+    --mid-green: #2C5F42;
+    --text-dark: #1A1A1A;
+    --text-muted: #5A5A5A;
+    --bg-light: #FAF7F0;          /* Warm white */
+    --cream: #F5EED8;
+    --white: #ffffff;
+    --transition-smooth: all 0.3s ease;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+html { scroll-behavior: smooth; }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul { list-style: none; }
+
+.container {
+    width: 88%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION — Dark green, sticky
+   ========================================================================== */
+header {
+    background-color: var(--primary-blue);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.logo-area img {
+    height: auto;
+    max-height: 52px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    /* Áp dụng bộ lọc để logo hoà hợp với nền tối */
+    filter: brightness(0) invert(1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    margin-left: auto;
+}
+
+.nav-links a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover {
+    color: var(--accent-teal);
+    border-bottom: 2px solid var(--accent-teal);
+}
+
+/* ==========================================================================
+   3. HERO BANNER — Dark green gradient, gold accents
+   ========================================================================== */
+.hero {
+    background:
+        radial-gradient(ellipse at 30% 60%, rgba(61,139,111,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse at 75% 30%, rgba(201,168,76,0.15) 0%, transparent 50%),
+        linear-gradient(160deg, #0D2118 0%, #1A3A2A 45%, #0F2A1C 100%);
+    height: 580px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+/* Họa tiết chéo nhạt nền */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image:
+        repeating-linear-gradient(45deg, #C9A84C 0px, #C9A84C 1px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(-45deg, #C9A84C 0px, #C9A84C 1px, transparent 1px, transparent 60px);
+    pointer-events: none;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 900;
+    margin-bottom: 16px;
+    line-height: 1.15;
+    text-shadow: 2px 2px 12px rgba(0,0,0,0.4);
+}
+
+.hero p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    margin-bottom: 50px;
+    max-width: 580px;
+    color: rgba(255,255,255,0.7);
+}
+
+/* Thanh tìm kiếm — CSS Grid */
+.search-box {
+    background-color: var(--cream);
+    padding: 22px;
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    width: 90%;
+    max-width: 920px;
+    position: absolute;
+    bottom: -44px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) auto;
+    gap: 16px;
+    align-items: center;
+    border-top: 3px solid var(--accent-teal);
+}
+
+.search-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.search-item label {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.search-item input,
+.search-item select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 2px;
+    font-size: 0.9rem;
+    font-family: 'Raleway', sans-serif;
+    outline: none;
+    color: var(--text-dark);
+    background: var(--white);
+    transition: border-color 0.3s;
+}
+
+.search-item input:focus,
+.search-item select:focus {
+    border-color: var(--accent-teal);
+}
+
+.search-box .btn-search {
+    background: var(--accent-teal);
+    color: var(--primary-blue);
+    border: none;
+    padding: 12px 26px;
+    border-radius: 2px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    height: calc(100% - 22px);
+    margin-top: 22px;
+    transition: var(--transition-smooth);
+}
+
+.search-box .btn-search:hover {
+    background: var(--gold-light);
+    box-shadow: 0 8px 24px rgba(201,168,76,0.35);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   4. CATEGORIES — Tiêu đề Playfair, card cream
+   ========================================================================== */
+.section-padding {
+    padding: 110px 0 70px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: var(--primary-blue);
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 14px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-teal);
+    border-radius: 2px;
+}
+
+/* Tag nhỏ trên tiêu đề */
+.section-tag-small {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mountain-green);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.category-card {
+    background-color: var(--white);
+    padding: 34px 22px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(26,58,42,0.06);
+    border-top: 4px solid transparent;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    transition: var(--transition-smooth);
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 36px rgba(26,58,42,0.12);
+    border-top: 4px solid var(--accent-teal);
+}
+
+.category-icon {
+    font-size: 2.6rem;
+    margin-bottom: 16px;
+}
+
+.category-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   5. TOUR CARDS — Grid 3 cột
+   ========================================================================== */
+.tours-section {
+    padding: 40px 0 90px 0;
+}
+
+.tour-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.tour-card {
+    background-color: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(26,58,42,0.07);
+    border: 1px solid rgba(201,168,76,0.12);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(26,58,42,0.14);
+    border-color: rgba(201,168,76,0.3);
+}
+
+.tour-img {
+    height: 225px;
+    position: relative;
+}
+
+.tour-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.tour-card:hover .tour-img img {
+    transform: scale(1.05);
+}
+
+.tour-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--accent-teal);
+    color: var(--primary-blue);
+    padding: 4px 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+.tour-content {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.tour-info {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.tour-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--primary-blue);
+    margin-bottom: 14px;
+    flex-grow: 1;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.tour-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding-top: 15px;
+    margin-top: auto;
+}
+
+.tour-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-teal);
+}
+
+.btn-detail {
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+    padding: 7px 18px;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: var(--transition-smooth);
+}
+
+.btn-detail:hover {
+    background: var(--primary-blue);
+    color: var(--accent-teal);
+}
+
+/* ==========================================================================
+   6. FOOTER — Dark, sang trọng
+   ========================================================================== */
+footer {
+    background: #0A1A10;
+    color: rgba(255,255,255,0.5);
+    padding: 60px 0 30px 0;
+    font-size: 0.88rem;
+    border-top: 1px solid rgba(201,168,76,0.12);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 1fr);
+    gap: 48px;
+    margin-bottom: 44px;
+}
+
+.footer-col h4 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    color: var(--accent-teal);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 36px;
+    height: 1px;
+    background: var(--accent-teal);
+}
+
+.footer-col p {
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: var(--transition-smooth);
+}
+
+.footer-col ul li a:hover {
+    color: var(--accent-teal);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 22px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   7. TEXTAREA
+   ========================================================================== */
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px 12px;
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 2px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    resize: vertical;
+    box-sizing: border-box;
+    color: var(--text-dark);
+    background: var(--white);
+    transition: border-color 0.3s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-teal);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+}
