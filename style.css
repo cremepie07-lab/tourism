@@ -771,3 +771,61 @@ footer {
   .gallery-strip { height: 250px; }
   footer { flex-direction: column; gap: 1.5rem; text-align: center; }
 }
+/* KHUNG THẺ: Phối màu Xanh đậm (Green) - Vàng (Gold) */
+.exp-card {
+  background-color: #123524; /* Nền xanh lá cực đậm (bạn có thể thay bằng mã màu nền thực tế của bạn) */
+  border: 1px solid rgba(212, 175, 55, 0.25); /* Viền màu Vàng Gold mờ để định hình khối thẻ */
+  border-radius: 16px;
+  overflow: hidden; /* Cắt góc ảnh khớp với viền */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HIỆU ỨNG HOVER: Nhấc thẻ lên và viền sáng bừng màu Gold */
+.exp-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold, #d4af37); /* Sáng viền vàng */
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15); /* Bóng đổ phớt vàng nhẹ */
+}
+
+/* HÌNH ẢNH: Vẫn ép tỷ lệ chuẩn 16:10 để ảnh không bị dẹt/méo như ảnh cũ của bạn */
+.exp-img {
+  width: 100%;
+  aspect-ratio: 16 / 10; 
+  object-fit: cover;
+  display: block;
+}
+
+/* KHỐI NỘI DUNG */
+.exp-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* TIÊU ĐỀ: Bắt buộc dùng màu Vàng Gold */
+.exp-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold, #d4af37); /* Gọi biến màu vàng của bạn ra */
+  margin-bottom: 10px;
+  text-transform: uppercase; /* In hoa nhẹ cho sang trọng */
+  letter-spacing: 0.5px;
+}
+
+/* ĐOẠN VĂN MÔ TẢ: Màu sáng để nổi bật trên nền xanh đậm */
+.exp-text {
+  font-size: 0.95rem;
+  color: #e5e7eb; /* Trắng ngà/xám sáng, TUYỆT ĐỐI không dùng màu đen hay xám đậm ở đây */
+  line-height: 1.6;
+}
+
+/* ICON: Chỉnh khoảng cách */
+.exp-icon {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  display: inline-block;
+}
