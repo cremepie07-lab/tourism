@@ -1,183 +1,445 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIET TRAVEL</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main_style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Việt Nam — Hành Trình Huyền Diệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <div class="container navbar">
-            <div class="logo-area">
-                <img src="logo_travel.png" alt="VIET TRAVEL Logo">
-            </div>
-            <nav class="nav-links">
-                <a href="index.html">Trang chủ</a>
-                <a href="#">Tour trong nước</a>
-                <a href="#">Tour quốc tế</a>
-                <a href="#">Cẩm nang du lịch</a>
-                <a href="#">Liên hệ</a>
-            </nav>
-        </div>
-    </header>
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Việt Nam</div>
+  <ul class="nav-links">
+    <li><a href="#destinations">Điểm Đến</a></li>
+    <li><a href="#experiences">Trải Nghiệm</a></li>
+    <li><a href="#cuisine">Ẩm Thực</a></li>
+    <li><a href="#seasons">Mùa Du Lịch</a></li>
+    <li><a href="Dat_tour.html" style="color:var(--gold);">Đặt Tour</a></li>
+  </ul>
+</nav>
 
-    <section class="hero">
-        <h1>ĐẶT TOUR DU LỊCH<br><span style="font-style:italic;color:var(--accent-teal)">Tại Viet Travel</span></h1>
-        <p>Trải nghiệm những dịch vụ du lịch chất lượng cao và những gói tour hấp dẫn nhất.</p>
-        
-        <div class="search-box">
-            <div class="search-item">
-                <label for="destination">Bạn muốn đi đâu?</label>
-                <input type="text" id="destination" placeholder="Ví dụ: Hà Giang, Phú Quốc...">
-            </div>
-            <div class="search-item">
-                <label for="tour-type">Loại hình</label>
-                <select id="tour-type">
-                    <option value="">Tất cả loại hình</option>
-                    <option value="trekking">Leo núi & Trekking</option>
-                    <option value="beach">Nghỉ dưỡng biển đảo</option>
-                    <option value="culture">Khám phá văn hóa</option>
-                </select>
-            </div>
-            <div class="search-item">
-                <label for="date">Ngày đi</label>
-                <input type="date" id="date">
-            </div>
-            <div class="search-item">
-                <label for="price">Ngân sách</label>
-                <select id="price">
-                    <option value="">Mọi mức giá</option>
-                    <option value="1">Dưới 3 triệu</option>
-                    <option value="2">Từ 3 - 7 triệu</option>
-                    <option value="3">Trên 7 triệu</option>
-                </select>
-            </div>
-            <button class="btn-search" type="button">Tìm kiếm</button>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
 
-    <section class="container section-padding">
-        <div class="section-title">
-            <h2>Loại Hình Du Lịch Phổ Biến</h2>
-        </div>
-        <div class="category-grid">
-            <div class="category-card">
-                <div class="category-icon">⛰️</div>
-                <h3>Leo Núi & Mạo Hiểm</h3>
-            </div>
-            <div class="category-card">
-                <div class="category-icon">🏖️</div>
-                <h3>Nghỉ Dưỡng Biển Đảo</h3>
-            </div>
-            <div class="category-card">
-                <div class="category-icon">🥾</div>
-                <h3>Tour Trekking</h3>
-            </div>
-            <div class="category-card">
-                <div class="category-icon">⛩️</div>
-                <h3>Văn Hóa & Lịch Sử</h3>
-            </div>
-        </div>
-    </section>
+  <div class="hero-content">
+    <div class="hero-tag">✦ Khám Phá Vẻ Đẹp Ngàn Năm ✦</div>
+    <h1 class="hero-title">
+      Việt Nam<br><span>Huyền Diệu</span>
+    </h1>
+    <p class="hero-sub">Từ vịnh biển xanh ngọc đến ruộng bậc thang vàng rực</p>
+    <div class="hero-cta">
+      <a href="#destinations" class="btn-primary">Khám Phá Ngay</a>
+      <a href="#experiences" class="btn-outline">Xem Trải Nghiệm</a>
+    </div>
+  </div>
 
-    <section class="container tours-section">
-        <div class="section-title">
-            <h2>Tour Du Lịch Nổi Bật</h2>
-        </div>
-        <div class="tour-grid">
-            
-            <div class="tour-card">
-                <div class="tour-img">
-                    <img src="https://images.unsplash.com/photo-1605538032432-a9f0c8d9baac?auto=format&fit=crop&w=600&q=80" alt="Hà Giang">
-                    <span class="tour-tag">Bán Chạy Nhất</span>
-                </div>
-                <div class="tour-content">
-                    <div class="tour-info">✈ Khởi hành từ Hà Nội | 🕒 4 Ngày 3 Đêm</div>
-                    <div class="tour-title">Tour Khám Phá Vòng Cung Đông Bắc: Hà Giang - Sông Nho Quế hùng vĩ</div>
-                    <div class="tour-footer">
-                        <div class="tour-price">3.950.000 đ</div>
-                        <a href="ha_giang.html" class="btn-detail">Chi tiết</a>
-                    </div>
-                </div>
-            </div>
+  <div class="scroll-down">
+    <div class="scroll-line"></div>
+    <span>Cuộn xuống</span>
+  </div>
+</section>
 
-            <div class="tour-card">
-                <div class="tour-img">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Phú Quốc">
-                    <span class="tour-tag">Giờ Chót Giảm Giá</span>
-                </div>
-                <div class="tour-content">
-                    <div class="tour-info">✈ Khởi hành từ TP.HCM | 🕒 3 Ngày 2 Đêm</div>
-                    <div class="tour-title">Tour Nghỉ Dưỡng Thiên Đường Biển Ngọc Phú Quốc - Combo Vé Máy Bay + Khách Sạn</div>
-                    <div class="tour-footer">
-                        <div class="tour-price">5.200.000 đ</div>
-                        <a href="phu_quoc.html" class="btn-detail">Chi tiết</a>
-                    </div>
-                </div>
-            </div>
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-num">34</div>
+    <div class="stat-label">Tỉnh Thành</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">8</div>
+    <div class="stat-label">Di Sản UNESCO</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">3,260</div>
+    <div class="stat-label">km Bờ Biển</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">54</div>
+    <div class="stat-label">Dân Tộc Anh Em</div>
+  </div>
+</div>
 
-            <div class="tour-card">
-                <div class="tour-img">
-                    <img src="https://datviettour.com.vn/uploads/images/mien-bac/ha-long/hinh-danh-thang/hang-sung-sot.jpg" alt="Hạ Long">
-                    <span class="tour-tag">Mới Lạ</span>
-                </div>
-                <div class="tour-content">
-                    <div class="tour-info">✈ Khởi hành toàn quốc | 🕒 2 Ngày 1 Đêm</div>
-                    <div class="tour-title">Trải Nghiệm Du Thuyền 5 Sao Đẳng Cấp Tại Vịnh Hạ Long - Khám phá hang Sửng Sốt</div>
-                    <div class="tour-footer">
-                        <div class="tour-price">2.850.000 đ</div>
-                        <a href="#" class="btn-detail">Chi tiết</a>
-                    </div>
-                </div>
-            </div>
+<!-- DESTINATIONS -->
+<section class="destinations" id="destinations">
+  <div class="dest-header reveal">
+    <div>
+      <div class="section-tag">Điểm Đến Nổi Bật</div>
+      <h2 class="section-title">Những <em>Viên Ngọc</em><br>Của Việt Nam</h2>
+    </div>
+    <p class="dest-subtitle">Từ bắc vào nam, mỗi vùng đất mang một vẻ đẹp riêng, một câu chuyện riêng chờ bạn khám phá.</p>
+  </div>
 
-        </div>
-    </section>
+  <div class="dest-grid">
+    <!-- Ha Long Bay -->
+    <div class="dest-card reveal">
+      <div class="dest-badge">UNESCO</div>
+      <div class="dest-photo-wrap" style="min-height:640px">
+        <img width="100%" height="100%" viewBox="0 0 400 640" preserveAspectRatio="xMidYMid slice" src="https://images.unsplash.com/photo-1559627717-bdb2d005a87e?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="position:absolute;inset:0">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1A3A5C"/>
+              <stop offset="50%" stop-color="#1E5F8C"/>
+              <stop offset="100%" stop-color="#2E7DAF"/>
+            </linearGradient>
+            <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1A5C6A"/>
+              <stop offset="100%" stop-color="#0D3040"/>
+            </linearGradient>
+            <radialGradient id="sun" cx="60%" cy="25%" r="20%">
+              <stop offset="0%" stop-color="rgba(255,220,100,0.5)"/>
+              <stop offset="100%" stop-color="rgba(255,220,100,0)"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="640" fill="url(#sky)"/>
+          <rect width="400" height="640" fill="url(#sun)"/>
+          <ellipse cx="60" cy="320" rx="55" ry="180" fill="#0F2A1A"/>
+          <ellipse cx="130" cy="280" rx="45" ry="160" fill="#1A3A2A"/>
+          <ellipse cx="200" cy="250" rx="60" ry="200" fill="#0F2A1A"/>
+          <ellipse cx="280" cy="300" rx="50" ry="160" fill="#152A1A"/>
+          <ellipse cx="360" cy="270" rx="60" ry="190" fill="#0A2010"/>
+          <ellipse cx="430" cy="310" rx="45" ry="160" fill="#1A3A2A"/>
+          <ellipse cx="330" cy="370" rx="25" ry="80" fill="#0F2A1A"/>
+          <ellipse cx="100" cy="380" rx="20" ry="60" fill="#152A1A"/>
+          <rect x="0" y="420" width="400" height="220" fill="url(#water)" opacity="0.9"/>
+          <ellipse cx="200" cy="480" rx="50" ry="15" fill="rgba(30,95,140,0.4)"/>
+          <ellipse cx="80" cy="500" rx="25" ry="8" fill="rgba(30,95,140,0.3)"/>
+          <ellipse cx="320" cy="490" rx="35" ry="10" fill="rgba(30,95,140,0.3)"/>
+          <rect x="170" y="405" width="60" height="20" rx="3" fill="#8B4513"/>
+          <polygon points="190,405 195,370 215,405" fill="#C0392B" opacity="0.9"/>
+          <polygon points="210,405 215,378 230,405" fill="#8B0000" opacity="0.8"/>
+          <rect x="0" y="370" width="400" height="60" fill="rgba(200,230,255,0.08)" rx="30"/>
+        </img>
+      </div>
+      <div class="dest-overlay"></div>
+      <div class="dest-info">
+        <div class="dest-region">Miền Bắc · Quảng Ninh</div>
+        <div class="dest-name">Vịnh Hạ Long</div>
+        <p class="dest-desc">Hàng nghìn đảo đá vôi hùng vĩ nhô lên từ mặt biển xanh ngọc, tạo nên kỳ quan thiên nhiên thế giới.</p>
+      </div>
+    </div>
 
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h4>VIET TRAVEL</h4>
-                <p>Công ty lữ hành và tổ chức tour du lịch hàng đầu Việt Nam. Mang lại những trải nghiệm xê dịch đích thực.</p>
-                <p>📍 Địa chỉ: Vạn Phúc Building, Đường Tố Hữu, Phường Vạn Phúc, Quận Hà Đông, TP. Hà Nội.</p>
-                <p>📞 Hotline: 12345678</p>
-            </div>
-            <div class="footer-col">
-                <h4>Về Chúng Tôi</h4>
-                <ul>
-                    <li><a href="#">Giới thiệu công ty</a></li>
-                    <li><a href="#">Đội ngũ hướng dẫn viên</a></li>
-                    <li><a href="#">Tin tức tuyển dụng</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Chính Sách</h4>
-                <ul>
-                    <li><a href="#">Chính sách bảo mật</a></li>
-                    <li><a href="#">Điều khoản điều kiện</a></li>
-                    <li><a href="#">Chính sách hoàn hủy tour</a></li>
-                </ul>
-            </div>
-        </div>    
-        <div class="footer-bottom">
-            <p>&copy; 2026 VIET TRAVEL. Tất cả các quyền được bảo lưu. Thiết kế website demo dành riêng cho học viên.</p>
-        </div>
-    </footer>
-        <script>
-        function switchTab(e, tabId) {
-            // Ẩn tất cả panels
-            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            // Hiện panel được chọn
-            document.getElementById(tabId).classList.add('active');
-            e.currentTarget.classList.add('active');
-        }
-    </script>
+    <!-- Hoi An -->
+<div class="dest-card reveal reveal-delay-1">
+  <div class="dest-photo-wrap">
+    <img src="https://plus.unsplash.com/premium_photo-1690960644375-6f2399a08ebc?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+         alt="Phố Cổ Hội An" 
+         style="width: 100%; height: 300px; object-fit: cover;">
+  </div>
+  <div class="dest-overlay"></div>
+  <div class="dest-info">
+    <div class="dest-region">Miền Trung · Quảng Nam</div>
+    <div class="dest-name">Phố Cổ Hội An</div>
+    <p class="dest-desc">Lung linh đèn lồng, kiến trúc cổ kính hàng trăm năm tuổi bên dòng sông Thu Bồn thơ mộng.</p>
+  </div>
+</div>
 
+    <!-- Sa Pa -->
+    <div class="dest-card reveal reveal-delay-2">
+      <div class="dest-badge">Trekking</div>
+      <div class="dest-photo-wrap">
+        <svg width="100%" height="300" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" src="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
+          <defs>
+            <linearGradient id="sapasky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#B8D4C8"/>
+              <stop offset="100%" stop-color="#8FB5A5"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#sapasky)"/>
+          <polygon points="-20,300 100,80 220,300" fill="#1A3A2A"/>
+          <polygon points="80,300 200,60 320,300" fill="#2C5F42"/>
+          <polygon points="180,300 320,100 440,300" fill="#1A3A2A"/>
+          <polygon points="280,300 400,120 500,300" fill="#2C5F42"/>
+          <ellipse cx="100" cy="220" rx="80" ry="15" fill="#4A7C35" opacity="0.8"/>
+          <ellipse cx="150" cy="235" rx="90" ry="13" fill="#5A9040" opacity="0.7"/>
+          <ellipse cx="200" cy="250" rx="100" ry="13" fill="#6AAA48" opacity="0.8"/>
+          <ellipse cx="180" cy="265" rx="120" ry="14" fill="#5A9040" opacity="0.7"/>
+          <ellipse cx="220" cy="280" rx="140" ry="15" fill="#4A7C35" opacity="0.9"/>
+          <ellipse cx="100" cy="218" rx="60" ry="8" fill="rgba(150,200,220,0.4)"/>
+          <ellipse cx="200" cy="248" rx="70" ry="8" fill="rgba(150,200,220,0.3)"/>
+          <ellipse cx="200" cy="180" rx="250" ry="40" fill="rgba(255,255,255,0.25)"/>
+          <ellipse cx="100" cy="200" rx="150" ry="25" fill="rgba(255,255,255,0.15)"/>
+          <rect x="240" y="170" width="25" height="20" fill="#4A2800"/>
+          <polygon points="235,170 252,158 272,170" fill="#2D1A00"/>
+          <rect x="270" y="175" width="20" height="18" fill="#3D2000"/>
+          <polygon points="266,175 280,164 295,175" fill="#2D1A00"/>
+        </svg>
+      </div>
+      <div class="dest-overlay"></div>
+      <div class="dest-info">
+        <div class="dest-region">Miền Bắc · Lào Cai</div>
+        <div class="dest-name">Sapa</div>
+        <p class="dest-desc">Ruộng bậc thang xanh mướt trải dài như những bậc thang dẫn lên trời xanh mây trắng.</p>
+      </div>
+    </div>
+
+    <!-- Hue -->
+    <div class="dest-card reveal reveal-delay-3">
+      <div class="dest-badge">Cố Đô</div>
+      <div class="dest-photo-wrap">
+        <svg width="100%" height="300" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" src="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
+          <defs>
+            <linearGradient id="huesky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#4A0000"/>
+              <stop offset="40%" stop-color="#8B1A1A"/>
+              <stop offset="100%" stop-color="#C0392B"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#huesky)"/>
+          <rect x="30" y="160" width="340" height="140" fill="#8B6914" opacity="0.3"/>
+          <rect x="50" y="140" width="300" height="30" fill="#B8860B"/>
+          <rect x="150" y="90" width="100" height="120" fill="#8B6914"/>
+          <rect x="155" y="85" width="90" height="15" fill="#DAA520"/>
+          <rect x="148" y="100" width="6" height="90" fill="#6B4F0A"/>
+          <rect x="246" y="100" width="6" height="90" fill="#6B4F0A"/>
+          <polygon points="130,90 200,50 270,90" fill="#C0392B"/>
+          <polygon points="135,88 200,52 265,88" fill="#E74C3C"/>
+          <line x1="200" y1="50" x2="200" y2="42" stroke="#DAA520" stroke-width="3"/>
+          <ellipse cx="200" cy="180" rx="25" ry="35" fill="#0D0000"/>
+          <rect x="60" y="120" width="60" height="110" fill="#9B7A1A"/>
+          <polygon points="50,120 90,90 130,120" fill="#C0392B"/>
+          <rect x="280" y="120" width="60" height="110" fill="#9B7A1A"/>
+          <polygon points="270,120 310,90 350,120" fill="#C0392B"/>
+          <ellipse cx="25" cy="200" rx="20" ry="30" fill="#1A3A2A"/>
+          <ellipse cx="375" cy="200" rx="20" ry="30" fill="#1A3A2A"/>
+          <rect x="0" y="250" width="400" height="50" fill="#4A1A00" opacity="0.6"/>
+          <rect x="0" y="250" width="400" height="50" fill="rgba(180,50,30,0.2)"/>
+        </svg>
+      </div>
+      <div class="dest-overlay"></div>
+      <div class="dest-info">
+        <div class="dest-region">Miền Trung · Thừa Thiên</div>
+        <div class="dest-name">Cố Đô Huế</div>
+        <p class="dest-desc">Kinh thành vàng son, lăng tẩm hoàng gia và ẩm thực cung đình tinh tế bên dòng Hương Giang.</p>
+      </div>
+    </div>
+
+    <!-- Phu Quoc -->
+    <div class="dest-card reveal reveal-delay-4">
+      <div class="dest-badge">Thiên Đường</div>
+      <div class="dest-photo-wrap">
+        <svg width="100%" height="300" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" src="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
+          <defs>
+            <linearGradient id="pqsky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1E90FF"/>
+              <stop offset="50%" stop-color="#00B4D8"/>
+              <stop offset="100%" stop-color="#90E0EF"/>
+            </linearGradient>
+            <linearGradient id="pqsea" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0096C7"/>
+              <stop offset="100%" stop-color="#023E8A"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#pqsky)"/>
+          <circle cx="320" cy="60" r="40" fill="rgba(255,230,100,0.4)"/>
+          <circle cx="320" cy="60" r="28" fill="rgba(255,220,60,0.7)"/>
+          <ellipse cx="100" cy="50" rx="60" ry="20" fill="rgba(255,255,255,0.7)"/>
+          <ellipse cx="60" cy="55" rx="40" ry="16" fill="rgba(255,255,255,0.6)"/>
+          <ellipse cx="140" cy="55" rx="35" ry="15" fill="rgba(255,255,255,0.6)"/>
+          <rect x="0" y="160" width="400" height="140" fill="url(#pqsea)"/>
+          <path d="M0,170 Q50,160 100,170 Q150,180 200,170 Q250,160 300,170 Q350,180 400,170" stroke="rgba(255,255,255,0.5)" stroke-width="2" fill="none"/>
+          <path d="M0,185 Q60,175 120,185 Q180,195 240,185 Q300,175 360,185 Q380,190 400,185" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
+          <ellipse cx="200" cy="165" rx="250" ry="20" fill="#F4D03F" opacity="0.9"/>
+          <rect x="0" y="155" width="400" height="20" fill="#F4D03F" opacity="0.85"/>
+          <line x1="60" y1="155" x2="75" y2="90" stroke="#8B4513" stroke-width="5"/>
+          <ellipse cx="75" cy="100" rx="35" ry="20" fill="#1A5C2A" transform="rotate(-15,75,100)"/>
+          <ellipse cx="75" cy="105" rx="32" ry="18" fill="#2D8A42" transform="rotate(10,75,105)"/>
+          <line x1="350" y1="155" x2="330" y2="85" stroke="#8B4513" stroke-width="5"/>
+          <ellipse cx="325" cy="95" rx="35" ry="20" fill="#1A5C2A" transform="rotate(20,325,95)"/>
+          <ellipse cx="325" cy="100" rx="30" ry="17" fill="#2D8A42" transform="rotate(-10,325,100)"/>
+          <line x1="200" y1="155" x2="200" y2="120" stroke="#8B4513" stroke-width="2"/>
+          <ellipse cx="200" cy="125" rx="35" ry="12" fill="#C0392B" opacity="0.9"/>
+        </svg>
+      </div>
+      <div class="dest-overlay"></div>
+      <div class="dest-info">
+        <div class="dest-region">Miền Nam · Kiên Giang</div>
+        <div class="dest-name">Phú Quốc</div>
+        <p class="dest-desc">Hòn đảo ngọc với bãi biển cát trắng, nước biển trong xanh và hoàng hôn tuyệt đẹp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY STRIP -->
+<div class="gallery-strip">
+  <div class="gallery-item">
+    <div class="gallery-bg bg-1"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent)"></div>
+    <div class="gallery-label">Hà Nội</div>
+  </div>
+  <div class="gallery-item">
+    <div class="gallery-bg bg-2"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent)"></div>
+    <div class="gallery-label">Ninh Bình</div>
+  </div>
+  <div class="gallery-item">
+    <div class="gallery-bg bg-3"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent)"></div>
+    <div class="gallery-label">Đà Nẵng</div>
+  </div>
+  <div class="gallery-item">
+    <div class="gallery-bg bg-4"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent)"></div>
+    <div class="gallery-label">Hội An</div>
+  </div>
+  <div class="gallery-item">
+    <div class="gallery-bg bg-5"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent)"></div>
+    <div class="gallery-label">Mũi Né</div>
+  </div>
+</div>
+
+<!-- EXPERIENCES -->
+<section class="experiences" id="experiences">
+  <div class="lotus-deco">🪷</div>
+  <div class="exp-header reveal">
+    <div class="section-tag">Trải Nghiệm Độc Đáo</div>
+    <h2 class="section-title">Điều Gì Khiến <em>Việt Nam</em><br>Không Thể Quên</h2>
+  </div>
+  <div class="exp-grid">
+    <div class="exp-card reveal reveal-delay-1">
+      <span class="exp-icon">🚣</span>
+      <div class="exp-title">Du Thuyền Vịnh</div>
+      <p class="exp-text">Ngắm bình minh trên vịnh Hạ Long từ boong tàu gỗ truyền thống, khám phá hang động huyền bí.</p>
+    </div>
+    <div class="exp-card reveal reveal-delay-2">
+      <span class="exp-icon">🥷</span>
+      <div class="exp-title">Học Làm Bánh Mì</div>
+      <p class="exp-text">Vào bếp với đầu bếp địa phương tại Hội An, học bí quyết nấu những món ăn truyền thống Việt.</p>
+    </div>
+    <div class="exp-card reveal reveal-delay-3">
+      <span class="exp-icon">🏔️</span>
+      <div class="exp-title">Trekking Sapa</div>
+      <p class="exp-text">Theo chân người H'mông qua những bản làng ẩn mình trong mây, giữa núi rừng Tây Bắc hùng vĩ.</p>
+    </div>
+    <div class="exp-card reveal reveal-delay-4">
+      <span class="exp-icon">🛵</span>
+      <div class="exp-title">Phố Xá Hà Nội</div>
+      <p class="exp-text">Dạo quanh 36 phố phường bằng xe máy, thưởng thức cà phê trứng và phở cuốn vỉa hè thơm ngát.</p>
+    </div>
+    <div class="exp-card reveal reveal-delay-1">
+      <span class="exp-icon">🎭</span>
+      <div class="exp-title">Rối Nước</div>
+      <p class="exp-text">Xem nghệ thuật múa rối nước độc đáo ngàn năm tuổi, loại hình sân khấu chỉ có ở Việt Nam.</p>
+    </div>
+    <div class="exp-card reveal reveal-delay-2">
+      <span class="exp-icon">🌸</span>
+      <div class="exp-title">Lễ Hội Dân Gian</div>
+      <p class="exp-text">Hòa mình vào những lễ hội truyền thống đặc sắc: Tết Nguyên Đán, Lễ hội Đèn lồng Hội An...</p>
+    </div>
+    <div class="exp-card reveal reveal-delay-3">
+      <span class="exp-icon">🤿</span>
+      <div class="exp-title">Lặn Biển Phú Quốc</div>
+      <p class="exp-text">Khám phá thế giới rạn san hô rực rỡ dưới làn nước trong vắt như pha lê của vùng biển Tây Nam.</p>
+    </div>
+    <div class="exp-card reveal reveal-delay-4">
+      <span class="exp-icon">🌾</span>
+      <div class="exp-title">Làng Nghề Truyền Thống</div>
+      <p class="exp-text">Tự tay tạo ra gốm Bát Tràng, lụa Vạn Phúc hay tranh Đông Hồ tại những làng nghề lâu đời.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CUISINE -->
+<section class="cuisine" id="cuisine">
+  <div class="cuisine-layout">
+    <div class="cuisine-visual reveal">
+      <div class="cuisine-main-img">
+        <div class="cuisine-emoji">🍜</div>
+      </div>
+      <div class="cuisine-accent">
+        <div class="cuisine-accent-num">500+</div>
+        <div class="cuisine-accent-text">Món Ăn Đặc Sản Vùng Miền</div>
+      </div>
+    </div>
+    <div class="cuisine-content reveal reveal-delay-2">
+      <div class="section-tag">Ẩm Thực Việt</div>
+      <h2 class="section-title">Thiên Đường <em>Hương Vị</em></h2>
+      <p class="cuisine-text">
+        Ẩm thực Việt Nam là sự hòa quyện tuyệt vời của nguyên liệu tươi, gia vị thơm và kỹ thuật nấu nướng tinh tế. Mỗi vùng miền mang một bản sắc riêng, từ phở thanh đạm của miền Bắc đến bún bò đậm đà miền Trung và hủ tiếu ngọt ngào phương Nam.
+      </p>
+      <div class="food-list">
+        <div class="food-item"><div class="food-dot"></div>Phở Hà Nội</div>
+        <div class="food-item"><div class="food-dot"></div>Bánh Mì Hội An</div>
+        <div class="food-item"><div class="food-dot"></div>Bún Bò Huế</div>
+        <div class="food-item"><div class="food-dot"></div>Cơm Tấm Sài Gòn</div>
+        <div class="food-item"><div class="food-dot"></div>Cao Lầu</div>
+        <div class="food-item"><div class="food-dot"></div>Gỏi Cuốn</div>
+        <div class="food-item"><div class="food-dot"></div>Bánh Xèo</div>
+        <div class="food-item"><div class="food-dot"></div>Chả Cá Lã Vọng</div>
+      </div>
+      <a href="#" class="btn-primary" style="display:inline-block">Khám Phá Ẩm Thực →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONS -->
+<section class="seasons" id="seasons">
+  <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 1rem">
+    <div class="section-tag" style="justify-content:center">Thời Điểm Du Lịch</div>
+    <h2 class="section-title" style="text-align:center">Bốn Mùa <em>Khám Phá</em></h2>
+  </div>
+  <div class="seasons-grid">
+    <div class="season-card season-spring reveal reveal-delay-1">
+      <div class="season-icon">🌸</div>
+      <div class="season-name">Mùa Xuân</div>
+      <div class="season-months">Tháng 2 – 4</div>
+      <p class="season-text">Khí hậu mát mẻ, hoa đào nở rộ. Lý tưởng để khám phá miền Bắc: Hà Giang, Sapa, Hà Nội tràn ngập hoa ban.</p>
+    </div>
+    <div class="season-card season-summer reveal reveal-delay-2">
+      <div class="season-icon">☀️</div>
+      <div class="season-name">Mùa Hè</div>
+      <div class="season-months">Tháng 5 – 8</div>
+      <p class="season-text">Mùa biển lý tưởng cho miền Trung và Nam. Phú Quốc, Đà Nẵng, Nha Trang rực rỡ dưới nắng vàng.</p>
+    </div>
+    <div class="season-card season-autumn reveal reveal-delay-3">
+      <div class="season-icon">🍂</div>
+      <div class="season-name">Mùa Thu</div>
+      <div class="season-months">Tháng 9 – 11</div>
+      <p class="season-text">Mùa đẹp nhất của Hà Nội với lá vàng và sương mù. Sapa bắt đầu mùa lúa chín vàng ươm.</p>
+    </div>
+    <div class="season-card season-winter reveal reveal-delay-4">
+      <div class="season-icon">❄️</div>
+      <div class="season-name">Mùa Đông</div>
+      <div class="season-months">Tháng 12 – 1</div>
+      <p class="season-text">Tuyết phủ trắng trên đỉnh Fansipan, miền Nam nắng ấm quanh năm và Tết Nguyên Đán rực rỡ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-content">
+    <div class="cta-script reveal">Sẵn Sàng Chưa?</div>
+    <h2 class="cta-title reveal reveal-delay-1">Hành Trình Của Bạn<br>Bắt Đầu Từ Đây</h2>
+    <p class="cta-text reveal reveal-delay-2">Để chúng tôi thiết kế một hành trình khám phá Việt Nam hoàn hảo, đặc biệt chỉ dành riêng cho bạn.</p>
+    <div style="display:flex;gap:1.5rem;justify-content:center" class="reveal reveal-delay-3">
+      <a href="Dat_tour.html" class="btn-primary">Đặt Tour Ngay</a>
+      <a href="Dat_tour.html" class="btn-outline">Tư Vấn Miễn Phí</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Việt Nam ✦</div>
+  <p class="footer-copy">© 2025 Vietnam Travel. Tất cả quyền được bảo lưu.</p>
+  <ul class="footer-links">
+    <li><a href="#">Về Chúng Tôi</a></li>
+    <li><a href="#">Chính Sách</a></li>
+    <li><a href="#">Liên Hệ</a></li>
+  </ul>
+</footer>
+
+<script src="main.js"></script>
 </body>
 </html>
