@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIET TRAVEL</title>
+
+    <!-- Google Fonts: Montserrat (heading) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="main_style.css">
+</head>
+<body>
+
+    <header>
+      <div class="container navbar">
+        <div class="logo-area">
+          <a href="trang_chu.html" class="logo-link">
+            <img src="logo_travel.png" alt="VIET TRAVEL Logo">
+          </a>
+        </div>
+
+        <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+
+        <nav class="nav-links" role="navigation" aria-label="Main navigation">
+          <a href="trang_chu.html" class="active">Trang chủ</a>
+          <a href="tour_trong_nuoc.html">Tour trong nước</a>
+          <a href="gioi_thieu.html">Giới thiệu</a>
+        </nav>
+
+        <div class="nav-right">
+          <a href="tel:0922222016" class="hotline">📞 <strong>Hotline:</strong> 0922222016</a>
+          <a href="lien_he.html" class="btn-contact">Liên hệ ngay</a>
+        </div>
+      </div>
+    </header>
+    <section class="hero">
+        <h1>ĐẶT TOUR DU LỊCH TẠI VIET TRAVEL</h1>
+        <p>Trải nghiệm những dịch vụ du lịch chất lượng cao và những gói tour hấp dẫn nhất.</p>
+        <div class="search-box">
+            <div class="search-item destination-wrapper">
+                <label for="destination">Bạn muốn đi đâu?</label>
+                <input type="text" id="destination" placeholder="Ví dụ: Hà Giang, Phú Quốc..." autocomplete="off">
+
+                <!-- Bảng gợi ý — tự hiện khi click vào ô input, không cần JS -->
+                <div class="destination-dropdown">
+
+                    <a href="#" class="near-me">
+                        <span class="dot-icon">📍</span> Gần Tôi
+                    </a>
+
+                    <div class="dropdown-title">Điểm Đến Phổ Biến</div>
+
+                    <a href="#" class="dest-item">
+                        <div>
+                            <div class="dest-name">Đà Lạt</div>
+                            <div class="dest-sub">Lâm Đồng, Việt Nam</div>
+                        </div>
+                        <div class="dest-meta">
+                            <span class="dest-tag">Thành phố</span>
+                            
+                        </div>
+                    </a>
+
+                    <a href="#" class="dest-item">
+                        <div>
+                            <div class="dest-name">Vũng Tàu</div>
+                            <div class="dest-sub">Bà Rịa - Vũng Tàu, Việt Nam</div>
+                        </div>
+                        <div class="dest-meta">
+                            <span class="dest-tag">Thành phố</span>
+                            
+                        </div>
+                    </a>
+
+                    <a href="#" class="dest-item">
+                        <div>
+                            <div class="dest-name">Nha Trang</div>
+                            <div class="dest-sub">Khánh Hòa, Việt Nam</div>
+                        </div>
+                        <div class="dest-meta">
+                            <span class="dest-tag">Thành phố</span>
+                            
+                        </div>
+                    </a>
+
+                    <a href="#" class="dest-item">
+                        <div>
+                            <div class="dest-name">Phú Quốc</div>
+                            <div class="dest-sub">Kiên Giang, Việt Nam</div>
+                        </div>
+                        <div class="dest-meta">
+                            <span class="dest-tag">Đảo</span>
+                            
+                        </div>
+                    </a>
+
+                    <a href="#" class="dest-item">
+                        <div>
+                            <div class="dest-name">Hội An</div>
+                            <div class="dest-sub">Quảng Nam, Việt Nam</div>
+                        </div>
+                        <div class="dest-meta">
+                            <span class="dest-tag">Phố cổ</span>
+                            
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            
+            <div class="search-item">
+                <label for="date">Ngày đi</label>
+                <input type="date" id="date">
+            </div>
+            <div class="search-item">
+                <label for="price">Ngân sách</label>
+                <select id="price">
+                    <option value="">Mọi mức giá</option>
+                    <option value="1">Dưới 3 triệu</option>
+                    <option value="2">Từ 3 - 7 triệu</option>
+                    <option value="3">Trên 7 triệu</option>
+                </select>
+            </div>
+            <button class="btn-search" type="button">Tìm kiếm</button>
+        </div>
+    </section>
+    <section class="container tours-section">
+        <div class="section-title">
+            <h2>Tour Du Lịch trong nước</h2>
+        </div>
+        <div class="tour-grid">
+            
+            <div class="tour-card">
+                <div class="tour-img">
+                    <img src="https://images.unsplash.com/photo-1605538032432-a9f0c8d9baac?auto=format&fit=crop&w=600&q=80" alt="Hà Giang">
+                    <span class="tour-tag">Bán Chạy Nhất</span>
+                </div>
+                <div class="tour-content">
+                    <div class="tour-info">✈ Khởi hành từ Hà Nội | 🕒 4 Ngày 3 Đêm</div>
+                    <div class="tour-title">Tour Khám Phá Vòng Cung Đông Bắc: Hà Giang - Sông Nho Quế hùng vĩ</div>
+                    <div class="tour-footer">
+                        <div class="tour-price">3.950.000 đ</div>
+                        <a href="ha_giang.html" class="btn-detail">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-card">
+                <div class="tour-img">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Phú Quốc">
+                    <span class="tour-tag">Giảm Giá 20%</span>
+                </div>
+                <div class="tour-content">
+                    <div class="tour-info">✈ Khởi hành từ TP.HCM | 🕒 3 Ngày 2 Đêm</div>
+                    <div class="tour-title">Tour Nghỉ Dưỡng Thiên Đường Biển Ngọc Phú Quốc - Combo Vé Máy Bay + Khách Sạn</div>
+                    <div class="tour-footer">
+                        <div class="tour-price">5.200.000 đ</div>
+                        <span class="tour-discount">Giá gốc:<s>6.500.000 đ</s></span>
+                        <a href="phu_quoc.html" class="btn-detail">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-card">
+                <div class="tour-img">
+                    <img src="https://datviettour.com.vn/uploads/images/mien-bac/ha-long/hinh-danh-thang/hang-sung-sot.jpg" alt="Hạ Long">
+                    <span class="tour-tag">Mới</span>
+                </div>
+                <div class="tour-content">
+                    <div class="tour-info">✈ Khởi hành từ Hà Nội | 🕒 2 Ngày 1 Đêm</div>
+                    <div class="tour-title">Trải Nghiệm Du Thuyền 5 Sao Đẳng Cấp Tại Vịnh Hạ Long - Khám phá hang Sửng Sốt</div>
+                    <div class="tour-footer">
+                        <div class="tour-price">2.850.000 đ</div>
+                        <a href="ha_long.html" class="btn-detail">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tour-card">
+                <div class="tour-img">
+                    <img src="https://focusasiatravel.vn/wp-content/uploads/2018/09/Ph%E1%BB%91-C%E1%BB%95-H%E1%BB%99i-An2.jpg" alt="Hội An">
+                    
+                </div>
+                <div class="tour-content">
+                    <div class="tour-meta">✈ Khởi hành từ Đà Nẵng | 🕒 3 Ngày 2 Đêm</div>
+                    <h4 class="tour-title">Tour Lãng Mạn Dạo Bước Phố Cổ Hội An - Thưởng Thức Show Diễn Ký Ức Hội An Đầy Mê Hoặc</h4>
+                    <div class="tour-footer">
+                        <div class="tour-price">4.500.000 đ</div>
+                        <a href="hoi_an.html" class="btn-detail">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-card">
+                <div class="tour-img">
+                    <img src="https://ticotravel.com.vn/wp-content/uploads/2022/06/co-do-hue-4-1.jpg" alt="Cố Đô Huế">
+                    
+                </div>
+                <div class="tour-content">
+                    <div class="tour-meta">✈ Khởi hành từ TP.HCM | 🕒 3 Ngày 2 Đêm</div>
+                    <h4 class="tour-title">Hành Trình Tìm Về Cội Nguồn Cố Đô Huế - Tham Quan Đại Nội, Chùa Thiên Mụ, Lăng Khải Định</h4>
+                    <div class="tour-footer">
+                        <div class="tour-price">4.200.000 đ</div>
+                        <a href="co_do_hue.html" class="btn-detail">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-card">
+                <div class="tour-img">
+                    <img src="https://sapa-tourism.com/wp-content/uploads/2021/07/Phan-Xi-Pang-o-dau.jpg" alt="Sapa">
+                    
+                </div>
+                <div class="tour-content">
+                    <div class="tour-meta">✈ Khởi hành từ Hà Nội | 🕒 3 Ngày 2 Đêm</div>
+                    <h4 class="tour-title">Chinh Phục Đỉnh Fansipan Hùng Vĩ - Săn Mây Tả Xùa Và Trải Nghiệm Văn Hóa Bản Cát Cát Sapa</h4>
+                    <div class="tour-footer">
+                        <div class="tour-price">3.150.000 đ</div>
+                        <a href="sapa.html" class="btn-detail">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-card">
+                <div class="tour-img">
+                    <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=600&q=80" alt="Đà Nẵng">
+                    
+                </div>
+                <div class="tour-content">
+                    <div class="tour-meta">✈ Khởi hành từ Hà Nội | 🕒 4 Ngày 3 Đêm</div>
+                    <h4 class="tour-title">Vui Chơi Thả Ga Tại Bà Nà Hills - Trải Nghiệm Cầu Vàng, Làng Pháp Và Ngắm Rồng Phun Lửa Đà Nẵng</h4>
+                    <div class="tour-footer">
+                        <div class="tour-price">5.600.000 đ</div>
+                        <a href="da_nang.html" class="btn-detail">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-card">
+                <div class="tour-img">
+                    <img src="https://ik.imagekit.io/tvlk/blog/2025/05/U636oRbS-canh-dep-phan-thiet-4-1024x676.jpg?tr=q-70,c-at_max,w-1000,h-600" alt="Mũi Né">
+                </div>
+                <div class="tour-content">
+                    <div class="tour-meta">✈ Khởi hành từ TP.HCM | 🕒 2 Ngày 1 Đêm</div>
+                    <h4 class="tour-title">Vi Vu Đồi Cát Bay Trắng Xóa - Trải Nghiệm Trượt Cát Đầy Phấn Khích Tại Mũi Né, Phan Thiết</h4>
+                    <div class="tour-footer">
+                        <div class="tour-price">1.850.000 đ</div>
+                        <a href="mui_ne.html" class="btn-detail">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-card">
+                <div class="tour-img">
+                    <img src="https://mia.vn/media/uploads/blog-du-lich/an-tuong-ve-dep-hung-vi-noi-quan-the-danh-thang-trang-an-1-1640247493.jpg" alt="Ninh Bình">
+                    
+                </div>
+                <div class="tour-content">
+                    <div class="tour-meta">✈ Khởi hành từ Hà Nội | 🕒 2 Ngày 1 Đêm</div>
+                    <h4 class="tour-title">Trải Nghiệm Du Lịch Quần Thể Danh Thắng Tràng An - Chinh Phục Đỉnh Hang Múa - Bái Đính Ninh Bình</h4>
+                    <div class="tour-footer">
+                        <div class="tour-price">1.700.000 đ</div>
+                        <a href="ninh_binh.html" class="btn-detail">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>VIET TRAVEL</h4>
+                <p>Công ty lữ hành và tổ chức tour du lịch hàng đầu Việt Nam. Mang lại những trải nghiệm xê dịch đích thực.</p>
+                <p>📍 Địa chỉ: Vạn Phúc Building, Đường Tố Hữu, Phường Vạn Phúc, Quận Hà Đông, TP. Hà Nội.</p>
+                <p>📞 Hotline: 12345678</p>
+            </div>
+            <div class="footer-col">
+                <h4>Về Chúng Tôi</h4>
+                <ul>
+                    <li><a href="cong_ty.html">Giới thiệu công ty</a></li>
+                    <li><a href="doi_ngu.html">Đội ngũ hướng dẫn viên</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Chính Sách</h4>
+                <ul>
+                    <li><a href="cs_bao_mat.html">Chính sách bảo mật</a></li>
+                    <li><a href="dieu_khoam.html">Điều khoản điều kiện</a></li>
+                    <li><a href="cs_huy_tour.html">Chính sách hoàn hủy tour</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Chứng Nhận</h4>
+                <img src="https://s3.hcm-1.cloud.cmctelecom.vn/static/web-travel/logo/dmca.png"
+             alt="DMCA Protected"
+             style="margin-bottom: 12px; display: block;">
+                <img src="https://s3.hcm-1.cloud.cmctelecom.vn/static/web-travel/logo/bo-cong-thuong.png"
+             alt="Đã thông báo Bộ Công Thương"
+             style="display: block; width: 120px;">
+    
+            </div>
+        </div>    
+        <div class="footer-bottom">
+            <p>&copy; 2026 VIET TRAVEL. Tất cả các quyền được bảo lưu. Thiết kế website demo dành riêng cho học viên.</p>
+        </div>
+    </footer>
+</body>
+</html>
