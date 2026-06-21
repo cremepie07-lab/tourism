@@ -349,10 +349,14 @@ section { padding: 7rem 4rem; }
   position: relative;
   overflow: hidden;
   width: 100%;
+  height: 300px;                    /* ← thêm dòng này */
   display: block;
   transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.dest-card:first-child .dest-photo-wrap { min-height: 640px; }
+.dest-card:first-child .dest-photo-wrap { 
+  height: 640px;                    /* ← thay min-height thành height */
+
+}
 .dest-photo-wrap { min-height: 300px; }
 .dest-card:hover .dest-photo-wrap { transform: scale(1.06); }
 
@@ -370,12 +374,20 @@ section { padding: 7rem 4rem; }
   z-index: 3;
 }
 .dest-region {
-  font-size: 0.65rem;
-  letter-spacing: 3px;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
+  font-weight: 800;             /* Tăng lên 800 (Extra Bold) để nét chữ dày nhất có thể */
   color: var(--gold);
   margin-bottom: 0.4rem;
+
+  /* CÁC THUỘC TÍNH CHỐNG MỜ CHỮ */
+  text-shadow: 0 0 8px rgba(0,0,0,0.9); /* Bóng đổ lan tỏa giúp chữ tách biệt khỏi nền */
+  -webkit-font-smoothing: antialiased;   /* Ép trình duyệt render chữ mượt mà trên macOS */
+  -moz-osx-font-smoothing: grayscale;    /* Ép trình duyệt render chữ rõ nét trên macOS */
+  text-rendering: optimizeLegibility;    /* Ưu tiên độ rõ nét của chữ thay vì tốc độ load */
 }
+
 .dest-name {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
