@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi Tiết Tour - Việt Nam Hành Trình Huyền Diệu</title>
+  
+  <!-- NHÚNG GOOGLE FONTS ĐỒNG BỘ TRANG CHỦ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- LIÊN KẾT FILE CSS CHUNG -->
+  <link rel="stylesheet" href="tour_detail.css">
+</head>
+<body>
+
+  <!-- 1. THANH ĐIỀU HƯỚNG ĐỒNG BỘ CHUẨN ĐẸP -->
+  <nav id="navbar">
+    <div class="nav-logo">Việt Nam</div>
+    <ul class="nav-links">
+      <li><a href="trang_chu.html#destinations">Điểm Đến</a></li>
+      <li><a href="trang_chu.html#experiences">Trải Nghiệm</a></li>
+      <li><a href="trang_chu.html#cuisine">Ẩm Thực</a></li>
+      <li><a href="trang_chu.html#seasons">Mùa Du Lịch</a></li>
+      <li><a href="dat_tour.html" style="color:var(--gold);">Đặt Tour</a></li>
+    </ul>
+  </nav>
+
+  <!-- 2. PHẦN ĐẦU TRANG CHI TIẾT (TOUR HEADER) -->
+  <header class="tour-detail-header">
+    <div class="tour-id-badge" id="detailId">Mã Tour: TOUR-MC01</div>
+    <h1 class="tour-detail-title" id="detailTitle">Mộc Châu - Thung Lũng Mận Nà Ka - Cầu Kính Bạch Long</h1>
+    <div class="tour-quick-rating">
+      <span class="stars">★★★★★</span>
+      <span>(148 đánh giá)</span>
+    </div>
+  </header>
+
+  <!-- 3. BỘ SƯU TẬP HÌNH ẢNH (GALLERY GRID) -->
+  <section class="tour-image-gallery">
+    <img id="mainGalleryImg" src="https://images.unsplash.com/photo-1570366583862-f91883984fde?q=80&w=1200" alt="Mộc Châu" class="main-gallery-img">
+    <div class="sub-gallery-wrap">
+      <img src="https://images.unsplash.com/photo-1526139334526-f591a54b477c?q=80&w=600" alt="Đồi chè" class="sub-gallery-img top">
+      <img src="https://images.unsplash.com/photo-1559627717-bdb2d005a87e?q=80&w=600" alt="Rừng thông" class="sub-gallery-img bottom">
+    </div>
+  </section>
+
+  <!-- 4. KHU VỰC NỘI DUNG CHÍNH & SIDEBAR -->
+  <div class="tour-content-layout">
+    
+    <!-- KHỐI THÔNG TIN BÊN TRÁI -->
+    <main class="tour-main-info">
+      
+      <!-- Khối Thông Tin Thêm -->
+      <h2 class="section-detail-title">Thông tin thêm về chuyến đi</h2>
+      <div class="additional-info-grid">
+        <div class="info-card">
+          <div class="info-card-header"><span>📍</span>Điểm tham quan</div>
+          <div class="info-card-content" id="infoDest">Mộc Châu, Đèo Thung Khe, Rừng thông Bản Áng, Cầu kính Bạch Long</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header"><span>🍽️</span>Ẩm thực</div>
+          <div class="info-card-content">Buffet sáng, Thực đơn đặc sản Tây Bắc phong phú</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header"><span>📅</span>Thời gian lý tưởng</div>
+          <div class="info-card-content">Quanh năm (Mỗi mùa một vẻ đẹp đặc trưng riêng)</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header"><span>🚌</span>Phương tiện</div>
+          <div class="info-card-content">Xe du lịch đời mới chỗ ngồi êm ái suốt tuyến</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header"><span>🎁</span>Khuyến mãi</div>
+          <div class="info-card-content">Theo các chương trình ưu đãi hiện hành của công ty</div>
+        </div>
+      </div>
+
+      <!-- Khối Lịch Trình (Accordion) -->
+      <h2 class="section-detail-title">Lịch trình chuyến đi</h2>
+      <div id="itineraryGroup">
+        <!-- JS sẽ tự động chèn dữ liệu các ngày vào đây -->
+      </div>
+
+      <!-- Khối Lưu Ý (Details/Summary Accordion) -->
+      <h2 class="section-detail-title">Những thông tin cần lưu ý</h2>
+      <div class="note-accordion">
+        <details class="note-item" open>
+          <summary class="note-summary">Giá tour bao gồm</summary>
+          <div class="note-content">
+            • Xe đưa đón đời mới phục vụ theo chương trình.<br>
+            • Khách sạn tiêu chuẩn 3-5 sao (2 người/phòng).<br>
+            • Các bữa ăn theo tiêu chuẩn lịch trình chất lượng.<br>
+            • Vé vào cổng các điểm tham quan công khai trong tour.
+          </div>
+        </details>
+        <details class="note-item">
+          <summary class="note-summary">Giá tour không bao gồm</summary>
+          <div class="note-content">• Chi phí cá nhân, đồ uống ngoài chương trình, tiền Tips cho hướng dẫn viên và tài xế.</div>
+        </details>
+        <details class="note-item">
+          <summary class="note-summary">Lưu ý giá trẻ em</summary>
+          <div class="note-content">• Trẻ em dưới 5 tuổi: Miễn phí giá tour (bố mẹ tự lo ăn uống). Trẻ từ 5 - 11 tuổi: Tính 75% giá người lớn.</div>
+        </details>
+        <details class="note-item">
+          <summary class="note-summary">Điều kiện thanh toán</summary>
+          <div class="note-content">• Đặt cọc trước 50% ngay sau khi đăng ký tour, số tiền còn lại tất toán trước ngày khởi hành 3 ngày.</div>
+        </details>
+      </div>
+
+    </main>
+
+    <!-- KHỐI ĐẶT TOUR BÊN PHẢI (SIDEBAR) -->
+    <aside class="tour-booking-sidebar">
+
+      <!-- KHỐI LỊCH TRÌNH & TÍNH GIÁ TOUR -->
+      <div class="price-calc-card">
+        <h3 class="price-calc-title">Lịch Trình và Giá Tour</h3>
+        <p class="price-calc-sub">Chọn Lịch Trình và Xem Giá:</p>
+
+        <div class="date-tabs" id="dateTabs">
+          <button type="button" class="date-tab active" data-date="26/08">
+            <span class="date-tab-day">T4</span>, 26/08
+          </button>
+          <button type="button" class="date-tab" data-date="30/08">
+            <span class="date-tab-day">CN</span>, 30/08
+          </button>
+          <button type="button" class="date-tab" data-date="09/09">
+            <span class="date-tab-day">T4</span>, 09/09
+          </button>
+          <button type="button" class="date-tab date-tab-all" data-date="">
+            📅 Tất cả
+          </button>
+        </div>
+
+        <div class="pax-row" data-type="adult" data-percent="1">
+          <div class="pax-info">
+            <div class="pax-label">Người lớn</div>
+            <div class="pax-sub">&gt; 11 tuổi</div>
+          </div>
+          <div class="pax-control">
+            <span class="pax-price" id="priceAdult">x 0đ</span>
+            <button type="button" class="pax-btn" onclick="changePax('adult',-1)">−</button>
+            <span class="pax-count" id="countAdult">1</span>
+            <button type="button" class="pax-btn" onclick="changePax('adult',1)">+</button>
+          </div>
+        </div>
+
+        <div class="pax-row" data-type="child" data-percent="0.75">
+          <div class="pax-info">
+            <div class="pax-label">Trẻ em</div>
+            <div class="pax-sub">2 - 11 tuổi</div>
+          </div>
+          <div class="pax-control">
+            <span class="pax-price" id="priceChild">x 0đ</span>
+            <button type="button" class="pax-btn" onclick="changePax('child',-1)">−</button>
+            <span class="pax-count" id="countChild">0</span>
+            <button type="button" class="pax-btn" onclick="changePax('child',1)">+</button>
+          </div>
+        </div>
+
+        <div class="pax-row" data-type="infant" data-percent="0">
+          <div class="pax-info">
+            <div class="pax-label">Trẻ nhỏ</div>
+            <div class="pax-sub">&lt; 2 tuổi</div>
+          </div>
+          <div class="pax-control">
+            <span class="pax-price" id="priceInfant">Miễn phí</span>
+            <button type="button" class="pax-btn" onclick="changePax('infant',-1)">−</button>
+            <span class="pax-count" id="countInfant">0</span>
+            <button type="button" class="pax-btn" onclick="changePax('infant',1)">+</button>
+          </div>
+        </div>
+
+        <div class="price-calc-note">ⓘ Liên hệ để xác nhận chỗ</div>
+
+        <div class="price-calc-total-row">
+          <span>Tổng Giá Tour</span>
+          <span class="price-calc-total-value" id="calcTotal">0đ</span>
+        </div>
+
+        <button type="button" class="btn-request-booking" onclick="scrollToForm()">Yêu Cầu Đặt</button>
+      </div>
+
+      <!-- KHỐI FORM LIÊN HỆ ĐẶT TOUR -->
+      <div class="booking-sidebar-card" id="bookingFormCard">
+        <div class="sidebar-price-label">Giá trọn gói từ</div>
+        <div class="sidebar-price-value" id="sidebarPrice">2,450,000đ</div>
+        
+        <form onsubmit="handleOrder(event)">
+          <div class="booking-form-group">
+            <label>Họ và tên *</label>
+            <input type="text" id="cusName" class="booking-form-control" required placeholder="Nguyễn Văn A">
+          </div>
+          <div class="booking-form-group">
+            <label>Số điện thoại *</label>
+            <input type="tel" id="cusPhone" class="booking-form-control" required placeholder="090xxxxxxx">
+          </div>
+          <div class="booking-form-group">
+            <label>Email *</label>
+            <input type="email" id="cusEmail" class="booking-form-control" required placeholder="[email protected]">
+          </div>
+          <button type="submit" class="btn-submit-booking">Nhận tư vấn & Đặt Tour</button>
+        </form>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- 5. POPUP MODAL LỊCH TRÌNH CHI TIẾT -->
+  <div class="modal-overlay" id="itineraryModal">
+    <div class="modal-container">
+      <button class="modal-close-btn" onclick="closeModal()">✕</button>
+      <div class="modal-body" id="modalDynamicBody">
+        <!-- Cấu trúc timeline được render tự động qua JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. FOOTER ĐỒNG BỘ -->
+  <footer>
+    <div class="footer-logo">Việt Nam ✦</div>
+    <p class="footer-copy">© 2026 VIET TRAVEL. Tất cả quyền được bảo lưu.</p>
+    <ul class="footer-links">
+      <li><a href="#">Về Chúng Tôi</a></li>
+      <li><a href="#">Chính Sách</a></li>
+      <li><a href="#">Liên Hệ</a></li>
+    </ul>
+  </footer>
+
+  <!-- SCRIPT XỬ LÝ SỰ KIỆN TƯƠNG TÁC -->
+  <script>
+    const toursDatabase = {
+      1: {
+        id: "TOUR-MC01",
+        title: "Mộc Châu - Thung Lũng Mận Nà Ka - Cầu Kính Bạch Long",
+        price: 2450000,
+        destination: "Mộc Châu, Sơn La",
+        days: [
+          {
+            dayNum: "Ngày 1",
+            title: "Hà Nội - Thung Khe - Mộc Châu - Đồi chè - Vườn hồng",
+            meals: "Ăn trưa, tối",
+            img: "https://images.unsplash.com/photo-1526139334526-f591a54b477c?q=80&w=600",
+            activitiesTitle: "Hành trình Hương sắc Thảo nguyên",
+            bullets: [
+              "Khởi hành từ Hà Nội, dừng chân thưởng ngoạn cảnh sắc kỳ vĩ tại <b>Đèo Thung Khe</b>.",
+              "Khám phá <b>Nông trường chè Mộc Sương</b> xanh mướt; check-in <b>Thung lũng Nà Ka</b> hoặc <b>Vườn hồng</b> trĩu quả.",
+              "Buổi tối, thưởng thức đặc sản Tây Bắc; tự do khám phá Phố đi bộ hoặc Khu phố Nhật Bản.",
+              "Nghỉ đêm tại Mộc Châu."
+            ]
+          },
+          {
+            dayNum: "Ngày 2",
+            title: "Rừng thông Bản Áng - Mộc Châu Island - Hà Nội",
+            meals: "Ăn sáng, trưa",
+            img: "https://images.unsplash.com/photo-1559627717-bdb2d005a87e?q=80&w=600",
+            activitiesTitle: "Dấu ấn Kỷ lục và Thiên nhiên thuần khiết",
+            bullets: [
+              "Thư giãn tại <b>Rừng thông Bản Áng</b> cổ thụ thơ mộng.",
+              "Chinh phục <b>Cầu kính Bạch Long</b> <i>(kỷ lục Guinness)</i> tại quần thể du lịch Mộc Châu Island.",
+              "Dùng bữa trưa và khởi hành về lại Hà Nội, kết thúc hành trình tốt đẹp."
+            ]
+          }
+        ]
+      }
+    };
+
+    const activeTour = toursDatabase[1]; 
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("detailId").innerText = `Mã Tour: ${activeTour.id}`;
+      document.getElementById("detailTitle").innerText = activeTour.title;
+      document.getElementById("infoDest").innerText = activeTour.destination;
+      document.getElementById("sidebarPrice").innerText = activeTour.price.toLocaleString('vi-VN') + "đ";
+      
+      const groupContainer = document.getElementById("itineraryGroup");
+      activeTour.days.forEach((d, index) => {
+        groupContainer.innerHTML += `
+          <div class="itinerary-accordion-item">
+            <button class="itinerary-header-btn" onclick="openItineraryDay(${index})">
+              <div>
+                <div class="itinerary-header-title">${d.dayNum}: ${d.title}</div>
+                <div class="itinerary-header-meals">🍴 (${d.meals})</div>
+              </div>
+              <span class="arrow-icon">➔</span>
+            </button>
+          </div>
+        `;
+      });
+    });
+
+    function openItineraryDay(index) {
+      const data = activeTour.days[index];
+      const body = document.getElementById("modalDynamicBody");
+      let bulletHtml = data.bullets.map(b => `<li>${b}</li>`).join('');
+      
+      body.innerHTML = `
+        <div class="modal-day-banner">
+          <div class="modal-day-info">
+            <div class="modal-day-num">${data.dayNum}</div>
+            <div class="modal-day-title">${data.title}</div>
+            <div style="font-size:0.85rem; color:var(--text-muted); margin-top:5px;">🍴 ${data.meals}</div>
+          </div>
+          <img src="${data.img}" class="modal-day-img" alt="Hình ảnh ngày">
+        </div>
+        
+        <div class="modal-timeline-content">
+          <div class="modal-timeline-dot"></div>
+          <div class="modal-section-title">Hoạt động chính: ${data.activitiesTitle}</div>
+          <ul class="activities-list">${bulletHtml}</ul>
+        </div>
+        <div class="note-box">
+          <b>Lưu ý:</b> Thứ tự các điểm tham quan có thể thay đổi để phù hợp với thời tiết thực tế nhưng vẫn đảm bảo đủ điểm.
+        </div>
+      `;
+      document.getElementById("itineraryModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("itineraryModal").style.display = "none";
+    }
+
+    function handleOrder(e) {
+      e.preventDefault();
+      alert(`Đăng ký thành công! Đội ngũ tư vấn sẽ liên hệ với bạn qua SĐT: ${document.getElementById("cusPhone").value} hoặc Email: ${document.getElementById("cusEmail").value} trong giây lát.`);
+    }
+  </script>
+</body>
+</html>
