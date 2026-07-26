@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tài Khoản Của Tôi - Việt Nam Du Lịch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style_tour.css">
+  <link rel="stylesheet" href="tai_khoan_style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">Việt Nam</div>
+    <ul class="nav-links">
+      <li><a href="trang_chu.html#destinations">Điểm Đến</a></li>
+      <li><a href="dat_tour.html">Đặt Tour</a></li>
+      <li><a href="tai_khoan.html" style="color:var(--gold);">Tài Khoản</a></li>
+    </ul>
+  </nav>
+
+  <!-- ACCOUNT PAGE -->
+  <div class="account-wrapper">
+
+    <!-- KHỐI CHÀO MỪNG -->
+    <section class="account-hero">
+      <div class="account-avatar" id="avatarInitial">?</div>
+      <div class="account-hero-info">
+        <h1 id="welcomeName">Xin chào!</h1>
+        <p id="welcomeSub">Chào mừng bạn quay trở lại</p>
+      </div>
+      <button class="btn-logout" onclick="logout()">Đăng Xuất</button>
+    </section>
+
+    <!-- KHỐI THÔNG TIN CÁ NHÂN -->
+    <section class="account-card">
+      <h2 class="account-card-title">Thông Tin Cá Nhân</h2>
+      <div class="account-info-grid">
+        <div class="account-info-item">
+          <span class="info-label">Họ và Tên</span>
+          <span class="info-value" id="infoName">-</span>
+        </div>
+        <div class="account-info-item">
+          <span class="info-label">Email</span>
+          <span class="info-value" id="infoEmail">-</span>
+        </div>
+        <div class="account-info-item">
+          <span class="info-label">Số Điện Thoại</span>
+          <span class="info-value" id="infoPhone">-</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- KHỐI LỊCH SỬ ĐẶT TOUR -->
+    <section class="account-card">
+      <h2 class="account-card-title">Lịch Sử Đặt Tour</h2>
+      <div id="bookingsList">
+        <p class="loading-text">Đang tải dữ liệu...</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Việt Nam ✦</div>
+    <p class="footer-copy">© 2026 VIET TRAVEL. Tất cả quyền được bảo lưu.</p>
+  </footer>
+
+  <script src="tai_khoan.js"></script>
+</body>
+</html>
