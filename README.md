@@ -38,4 +38,4 @@ PS D:\tourism-main\backend> node server.js
 📊 Database tables ready (bookings schema up to date)
 📊 Reviews table ready (unique per user/tour)
 
-**********link để vào sau khi chạy terminal: http://localhost:5000/auth.html
+**********link để vào sau khi chạy terminal: http://localhost:5000/trang_chu.html
