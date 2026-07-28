@@ -23,9 +23,20 @@ app.use(bodyParser.json());
 
 // Phục vụ luôn frontend (html/css/js) từ chính server này -> chạy giống 1
 // website bình thường tại http://localhost:5000/, không cần Live Server nữa.
-// (Yêu cầu: các file .html/.css/.js nằm chung thư mục với server.js)
+// (Cấu trúc thư mục: tourism-main/backend/server.js và tourism-main/frontend/*.html
+//  -> "frontend" nằm NGANG CẤP với "backend", nên phải lùi lên 1 cấp bằng '..')
 const path = require('path');
-app.use(express.static(path.join(__dirname, '..')));
+const fs = require('fs');
+const frontendPath = path.join(__dirname, '..', 'frontend');
+
+// Debug tạm: in ra đường dẫn thực tế server đang tìm và xác nhận có tồn tại không
+console.log('📁 Đang serve frontend từ:', frontendPath);
+console.log('📁 Thư mục này có tồn tại không?', fs.existsSync(frontendPath));
+if (fs.existsSync(frontendPath)) {
+  console.log('📁 Danh sách file trong đó:', fs.readdirSync(frontendPath).slice(0, 10));
+}
+
+app.use(express.static(frontendPath));
 
 app.get('/', (req, res) => { res.redirect('/trang_chu.html'); });
 
@@ -617,10 +628,12 @@ app.get('/api/bookings', (req, res) => {
 });
 
 // ===== START SERVER =====
-const PORT = 5000;
+// QUAN TRỌNG: dùng process.env.PORT khi deploy lên Railway (Railway tự cấp
+// port động, không cố định là 5000) — chỉ dùng 5000 khi chạy ở máy local.
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`
-      Backend running on http://localhost:${PORT}
+      Backend running on port ${PORT}
   
       Database: tours.db
       Endpoints:
