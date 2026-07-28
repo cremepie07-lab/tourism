@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi Tiết Tour - Việt Nam Hành Trình Huyền Diệu</title>
+  
+  <!-- NHÚNG GOOGLE FONTS ĐỒNG BỘ TRANG CHỦ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- LIÊN KẾT FILE CSS CHUNG -->
+  <link rel="stylesheet" href="tour_detail.css">
+</head>
+<body>
+
+  <!-- 1. THANH ĐIỀU HƯỚNG ĐỒNG BỘ CHUẨN ĐẸP -->
+  <nav id="navbar">
+    <div class="nav-logo">Việt Nam</div>
+    <ul class="nav-links">
+      <li><a href="trang_chu.html#destinations">Điểm Đến</a></li>
+      <li><a href="trang_chu.html#experiences">Trải Nghiệm</a></li>
+      <li><a href="trang_chu.html#cuisine">Ẩm Thực</a></li>
+      <li><a href="trang_chu.html#seasons">Mùa Du Lịch</a></li>
+      <li><a href="dat_tour.html" style="color:var(--gold);">Đặt Tour</a></li>
+      <li><a href="auth.html">Đăng Nhập / Đăng Ký</a></li>
+    </ul>
+  </nav>
+
+  <!-- 2. PHẦN ĐẦU TRANG CHI TIẾT (TOUR HEADER) -->
+  <header class="tour-detail-header">
+    <div class="tour-id-badge" id="detailId">Mã Tour: TOUR-MC01</div>
+    <h1 class="tour-detail-title" id="detailTitle">Mộc Châu - Thung Lũng Mận Nà Ka - Cầu Kính Bạch Long</h1>
+    <div class="tour-quick-rating" id="quickRating">
+      <!-- JS sẽ tự động chèn số sao trung bình + số lượt đánh giá THẬT từ database -->
+    </div>
+  </header>
+
+  <!-- 3. BỘ SƯU TẬP HÌNH ẢNH (GALLERY GRID) -->
+  <section class="tour-image-gallery">
+    <img id="mainGalleryImg" src="https://images.unsplash.com/photo-1570366583862-f91883984fde?q=80&w=1200" alt="Ảnh tour" class="main-gallery-img">
+    <div class="sub-gallery-wrap">
+      <img id="subGalleryImg1" src="https://images.unsplash.com/photo-1526139334526-f591a54b477c?q=80&w=600" alt="Ảnh phụ 1" class="sub-gallery-img top">
+      <img id="subGalleryImg2" src="https://images.unsplash.com/photo-1559627717-bdb2d005a87e?q=80&w=600" alt="Ảnh phụ 2" class="sub-gallery-img bottom">
+    </div>
+  </section>
+
+  <!-- 4. KHU VỰC NỘI DUNG CHÍNH & SIDEBAR -->
+  <div class="tour-content-layout">
+    
+    <!-- KHỐI THÔNG TIN BÊN TRÁI -->
+    <main class="tour-main-info">
+      
+      <!-- Khối Thông Tin Thêm -->
+      <h2 class="section-detail-title">Thông tin thêm về chuyến đi</h2>
+      <div class="additional-info-grid">
+        <div class="info-card">
+          <div class="info-card-header"><span>📍</span>Điểm tham quan</div>
+          <div class="info-card-content" id="infoDest">Mộc Châu, Đèo Thung Khe, Rừng thông Bản Áng, Cầu kính Bạch Long</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header"><span>🍽️</span>Ẩm thực</div>
+          <div class="info-card-content">Buffet sáng, Thực đơn đặc sản Tây Bắc phong phú</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header"><span>📅</span>Thời gian lý tưởng</div>
+          <div class="info-card-content">Quanh năm (Mỗi mùa một vẻ đẹp đặc trưng riêng)</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header"><span>🚌</span>Phương tiện</div>
+          <div class="info-card-content">Xe du lịch đời mới chỗ ngồi êm ái suốt tuyến</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-header"><span>🎁</span>Khuyến mãi</div>
+          <div class="info-card-content">Theo các chương trình ưu đãi hiện hành của công ty</div>
+        </div>
+      </div>
+
+      <!-- Khối Lịch Trình (Accordion) -->
+      <h2 class="section-detail-title">Lịch trình chuyến đi</h2>
+      <div id="itineraryGroup">
+        <!-- JS sẽ tự động chèn dữ liệu các ngày vào đây -->
+      </div>
+
+      <!-- Khối Lưu Ý (Details/Summary Accordion) -->
+      <h2 class="section-detail-title">Những thông tin cần lưu ý</h2>
+      <div class="note-accordion">
+        <details class="note-item" open>
+          <summary class="note-summary">Giá tour bao gồm</summary>
+          <div class="note-content">
+            • Xe du lịch đời mới, máy lạnh, đưa đón theo chương trình.<br>
+            • Khách sạn tiêu chuẩn 3-5 sao, phòng nghỉ 2 người/phòng (phụ thu phòng đơn nếu có).<br>
+            • Các bữa ăn chính theo chương trình (sáng/trưa/tối), thực đơn 5-7 món đặc sản địa phương.<br>
+            • Vé vào cổng các điểm tham quan có trong chương trình (thu lần đầu).<br>
+            • Hướng dẫn viên kinh nghiệm, nhiệt tình, theo suốt hành trình.<br>
+            • Nước uống trên xe (2 chai/khách/ngày), khăn lạnh, nón du lịch.<br>
+            • Bảo hiểm du lịch trong suốt chuyến đi (mức bồi thường tối đa theo quy định).
+          </div>
+        </details>
+
+        <details class="note-item">
+          <summary class="note-summary">Giá tour không bao gồm</summary>
+          <div class="note-content">
+            • Chi phí cá nhân, giặt ủi, điện thoại, đồ uống ngoài chương trình.<br>
+            • Tiền tip cho hướng dẫn viên và tài xế (khuyến nghị 50.000 - 100.000đ/khách/ngày).<br>
+            • Phụ thu phòng đơn (nếu khách đi lẻ, không ghép đôi).<br>
+            • Chi phí phát sinh do thiên tai, dịch bệnh, hoãn/hủy chuyến bay ngoài ý muốn.<br>
+            • Vé tham quan các điểm ngoài chương trình chính (tour tự chọn).<br>
+            • Thuế VAT (nếu khách hàng yêu cầu xuất hóa đơn đỏ).
+          </div>
+        </details>
+
+        <details class="note-item">
+          <summary class="note-summary">Lưu ý giá trẻ em</summary>
+          <div class="note-content">
+            • Trẻ em dưới 5 tuổi: Miễn phí giá tour (gia đình tự lo ăn uống, chỗ ngồi cho bé).<br>
+            • Trẻ em từ 5 - 11 tuổi: Tính 75% giá tour người lớn, ngủ ghép chung phòng với bố mẹ.<br>
+            • Trẻ em từ 11 tuổi trở lên: Tính 100% giá tour như người lớn.<br>
+            • Trường hợp gia đình có 2 người lớn + 1 trẻ em cần thêm giường phụ: phụ thu theo khách sạn thực tế.
+          </div>
+        </details>
+
+        <details class="note-item">
+          <summary class="note-summary">Điều kiện thanh toán & đặt cọc</summary>
+          <div class="note-content">
+            • Đặt cọc 50% giá trị tour ngay sau khi đăng ký để giữ chỗ.<br>
+            • Thanh toán đủ 100% trước ngày khởi hành ít nhất 3 ngày.<br>
+            • Hình thức thanh toán: Tiền mặt, chuyển khoản ngân hàng, hoặc ví điện tử (Momo, ZaloPay).<br>
+            • Sau khi thanh toán đủ, quý khách sẽ nhận được phiếu xác nhận tour qua email/SMS.
+          </div>
+        </details>
+
+        <details class="note-item">
+          <summary class="note-summary">Chính sách hủy & đổi tour</summary>
+          <div class="note-content">
+            • Hủy tour trước 7 ngày: Hoàn 90% tiền cọc (phí xử lý 10%).<br>
+            • Hủy tour trước 3-6 ngày: Hoàn 50% tiền cọc.<br>
+            • Hủy tour trong vòng 48 giờ trước khởi hành: Không hoàn cọc.<br>
+            • Trường hợp bất khả kháng (thiên tai, dịch bệnh...): Công ty hỗ trợ dời lịch hoặc hoàn tiền theo quy định của đối tác (khách sạn, hàng không).<br>
+            • Đổi lịch khởi hành: Miễn phí nếu báo trước 5 ngày, còn chỗ trống ở lịch mới.
+          </div>
+        </details>
+
+        <details class="note-item">
+          <summary class="note-summary">Chuẩn bị hành lý & vật dụng cá nhân</summary>
+          <div class="note-content">
+            • Giấy tờ tùy thân: CCCD/CMND hoặc hộ chiếu (bản gốc).<br>
+            • Trang phục gọn nhẹ, giày thể thao (nếu có hoạt động trekking/leo núi).<br>
+            • Áo khoác, mũ, kem chống nắng, thuốc cá nhân (say xe, dị ứng...).<br>
+            • Sạc dự phòng, máy ảnh để lưu giữ khoảnh khắc đẹp trong chuyến đi.<br>
+            • Đồ bơi nếu tour có hoạt động tắm biển/tắm suối.
+          </div>
+        </details>
+
+        <details class="note-item">
+          <summary class="note-summary">Lưu ý sức khỏe & an toàn</summary>
+          <div class="note-content">
+            • Quý khách có bệnh nền (tim mạch, huyết áp, say xe...) vui lòng thông báo trước cho hướng dẫn viên.<br>
+            • Phụ nữ mang thai trên 32 tuần cần có giấy xác nhận sức khỏe của bác sĩ.<br>
+            • Tuân thủ hướng dẫn an toàn khi tham gia các hoạt động mạo hiểm (trekking, chèo kayak, cáp treo...).<br>
+            • Công ty không chịu trách nhiệm với các rủi ro phát sinh do khách tự ý tách đoàn hoặc không tuân thủ hướng dẫn.
+          </div>
+        </details>
+
+      <!-- Khối Đánh Giá Từ Khách Hàng (dữ liệu THẬT từ database, không phải dữ liệu ảo) -->
+      <h2 class="section-detail-title">Đánh giá từ khách hàng</h2>
+
+      <div class="review-summary" id="reviewSummary">
+        <div class="review-summary-score" id="reviewAvgScore">0.0</div>
+        <div>
+          <div class="review-summary-stars" id="reviewAvgStars">☆☆☆☆☆</div>
+          <div class="review-summary-count" id="reviewCountText">Chưa có đánh giá nào</div>
+        </div>
+      </div>
+
+      <!-- Form viết đánh giá: chỉ hiện khi khách đã đăng nhập -->
+      <div class="write-review-card" id="writeReviewCard" style="display:none;">
+        <h3 class="write-review-title">Viết đánh giá của bạn</h3>
+        <div class="star-picker" id="starPicker">
+          <span class="star-pick" data-value="1">☆</span>
+          <span class="star-pick" data-value="2">☆</span>
+          <span class="star-pick" data-value="3">☆</span>
+          <span class="star-pick" data-value="4">☆</span>
+          <span class="star-pick" data-value="5">☆</span>
+        </div>
+        <textarea id="reviewCommentInput" class="review-textarea" placeholder="Chia sẻ cảm nhận của bạn về chuyến đi này..." rows="3"></textarea>
+        <button type="button" class="btn-submit-review" onclick="submitReview()">Gửi đánh giá</button>
+        <p class="review-form-message" id="reviewFormMessage"></p>
+      </div>
+
+      <!-- Nhắc đăng nhập nếu khách chưa có tài khoản -->
+      <div class="login-to-review" id="loginToReview" style="display:none;">
+        <a href="auth.html">Đăng nhập</a> để viết đánh giá cho tour này.
+      </div>
+
+      <!-- Danh sách đánh giá -->
+      <div class="review-list" id="reviewList">
+        <p class="loading-text">Đang tải đánh giá...</p>
+      </div>
+
+    </main>
+
+    <!-- KHỐI ĐẶT TOUR BÊN PHẢI (SIDEBAR) -->
+    <aside class="tour-booking-sidebar">
+
+      <!-- KHỐI ĐẶT TOUR GỘP (LỊCH TRÌNH - GIÁ - THÔNG TIN KHÁCH HÀNG) -->
+      <div class="price-calc-card">
+        <h3 class="price-calc-title">Đặt Tour</h3>
+        <p class="price-calc-sub">Chọn ngày khởi hành và số lượng khách:</p>
+
+        <div class="booking-form-group">
+          <label>Ngày khởi hành *</label>
+          <input type="date" id="departureDate" class="booking-form-control" required onchange="onDateChange()">
+        </div>
+
+        <div class="pax-row" data-type="adult" data-percent="1">
+          <div class="pax-info">
+            <div class="pax-label">Người lớn</div>
+            <div class="pax-sub">&gt; 11 tuổi</div>
+          </div>
+          <div class="pax-control">
+            <span class="pax-price" id="priceAdult">x 0đ</span>
+            <button type="button" class="pax-btn" onclick="changePax('adult',-1)">−</button>
+            <span class="pax-count" id="countAdult">1</span>
+            <button type="button" class="pax-btn" onclick="changePax('adult',1)">+</button>
+          </div>
+        </div>
+
+        <div class="pax-row" data-type="child" data-percent="0.75">
+          <div class="pax-info">
+            <div class="pax-label">Trẻ em</div>
+            <div class="pax-sub">5 - 11 tuổi</div>
+          </div>
+          <div class="pax-control">
+            <span class="pax-price" id="priceChild">x 0đ</span>
+            <button type="button" class="pax-btn" onclick="changePax('child',-1)">−</button>
+            <span class="pax-count" id="countChild">0</span>
+            <button type="button" class="pax-btn" onclick="changePax('child',1)">+</button>
+          </div>
+        </div>
+
+        <div class="pax-row" data-type="infant" data-percent="0">
+          <div class="pax-info">
+            <div class="pax-label">Trẻ nhỏ</div>
+            <div class="pax-sub">&lt; 5 tuổi</div>
+          </div>
+          <div class="pax-control">
+            <span class="pax-price" id="priceInfant">Miễn phí</span>
+            <button type="button" class="pax-btn" onclick="changePax('infant',-1)">−</button>
+            <span class="pax-count" id="countInfant">0</span>
+            <button type="button" class="pax-btn" onclick="changePax('infant',1)">+</button>
+          </div>
+        </div>
+
+        <div class="price-calc-note">ⓘ Liên hệ để xác nhận chỗ</div>
+
+        <div class="price-calc-total-row">
+          <span>Tổng Giá Tour</span>
+          <span class="price-calc-total-value" id="calcTotal">0đ</span>
+        </div>
+
+        <hr class="booking-divider">
+
+        <form onsubmit="handleOrder(event)">
+          <div class="booking-form-group">
+            <label>Họ và tên *</label>
+            <input type="text" id="cusName" class="booking-form-control" required placeholder="Nguyễn Văn A">
+          </div>
+          <div class="booking-form-group">
+            <label>Số điện thoại *</label>
+            <input type="tel" id="cusPhone" class="booking-form-control" required placeholder="090xxxxxxx">
+          </div>
+          <div class="booking-form-group">
+            <label>Email *</label>
+            <input type="email" id="cusEmail" class="booking-form-control" required placeholder="[email protected]">
+          </div>
+          <button type="submit" class="btn-submit-booking">Nhận tư vấn & Đặt Tour</button>
+        </form>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- 5. POPUP MODAL LỊCH TRÌNH CHI TIẾT -->
+  <div class="modal-overlay" id="itineraryModal">
+    <div class="modal-container">
+      <button class="modal-close-btn" onclick="closeModal()">✕</button>
+      <div class="modal-body" id="modalDynamicBody">
+        <!-- Cấu trúc timeline được render tự động qua JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. FOOTER ĐỒNG BỘ -->
+  <footer>
+    <div class="footer-logo">Việt Nam ✦</div>
+    <p class="footer-copy">© 2026 VIET TRAVEL. Tất cả quyền được bảo lưu.</p>
+    <ul class="footer-links">
+      <li><a href="#">Về Chúng Tôi</a></li>
+      <li><a href="#">Chính Sách</a></li>
+      <li><a href="#">Liên Hệ</a></li>
+    </ul>
+  </footer>
+
+  <script src="chi_tiet_tour.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>
