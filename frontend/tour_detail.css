@@ -1,0 +1,856 @@
+/* ĐỊNH NGHĨA BIẾN CÁC MÃ MÀU THƯƠNG HIỆU THEO TRANG CHỦ */
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --deep-green: #1A3A2A;
+  --mid-green: #2C5F42;
+  --jade: #3D8B6F;
+  --cream: #F5EED8;
+  --warm-white: #FAF7F0;
+  --red: #C0392B;
+  --text-dark: #1A1A1A;
+  --text-muted: #5A5A5A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ép chữ số dùng "lining figures" cùng chiều cao/baseline, tránh số bị
+   lệch lên/xuống (oldstyle figures) khi hiển thị giá tiền, ngày, số lượng... */
+html {
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: var(--warm-white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* --- THANH NAV ĐỒNG BỘ 100% --- */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.2rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(26, 58, 42, 0.98);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.nav-links a.btn-season-box {
+  border: 1.5px solid #ffffff;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.nav-links a.btn-season-box:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.nav-links a.btn-order-gold {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* --- TOUR HEADER --- */
+.tour-detail-header {
+  padding: 130px 4rem 1.5rem;
+  background: white;
+  border-bottom: 1px solid #f0eee6;
+}
+
+.tour-id-badge {
+  display: inline-block;
+  background: var(--deep-green);
+  color: var(--gold);
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 4px;
+  margin-bottom: 0.8rem;
+}
+
+.tour-detail-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: var(--deep-green);
+  margin: 0 0 1rem 0;
+  font-weight: 900;
+}
+
+.tour-quick-rating {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.stars {
+  color: var(--gold);
+}
+
+/* --- GALLERY IMAGE GRID --- */
+.tour-image-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  padding: 1rem 4rem;
+  background: var(--warm-white);
+}
+
+.main-gallery-img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px 0 0 8px;
+}
+
+.sub-gallery-wrap {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+}
+
+.sub-gallery-img {
+  height: 195px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.sub-gallery-img.top { border-radius: 0 8px 0 0; }
+.sub-gallery-img.bottom { border-radius: 0 0 8px 0; }
+
+/* --- MAIN CONTENT & SIDEBAR LAYOUT --- */
+.tour-content-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 3rem;
+  padding: 2rem 4rem;
+}
+
+.section-detail-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--deep-green);
+  border-left: 4px solid var(--gold);
+  padding-left: 0.8rem;
+  margin: 2.5rem 0 1.5rem;
+}
+
+/* 1. Thông tin thêm */
+.additional-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.info-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  border: 1px solid #f2eee2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  color: var(--deep-green);
+}
+
+.info-card-content {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* 2. Lịch trình Accordion */
+.itinerary-accordion-item {
+  background: white;
+  border: 1px solid #eeebe0;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.itinerary-header-btn {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  background: none;
+  border: none;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  transition: background 0.2s;
+}
+
+.itinerary-header-btn:hover {
+  background-color: #fdfcf7;
+}
+
+.itinerary-header-title {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 1.05rem;
+}
+
+.itinerary-header-meals {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+.arrow-icon {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* 3. Popup Modal lịch trình */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background: white;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-day-banner {
+  display: flex;
+  background: #f0f7f4;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.modal-day-info {
+  padding: 1.2rem;
+  flex: 1;
+}
+
+.modal-day-num {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--jade);
+  margin-bottom: 0.4rem;
+}
+
+.modal-day-title {
+  font-weight: 700;
+  color: var(--deep-green);
+  font-size: 1.05rem;
+}
+
+.modal-day-img {
+  width: 40%;
+  max-height: 130px;
+  object-fit: cover;
+}
+
+.modal-timeline-content {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.modal-timeline-content::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--jade);
+}
+
+.modal-timeline-dot {
+  position: absolute;
+  left: 1px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--jade);
+  border: 2px solid white;
+}
+
+.modal-section-title {
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.activities-list {
+  padding-left: 1.2rem;
+  line-height: 1.7;
+}
+
+.note-box {
+  background: #fffdf9;
+  border: 1px dashed var(--gold);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+}
+
+/* 4. Khối những điều lưu ý */
+.note-accordion {
+  background: white;
+  border: 1px solid #eeebe0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.note-item {
+  border-bottom: 1px solid #eeebe0;
+}
+
+.note-item:last-child {
+  border-bottom: none;
+}
+
+.note-summary {
+  padding: 1.2rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.note-summary::-webkit-details-marker { display: none; }
+
+.note-summary::after {
+  content: '➔';
+  font-size: 0.8rem;
+  transform: rotate(90deg);
+  transition: transform 0.2s;
+}
+
+.note-item[open] .note-summary::after {
+  transform: rotate(-90deg);
+}
+
+.note-content {
+  padding: 0 1.5rem 1.2rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+/* --- KHỐI LỊCH TRÌNH & TÍNH GIÁ TOUR --- */
+.price-calc-card {
+  background: var(--cream);
+  border: 1px solid #ecdfb8;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.price-calc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--deep-green);
+  margin-bottom: 0.4rem;
+}
+
+.price-calc-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.booking-form-group input[type="date"] {
+  font-family: 'Raleway', sans-serif;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+.pax-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border: 1px solid #ecdfb8;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.pax-label {
+  font-weight: 700;
+  color: var(--deep-green);
+  font-size: 0.95rem;
+}
+
+.pax-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.pax-control {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.pax-price {
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.pax-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid #d8d2c0;
+  background: white;
+  color: var(--deep-green);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.pax-btn:hover {
+  border-color: var(--jade);
+  color: var(--jade);
+}
+
+.pax-count {
+  min-width: 16px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.price-calc-note {
+  font-size: 0.8rem;
+  color: var(--jade);
+  margin: 0.6rem 0 1rem;
+}
+
+.price-calc-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 1.2rem;
+}
+
+.price-calc-total-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.booking-divider {
+  border: none;
+  border-top: 1px dashed #ecdfb8;
+  margin: 0 0 1.2rem;
+}
+
+/* --- SIDEBAR ĐẶT TOUR --- */
+.tour-booking-sidebar {
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.booking-sidebar-card {
+  background: white;
+  border: 1px solid #f0eee6;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(26, 58, 42, 0.08);
+}
+
+.sidebar-price-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.sidebar-price-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--red);
+  font-weight: 700;
+  margin: 0.3rem 0 1.5rem;
+}
+
+.booking-form-group {
+  margin-bottom: 1rem;
+}
+
+.booking-form-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--jade);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.booking-form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1.5px solid #e5e0d2;
+  border-radius: 8px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.btn-submit-booking {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--jade), var(--deep-green));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-submit-booking:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 58, 42, 0.25);
+}
+
+/* --- FOOTER ĐỒNG BỘ --- */
+footer {
+  background: #0A1A10;
+  padding: 3rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(201, 168, 76, 0.1);
+  margin-top: 4rem;
+}
+
+.footer-logo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: var(--gold);
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 1px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+/* RESPONSIVE TRÊN CÁC THIẾT BỊ */
+@media (max-width: 1024px) {
+  .tour-image-gallery, .tour-content-layout { padding: 1rem; }
+  .tour-content-layout { grid-template-columns: 1fr; }
+  .sub-gallery-wrap { display: none; }
+  .tour-detail-header { padding: 100px 1rem 1rem; }
+  nav { padding: 1rem 2rem; }
+  footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+}
+/* --- KHỐI ĐÁNH GIÁ TỪ KHÁCH HÀNG --- */
+.review-summary {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--cream);
+  border: 1px solid #ecdfb8;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.review-summary-score {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--deep-green);
+  line-height: 1;
+}
+
+.review-summary-stars {
+  color: var(--gold);
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+
+.review-summary-count {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+/* Form viết đánh giá */
+.write-review-card {
+  background: white;
+  border: 1px solid #eeebe0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.write-review-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--deep-green);
+  margin-bottom: 1rem;
+}
+
+.star-picker {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.star-pick {
+  cursor: pointer;
+  color: #d8d2c0;
+  transition: color 0.15s, transform 0.15s;
+  user-select: none;
+}
+
+.star-pick:hover {
+  transform: scale(1.15);
+}
+
+.star-pick.selected {
+  color: var(--gold);
+}
+
+.review-textarea {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1.5px solid #e5e0d2;
+  border-radius: 10px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.92rem;
+  resize: vertical;
+  min-height: 80px;
+  margin-bottom: 1rem;
+}
+
+.review-textarea:focus {
+  outline: none;
+  border-color: var(--jade);
+}
+
+.btn-submit-review {
+  padding: 0.75rem 1.8rem;
+  background: linear-gradient(135deg, var(--jade), var(--deep-green));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-submit-review:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(26, 58, 42, 0.2);
+}
+
+.btn-submit-review:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.review-form-message {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  display: none;
+}
+
+.review-form-message.show.error { display: block; color: var(--red); }
+.review-form-message.show.success { display: block; color: var(--jade); }
+
+.login-to-review {
+  background: var(--warm-white);
+  border: 1px dashed #d8d2c0;
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.login-to-review a {
+  color: var(--jade);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Danh sách đánh giá */
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.review-item {
+  background: white;
+  border: 1px solid #f0eee6;
+  border-radius: 14px;
+  padding: 1.2rem 1.5rem;
+}
+
+.review-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.review-item-name {
+  font-weight: 700;
+  color: var(--deep-green);
+}
+
+.review-item-stars {
+  color: var(--gold);
+  font-size: 0.95rem;
+}
+
+.review-item-date {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.review-item-comment {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.no-reviews-yet {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  background: var(--warm-white);
+  border-radius: 14px;
+  border: 1px dashed #d8d2c0;
+}

@@ -1,0 +1,194 @@
+.account-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 140px 2rem 4rem;
+}
+
+/* HERO */
+.account-hero {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, var(--deep-green) 0%, var(--jade) 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  color: white;
+  box-shadow: 0 15px 40px rgba(26, 58, 42, 0.2);
+}
+
+.account-avatar {
+  width: 70px;
+  height: 70px;
+  min-width: 70px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--deep-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.account-hero-info {
+  flex: 1;
+}
+
+.account-hero-info h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.account-hero-info p {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.95rem;
+}
+
+.btn-logout {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.btn-logout:hover {
+  background: #C0392B;
+  border-color: #C0392B;
+}
+
+/* CARDS */
+.account-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border: 1px solid #f0eee6;
+}
+
+.account-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--deep-green);
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--gold);
+  padding-left: 0.8rem;
+}
+
+/* INFO GRID */
+.account-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.account-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.info-label {
+  font-size: 0.75rem;
+  color: var(--jade);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.info-value {
+  font-size: 1rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* BOOKINGS LIST */
+.loading-text {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.booking-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #f0eee6;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  align-items: center;
+  transition: box-shadow 0.3s;
+}
+
+.booking-item:hover {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.booking-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.booking-item-info {
+  flex: 1;
+}
+
+.booking-item-title {
+  font-weight: 700;
+  color: var(--deep-green);
+  margin-bottom: 0.3rem;
+}
+
+.booking-item-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.booking-item-date {
+  font-size: 0.78rem;
+  color: var(--jade);
+  margin-top: 0.3rem;
+}
+
+.booking-item-price {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.empty-bookings {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+}
+
+.empty-bookings a {
+  color: var(--jade);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .account-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .booking-item {
+    flex-direction: column;
+    text-align: center;
+  }
+}
