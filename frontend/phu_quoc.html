@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phú Quốc — Đảo Ngọc Thiên Đường</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Remix Icon for icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: var(--warm-white, #faf7f0);
+        color: var(--text-dark, #1a1a1a);
+        font-family: "Raleway", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* --- HERO SECTION --- */
+      .pq-hero {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .pq-hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://images.unsplash.com/photo-1704765707896-f0aaab64d7b2?q=100&w=2000&auto=format&fit=crop")
+          no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+        /* Parallax effect */
+        transform: scale(1.05);
+        animation: slowZoom 20s ease-out infinite alternate;
+      }
+
+      .pq-hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          rgba(26, 58, 42, 0.4) 0%,
+          rgba(26, 58, 42, 0.1) 50%,
+          var(--warm-white, #faf7f0) 100%
+        );
+      }
+
+      .pq-hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        max-width: 900px;
+        padding: 0 20px;
+        color: #fff;
+      }
+
+      .pq-hero-badge {
+        display: inline-block;
+        padding: 8px 20px;
+        border: 1px solid var(--gold, #c9a84c);
+        color: var(--gold, #c9a84c);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 0.8rem;
+        border-radius: 50px;
+        margin-bottom: 2rem;
+        backdrop-filter: blur(4px);
+        animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        opacity: 0;
+      }
+
+      .pq-hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 600;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+        opacity: 0;
+      }
+
+      .pq-hero-title span {
+        font-style: italic;
+        color: var(--gold, #c9a84c);
+      }
+
+      .pq-scroll-indicator {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        color: var(--deep-green, #1a3a2a);
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        animation:
+          fadeUp 1s 0.6s forwards,
+          float 2s infinite ease-in-out;
+        opacity: 0;
+      }
+
+      .pq-scroll-line {
+        width: 1px;
+        height: 40px;
+        background: linear-gradient(
+          to bottom,
+          var(--gold, #c9a84c),
+          transparent
+        );
+      }
+
+      /* --- INTRO SECTION --- */
+      .pq-intro {
+        padding: 100px 5%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .pq-intro-text h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        color: var(--deep-green, #1a3a2a);
+        margin-bottom: 30px;
+        font-weight: 600;
+      }
+
+      .pq-intro-text p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-muted, #5a5a5a);
+        margin-bottom: 20px;
+      }
+
+      .pq-intro-text p:first-of-type::first-letter {
+        font-family: "Playfair Display", serif;
+        font-size: 4rem;
+        float: left;
+        line-height: 1;
+        margin-right: 15px;
+        color: var(--gold, #c9a84c);
+      }
+
+      .pq-intro-images {
+        position: relative;
+        height: 600px;
+      }
+
+      .pq-img-1,
+      .pq-img-2 {
+        position: absolute;
+        border-radius: 12px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        transition: transform 0.5s ease;
+      }
+
+      .pq-img-1 {
+        width: 70%;
+        height: 70%;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        z-index: 2;
+      }
+
+      .pq-img-2 {
+        width: 60%;
+        height: 60%;
+        object-fit: cover;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+      }
+
+      .pq-intro-images:hover .pq-img-1 {
+        transform: translate(-10px, -10px);
+      }
+
+      .pq-intro-images:hover .pq-img-2 {
+        transform: translate(10px, 10px);
+      }
+
+      /* --- EXPERIENCES --- */
+      .pq-experiences {
+        padding: 100px 5%;
+        background-color: var(--cream, #f5eed8);
+      }
+
+      .pq-section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .pq-section-header h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        color: var(--deep-green, #1a3a2a);
+      }
+
+      .pq-section-header span {
+        color: var(--gold, #c9a84c);
+        font-style: italic;
+      }
+
+      .pq-exp-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .pq-exp-card {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        transition:
+          transform 0.4s ease,
+          box-shadow 0.4s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .pq-exp-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        border-color: var(--gold, #c9a84c);
+      }
+
+      .pq-exp-img {
+        height: 250px;
+        overflow: hidden;
+      }
+
+      .pq-exp-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .pq-exp-card:hover .pq-exp-img img {
+        transform: scale(1.1);
+      }
+
+      .pq-exp-content {
+        padding: 30px;
+      }
+
+      .pq-exp-content h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--deep-green, #1a3a2a);
+      }
+
+      .pq-exp-content p {
+        color: var(--text-muted, #5a5a5a);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      /* --- CTA SECTION --- */
+      .pq-cta {
+        padding: 120px 5%;
+        text-align: center;
+        background:
+          linear-gradient(rgba(26, 58, 42, 0.9), rgba(26, 58, 42, 0.9)),
+          url("https://images.unsplash.com/photo-1579705973718-d99f2b842df2?q=80&w=2070&auto=format&fit=crop")
+            no-repeat center center/cover;
+        background-attachment: fixed;
+        color: var(--warm-white, #faf7f0);
+      }
+
+      .pq-cta h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .pq-cta p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-inline: auto;
+      }
+
+      .pq-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 40px;
+        background-color: var(--gold, #c9a84c);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+      }
+
+      .pq-btn:hover {
+        background-color: #fff;
+        color: var(--deep-green, #1a3a2a);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .pq-btn-outline {
+        background: transparent;
+        color: var(--deep-green, #1a3a2a);
+        border: 1px solid var(--deep-green, #1a3a2a);
+      }
+
+      .pq-btn-outline:hover {
+        background: var(--deep-green, #1a3a2a);
+        color: #fff;
+      }
+
+      /* Animations */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slowZoom {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.1);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(-50%, 0);
+        }
+        50% {
+          transform: translate(-50%, 10px);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .pq-intro {
+          grid-template-columns: 1fr;
+        }
+
+        .pq-intro-images {
+          height: 400px;
+          margin-top: 40px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <div
+        class="nav-logo"
+        onclick="window.location.href = 'trang_chu.html'"
+        style="cursor: pointer"
+      >
+        Việt Nam
+      </div>
+      <ul class="nav-links">
+        <li><a href="trang_chu.html#destinations">Điểm Đến</a></li>
+        <li><a href="trang_chu.html#experiences">Trải Nghiệm</a></li>
+        <li><a href="trang_chu.html#cuisine">Ẩm Thực</a></li>
+        <li><a href="trang_chu.html#seasons">Mùa Du Lịch</a></li>
+        <li><a href="dat_tour.html" style="color: var(--gold)">Đặt Tour</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="pq-hero">
+      <div class="pq-hero-bg"></div>
+      <div class="pq-hero-overlay"></div>
+
+      <div class="pq-hero-content">
+        <div class="pq-hero-badge">Biển Xanh Cát Trắng</div>
+        <h1 class="pq-hero-title">Đảo Ngọc <span>Phú Quốc</span></h1>
+        <p
+          style="
+            font-size: 1.2rem;
+            color: #ddd;
+            letter-spacing: 1px;
+            animation: fadeUp 1s 0.4s forwards;
+            opacity: 0;
+          "
+        >
+          Thiên đường nhiệt đới vẫy gọi.
+        </p>
+      </div>
+
+      <div class="pq-scroll-indicator">
+        <span>Khám phá</span>
+        <div class="pq-scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="pq-intro">
+      <div class="pq-intro-text">
+        <h2>Hòn Đảo Dành Cho<br />Những Giấc Mơ</h2>
+        <p>
+          Phú Quốc, hòn đảo lớn nhất Việt Nam, được mệnh danh là "Đảo Ngọc" nhờ
+          những bãi biển trải dài trong xanh, những hàng dừa rợp bóng và hệ sinh
+          thái biển phong phú bậc nhất.
+        </p>
+        <p>
+          Dù bạn muốn thả mình thư giãn trên bãi cát mịn, khám phá những khu
+          rừng nguyên sinh hoang dã, hay đắm chìm vào không khí sôi động của chợ
+          đêm, Phú Quốc luôn có vô vàn điều thú vị để bạn trải nghiệm và tận
+          hưởng.
+        </p>
+        <div style="margin-top: 40px">
+          <a
+            href="trang_chu.html#destinations"
+            class="pq-btn pq-btn-outline"
+            style="font-size: 0.9rem; padding: 10px 25px"
+            ><i class="ri-arrow-left-line"></i> Về danh sách</a
+          >
+        </div>
+      </div>
+      <div class="pq-intro-images">
+        <img
+          src="https://images.unsplash.com/photo-1704765707896-f0aaab64d7b2?q=80&w=2070&auto=format&fit=crop"
+          alt="Phú Quốc 1"
+          class="pq-img-1"
+        />
+        <img
+          src="https://plus.unsplash.com/premium_photo-1750157232617-865d705f6b2a?w=600&auto=format&fit=crop&q=60"
+          alt="Phú Quốc 2"
+          class="pq-img-2"
+        />
+      </div>
+    </section>
+
+    <!-- EXPERIENCES -->
+    <section class="pq-experiences">
+      <div class="pq-section-header">
+        <h2>Trải Nghiệm <span>Độc Bản</span></h2>
+        <p style="color: var(--text-muted); margin-top: 10px">
+          Những hoạt động không thể bỏ lỡ khi đến Phú Quốc
+        </p>
+      </div>
+
+      <div class="pq-exp-grid">
+        <!-- Card 1 -->
+        <div class="pq-exp-card">
+          <div class="pq-exp-img">
+            <img
+              src="https://images.unsplash.com/photo-1596395819057-e37f55a8516d?q=80&w=2070&auto=format&fit=crop"
+              alt="Bãi Sao"
+            />
+          </div>
+          <div class="pq-exp-content">
+            <h3>Thư Giãn Ở Bãi Sao</h3>
+            <p>
+              Tận hưởng làn nước trong vắt và bãi cát trắng mịn màng tại Bãi
+              Sao, một trong những bãi biển đẹp nhất tại đảo ngọc Phú Quốc.
+            </p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="pq-exp-card">
+          <div class="pq-exp-img">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1661884238122-83fc0d09995c?q=80&w=2070&auto=format&fit=crop"
+              alt="Lặn biển"
+            />
+          </div>
+          <div class="pq-exp-content">
+            <h3>Lặn Ngắm San Hô</h3>
+            <p>
+              Khám phá thế giới đại dương đầy sắc màu với hệ rạn san hô rực rỡ
+              và những đàn cá bơi lội tung tăng quanh các đảo nhỏ phía Nam.
+            </p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="pq-exp-card">
+          <div class="pq-exp-img">
+            <img
+              src="https://images.unsplash.com/photo-1563223771-5fe4038fbfc9?q=80&w=2070&auto=format&fit=crop"
+              alt="Chợ đêm"
+            />
+          </div>
+          <div class="pq-exp-content">
+            <h3>Chợ Đêm Phú Quốc</h3>
+            <p>
+              Hòa mình vào không khí nhộn nhịp, nếm thử hải sản tươi sống nướng
+              thơm lừng và mua sắm những món quà lưu niệm đặc sắc.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="pq-cta">
+      <h2>Bạn Đã Sẵn Sàng Bắt Đầu?</h2>
+      <p>
+        Hãy để chúng tôi đồng hành cùng bạn trên hành trình khám phá Phú Quốc –
+        Nơi mọi khoảnh khắc đều trở nên vô giá.
+      </p>
+      <a href="dat_tour.html" class="pq-btn">
+        Lên Kế Hoạch Ngay <i class="ri-arrow-right-line"></i>
+      </a>
+    </section>
+
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>

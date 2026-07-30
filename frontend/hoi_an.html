@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phố Cổ Hội An — Di Sản Văn Hóa Thế Giới</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Remix Icon for icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: var(--warm-white, #faf7f0);
+        color: var(--text-dark, #1a1a1a);
+        font-family: "Raleway", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* --- HERO SECTION --- */
+      .hl-hero {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .hl-hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://media.istockphoto.com/id/2160702210/vi/anh/quang-c%E1%BA%A3nh-%C4%91%C6%B0%E1%BB%9Dng-ph%E1%BB%91-%E1%BB%9F-ph%E1%BB%91-c%E1%BB%95-h%E1%BB%99i-an-vi%E1%BB%87t-nam.jpg?s=612x612&w=0&k=20&c=5g6Zon0hMXHyQ4MywIOWhKFeY-N_VEZGd9gPZ5Df8S0=")
+          no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+        /* Parallax effect */
+        transform: scale(1.05);
+        animation: slowZoom 20s ease-out infinite alternate;
+      }
+
+      .hl-hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          rgba(26, 58, 42, 0.4) 0%,
+          rgba(26, 58, 42, 0.1) 50%,
+          var(--warm-white, #faf7f0) 100%
+        );
+      }
+
+      .hl-hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        max-width: 900px;
+        padding: 0 20px;
+        color: #fff;
+      }
+
+      .hl-hero-badge {
+        display: inline-block;
+        padding: 8px 20px;
+        border: 1px solid var(--gold, #c9a84c);
+        color: var(--gold, #c9a84c);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 0.8rem;
+        border-radius: 50px;
+        margin-bottom: 2rem;
+        backdrop-filter: blur(4px);
+        animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        opacity: 0;
+      }
+
+      .hl-hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 600;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+        opacity: 0;
+      }
+
+      .hl-hero-title span {
+        font-style: italic;
+        color: var(--gold, #c9a84c);
+      }
+
+      .hl-scroll-indicator {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        color: var(--deep-green, #1a3a2a);
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        animation:
+          fadeUp 1s 0.6s forwards,
+          float 2s infinite ease-in-out;
+        opacity: 0;
+      }
+
+      .hl-scroll-line {
+        width: 1px;
+        height: 40px;
+        background: linear-gradient(
+          to bottom,
+          var(--gold, #c9a84c),
+          transparent
+        );
+      }
+
+      /* --- INTRO SECTION --- */
+      .hl-intro {
+        padding: 100px 5%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .hl-intro-text h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        color: var(--deep-green, #1a3a2a);
+        margin-bottom: 30px;
+        font-weight: 600;
+      }
+
+      .hl-intro-text p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-muted, #5a5a5a);
+        margin-bottom: 20px;
+      }
+
+      .hl-intro-text p:first-of-type::first-letter {
+        font-family: "Playfair Display", serif;
+        font-size: 4rem;
+        float: left;
+        line-height: 1;
+        margin-right: 15px;
+        color: var(--gold, #c9a84c);
+      }
+
+      .hl-intro-images {
+        position: relative;
+        height: 600px;
+      }
+
+      .hl-img-1,
+      .hl-img-2 {
+        position: absolute;
+        border-radius: 12px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        transition: transform 0.5s ease;
+      }
+
+      .hl-img-1 {
+        width: 70%;
+        height: 70%;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        z-index: 2;
+      }
+
+      .hl-img-2 {
+        width: 60%;
+        height: 60%;
+        object-fit: cover;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+      }
+
+      .hl-intro-images:hover .hl-img-1 {
+        transform: translate(-10px, -10px);
+      }
+
+      .hl-intro-images:hover .hl-img-2 {
+        transform: translate(10px, 10px);
+      }
+
+      /* --- EXPERIENCES --- */
+      .hl-experiences {
+        padding: 100px 5%;
+        background-color: var(--cream, #f5eed8);
+      }
+
+      .hl-section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .hl-section-header h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        color: var(--deep-green, #1a3a2a);
+      }
+
+      .hl-section-header span {
+        color: var(--gold, #c9a84c);
+        font-style: italic;
+      }
+
+      .hl-exp-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .hl-exp-card {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        transition:
+          transform 0.4s ease,
+          box-shadow 0.4s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .hl-exp-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        border-color: var(--gold, #c9a84c);
+      }
+
+      .hl-exp-img {
+        height: 250px;
+        overflow: hidden;
+      }
+
+      .hl-exp-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .hl-exp-card:hover .hl-exp-img img {
+        transform: scale(1.1);
+      }
+
+      .hl-exp-content {
+        padding: 30px;
+      }
+
+      .hl-exp-content h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--deep-green, #1a3a2a);
+      }
+
+      .hl-exp-content p {
+        color: var(--text-muted, #5a5a5a);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      /* --- CTA SECTION --- */
+      .hl-cta {
+        padding: 120px 5%;
+        text-align: center;
+        background:
+          linear-gradient(rgba(26, 58, 42, 0.9), rgba(26, 58, 42, 0.9)),
+          url("https://images.unsplash.com/photo-1555921015-c1c564c76b9e?q=80&w=2070&auto=format&fit=crop")
+            no-repeat center center/cover;
+        background-attachment: fixed;
+        color: var(--warm-white, #faf7f0);
+      }
+
+      .hl-cta h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .hl-cta p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-inline: auto;
+      }
+
+      .hl-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 40px;
+        background-color: var(--gold, #c9a84c);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+      }
+
+      .hl-btn:hover {
+        background-color: #fff;
+        color: var(--deep-green, #1a3a2a);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .hl-btn-outline {
+        background: transparent;
+        color: var(--deep-green, #1a3a2a);
+        border: 1px solid var(--deep-green, #1a3a2a);
+      }
+
+      .hl-btn-outline:hover {
+        background: var(--deep-green, #1a3a2a);
+        color: #fff;
+      }
+
+      /* Animations */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slowZoom {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.1);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(-50%, 0);
+        }
+        50% {
+          transform: translate(-50%, 10px);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .hl-intro {
+          grid-template-columns: 1fr;
+        }
+
+        .hl-intro-images {
+          height: 400px;
+          margin-top: 40px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR (Imported styles from style.css) -->
+    <nav id="navbar">
+      <div
+        class="nav-logo"
+        onclick="window.location.href = 'trang_chu.html'"
+        style="cursor: pointer"
+      >
+        Việt Nam
+      </div>
+      <ul class="nav-links">
+        <li><a href="trang_chu.html#destinations">Điểm Đến</a></li>
+        <li><a href="trang_chu.html#experiences">Trải Nghiệm</a></li>
+        <li><a href="trang_chu.html#cuisine">Ẩm Thực</a></li>
+        <li><a href="trang_chu.html#seasons">Mùa Du Lịch</a></li>
+        <li><a href="dat_tour.html" style="color: var(--gold)">Đặt Tour</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hl-hero">
+      <div class="hl-hero-bg"></div>
+      <div class="hl-hero-overlay"></div>
+
+      <div class="hl-hero-content">
+        <div class="hl-hero-badge">UNESCO World Heritage</div>
+        <h1 class="hl-hero-title">Phố Cổ <span>Hội An</span></h1>
+        <p
+          style="
+            font-size: 1.2rem;
+            color: #ddd;
+            letter-spacing: 1px;
+            animation: fadeUp 1s 0.4s forwards;
+            opacity: 0;
+          "
+        >
+          Nét Đẹp Dừng Lại Ở Thời Gian.
+        </p>
+      </div>
+
+      <div class="hl-scroll-indicator">
+        <span>Khám phá</span>
+        <div class="hl-scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="hl-intro">
+      <div class="hl-intro-text">
+        <h2>Màu Thời Gian<br />Trên Phố Hoài</h2>
+        <p>
+          Nằm nghiêng mình bên dòng sông Thu Bồn thơ mộng, phố cổ Hội An hiện
+          lên như một bức tranh mộc mạc và giản dị. Nơi đây từng là một thương
+          cảng sầm uất bậc nhất Đông Nam Á vào thế kỷ 16, 17, giao thoa giữa
+          nhiều nền văn hóa phương Đông và phương Tây.
+        </p>
+        <p>
+          Trải qua hàng thế kỷ, Hội An vẫn vẹn nguyên những ngôi nhà tường vàng
+          mái ngói rêu phong, những giàn hoa giấy rực rỡ và những chiếc lồng đèn
+          lung linh. Từng con hẻm nhỏ, từng nếp nhà đều ẩn chứa một hơi thở bình
+          yên đến lạ thường, khiến ai một lần bước đến cũng chẳng muốn rời đi.
+        </p>
+        <div style="margin-top: 40px">
+          <a
+            href="trang_chu.html#destinations"
+            class="hl-btn hl-btn-outline"
+            style="font-size: 0.9rem; padding: 10px 25px"
+            ><i class="ri-arrow-left-line"></i> Về danh sách</a
+          >
+        </div>
+      </div>
+      <div class="hl-intro-images">
+        <img
+          src="https://img1.kienthucvui.vn/uploads/2021/04/16/anh-dep-pho-co-hoi-an_041828612.jpg"
+          alt="Hội An Đèn Lồng"
+          class="hl-img-1"
+        />
+        <img
+          src="https://tse2.mm.bing.net/th/id/OIP.nLhQ8oOOBpljPt4pVRr66AHaFi?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+          alt="Góc phố Hội An"
+          class="hl-img-2"
+        />
+      </div>
+    </section>
+
+    <!-- EXPERIENCES -->
+    <section class="hl-experiences">
+      <div class="hl-section-header">
+        <h2>Trải Nghiệm <span>Độc Bản</span></h2>
+        <p style="color: var(--text-muted); margin-top: 10px">
+          Những hoạt động không thể bỏ lỡ khi đến Phố Cổ Hội An
+        </p>
+      </div>
+
+      <div class="hl-exp-grid">
+        <!-- Card 1 -->
+        <div class="hl-exp-card">
+          <div class="hl-exp-img">
+            <img
+              src="https://images.unsplash.com/photo-1601625463675-9c5950eecfa1?q=80&w=2070&auto=format&fit=crop"
+              alt="Thả Đèn Hoa Đăng"
+            />
+          </div>
+          <div class="hl-exp-content">
+            <h3>Thả Đèn Hoa Đăng</h3>
+            <p>
+              Trải nghiệm ngồi thuyền lững lờ trên sông Hoài vào buổi tối, tự
+              tay thả những chiếc đèn hoa đăng mang theo những điều ước tốt lành
+              xuống mặt nước lung linh.
+            </p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="hl-exp-card">
+          <div class="hl-exp-img">
+            <img
+              src="https://images.unsplash.com/photo-1596700854497-75e9b81b8994?q=80&w=1974&auto=format&fit=crop"
+              alt="Dạo Phố Cổ"
+            />
+          </div>
+          <div class="hl-exp-content">
+            <h3>Dạo Bước Phố Cổ & May Đo Áo Dài</h3>
+            <p>
+              Tản bộ dưới ánh đèn lồng, chiêm ngưỡng Chùa Cầu Nhật Bản và tự may
+              cho mình một bộ áo dài truyền thống chỉ trong vòng 24 giờ tại các
+              tiệm may trứ danh.
+            </p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="hl-exp-card">
+          <div class="hl-exp-img">
+            <img
+              src="https://images.unsplash.com/photo-1623835698380-60b57e793132?q=80&w=2070&auto=format&fit=crop"
+              alt="Ẩm Thực"
+            />
+          </div>
+          <div class="hl-exp-content">
+            <h3>Thưởng Thức Ẩm Thực Đường Phố</h3>
+            <p>
+              Khám phá bản đồ ẩm thực phong phú với những món ăn làm nức lòng
+              thực khách như Cao Lầu, Mì Quảng, Cơm Gà hay bánh mì Phượng nổi
+              tiếng thế giới.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="hl-cta">
+      <h2>Trở Về Với Bình Yên?</h2>
+      <p>
+        Hãy để Hội An ôm bạn vào lòng với những con phố dịu êm và nhịp sống chậm
+        rãi. Lên lịch cho chuyến đi của bạn ngay hôm nay.
+      </p>
+      <a href="dat_tour.html" class="hl-btn">
+        Lên Kế Hoạch Ngay <i class="ri-arrow-right-line"></i>
+      </a>
+    </section>
+
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>

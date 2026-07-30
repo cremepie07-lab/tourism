@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sapa — Thành Phố Trong Sương</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Remix Icon for icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: var(--warm-white, #FAF7F0);
+      color: var(--text-dark, #1A1A1A);
+      font-family: 'Raleway', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* --- HERO SECTION --- */
+    .sp-hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .sp-hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1570366583862-f91883984fde?q=100&w=2000&auto=format&fit=crop') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      /* Parallax effect */
+      transform: scale(1.05);
+      animation: slowZoom 20s ease-out infinite alternate;
+    }
+
+    .sp-hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(26, 58, 42, 0.4) 0%, rgba(26, 58, 42, 0.1) 50%, var(--warm-white, #FAF7F0) 100%);
+    }
+
+    .sp-hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 900px;
+      padding: 0 20px;
+      color: #fff;
+    }
+
+    .sp-hero-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      border: 1px solid var(--gold, #C9A84C);
+      color: var(--gold, #C9A84C);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      border-radius: 50px;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(4px);
+      animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      opacity: 0;
+    }
+
+    .sp-hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+      opacity: 0;
+    }
+
+    .sp-hero-title span {
+      font-style: italic;
+      color: var(--gold, #C9A84C);
+    }
+
+    .sp-scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: var(--deep-green, #1A3A2A);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: fadeUp 1s 0.6s forwards, float 2s infinite ease-in-out;
+      opacity: 0;
+    }
+
+    .sp-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold, #C9A84C), transparent);
+    }
+
+    /* --- INTRO SECTION --- */
+    .sp-intro {
+      padding: 100px 5%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .sp-intro-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--deep-green, #1A3A2A);
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .sp-intro-text p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-muted, #5A5A5A);
+      margin-bottom: 20px;
+    }
+
+    .sp-intro-text p:first-of-type::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      float: left;
+      line-height: 1;
+      margin-right: 15px;
+      color: var(--gold, #C9A84C);
+    }
+
+    .sp-intro-images {
+      position: relative;
+      height: 600px;
+    }
+
+    .sp-img-1,
+    .sp-img-2 {
+      position: absolute;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      transition: transform 0.5s ease;
+    }
+
+    .sp-img-1 {
+      width: 70%;
+      height: 70%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    .sp-img-2 {
+      width: 60%;
+      height: 60%;
+      object-fit: cover;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    .sp-intro-images:hover .sp-img-1 {
+      transform: translate(-10px, -10px);
+    }
+
+    .sp-intro-images:hover .sp-img-2 {
+      transform: translate(10px, 10px);
+    }
+
+    /* --- EXPERIENCES --- */
+    .sp-experiences {
+      padding: 100px 5%;
+      background-color: var(--cream, #F5EED8);
+    }
+
+    .sp-section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .sp-section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--deep-green, #1A3A2A);
+    }
+
+    .sp-section-header span {
+      color: var(--gold, #C9A84C);
+      font-style: italic;
+    }
+
+    .sp-exp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .sp-exp-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .sp-exp-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      border-color: var(--gold, #C9A84C);
+    }
+
+    .sp-exp-img {
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .sp-exp-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .sp-exp-card:hover .sp-exp-img img {
+      transform: scale(1.1);
+    }
+
+    .sp-exp-content {
+      padding: 30px;
+    }
+
+    .sp-exp-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--deep-green, #1A3A2A);
+    }
+
+    .sp-exp-content p {
+      color: var(--text-muted, #5A5A5A);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* --- CTA SECTION --- */
+    .sp-cta {
+      padding: 120px 5%;
+      text-align: center;
+      background: linear-gradient(rgba(26, 58, 42, 0.9), rgba(26, 58, 42, 0.9)), url('https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+      background-attachment: fixed;
+      color: var(--warm-white, #FAF7F0);
+    }
+
+    .sp-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .sp-cta p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-inline: auto;
+    }
+
+    .sp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 40px;
+      background-color: var(--gold, #C9A84C);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .sp-btn:hover {
+      background-color: #fff;
+      color: var(--deep-green, #1A3A2A);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .sp-btn-outline {
+      background: transparent;
+      color: var(--deep-green, #1A3A2A);
+      border: 1px solid var(--deep-green, #1A3A2A);
+    }
+
+    .sp-btn-outline:hover {
+      background: var(--deep-green, #1A3A2A);
+      color: #fff;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slowZoom {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translate(-50%, 0);
+      }
+      50% {
+        transform: translate(-50%, 10px);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .sp-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .sp-intro-images {
+        height: 400px;
+        margin-top: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-logo" onclick="window.location.href='trang_chu.html'" style="cursor:pointer;">Việt Nam</div>
+    <ul class="nav-links">
+      <li><a href="trang_chu.html#destinations">Điểm Đến</a></li>
+      <li><a href="trang_chu.html#experiences">Trải Nghiệm</a></li>
+      <li><a href="trang_chu.html#cuisine">Ẩm Thực</a></li>
+      <li><a href="trang_chu.html#seasons">Mùa Du Lịch</a></li>
+      <li><a href="dat_tour.html" style="color:var(--gold);">Đặt Tour</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="sp-hero">
+    <div class="sp-hero-bg"></div>
+    <div class="sp-hero-overlay"></div>
+
+    <div class="sp-hero-content">
+      <div class="sp-hero-badge">Thiên Nhiên Hùng Vĩ</div>
+      <h1 class="sp-hero-title">Thành Phố <span>Sapa</span></h1>
+      <p style="font-size: 1.2rem; color: #ddd; letter-spacing: 1px; animation: fadeUp 1s 0.4s forwards; opacity: 0;">
+        Nơi gặp gỡ đất trời, mây ngàn gió núi.</p>
+    </div>
+
+    <div class="sp-scroll-indicator">
+      <span>Khám phá</span>
+      <div class="sp-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="sp-intro">
+    <div class="sp-intro-text">
+      <h2>Bản Giao Hưởng<br>Của Núi Rừng</h2>
+      <p>Nằm ẩn mình trong mây bồng bềnh, Sapa hiện lên như một bức tranh tiên cảnh với những thửa ruộng bậc thang kỳ vĩ trải dài khắp các sườn đồi, những dải mây trắng vắt ngang lưng chừng núi và không khí se lạnh mộng mơ.</p>
+      <p>Đến với Sapa, bạn không chỉ được chiêm ngưỡng đỉnh Fansipan hùng vĩ - Nóc nhà Đông Dương, mà còn được hòa mình vào bản sắc văn hóa độc đáo của các dân tộc thiểu số như H'Mông, Dao Đỏ, Tày, Giáy, Xa Phó.</p>
+      <div style="margin-top: 40px;">
+        <a href="trang_chu.html#destinations" class="sp-btn sp-btn-outline"
+          style="font-size: 0.9rem; padding: 10px 25px;"><i class="ri-arrow-left-line"></i> Về danh sách</a>
+      </div>
+    </div>
+    <div class="sp-intro-images">
+      <img src="https://images.unsplash.com/photo-1570366583862-f91883984fde?q=80&w=2071&auto=format&fit=crop"
+        alt="Sapa 1" class="sp-img-1">
+      <img src="https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?q=80&w=2070&auto=format&fit=crop"
+        alt="Sapa 2" class="sp-img-2">
+    </div>
+  </section>
+
+  <!-- EXPERIENCES -->
+  <section class="sp-experiences">
+    <div class="sp-section-header">
+      <h2>Trải Nghiệm <span>Độc Bản</span></h2>
+      <p style="color: var(--text-muted); margin-top: 10px;">Những hoạt động không thể bỏ lỡ khi đến Sapa</p>
+    </div>
+
+    <div class="sp-exp-grid">
+      <!-- Card 1 -->
+      <div class="sp-exp-card">
+        <div class="sp-exp-img">
+          <img
+            src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1974&auto=format&fit=crop"
+            alt="Trekking">
+        </div>
+        <div class="sp-exp-content">
+          <h3>Trekking Bản Làng</h3>
+          <p>Đi bộ xuyên qua những bản làng yên bình như Cát Cát, Tả Van, Lao Chải để khám phá vẻ đẹp hoang sơ của ruộng bậc thang và cuộc sống người dân bản địa.</p>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="sp-exp-card">
+        <div class="sp-exp-img">
+          <img
+            src="https://images.unsplash.com/photo-1518175510650-7052a6ee5f27?q=80&w=2070&auto=format&fit=crop"
+            alt="Fansipan">
+        </div>
+        <div class="sp-exp-content">
+          <h3>Chinh Phục Fansipan</h3>
+          <p>Trải nghiệm cảm giác đứng trên đỉnh núi cao nhất Đông Dương, ngắm nhìn biển mây cuồn cuộn dưới chân mình với hệ thống cáp treo hiện đại.</p>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="sp-exp-card">
+        <div class="sp-exp-img">
+          <img
+            src="https://images.unsplash.com/photo-1574347209867-b5dc5768cf5b?q=80&w=2070&auto=format&fit=crop"
+            alt="Market">
+        </div>
+        <div class="sp-exp-content">
+          <h3>Chợ Tình Sapa</h3>
+          <p>Tham gia phiên chợ tình độc đáo diễn ra vào cuối tuần, nơi giao lưu văn hóa, tiếng khèn gọi bạn tình và những điệu múa rộn rã.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sp-cta">
+    <h2>Bạn Đã Sẵn Sàng Bắt Đầu?</h2>
+    <p>Hãy để chúng tôi đồng hành cùng bạn trên hành trình khám phá Sapa – Nơi mọi khoảnh khắc đều trở nên vô giá.</p>
+    <a href="dat_tour.html" class="sp-btn">
+      Lên Kế Hoạch Ngay <i class="ri-arrow-right-line"></i>
+    </a>
+  </section>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
