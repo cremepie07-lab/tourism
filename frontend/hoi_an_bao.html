@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phố cổ Hội An — Nơi thời gian ngưng đọng | Tạp chí Lữ Hành</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1714;
+    --ink-soft:#5C554C;
+    --paper:#F4EFE4;
+    --paper-2:#EBE3D0;
+    --karst:#0E2A2E;      /* deep limestone-shadow teal */
+    --karst-2:#163B3F;
+    --gold:#B98A32;       /* UNESCO plaque gold */
+    --gold-soft:#E4C77E;
+    --jade:#2F6B5E;
+    --line:rgba(26,23,20,.14);
+    --line-invert:rgba(244,239,228,.22);
+    --shadow-lg:0 30px 70px -24px rgba(14,42,46,.45);
+    --shadow-sm:0 10px 26px -12px rgba(14,42,46,.3);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Newsreader',serif;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,.display{font-family:'Newsreader',serif;font-weight:600;letter-spacing:-.01em;margin:0;}
+  .sans{font-family:'Inter',sans-serif;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;}
+  ::selection{background:var(--gold-soft);color:var(--karst);}
+
+  /* ================= MASTHEAD ================= */
+  .masthead{background:var(--karst);color:var(--paper);}
+  .masthead-top{
+    max-width:1160px;margin:0 auto;padding:10px 24px;display:flex;justify-content:space-between;
+    font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--gold-soft);
+    border-bottom:1px solid var(--line-invert);
+  }
+  .masthead-main{max-width:1160px;margin:0 auto;padding:22px 24px 18px;text-align:center;}
+  .masthead-main .nameplate{
+    font-family:'Newsreader',serif;font-weight:600;font-size:clamp(30px,4.4vw,46px);letter-spacing:.01em;
+  }
+  .masthead-main .tagline{font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);margin-top:6px;}
+  .masthead-nav{
+    border-top:1px solid var(--line-invert);margin-top:16px;padding-top:12px;
+    display:flex;justify-content:center;gap:28px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+  }
+  .masthead-nav a{opacity:.8;padding-bottom:3px;border-bottom:2px solid transparent;}
+  .masthead-nav a:hover{opacity:1;border-color:var(--gold);}
+  .masthead-nav a.tour-link{color:var(--gold-soft);opacity:1;}
+
+  /* ================= HERO ================= */
+  .hero{position:relative;background:var(--karst);color:var(--paper);overflow:hidden;}
+  .hero-img{
+    position:relative;height:62vh;min-height:440px;
+    background-image:linear-gradient(180deg, rgba(14,42,46,.15) 0%, rgba(14,42,46,.35) 55%, rgba(10,20,22,.92) 100%),
+      url('https://images.unsplash.com/photo-1559627717-bdb2d005a87e?q=80&w=1800&auto=format&fit=crop');
+    background-size:cover;background-position:center 62%;
+  }
+  .hero-ridge{position:absolute;left:0;right:0;bottom:0;width:100%;opacity:.9;}
+  .hero-content{
+    position:absolute;left:0;right:0;bottom:0;max-width:900px;margin:0 auto;padding:0 24px 44px;text-align:center;
+  }
+  .kicker-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;}
+  .badge-unesco{
+    font-family:'Inter',sans-serif;font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--karst);
+    background:var(--gold-soft);padding:5px 12px;border-radius:3px;
+  }
+  .kicker{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.1em;color:#DCE6D8;text-transform:uppercase;}
+  .hero h1{font-size:clamp(38px,6.6vw,74px);line-height:1.02;color:#fff;}
+  .hero .dek{font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(16px,2vw,20px);color:#E7E1D2;margin-top:16px;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.55;}
+  .byline{
+    font-family:'Inter',sans-serif;font-size:12.5px;color:#B9C9C2;margin-top:20px;display:flex;gap:14px;
+    justify-content:center;flex-wrap:wrap;
+  }
+  .byline b{color:#fff;}
+
+  /* ================= LAYOUT ================= */
+  .article-wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  .article-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;margin-top:52px;align-items:start;}
+  @media(max-width:960px){.article-grid{grid-template-columns:1fr;}}
+
+  article{max-width:680px;}
+  .lede{font-size:21px;line-height:1.6;color:var(--ink);margin-bottom:8px;}
+  .lede::first-letter{
+    font-family:'Newsreader',serif;font-weight:600;font-size:74px;line-height:.78;float:left;padding:8px 10px 0 0;color:var(--karst);
+  }
+  article p{font-size:18px;line-height:1.75;color:#2A2620;margin:22px 0;}
+  article h2.section-h{
+    font-size:28px;margin-top:52px;margin-bottom:6px;color:var(--karst);
+    padding-top:20px;border-top:1px solid var(--line);
+  }
+  article h2.section-h .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gold);display:block;font-weight:600;letter-spacing:.05em;margin-bottom:8px;}
+
+  blockquote.pullquote{
+    margin:40px 0;padding:6px 0 6px 26px;border-left:3px solid var(--gold);
+    font-family:'Newsreader',serif;font-style:italic;font-size:25px;line-height:1.5;color:var(--karst);
+  }
+  blockquote.pullquote cite{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-top:10px;letter-spacing:.02em;}
+
+  .essay-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:10px;margin:36px 0;}
+  .essay-grid .ph{border-radius:4px;overflow:hidden;position:relative;background-size:cover;background-position:center;box-shadow:var(--shadow-sm);}
+  .essay-grid .ph.tall{grid-row:span 2;min-height:340px;}
+  .essay-grid .ph.short{min-height:165px;}
+  .essay-grid .ph .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:10px 12px;font-family:'Inter',sans-serif;font-size:11px;color:#fff;
+    background:linear-gradient(0deg, rgba(0,0,0,.65), transparent);letter-spacing:.02em;
+  }
+
+  .duotone-a{filter:sepia(.25) saturate(1.3) hue-rotate(140deg) brightness(.85);}
+  .duotone-b{filter:sepia(.15) saturate(1.1) hue-rotate(160deg) brightness(1.05) contrast(1.05);}
+  .duotone-c{filter:sepia(.35) saturate(1.5) hue-rotate(155deg) brightness(.7) contrast(1.1);}
+
+  /* ================= SIDEBAR ================= */
+  aside.rail{position:sticky;top:24px;display:flex;flex-direction:column;gap:22px;}
+  .facts-card{
+    background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px 22px 20px;box-shadow:var(--shadow-sm);
+  }
+  .facts-card h4{font-family:'Inter',sans-serif;font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .fact-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-family:'Inter',sans-serif;font-size:13.5px;}
+  .fact-row:first-of-type{border-top:none;}
+  .fact-row .k{color:var(--ink-soft);}
+  .fact-row .v{font-weight:700;text-align:right;}
+
+  /* ---- Destination booking card (matches source card style) ---- */
+  .book-card{
+    border-radius:12px;overflow:hidden;position:relative;height:230px;display:block;
+    box-shadow:var(--shadow-lg);
+  }
+  .book-card .bg{
+    position:absolute;inset:0;background-size:cover;background-position:center 60%;
+    background-image:url('https://images.unsplash.com/photo-1559627717-bdb2d005a87e?q=80&w=900&auto=format&fit=crop');
+    transition:transform .5s ease;
+  }
+  .book-card:hover .bg{transform:scale(1.06);}
+  .book-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(14,20,20,.05) 30%, rgba(8,15,15,.9));}
+  .book-card .tag{
+    position:absolute;top:12px;right:12px;z-index:2;background:var(--gold-soft);color:var(--karst);
+    font-family:'Inter',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.1em;padding:4px 10px;border-radius:3px;
+  }
+  .book-card .content{position:absolute;left:16px;right:16px;bottom:16px;z-index:2;color:#fff;}
+  .book-card .loc{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;color:var(--gold-soft);text-transform:uppercase;}
+  .book-card h5{font-size:23px;margin-top:4px;color:#fff;}
+  .book-card .cta-line{
+    font-family:'Inter',sans-serif;font-size:12px;font-weight:700;margin-top:8px;display:flex;align-items:center;gap:6px;color:#fff;
+  }
+  .book-card .cta-line svg{width:14px;height:14px;transition:transform .2s;}
+  .book-card:hover .cta-line svg{transform:translateX(4px);}
+
+  .cta-note{font-family:'Inter',sans-serif;font-size:11.5px;color:var(--ink-soft);text-align:center;line-height:1.6;}
+  .cta-note a{color:var(--jade);font-weight:700;border-bottom:1px solid var(--jade);}
+
+  /* ---- Inline CTA band inside article ---- */
+  .inline-cta{
+    margin:44px 0;border:1px solid var(--line);border-radius:12px;padding:26px 28px;background:#fff;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:var(--shadow-sm);
+  }
+  .inline-cta .txt h3{font-size:20px;color:var(--karst);}
+  .inline-cta .txt p{font-family:'Inter',sans-serif;font-size:13.5px;color:var(--ink-soft);margin:6px 0 0;max-width:400px;}
+  .btn-gold{
+    font-family:'Inter',sans-serif;font-weight:800;font-size:14px;color:#fff;background:var(--karst);
+    padding:13px 24px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+    box-shadow:0 12px 26px -10px rgba(14,42,46,.55);border:1px solid var(--karst);
+  }
+  .btn-gold:hover{background:var(--karst-2);}
+  .btn-gold svg{width:15px;height:15px;}
+
+  /* ---- Floating booking button ---- */
+  .floating-cta{
+    position:fixed;right:22px;bottom:22px;z-index:120;font-family:'Inter',sans-serif;font-weight:800;font-size:13.5px;
+    background:var(--gold);color:var(--karst);padding:14px 20px;border-radius:999px;box-shadow:var(--shadow-lg);
+    display:flex;align-items:center;gap:8px;
+  }
+  .floating-cta:hover{background:var(--gold-soft);}
+  @media(max-width:640px){.floating-cta{left:16px;right:16px;justify-content:center;}}
+
+  /* ================= FOOTER ================= */
+  footer{background:var(--karst);color:#B9C9C2;margin-top:64px;}
+  .footer-inner{max-width:1160px;margin:0 auto;padding:44px 24px 26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:12.5px;}
+  .footer-inner .fnp{font-family:'Newsreader',serif;font-size:19px;color:#fff;}
+  .footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+  .footer-bottom{border-top:1px solid var(--line-invert);padding:16px 24px;text-align:center;font-family:'Inter',sans-serif;font-size:11.5px;color:#8FA39C;}
+
+  @media(max-width:640px){
+    .masthead-nav{gap:16px;flex-wrap:wrap;}
+    article p, .lede{font-size:16.5px;}
+    .essay-grid{grid-template-columns:1fr;}
+    .essay-grid .ph.tall{min-height:220px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <span>Thứ Sáu, 31 Tháng 7, 2026</span>
+    <span>Chuyên mục: Di Sản &amp; Điểm Đến</span>
+  </div>
+  <div class="masthead-main">
+    <div class="nameplate">TẠP CHÍ LỮ HÀNH</div>
+    <div class="tagline">Phóng sự du lịch Việt Nam</div>
+    <nav class="masthead-nav">
+      <a href="#bai-viet">Bài viết</a>
+      <a href="#cam-nang">Cẩm nang nhanh</a>
+      <a href="#dat-tour">Đặt tour</a>
+      <a class="tour-link" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=9" target="_blank" rel="noopener">Khám phá Hội An →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-img">
+    <div class="hero-content">
+      <div class="kicker-row">
+        <span class="badge-unesco">Di sản UNESCO</span>
+        <span class="kicker">Miền Trung · Quảng Nam</span>
+      </div>
+      <h1>Phố cổ Hội An</h1>
+      <p class="dek">Nơi những nếp nhà mái ngói rêu phong, con hẻm nhỏ tường vàng và hàng nghìn chiếc đèn lồng lưu giữ trọn vẹn hồn cốt của một thương cảng sầm uất thế kỷ 16.</p>
+      <div class="byline">
+        <span>Bởi <b>Ban Biên Tập Lữ Hành</b></span>
+        <span>·</span>
+        <span>7 phút đọc</span>
+        <span>·</span>
+        <span>Cập nhật 31/07/2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-grid">
+
+    <article id="bai-viet">
+      <p class="lede">Buổi chiều ở Hội An thường buông xuống chậm rãi. Nắng tắt dần trên những mảng tường vàng nứt nẻ, nhường chỗ cho ánh sáng dìu dịu của hàng nghìn chiếc đèn lồng lụa đung đưa trước gió. Không ồn ào tiếng còi xe, không rợp bóng những tòa cao ốc, nơi này dường như đã bị dòng chảy của thời gian bỏ quên, để lại một bức tranh hoàn mỹ của thế kỷ 16 ngay giữa lòng nhịp sống hiện đại.</p>
+
+      <p>Được UNESCO công nhận là Di sản Văn hóa Thế giới vào năm 1999, Phố cổ Hội An (Quảng Nam) là một trong số ít những đô thị cổ hiếm hoi còn được bảo tồn gần như nguyên vẹn. Từng là thương cảng quốc tế sầm uất bậc nhất Đông Nam Á, nơi đây là minh chứng sống động cho sự giao thoa văn hóa giữa Việt Nam, Nhật Bản, Trung Hoa và cả những thương nhân đến từ phương Tây cách đây hơn bốn trăm năm.</p>
+
+      <h2 class="section-h"><span class="num">01</span>Bản hòa ca của kiến trúc</h2>
+      <p>Đi dạo quanh những con phố bàn cờ, ta dễ dàng nhận ra Hội An là một phòng trưng bày kiến trúc khổng lồ. Những ngôi nhà ống với cấu trúc khung gỗ đặc trưng, lợp ngói âm dương, vươn mình soi bóng xuống dòng sông Hoài. Bước vào một hội quán Phúc Kiến hay Quảng Đông, du khách sẽ choáng ngợp trước những họa tiết chạm trổ rồng phượng tinh xảo mang đậm nét văn hóa Trung Hoa. Nhưng rồi chỉ cách đó vài nhịp chân, Chùa Cầu uốn cong như một dải lụa mềm vắt qua lạch nước, lại mang dáng dấp trầm mặc, khiêm nhường của kiến trúc Nhật Bản.</p>
+
+      <div class="essay-grid">
+        <div class="ph tall duotone-a" style="background-image:url('https://images.unsplash.com/photo-1596423735880-52efec428ee8?q=80&w=900&auto=format&fit=crop');">
+          <div class="cap">Những bức tường vàng nhuốm màu thời gian dưới nắng chiều</div>
+        </div>
+        <div class="ph short duotone-b" style="background-image:url('https://images.unsplash.com/photo-1581413697711-d00d9df7a192?q=80&w=700&h=500&auto=format&fit=crop');">
+          <div class="cap">Đèn lồng lụa thắp sáng lung linh mỗi độ đêm về</div>
+        </div>
+        <div class="ph short duotone-c" style="background-image:url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=700&h=500&auto=format&fit=crop');">
+          <div class="cap">Thuyền gỗ xuôi dòng sông Hoài mang theo những lời ước nguyện</div>
+        </div>
+      </div>
+
+      <blockquote class="pullquote">
+        Hội An không chỉ là một quần thể di tích, mà là một bảo tàng sống, nơi con người, nếp nhà và dòng sông vẫn nương tựa vào nhau mà thở nhịp đập của quá khứ.
+        <cite>— Tạp chí Kiến trúc & Di sản</cite>
+      </blockquote>
+
+      <h2 class="section-h"><span class="num">02</span>Đêm lồng đèn và dòng sông Hoài</h2>
+      <p>Nếu ban ngày Hội An mang vẻ đẹp của một bức tranh sơn dầu cổ điển, thì ban đêm, nó biến thành một giấc mộng huyền ảo. Khi thành phố lên đèn, những chiếc xe đạp, xe máy nhường chỗ hoàn toàn cho người đi bộ. Hàng nghìn chiếc đèn lồng với đủ màu sắc, kiểu dáng được thắp sáng trước hiên nhà, phản chiếu lung linh xuống mặt nước sông Hoài. Việc tự tay thả một chiếc đèn hoa đăng mang theo lời cầu nguyện trôi dọc theo dòng nước lững lờ đã trở thành một nghi thức tinh thần không thể thiếu đối với bất kỳ ai đặt chân đến nơi đây.</p>
+
+      <p>Những âm thanh của phố cổ về đêm cũng rất khác. Đó là tiếng mái chèo khua nước lách cách, tiếng đàn ca tài tử hay bài chòi văng vẳng từ phía bờ sông, và mùi thơm của gánh tào phớ, chè bắp tỏa ra quyến luyến bước chân người lữ khách.</p>
+
+      <div class="inline-cta">
+        <div class="txt">
+          <h3>Trải nghiệm thả đèn hoa đăng và nghe hát bài chòi?</h3>
+          <p>Tham gia các tour đi bộ khám phá phố cổ và đi thuyền trên sông Hoài với hướng dẫn viên bản địa để nghe những câu chuyện chưa từng kể.</p>
+        </div>
+        <a class="btn-gold" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=9" target="_blank" rel="noopener">
+          Xem tour Hội An
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <h2 class="section-h"><span class="num">03</span>Khi nào nên đến</h2>
+      <p>Hội An có hai mùa rõ rệt. Mùa khô kéo dài từ tháng 2 đến tháng 8, là thời điểm lý tưởng nhất để khám phá phố cổ. Nắng vàng, trời trong xanh và không khí dễ chịu giúp cho những bức ảnh chụp những mảng tường vàng, hoa giấy thêm phần rực rỡ. Nếu có thể, hãy căn thời gian đến Hội An vào ngày 14 Âm lịch hàng tháng. Vào đêm rằm, toàn bộ khu phố sẽ tắt điện, chỉ để lại ánh sáng của trăng và hàng vạn chiếc đèn lồng lấp lánh, tái hiện lại khung cảnh thương cảng hưng thịnh thuở xưa một cách chân thực nhất.</p>
+
+      <h2 class="section-h"><span class="num">04</span>Di sản sống qua từng nếp nhà</h2>
+      <p>Điều làm nên linh hồn thực sự của Hội An không chỉ là những viên ngói rêu phong hay cột gỗ lim chạm trổ, mà chính là những con người đang sống trong lòng di sản. Một gánh Cao Lầu truyền đời qua ba thế hệ trong con hẻm nhỏ, một ông lão cặm cụi chuốt từng nan tre làm lồng đèn, hay những nụ cười hiền hậu của cô bán tò he trước cổng Chùa Cầu — tất cả tạo nên một thứ "di sản phi vật thể" có sức sống mãnh liệt.</p>
+
+      <p>Hội An không yêu cầu bạn phải hiểu biết sâu rộng về lịch sử để có thể yêu nó. Đôi khi, chỉ cần tìm một góc quán cà phê nhỏ trên sân thượng, nhâm nhi một tách trà mót thảo mộc, phóng tầm mắt xuống những lớp mái ngói xô nghiêng, là đủ để cảm nhận được sự bình yên mà thành phố bé nhỏ này mang lại.</p>
+    </article>
+
+    <aside class="rail">
+      <div class="facts-card" id="cam-nang">
+        <h4>Cẩm nang nhanh</h4>
+        <div class="fact-row"><span class="k">Vị trí</span><span class="v">Quảng Nam, miền Trung</span></div>
+        <div class="fact-row"><span class="k">Danh hiệu</span><span class="v">Di sản UNESCO (1999)</span></div>
+        <div class="fact-row"><span class="k">Đặc trưng</span><span class="v">Kiến trúc đô thị cổ</span></div>
+        <div class="fact-row"><span class="k">Biểu tượng</span><span class="v">Chùa Cầu, Đèn lồng</span></div>
+        <div class="fact-row"><span class="k">Mùa đẹp nhất</span><span class="v">Tháng 2 – Tháng 8</span></div>
+        <div class="fact-row"><span class="k">Cách Đà Nẵng</span><span class="v">~30 km (45 phút)</span></div>
+        <div class="fact-row"><span class="k">Nên đi</span><span class="v">1–2 ngày</span></div>
+      </div>
+
+      <a class="book-card" id="dat-tour" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=9" target="_blank" rel="noopener" aria-label="Đặt tour Phố cổ Hội An">
+        <div class="bg"></div>
+        <span class="tag">UNESCO</span>
+        <div class="content">
+          <div class="loc">Miền Trung · Quảng Nam</div>
+          <h5>Phố cổ Hội An</h5>
+          <div class="cta-line">Đặt tour ngay
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+        </div>
+      </a>
+      <p class="cta-note">Bấm vào ảnh để chuyển đến trang <a href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=9" target="_blank" rel="noopener">đặt tour Hội An</a> trên Việt Nam — Hành Trình Huyền Diệu.</p>
+    </aside>
+
+  </div>
+</div>
+
+<a class="floating-cta" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=9" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" width="15" height="15"><path d="M19 21c0-4-3-7-7-7s-7 3-7 7M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+  Đặt tour Hội An
+</a>
+
+<footer>
+  <div class="footer-inner">
+    <div class="fnp">TẠP CHÍ LỮ HÀNH</div>
+    <div class="footer-links">
+      <a href="#bai-viet">Bài viết</a>
+      <a href="#cam-nang">Cẩm nang nhanh</a>
+      <a href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=9" target="_blank" rel="noopener">Đặt tour</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Tạp Chí Lữ Hành. Bài viết mang tính chất giới thiệu điểm đến; vui lòng đặt tour qua đối tác chính thức.</div>
+</footer>
+
+</body>
+</html>
