@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cố Đô Huế — Nét trầm mặc bên dòng Hương Giang | Tạp chí Lữ Hành</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1714;
+    --ink-soft:#5C554C;
+    --paper:#F4EFE4;
+    --paper-2:#EBE3D0;
+    --karst:#311D27;      /* Royal purple-brown */
+    --karst-2:#4A2B3B;
+    --gold:#B98A32;       /* UNESCO plaque gold */
+    --gold-soft:#E4C77E;
+    --jade:#2F6B5E;
+    --line:rgba(26,23,20,.14);
+    --line-invert:rgba(244,239,228,.22);
+    --shadow-lg:0 30px 70px -24px rgba(49,29,39,.45);
+    --shadow-sm:0 10px 26px -12px rgba(49,29,39,.3);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Newsreader',serif;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,.display{font-family:'Newsreader',serif;font-weight:600;letter-spacing:-.01em;margin:0;}
+  .sans{font-family:'Inter',sans-serif;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;}
+  ::selection{background:var(--gold-soft);color:var(--karst);}
+
+  /* ================= MASTHEAD ================= */
+  .masthead{background:var(--karst);color:var(--paper);}
+  .masthead-top{
+    max-width:1160px;margin:0 auto;padding:10px 24px;display:flex;justify-content:space-between;
+    font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--gold-soft);
+    border-bottom:1px solid var(--line-invert);
+  }
+  .masthead-main{max-width:1160px;margin:0 auto;padding:22px 24px 18px;text-align:center;}
+  .masthead-main .nameplate{
+    font-family:'Newsreader',serif;font-weight:600;font-size:clamp(30px,4.4vw,46px);letter-spacing:.01em;
+  }
+  .masthead-main .tagline{font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);margin-top:6px;}
+  .masthead-nav{
+    border-top:1px solid var(--line-invert);margin-top:16px;padding-top:12px;
+    display:flex;justify-content:center;gap:28px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+  }
+  .masthead-nav a{opacity:.8;padding-bottom:3px;border-bottom:2px solid transparent;}
+  .masthead-nav a:hover{opacity:1;border-color:var(--gold);}
+  .masthead-nav a.tour-link{color:var(--gold-soft);opacity:1;}
+
+  /* ================= HERO ================= */
+  .hero{position:relative;background:var(--karst);color:var(--paper);overflow:hidden;}
+  .hero-img{
+    position:relative;height:62vh;min-height:440px;
+    background-image:linear-gradient(180deg, rgba(49,29,39,.15) 0%, rgba(49,29,39,.45) 55%, rgba(25,15,20,.92) 100%),
+      url('https://images.unsplash.com/photo-1582560461628-971ebbf9f0f9?q=80&w=1800&auto=format&fit=crop');
+    background-size:cover;background-position:center 62%;
+  }
+  .hero-ridge{position:absolute;left:0;right:0;bottom:0;width:100%;opacity:.9;}
+  .hero-content{
+    position:absolute;left:0;right:0;bottom:0;max-width:900px;margin:0 auto;padding:0 24px 44px;text-align:center;
+  }
+  .kicker-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;}
+  .badge-unesco{
+    font-family:'Inter',sans-serif;font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--karst);
+    background:var(--gold-soft);padding:5px 12px;border-radius:3px;
+  }
+  .kicker{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.1em;color:#DCE6D8;text-transform:uppercase;}
+  .hero h1{font-size:clamp(38px,6.6vw,74px);line-height:1.02;color:#fff;}
+  .hero .dek{font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(16px,2vw,20px);color:#E7E1D2;margin-top:16px;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.55;}
+  .byline{
+    font-family:'Inter',sans-serif;font-size:12.5px;color:#B9C9C2;margin-top:20px;display:flex;gap:14px;
+    justify-content:center;flex-wrap:wrap;
+  }
+  .byline b{color:#fff;}
+
+  /* ================= LAYOUT ================= */
+  .article-wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  .article-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;margin-top:52px;align-items:start;}
+  @media(max-width:960px){.article-grid{grid-template-columns:1fr;}}
+
+  article{max-width:680px;}
+  .lede{font-size:21px;line-height:1.6;color:var(--ink);margin-bottom:8px;}
+  .lede::first-letter{
+    font-family:'Newsreader',serif;font-weight:600;font-size:74px;line-height:.78;float:left;padding:8px 10px 0 0;color:var(--karst);
+  }
+  article p{font-size:18px;line-height:1.75;color:#2A2620;margin:22px 0;}
+  article h2.section-h{
+    font-size:28px;margin-top:52px;margin-bottom:6px;color:var(--karst);
+    padding-top:20px;border-top:1px solid var(--line);
+  }
+  article h2.section-h .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gold);display:block;font-weight:600;letter-spacing:.05em;margin-bottom:8px;}
+
+  blockquote.pullquote{
+    margin:40px 0;padding:6px 0 6px 26px;border-left:3px solid var(--gold);
+    font-family:'Newsreader',serif;font-style:italic;font-size:25px;line-height:1.5;color:var(--karst);
+  }
+  blockquote.pullquote cite{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-top:10px;letter-spacing:.02em;}
+
+  .essay-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:10px;margin:36px 0;}
+  .essay-grid .ph{border-radius:4px;overflow:hidden;position:relative;background-size:cover;background-position:center;box-shadow:var(--shadow-sm);}
+  .essay-grid .ph.tall{grid-row:span 2;min-height:340px;}
+  .essay-grid .ph.short{min-height:165px;}
+  .essay-grid .ph .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:10px 12px;font-family:'Inter',sans-serif;font-size:11px;color:#fff;
+    background:linear-gradient(0deg, rgba(0,0,0,.65), transparent);letter-spacing:.02em;
+  }
+
+  .duotone-a{filter:sepia(.2) saturate(1.1) hue-rotate(-20deg) brightness(.95);}
+  .duotone-b{filter:sepia(.1) saturate(1.2) hue-rotate(0deg) brightness(1.05);}
+  .duotone-c{filter:sepia(.3) saturate(1.4) hue-rotate(-15deg) brightness(.85) contrast(1.1);}
+
+  /* ================= SIDEBAR ================= */
+  aside.rail{position:sticky;top:24px;display:flex;flex-direction:column;gap:22px;}
+  .facts-card{
+    background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px 22px 20px;box-shadow:var(--shadow-sm);
+  }
+  .facts-card h4{font-family:'Inter',sans-serif;font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .fact-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-family:'Inter',sans-serif;font-size:13.5px;}
+  .fact-row:first-of-type{border-top:none;}
+  .fact-row .k{color:var(--ink-soft);}
+  .fact-row .v{font-weight:700;text-align:right;}
+
+  /* ---- Destination booking card ---- */
+  .book-card{
+    border-radius:12px;overflow:hidden;position:relative;height:230px;display:block;
+    box-shadow:var(--shadow-lg);
+  }
+  .book-card .bg{
+    position:absolute;inset:0;background-size:cover;background-position:center 60%;
+    background-image:url('https://images.unsplash.com/photo-1559592413-7ce4f0a0487f?q=80&w=900&auto=format&fit=crop');
+    transition:transform .5s ease;
+  }
+  .book-card:hover .bg{transform:scale(1.06);}
+  .book-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(49,29,39,.05) 30%, rgba(25,15,20,.9));}
+  .book-card .tag{
+    position:absolute;top:12px;right:12px;z-index:2;background:var(--gold-soft);color:var(--karst);
+    font-family:'Inter',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.1em;padding:4px 10px;border-radius:3px;
+  }
+  .book-card .content{position:absolute;left:16px;right:16px;bottom:16px;z-index:2;color:#fff;}
+  .book-card .loc{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;color:var(--gold-soft);text-transform:uppercase;}
+  .book-card h5{font-size:23px;margin-top:4px;color:#fff;}
+  .book-card .cta-line{
+    font-family:'Inter',sans-serif;font-size:12px;font-weight:700;margin-top:8px;display:flex;align-items:center;gap:6px;color:#fff;
+  }
+  .book-card .cta-line svg{width:14px;height:14px;transition:transform .2s;}
+  .book-card:hover .cta-line svg{transform:translateX(4px);}
+
+  .cta-note{font-family:'Inter',sans-serif;font-size:11.5px;color:var(--ink-soft);text-align:center;line-height:1.6;}
+  .cta-note a{color:var(--jade);font-weight:700;border-bottom:1px solid var(--jade);}
+
+  /* ---- Inline CTA band inside article ---- */
+  .inline-cta{
+    margin:44px 0;border:1px solid var(--line);border-radius:12px;padding:26px 28px;background:#fff;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:var(--shadow-sm);
+  }
+  .inline-cta .txt h3{font-size:20px;color:var(--karst);}
+  .inline-cta .txt p{font-family:'Inter',sans-serif;font-size:13.5px;color:var(--ink-soft);margin:6px 0 0;max-width:400px;}
+  .btn-gold{
+    font-family:'Inter',sans-serif;font-weight:800;font-size:14px;color:#fff;background:var(--karst);
+    padding:13px 24px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+    box-shadow:0 12px 26px -10px rgba(49,29,39,.55);border:1px solid var(--karst);
+  }
+  .btn-gold:hover{background:var(--karst-2);}
+  .btn-gold svg{width:15px;height:15px;}
+
+  /* ---- Floating booking button ---- */
+  .floating-cta{
+    position:fixed;right:22px;bottom:22px;z-index:120;font-family:'Inter',sans-serif;font-weight:800;font-size:13.5px;
+    background:var(--gold);color:var(--karst);padding:14px 20px;border-radius:999px;box-shadow:var(--shadow-lg);
+    display:flex;align-items:center;gap:8px;
+  }
+  .floating-cta:hover{background:var(--gold-soft);}
+  @media(max-width:640px){.floating-cta{left:16px;right:16px;justify-content:center;}}
+
+  /* ================= FOOTER ================= */
+  footer{background:var(--karst);color:#B9C9C2;margin-top:64px;}
+  .footer-inner{max-width:1160px;margin:0 auto;padding:44px 24px 26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:12.5px;}
+  .footer-inner .fnp{font-family:'Newsreader',serif;font-size:19px;color:#fff;}
+  .footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+  .footer-bottom{border-top:1px solid var(--line-invert);padding:16px 24px;text-align:center;font-family:'Inter',sans-serif;font-size:11.5px;color:#8FA39C;}
+
+  @media(max-width:640px){
+    .masthead-nav{gap:16px;flex-wrap:wrap;}
+    article p, .lede{font-size:16.5px;}
+    .essay-grid{grid-template-columns:1fr;}
+    .essay-grid .ph.tall{min-height:220px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <span>Thứ Sáu, 31 Tháng 7, 2026</span>
+    <span>Chuyên mục: Di Sản &amp; Điểm Đến</span>
+  </div>
+  <div class="masthead-main">
+    <div class="nameplate">TẠP CHÍ LỮ HÀNH</div>
+    <div class="tagline">Phóng sự du lịch Việt Nam</div>
+    <nav class="masthead-nav">
+      <a href="#bai-viet">Bài viết</a>
+      <a href="#cam-nang">Cẩm nang nhanh</a>
+      <a href="#dat-tour">Đặt tour</a>
+      <a class="tour-link" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=11" target="_blank" rel="noopener">Đặt tour Cố Đô Huế →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-img">
+    <div class="hero-content">
+      <div class="kicker-row">
+        <span class="badge-unesco">Di sản UNESCO</span>
+        <span class="kicker">Miền Trung · Thừa Thiên Huế</span>
+      </div>
+      <h1>Cố Đô Huế</h1>
+      <p class="dek">Dấu ấn vàng son của một triều đại dường như vẫn còn nguyên vẹn dưới những mái ngói hoàng lưu ly, lăng tẩm uy nghi và nhịp chảy êm đềm của dòng Hương Giang.</p>
+      <div class="byline">
+        <span>Bởi <b>Ban Biên Tập Lữ Hành</b></span>
+        <span>·</span>
+        <span>8 phút đọc</span>
+        <span>·</span>
+        <span>Cập nhật 31/07/2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-grid">
+
+    <article id="bai-viet">
+      <p class="lede">Huế không phải là nơi dành cho những bước chân vội vã. Đặt chân đến vùng đất thần kinh, người lữ khách bất chợt thấy mình bước chậm lại, nói khẽ hơn, như sợ đánh thức một giấc mộng dài hàng thế kỷ đang ngủ vùi dưới lớp rêu phong của Kinh thành cổ kính.</p>
+
+      <p>Là thủ đô của triều đại nhà Nguyễn từ năm 1802 đến 1945, Quần thể di tích Cố đô Huế vinh dự là Di sản Văn hóa Thế giới đầu tiên của Việt Nam được UNESCO công nhận vào năm 1993. Trải qua bao thăng trầm lịch sử và sự tàn phá của thời gian, Huế vẫn giữ trọn vẹn cốt cách hoàng tộc thiêng liêng, thể hiện qua hệ thống kiến trúc cung đình đồ sộ, nghiêm ngặt nhưng cũng vô cùng hòa hợp với cảnh sắc thiên nhiên bao quanh.</p>
+
+      <h2 class="section-h"><span class="num">01</span>Đại Nội và những lăng tẩm uy nghi</h2>
+      <p>Bao bọc bởi dải tường thành hình vuông dài hơn 10km, Đại Nội Huế là trái tim của cố đô. Bước qua cổng Ngọ Môn — nơi từng diễn ra lễ thoái vị lịch sử của vị vua cuối cùng — bạn sẽ bước vào không gian linh thiêng của Điện Thái Hòa, Thế Miếu, Cửu Đỉnh. Mỗi cột gỗ lim trầm mặc, mỗi mảnh gốm sứ ghép trên mái nhà đều là những kiệt tác thủ công đỉnh cao, kể lại câu chuyện về quyền uy và tính duy mỹ tuyệt đối của các bậc đế vương.</p>
+
+      <div class="essay-grid">
+        <div class="ph tall duotone-a" style="background-image:url('https://images.unsplash.com/photo-1559592413-7ce4f0a0487f?q=80&w=900&auto=format&fit=crop');">
+          <div class="cap">Cổng Ngọ Môn uy nghi dưới bầu trời xứ Huế</div>
+        </div>
+        <div class="ph short duotone-b" style="background-image:url('https://images.unsplash.com/photo-1576487248805-fd009085ec3d?q=80&w=700&h=500&auto=format&fit=crop');">
+          <div class="cap">Sắc đỏ rực rỡ của những bó hương tại Làng hương Thủy Xuân</div>
+        </div>
+        <div class="ph short duotone-c" style="background-image:url('https://images.unsplash.com/photo-1621644061803-ec527230bcf7?q=80&w=700&h=500&auto=format&fit=crop');">
+          <div class="cap">Nét chạm trổ tinh xảo tại lăng tẩm các vị vua Nguyễn</div>
+        </div>
+      </div>
+
+      <blockquote class="pullquote">
+        Huế là bài thơ kiến trúc tuyệt tác. Nơi đây, thiên nhiên và nghệ thuật kiến trúc của con người đã hòa quyện với nhau để tạo nên một tổng thể vô cùng hài hòa.
+        <cite>— Nhận định của Tổng Giám đốc UNESCO, Amadou-Mahtar M'Bow</cite>
+      </blockquote>
+
+      <h2 class="section-h"><span class="num">02</span>Chất thơ bên dòng sông Hương</h2>
+      <p>Sẽ thật thiếu sót nếu nói về Huế mà quên đi sông Hương — dải lụa xanh mướt vắt ngang thành phố. Con sông không ồn ào cuộn chảy mà lững lờ trôi, mang theo tiếng chuông chùa Thiên Mụ văng vẳng mỗi sớm mai và điệu Nhã nhạc cung đình réo rắt trên những chiếc thuyền rồng vào đêm tối. Ngồi thuyền nghe ca Huế trên sông Hương không chỉ là thưởng thức nghệ thuật, mà là đắm mình vào phần hồn tinh túy nhất của mảnh đất này.</p>
+
+      <p>Dưới ánh hoàng hôn, cầu Tràng Tiền sáu vài mười hai nhịp bắt qua sông Hương như một tác phẩm điêu khắc bằng thép mềm mại. Những thiếu nữ trong chiếc áo dài tím thướt tha nghiêng che chiếc nón lá bài thơ, tạo nên một hình ảnh kinh điển đã đi vào thơ ca nhạc họa nhiều thế hệ.</p>
+
+      <div class="inline-cta">
+        <div class="txt">
+          <h3>Trải nghiệm mặc Việt phục dạo hoàng cung?</h3>
+          <p>Dịch vụ cho thuê cổ phục (Nhật Bình, Áo Tấc) và chụp ảnh tại Đại Nội đang là trải nghiệm không thể bỏ lỡ khi đến Huế.</p>
+        </div>
+        <a class="btn-gold" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=11" target="_blank" rel="noopener">
+          Xem tour Cố Đô Huế
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <h2 class="section-h"><span class="num">03</span>Ẩm thực thiền vị và cung đình</h2>
+      <p>Người Huế ăn uống bằng cả ngũ quan. Dù là mâm cơm cung đình vương giả với hàng chục món sơn hào hải vị được tỉa tót cầu kỳ hình chim phụng, hay chỉ là bát bún bò cay xè đậm vị mắm ruốc bên lăng Tự Đức, đĩa bánh bèo chén nhỏ xíu trong hẻm sâu, tất cả đều mang sự tỉ mỉ đến cực đoan. Ẩm thực Huế là đỉnh cao của sự giao thoa giữa tính sang trọng cung đình và vị dân dã tinh tế của chốn dân gian.</p>
+
+      <p>Bên cạnh đó, phong vị trà chiều hay nét ẩm thực chay thiền vị ở các ngôi chùa cổ xứ Huế cũng mang đến cho du khách những phút giây lắng đọng, giải tỏa mọi ưu phiền của cuộc sống hiện đại bận rộn.</p>
+
+      <h2 class="section-h"><span class="num">04</span>Di sản sống bên lòng cố đô</h2>
+      <p>Đến với Huế, du khách không chỉ chiêm ngưỡng những di tích đá ngói vô hồn mà còn được chạm vào thứ "di sản sống" mãnh liệt. Đó là nếp sống nhẹ nhàng, chu đáo của con người Huế, là các làng nghề truyền thống lâu đời như làng làm nón lá Tây Hồ, làng đúc đồng Phường Đúc, hay làng làm hương Thủy Xuân rực rỡ sắc màu.</p>
+
+      <p>Trải qua hàng thế kỷ, Huế vẫn giữ được nhịp sống thanh bình vốn có. Giữa không gian trầm mặc ấy, mỗi bước chân lữ khách đều cảm nhận được sự ấm áp, mến khách và vẻ đẹp thiêng liêng của một vùng đất di sản xứng tầm thế giới.</p>
+    </article>
+
+    <aside class="rail">
+      <div class="facts-card" id="cam-nang">
+        <h4>Cẩm nang nhanh</h4>
+        <div class="fact-row"><span class="k">Vị trí</span><span class="v">Thừa Thiên Huế, miền Trung</span></div>
+        <div class="fact-row"><span class="k">Danh hiệu</span><span class="v">Di sản UNESCO (1993)</span></div>
+        <div class="fact-row"><span class="k">Đặc trưng</span><span class="v">Hoàng cung, Lăng tẩm</span></div>
+        <div class="fact-row"><span class="k">Điểm nhấn</span><span class="v">Đại Nội, Sông Hương, Thiên Mụ</span></div>
+        <div class="fact-row"><span class="k">Mùa đẹp nhất</span><span class="v">Tháng 1 – Tháng 4</span></div>
+        <div class="fact-row"><span class="k">Cách Đà Nẵng</span><span class="v">~100 km (2 giờ)</span></div>
+        <div class="fact-row"><span class="k">Khuyên dùng</span><span class="v">Tour 2–3 ngày</span></div>
+      </div>
+
+      <a class="book-card" id="dat-tour" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=11" target="_blank" rel="noopener" aria-label="Đặt tour Cố Đô Huế">
+        <div class="bg"></div>
+        <span class="tag">UNESCO</span>
+        <div class="content">
+          <div class="loc">Miền Trung · Thừa Thiên Huế</div>
+          <h5>Cố Đô Huế</h5>
+          <div class="cta-line">Đặt tour ngay
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+        </div>
+      </a>
+      <p class="cta-note">Bấm vào ảnh để chuyển đến trang <a href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=11" target="_blank" rel="noopener">đặt tour Huế</a> trên Việt Nam — Hành Trình Huyền Diệu.</p>
+    </aside>
+
+  </div>
+</div>
+
+<a class="floating-cta" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=11" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" width="15" height="15"><path d="M19 21c0-4-3-7-7-7s-7 3-7 7M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+  Đặt tour Huế
+</a>
+
+<footer>
+  <div class="footer-inner">
+    <div class="fnp">TẠP CHÍ LỮ HÀNH</div>
+    <div class="footer-links">
+      <a href="#bai-viet">Bài viết</a>
+      <a href="#cam-nang">Cẩm nang nhanh</a>
+      <a href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=11" target="_blank" rel="noopener">Đặt tour</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Tạp Chí Lữ Hành. Bài viết mang tính chất giới thiệu điểm đến; vui lòng đặt tour qua đối tác chính thức.</div>
+</footer>
+
+</body>
+</html>
