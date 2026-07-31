@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Đảo Ngọc Phú Quốc — Chạm vào thiên đường nhiệt đới | Tạp chí Lữ Hành</title>
+<title>Hành Trình Đêm Trên Vịnh Di Sản — Du Thuyền Vịnh Hạ Long | Tạp chí Lữ Hành</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
@@ -12,15 +12,15 @@
     --ink-soft:#5C554C;
     --paper:#F4EFE4;
     --paper-2:#EBE3D0;
-    --karst:#0C2B45;      /* Deep ocean blue */
-    --karst-2:#154165;
+    --karst:#0B2B30;      /* Ocean bay deep teal */
+    --karst-2:#144249;
     --gold:#B98A32;       /* UNESCO plaque gold */
     --gold-soft:#E4C77E;
     --jade:#2F6B5E;
     --line:rgba(26,23,20,.14);
     --line-invert:rgba(244,239,228,.22);
-    --shadow-lg:0 30px 70px -24px rgba(12,43,69,.45);
-    --shadow-sm:0 10px 26px -12px rgba(12,43,69,.3);
+    --shadow-lg:0 30px 70px -24px rgba(11,43,48,.45);
+    --shadow-sm:0 10px 26px -12px rgba(11,43,48,.3);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -57,11 +57,10 @@
   .hero{position:relative;background:var(--karst);color:var(--paper);overflow:hidden;}
   .hero-img{
     position:relative;height:62vh;min-height:440px;
-    background-image:linear-gradient(180deg, rgba(12,43,69,.15) 0%, rgba(12,43,69,.45) 55%, rgba(5,20,35,.92) 100%),
-      url('https://images.unsplash.com/photo-1604107142478-f29e1eb10a9d?q=80&w=1800&auto=format&fit=crop');
+    background-image:linear-gradient(180deg, rgba(11,43,48,.15) 0%, rgba(11,43,48,.35) 55%, rgba(6,22,25,.92) 100%),
+      url('https://images.unsplash.com/photo-1697850084120-4896a446a04d?q=80&w=1800&auto=format&fit=crop');
     background-size:cover;background-position:center 62%;
   }
-  .hero-ridge{position:absolute;left:0;right:0;bottom:0;width:100%;opacity:.9;}
   .hero-content{
     position:absolute;left:0;right:0;bottom:0;max-width:900px;margin:0 auto;padding:0 24px 44px;text-align:center;
   }
@@ -72,7 +71,7 @@
   }
   .kicker{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.1em;color:#DCE6D8;text-transform:uppercase;}
   .hero h1{font-size:clamp(38px,6.6vw,74px);line-height:1.02;color:#fff;}
-  .hero .dek{font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(16px,2vw,20px);color:#E7E1D2;margin-top:16px;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.55;}
+  .hero .dek{font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(16px,2vw,20px);color:#E7E1D2;margin-top:16px;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.55;}
   .byline{
     font-family:'Inter',sans-serif;font-size:12.5px;color:#B9C9C2;margin-top:20px;display:flex;gap:14px;
     justify-content:center;flex-wrap:wrap;
@@ -111,9 +110,9 @@
     background:linear-gradient(0deg, rgba(0,0,0,.65), transparent);letter-spacing:.02em;
   }
 
-  .duotone-a{filter:sepia(.2) saturate(1.2) hue-rotate(170deg) brightness(.9);}
-  .duotone-b{filter:sepia(.1) saturate(1.3) hue-rotate(180deg) brightness(1.05);}
-  .duotone-c{filter:sepia(.25) saturate(1.4) hue-rotate(160deg) brightness(.85) contrast(1.1);}
+  .duotone-a{filter:sepia(.2) saturate(1.2) hue-rotate(150deg) brightness(.9);}
+  .duotone-b{filter:sepia(.1) saturate(1.1) hue-rotate(160deg) brightness(1.05);}
+  .duotone-c{filter:sepia(.25) saturate(1.3) hue-rotate(145deg) brightness(.85) contrast(1.05);}
 
   /* ================= SIDEBAR ================= */
   aside.rail{position:sticky;top:24px;display:flex;flex-direction:column;gap:22px;}
@@ -133,11 +132,11 @@
   }
   .book-card .bg{
     position:absolute;inset:0;background-size:cover;background-position:center 60%;
-    background-image:url('https://images.unsplash.com/photo-1550186981-d13c719e79b9?q=80&w=900&auto=format&fit=crop');
+    background-image:url('https://images.unsplash.com/photo-1697850084120-4896a446a04d?q=80&w=900&auto=format&fit=crop');
     transition:transform .5s ease;
   }
   .book-card:hover .bg{transform:scale(1.06);}
-  .book-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(12,43,69,.05) 30%, rgba(5,20,35,.9));}
+  .book-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(11,43,48,.05) 30%, rgba(6,22,25,.9));}
   .book-card .tag{
     position:absolute;top:12px;right:12px;z-index:2;background:var(--gold-soft);color:var(--karst);
     font-family:'Inter',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.1em;padding:4px 10px;border-radius:3px;
@@ -164,7 +163,7 @@
   .btn-gold{
     font-family:'Inter',sans-serif;font-weight:800;font-size:14px;color:#fff;background:var(--karst);
     padding:13px 24px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
-    box-shadow:0 12px 26px -10px rgba(12,43,69,.55);border:1px solid var(--karst);
+    box-shadow:0 12px 26px -10px rgba(11,43,48,.55);border:1px solid var(--karst);
   }
   .btn-gold:hover{background:var(--karst-2);}
   .btn-gold svg{width:15px;height:15px;}
@@ -198,7 +197,7 @@
 <header class="masthead">
   <div class="masthead-top">
     <span>Thứ Sáu, 31 Tháng 7, 2026</span>
-    <span>Chuyên mục: Biển Đảo &amp; Nghỉ Dưỡng</span>
+    <span>Chuyên mục: Trải Nghiệm &amp; Du Thuyền</span>
   </div>
   <div class="masthead-main">
     <div class="nameplate" onclick="window.location.href='trang_chu.html'" style="cursor:pointer;">TẠP CHÍ LỮ HÀNH</div>
@@ -208,7 +207,7 @@
       <a href="#bai-viet">Bài viết</a>
       <a href="#cam-nang">Cẩm nang nhanh</a>
       <a href="#dat-tour">Đặt tour</a>
-      <a class="tour-link" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=12" target="_blank" rel="noopener">Đặt tour Phú Quốc →</a>
+      <a class="tour-link" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=8" target="_blank" rel="noopener">Đặt tour Du Thuyền Hạ Long →</a>
     </nav>
   </div>
 </header>
@@ -217,15 +216,15 @@
   <div class="hero-img">
     <div class="hero-content">
       <div class="kicker-row">
-        <span class="badge-unesco">Thiên đường biển</span>
-        <span class="kicker">Miền Nam · Kiên Giang</span>
+        <span class="badge-unesco">Trải Nghiệm Thượng Hạng</span>
+        <span class="kicker">Miền Bắc · Vịnh Hạ Long &amp; Lan Hạ</span>
       </div>
-      <h1>Đảo Ngọc Phú Quốc</h1>
-      <p class="dek">Nơi những bãi cát trắng mịn màng ôm trọn làn nước xanh màu ngọc bích, và khoảnh khắc hoàng hôn buông xuống làm say lòng bất kỳ người lữ khách nào.</p>
+      <h1>Du Thuyền Vịnh Di Sản</h1>
+      <p class="dek">Thả mình trên boong tàu gỗ sang trọng, đón từng tia nắng bình minh len lỏi qua ngàn hòn đảo đá vôi và trải nghiệm giấc ngủ êm đềm giữa lòng kỳ quan thế giới.</p>
       <div class="byline">
         <span>Bởi <b>Ban Biên Tập Lữ Hành</b></span>
         <span>·</span>
-        <span>8 phút đọc</span>
+        <span>7 phút đọc</span>
         <span>·</span>
         <span>Cập nhật 31/07/2026</span>
       </div>
@@ -237,83 +236,84 @@
   <div class="article-grid">
 
     <article id="bai-viet">
-      <p class="lede">Có một đặc quyền mà thiên nhiên đã hào phóng ban tặng cho Phú Quốc: ngắm mặt trời lặn sầm sập xuống mặt biển bao la. Ở hòn đảo lớn nhất Việt Nam này, hoàng hôn không chỉ là sự kết thúc của một ngày, mà là một màn trình diễn ánh sáng ngoạn mục lặp lại mỗi buổi chiều, nhuộm đỏ cả một vùng vịnh Thái Lan tĩnh lặng.</p>
+      <p class="lede">Giữa đại dương xanh ngọc bích của Vịnh Hạ Long và Vịnh Lan Hạ, những chiếc du thuyền sang trọng lặng lẽ rẽ sóng, mang đến cho du khách một góc nhìn hoàn toàn mới về kỳ quan thiên nhiên thế giới. Không chỉ là chuyến thưởng ngoạn cảnh sắc, hành trình du thuyền đêm còn là sự hòa quyện giữa sự thư thái tuyệt đối và ẩm thực đẳng cấp thượng thừa.</p>
 
-      <p>Nằm ngoài khơi tỉnh Kiên Giang, Phú Quốc vươn mình từ một đảo chài yên bình trở thành thiên đường nghỉ dưỡng đẳng cấp quốc tế. Tuy nhiên, đằng sau những khu nghỉ dưỡng xa hoa, Đảo Ngọc vẫn giữ trọn một tâm hồn nguyên sơ với những cánh rừng quốc gia rậm rạp, hệ sinh thái san hô rực rỡ và những nhà thùng nước mắm nhĩ thơm nức tiếng truyền đời qua bao thế hệ.</p>
+      <p>Mỗi sớm mai thức dậy trên boong tàu, bạn sẽ được chìm đắm trong khung cảnh sương mờ huyền ảo giăng trên các đỉnh núi đá vôi ngàn năm tuổi. Tiếng sóng vỗ nhẹ vào thân tàu, làn gió biển trong lành cùng bài tập Thái Cực Quyền (Tai Chi) dưới ánh bình minh tạo nên một khoảnh khắc an yên đến lạ kỳ.</p>
 
-      <h2 class="section-h"><span class="num">01</span>Những bãi biển gọi tên mùa hè</h2>
-      <p>Từ Bãi Sao với dải cát trắng tinh khôi uốn lượn như một vầng trăng khuyết, đến Bãi Dài hoang sơ ôm trọn bãi biển phía Tây Bắc đảo. Mỗi bãi biển ở Phú Quốc mang một cá tính riêng biệt. Nếu Bãi Khem thu hút bởi sự biệt lập và nét thanh bình êm ả, thì Bãi Trường lại là tâm điểm của sự sôi động, nơi tọa lạc của hàng loạt quán bar bãi biển rực rỡ và là tọa độ ngắm hoàng hôn rực lửa đẹp nhất Việt Nam.</p>
+      <h2 class="section-h"><span class="num">01</span>Chèo thuyền Kayak &amp; Khám phá hang động bí ẩn</h2>
+      <p>Một trong những hoạt động không thể bỏ lỡ khi đi du thuyền trên vịnh là tự tay chèo thuyền Kayak len lỏi qua các hang động xuyên thủy như Hang Sang - Hang Tối, hay Hang Luồn. Ngồi trên chiếc thuyền nhỏ, ở khoảng cách gần gũi nhất với làn nước trong vắt đến mức nhìn thấy cả những đàn cá tung tăng bơi lội, du khách mới cảm nhận hết được sự kỳ vĩ và tỉ mỉ của tạo hóa.</p>
 
       <div class="essay-grid">
-        <div class="ph tall duotone-a" style="background-image:url('https://images.unsplash.com/photo-1550186981-d13c719e79b9?q=80&w=900&auto=format&fit=crop');">
-          <div class="cap">Cáp treo Hòn Thơm vượt biển dài nhất thế giới</div>
+        <div class="ph tall duotone-a" style="background-image:url('https://images.unsplash.com/photo-1559627717-bdb2d005a87e?q=80&w=900&auto=format&fit=crop');">
+          <div class="cap">Thuyền Kayak lướt nhẹ trên làn nước xanh ngọc vịnh Lan Hạ</div>
         </div>
-        <div class="ph short duotone-b" style="background-image:url('https://images.unsplash.com/photo-1583416750470-965b2707b355?q=80&w=700&h=500&auto=format&fit=crop');">
-          <div class="cap">Làng chài Rạch Vẹm - vương quốc sao biển đỏ</div>
+        <div class="ph short duotone-b" style="background-image:url('https://images.unsplash.com/photo-1697850084120-4896a446a04d?q=80&w=700&h=500&auto=format&fit=crop');">
+          <div class="cap">Du thuyền gỗ truyền thống neo đậu trong lòng vịnh</div>
         </div>
-        <div class="ph short duotone-c" style="background-image:url('https://images.unsplash.com/photo-1510444648756-11f8e1327179?q=80&w=700&h=500&auto=format&fit=crop');">
-          <div class="cap">Hoàng hôn rực lửa trên mặt biển Bãi Trường</div>
+        <div class="ph short duotone-c" style="background-image:url('https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=700&h=500&auto=format&fit=crop');">
+          <div class="cap">Khung cảnh hoàng hôn dát vàng trên đại dương</div>
         </div>
       </div>
 
       <blockquote class="pullquote">
-        Cát ở Bãi Sao mịn đến mức khi dẫm lên không có tiếng lạo xạo, mà êm ái như người ta đang bước chân trần trên thảm lụa dịu mát.
-        <cite>— Sổ tay Lữ hành biển đảo</cite>
+        Không có cách nào tuyệt vời hơn để thưởng ngoạn vẻ đẹp của Vịnh Hạ Long bằng việc lưu trú một đêm trên du thuyền — nơi đại dương xanh ngắt trở thành phòng ngủ riêng của bạn.
+        <cite>— Tạp chí Du Lịch Quốc Tế Condé Nast Traveler</cite>
       </blockquote>
 
-      <h2 class="section-h"><span class="num">02</span>Hành trình dưới đáy đại dương</h2>
-      <p>Khu vực quần đảo An Thới ở phía Nam là tọa độ tuyệt vời nhất để lặn ngắm san hô. Với hệ sinh thái biển phong phú bậc nhất Việt Nam, du khách chỉ cần trang bị một chiếc kính lặn và ống thở là đã có thể đắm mình vào một thế giới rực rỡ sắc màu dưới lòng đại dương. Trải nghiệm đi bộ dưới đáy biển (seawalker) mang lại cảm giác ngắm nhìn những rạn san hô nấm, san hô sừng và từng đàn cá nhiệt đới bơi lội ngay trước mắt.</p>
+      <h2 class="section-h"><span class="num">02</span>Ẩm thực hải sản &amp; Hoàng hôn dát vàng trên boong</h2>
+      <p>Khi ánh hoàng hôn buông xuống, không gian quanh vịnh chuyển dần sang sắc cam hồng lãng mạn. Đây là thời điểm tuyệt vời nhất để tham dự bữa tiệc Sunset Party trên Sundeck, thưởng thức những ly cocktail nồng nàn và giao lưu cùng bạn bè quốc tế.</p>
+
+      <p>Bữa tối trên du thuyền là một hành trình ẩm thực tinh tế, kết hợp hoàn hảo giữa nguồn hải sản tươi sống đặc trưng của vùng biển Quảng Ninh (tôm hùm, cua bể, mực nhảy) và phong cách chế biến Fine Dining hiện đại từ các đầu bếp 5 sao.</p>
 
       <div class="inline-cta">
         <div class="txt">
-          <h3>Sẵn sàng trải nghiệm tour đảo Phú Quốc?</h3>
-          <p>Tour cano 4 đảo kết hợp lặn ngắm san hô và quay flycam sống ảo đang là lựa chọn hàng đầu của du khách khi đến đảo ngọc.</p>
+          <h3>Muốn trải nghiệm du thuyền 5 sao trên Vịnh?</h3>
+          <p>Đặt ngay hải trình 2 ngày 1 đêm với ưu đãi độc quyền bao gồm phòng Suite cao cấp, trọn gói ăn uống và hoạt động Kayak.</p>
         </div>
-        <a class="btn-gold" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=12" target="_blank" rel="noopener">
-          Xem tour Phú Quốc
+        <a class="btn-gold" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=8" target="_blank" rel="noopener">
+          Đặt Du Thuyền Hạ Long
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
 
-      <h2 class="section-h"><span class="num">03</span>Khi nào nên đến Phú Quốc</h2>
-      <p>Thời điểm vàng để ghé thăm Phú Quốc là vào mùa khô, kéo dài từ tháng 11 đến tháng 4 năm sau. Đây là lúc vịnh Thái Lan êm ả nhất, sóng nhẹ, biển trong vút và nắng ấm dịu dàng — điều kiện lý tưởng cho các hoạt động tắm biển, chèo thuyền kayak và lặn biển ngắm san hô. Từ tháng 5 đến tháng 10 là mùa mưa, tuy nhiên khoảng thời gian này Phú Quốc lại mang vẻ đẹp tươi mới của những con suối nguồn mát lạnh như suối Tranh, suối Đá Bàn và không gian nghỉ dưỡng tĩnh lặng tại các resort cao cấp.</p>
+      <h2 class="section-h"><span class="num">03</span>Câu mực đêm &amp; Giấc ngủ giữa lòng di sản</h2>
+      <p>Về đêm, không gian vịnh trở nên vô cùng tĩnh mịch và thanh bình. Du khách có thể thử vận may với hoạt động câu mực đêm ngay trên mạn tàu dưới sự hướng dẫn của các thủy thủ đoàn kinh nghiệm. Sự háo hức khi tự tay câu được những chú mực tươi rói chắc chắn sẽ là kỷ niệm khó quên.</p>
 
-      <h2 class="section-h"><span class="num">04</span>Đặc sản truyền thống và nếp sống đảo ngọc</h2>
-      <p>Sẽ thật thiếu sót nếu rời Phú Quốc mà chưa nếm thử vị đậm đà thơm phức của mắm nhĩ cá cơm truyền thống tại các nhà thùng lâu đời, hay nhâm nhi vị cay nồng của hồ tiêu chín đỏ trồng trên đất đảo. Đêm về, ghé thăm Chợ đêm Phú Quốc để thưởng thức tô bún quậy Kiến Xây nóng hổi, nhum biển nướng mỡ hành thơm lừng và ngắm nhìn ánh đèn từ hàng nghìn chiếc tàu câu mực nhấp nhô xa bờ như một thành phố nổi trên mặt biển.</p>
+      <p>Khép lại một ngày trải nghiệm phong phú là giấc ngủ ngon lành trong những căn phòng cabin thiết kế ốp gỗ ấm cúng, trang bị ban công riêng hướng trọn ra biển đêm mênh mông.</p>
     </article>
 
     <aside class="rail">
       <div class="facts-card" id="cam-nang">
         <h4>Cẩm nang nhanh</h4>
-        <div class="fact-row"><span class="k">Vị trí</span><span class="v">Kiên Giang, miền Nam</span></div>
-        <div class="fact-row"><span class="k">Biệt danh</span><span class="v">Đảo Ngọc</span></div>
-        <div class="fact-row"><span class="k">Diện tích</span><span class="v">~589 km²</span></div>
-        <div class="fact-row"><span class="k">Đặc sản</span><span class="v">Hồ tiêu, nước mắm, ngọc trai</span></div>
-        <div class="fact-row"><span class="k">Mùa đẹp nhất</span><span class="v">Tháng 11 – Tháng 4</span></div>
-        <div class="fact-row"><span class="k">Cách TP.HCM</span><span class="v">~50 phút bay</span></div>
-        <div class="fact-row"><span class="k">Khuyên dùng</span><span class="v">Tour 3–4 ngày</span></div>
+        <div class="fact-row"><span class="k">Địa điểm</span><span class="v">Vịnh Hạ Long &amp; Lan Hạ</span></div>
+        <div class="fact-row"><span class="k">Loại hình</span><span class="v">Du thuyền 4 – 5 sao</span></div>
+        <div class="fact-row"><span class="k">Thời gian</span><span class="v">2 ngày 1 đêm / 3 ngày 2 đêm</span></div>
+        <div class="fact-row"><span class="k">Hoạt động</span><span class="v">Kayak, Động, Tai Chi, Câu mực</span></div>
+        <div class="fact-row"><span class="k">Mùa đẹp nhất</span><span class="v">Tháng 3 – Tháng 11</span></div>
+        <div class="fact-row"><span class="k">Đưa đón</span><span class="v">Xe Limousine từ Hà Nội</span></div>
+        <div class="fact-row"><span class="k">Khuyên dùng</span><span class="v">Đặt trước 2–3 tuần</span></div>
       </div>
 
-      <a class="book-card" id="dat-tour" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=12" target="_blank" rel="noopener" aria-label="Đặt tour Đảo Ngọc Phú Quốc">
+      <a class="book-card" id="dat-tour" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=8" target="_blank" rel="noopener" aria-label="Đặt tour Du Thuyền Vịnh">
         <div class="bg"></div>
-        <span class="tag">HOT</span>
+        <span class="tag">LUXURY</span>
         <div class="content">
-          <div class="loc">Miền Nam · Kiên Giang</div>
-          <h5>Đảo Ngọc Phú Quốc</h5>
+          <div class="loc">Vịnh Hạ Long · Quảng Ninh</div>
+          <h5>Du Thuyền Vịnh</h5>
           <div class="cta-line">Đặt tour ngay
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </div>
         </div>
       </a>
-      <p class="cta-note">Bấm vào ảnh để chuyển đến trang <a href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=12" target="_blank" rel="noopener">đặt tour Phú Quốc</a> trên Việt Nam — Hành Trình Huyền Diệu.</p>
+      <p class="cta-note">Bấm vào ảnh để chuyển đến trang <a href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=8" target="_blank" rel="noopener">đặt tour du thuyền Hạ Long</a> chính thức.</p>
     </aside>
 
   </div>
 </div>
 
-<a class="floating-cta" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=12" target="_blank" rel="noopener">
+<a class="floating-cta" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=8" target="_blank" rel="noopener">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" width="15" height="15"><path d="M19 21c0-4-3-7-7-7s-7 3-7 7M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
-  Đặt tour Phú Quốc
+  Đặt tour Du Thuyền
 </a>
 
 <footer>
@@ -323,7 +323,7 @@
       <a href="trang_chu.html">Trang chủ</a>
       <a href="#bai-viet">Bài viết</a>
       <a href="#cam-nang">Cẩm nang nhanh</a>
-      <a href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=12" target="_blank" rel="noopener">Đặt tour</a>
+      <a href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=8" target="_blank" rel="noopener">Đặt tour</a>
     </div>
   </div>
   <div class="footer-bottom">© 2026 Tạp Chí Lữ Hành. Bài viết mang tính chất giới thiệu điểm đến; vui lòng đặt tour qua đối tác chính thức.</div>
