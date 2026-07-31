@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chả Cá Lã Vọng — Ẩm Thực Việt Nam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: var(--warm-white, #FAF7F0);
+      color: var(--text-dark, #1A1A1A);
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .food-hero {
+      position: relative;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('https://images.unsplash.com/photo-1596799014197-0f8db7bc62d3?q=80&w=2071&auto=format&fit=crop') no-repeat center center/cover;
+    }
+
+    .food-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+    }
+
+    .food-hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      color: #fff;
+    }
+
+    .food-hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      margin-bottom: 10px;
+    }
+
+    .food-detail {
+      padding: 80px 5%;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .food-detail h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--deep-green, #1A3A2A);
+      margin-bottom: 30px;
+    }
+
+    .food-detail p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-muted, #5A5A5A);
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 30px;
+      border: 1px solid var(--deep-green, #1A3A2A);
+      color: var(--deep-green, #1A3A2A);
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s;
+    }
+
+    .back-btn:hover {
+      background: var(--deep-green, #1A3A2A);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-logo" onclick="window.location.href='trang_chu.html'" style="cursor:pointer;">Việt Nam</div>
+    <ul class="nav-links">
+      <li><a href="trang_chu.html#destinations">Điểm Đến</a></li>
+      <li><a href="trang_chu.html#experiences">Trải Nghiệm</a></li>
+      <li><a href="trang_chu.html#cuisine">Ẩm Thực</a></li>
+      <li><a href="trang_chu.html#seasons">Mùa Du Lịch</a></li>
+      <li><a href="dat_tour.html" style="color:var(--gold);">Đặt Tour</a></li>
+    </ul>
+  </nav>
+
+  <section class="food-hero">
+    <div class="food-hero-overlay"></div>
+    <div class="food-hero-content">
+      <h1>Chả Cá Lã Vọng</h1>
+      <p style="font-size: 1.2rem; letter-spacing: 2px;">Tinh túy ẩm thực Hà Thành</p>
+    </div>
+  </section>
+
+  <section class="food-detail">
+    <h2>Nghệ thuật ẩm thực cầu kỳ</h2>
+    <p>Chả cá Lã Vọng là món ăn tinh túy và sang trọng của ẩm thực Hà Nội, được đánh giá là một trong những món ăn nhất định phải thử một lần trong đời. Món ăn này đòi hỏi sự chế biến tỉ mỉ và cầu kỳ, sử dụng loại cá lăng hoặc cá quả tươi ngon, ít xương và chắc thịt.</p>
+    <p>Cá được tẩm ướp đậm đà với riềng, mẻ, nghệ sáp rồi nướng trên than hoa cho thơm vàng, sau đó mới đem chiên trong chảo mỡ ngay tại bàn ăn cùng thật nhiều hành hoa và thì là. Mùi thơm nức mũi của chả cá chiên ăn kèm với bún rối, đậu phộng rang và mắm tôm đánh sủi bọt pha chanh ớt tạo nên một hương vị mê đắm lòng người.</p>
+    <a href="trang_chu.html#cuisine" class="back-btn"><i class="ri-arrow-left-line"></i> Trở về Ẩm thực</a>
+  </section>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

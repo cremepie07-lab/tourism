@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bánh Mì Hội An — Ẩm Thực Việt Nam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: var(--warm-white, #FAF7F0);
+      color: var(--text-dark, #1A1A1A);
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .food-hero {
+      position: relative;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('https://images.unsplash.com/photo-1627308595229-7830f5c9c66e?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
+    }
+
+    .food-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+    }
+
+    .food-hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      color: #fff;
+    }
+
+    .food-hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      margin-bottom: 10px;
+    }
+
+    .food-detail {
+      padding: 80px 5%;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .food-detail h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--deep-green, #1A3A2A);
+      margin-bottom: 30px;
+    }
+
+    .food-detail p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-muted, #5A5A5A);
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 30px;
+      border: 1px solid var(--deep-green, #1A3A2A);
+      color: var(--deep-green, #1A3A2A);
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s;
+    }
+
+    .back-btn:hover {
+      background: var(--deep-green, #1A3A2A);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-logo" onclick="window.location.href='trang_chu.html'" style="cursor:pointer;">Việt Nam</div>
+    <ul class="nav-links">
+      <li><a href="trang_chu.html#destinations">Điểm Đến</a></li>
+      <li><a href="trang_chu.html#experiences">Trải Nghiệm</a></li>
+      <li><a href="trang_chu.html#cuisine">Ẩm Thực</a></li>
+      <li><a href="trang_chu.html#seasons">Mùa Du Lịch</a></li>
+      <li><a href="dat_tour.html" style="color:var(--gold);">Đặt Tour</a></li>
+    </ul>
+  </nav>
+
+  <section class="food-hero">
+    <div class="food-hero-overlay"></div>
+    <div class="food-hero-content">
+      <h1>Bánh Mì Hội An</h1>
+      <p style="font-size: 1.2rem; letter-spacing: 2px;">Món ăn đường phố vươn tầm thế giới</p>
+    </div>
+  </section>
+
+  <section class="food-detail">
+    <h2>Sự giao thoa ẩm thực hoàn hảo</h2>
+    <p>Bánh mì Hội An được mệnh danh là một trong những loại bánh mì ngon nhất thế giới. Điều làm nên sự khác biệt nằm ở chiếc bánh mì nhỏ hơn bánh mì Sài Gòn nhưng vỏ mỏng, giòn rụm và đặc ruột hơn.</p>
+    <p>Bên trong lớp vỏ giòn ấy là sự kết hợp phong phú của vô vàn loại nhân: thịt xíu mềm ngọt, chả lụa, pate gan béo ngậy, bơ tươi, thêm chút dưa leo, đu đủ chua ngọt và rau thơm các loại. Bí quyết cuối cùng chính là loại nước sốt gia truyền đặc biệt, liên kết tất cả các nguyên liệu lại với nhau tạo nên một bản giao hưởng hương vị tuyệt hảo.</p>
+    <a href="trang_chu.html#cuisine" class="back-btn"><i class="ri-arrow-left-line"></i> Trở về Ẩm thực</a>
+  </section>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
