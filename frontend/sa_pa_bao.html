@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sapa — Tuyệt tác của sương, mây và đại ngàn | Tạp chí Lữ Hành</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1714;
+    --ink-soft:#5C554C;
+    --paper:#F4EFE4;
+    --paper-2:#EBE3D0;
+    --karst:#17281A;      /* Deep forest/mountain green */
+    --karst-2:#243B28;
+    --gold:#B98A32;       /* UNESCO plaque gold */
+    --gold-soft:#E4C77E;
+    --jade:#2F6B5E;
+    --line:rgba(26,23,20,.14);
+    --line-invert:rgba(244,239,228,.22);
+    --shadow-lg:0 30px 70px -24px rgba(23,40,26,.45);
+    --shadow-sm:0 10px 26px -12px rgba(23,40,26,.3);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Newsreader',serif;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,.display{font-family:'Newsreader',serif;font-weight:600;letter-spacing:-.01em;margin:0;}
+  .sans{font-family:'Inter',sans-serif;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;}
+  ::selection{background:var(--gold-soft);color:var(--karst);}
+
+  /* ================= MASTHEAD ================= */
+  .masthead{background:var(--karst);color:var(--paper);}
+  .masthead-top{
+    max-width:1160px;margin:0 auto;padding:10px 24px;display:flex;justify-content:space-between;
+    font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--gold-soft);
+    border-bottom:1px solid var(--line-invert);
+  }
+  .masthead-main{max-width:1160px;margin:0 auto;padding:22px 24px 18px;text-align:center;}
+  .masthead-main .nameplate{
+    font-family:'Newsreader',serif;font-weight:600;font-size:clamp(30px,4.4vw,46px);letter-spacing:.01em;
+  }
+  .masthead-main .tagline{font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);margin-top:6px;}
+  .masthead-nav{
+    border-top:1px solid var(--line-invert);margin-top:16px;padding-top:12px;
+    display:flex;justify-content:center;gap:28px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+  }
+  .masthead-nav a{opacity:.8;padding-bottom:3px;border-bottom:2px solid transparent;}
+  .masthead-nav a:hover{opacity:1;border-color:var(--gold);}
+  .masthead-nav a.tour-link{color:var(--gold-soft);opacity:1;}
+
+  /* ================= HERO ================= */
+  .hero{position:relative;background:var(--karst);color:var(--paper);overflow:hidden;}
+  .hero-img{
+    position:relative;height:62vh;min-height:440px;
+    background-image:linear-gradient(180deg, rgba(23,40,26,.15) 0%, rgba(23,40,26,.45) 55%, rgba(10,20,12,.92) 100%),
+      url('https://images.unsplash.com/photo-1596522330777-69b0fa6bb931?q=80&w=1800&auto=format&fit=crop');
+    background-size:cover;background-position:center 62%;
+  }
+  .hero-ridge{position:absolute;left:0;right:0;bottom:0;width:100%;opacity:.9;}
+  .hero-content{
+    position:absolute;left:0;right:0;bottom:0;max-width:900px;margin:0 auto;padding:0 24px 44px;text-align:center;
+  }
+  .kicker-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;}
+  .badge-unesco{
+    font-family:'Inter',sans-serif;font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--karst);
+    background:var(--gold-soft);padding:5px 12px;border-radius:3px;
+  }
+  .kicker{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.1em;color:#DCE6D8;text-transform:uppercase;}
+  .hero h1{font-size:clamp(38px,6.6vw,74px);line-height:1.02;color:#fff;}
+  .hero .dek{font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(16px,2vw,20px);color:#E7E1D2;margin-top:16px;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.55;}
+  .byline{
+    font-family:'Inter',sans-serif;font-size:12.5px;color:#B9C9C2;margin-top:20px;display:flex;gap:14px;
+    justify-content:center;flex-wrap:wrap;
+  }
+  .byline b{color:#fff;}
+
+  /* ================= LAYOUT ================= */
+  .article-wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  .article-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;margin-top:52px;align-items:start;}
+  @media(max-width:960px){.article-grid{grid-template-columns:1fr;}}
+
+  article{max-width:680px;}
+  .lede{font-size:21px;line-height:1.6;color:var(--ink);margin-bottom:8px;}
+  .lede::first-letter{
+    font-family:'Newsreader',serif;font-weight:600;font-size:74px;line-height:.78;float:left;padding:8px 10px 0 0;color:var(--karst);
+  }
+  article p{font-size:18px;line-height:1.75;color:#2A2620;margin:22px 0;}
+  article h2.section-h{
+    font-size:28px;margin-top:52px;margin-bottom:6px;color:var(--karst);
+    padding-top:20px;border-top:1px solid var(--line);
+  }
+  article h2.section-h .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gold);display:block;font-weight:600;letter-spacing:.05em;margin-bottom:8px;}
+
+  blockquote.pullquote{
+    margin:40px 0;padding:6px 0 6px 26px;border-left:3px solid var(--gold);
+    font-family:'Newsreader',serif;font-style:italic;font-size:25px;line-height:1.5;color:var(--karst);
+  }
+  blockquote.pullquote cite{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-top:10px;letter-spacing:.02em;}
+
+  .essay-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:10px;margin:36px 0;}
+  .essay-grid .ph{border-radius:4px;overflow:hidden;position:relative;background-size:cover;background-position:center;box-shadow:var(--shadow-sm);}
+  .essay-grid .ph.tall{grid-row:span 2;min-height:340px;}
+  .essay-grid .ph.short{min-height:165px;}
+  .essay-grid .ph .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:10px 12px;font-family:'Inter',sans-serif;font-size:11px;color:#fff;
+    background:linear-gradient(0deg, rgba(0,0,0,.65), transparent);letter-spacing:.02em;
+  }
+
+  .duotone-a{filter:sepia(.25) saturate(1.2) hue-rotate(80deg) brightness(.9);}
+  .duotone-b{filter:sepia(.15) saturate(1.1) hue-rotate(90deg) brightness(1.05);}
+  .duotone-c{filter:sepia(.3) saturate(1.3) hue-rotate(70deg) brightness(.85) contrast(1.1);}
+
+  /* ================= SIDEBAR ================= */
+  aside.rail{position:sticky;top:24px;display:flex;flex-direction:column;gap:22px;}
+  .facts-card{
+    background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px 22px 20px;box-shadow:var(--shadow-sm);
+  }
+  .facts-card h4{font-family:'Inter',sans-serif;font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .fact-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-family:'Inter',sans-serif;font-size:13.5px;}
+  .fact-row:first-of-type{border-top:none;}
+  .fact-row .k{color:var(--ink-soft);}
+  .fact-row .v{font-weight:700;text-align:right;}
+
+  /* ---- Destination booking card ---- */
+  .book-card{
+    border-radius:12px;overflow:hidden;position:relative;height:230px;display:block;
+    box-shadow:var(--shadow-lg);
+  }
+  .book-card .bg{
+    position:absolute;inset:0;background-size:cover;background-position:center 60%;
+    background-image:url('https://images.unsplash.com/photo-1505832018823-50331d70d237?q=80&w=900&auto=format&fit=crop');
+    transition:transform .5s ease;
+  }
+  .book-card:hover .bg{transform:scale(1.06);}
+  .book-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(23,40,26,.05) 30%, rgba(10,20,12,.9));}
+  .book-card .tag{
+    position:absolute;top:12px;right:12px;z-index:2;background:var(--gold-soft);color:var(--karst);
+    font-family:'Inter',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.1em;padding:4px 10px;border-radius:3px;
+  }
+  .book-card .content{position:absolute;left:16px;right:16px;bottom:16px;z-index:2;color:#fff;}
+  .book-card .loc{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;color:var(--gold-soft);text-transform:uppercase;}
+  .book-card h5{font-size:23px;margin-top:4px;color:#fff;}
+  .book-card .cta-line{
+    font-family:'Inter',sans-serif;font-size:12px;font-weight:700;margin-top:8px;display:flex;align-items:center;gap:6px;color:#fff;
+  }
+  .book-card .cta-line svg{width:14px;height:14px;transition:transform .2s;}
+  .book-card:hover .cta-line svg{transform:translateX(4px);}
+
+  .cta-note{font-family:'Inter',sans-serif;font-size:11.5px;color:var(--ink-soft);text-align:center;line-height:1.6;}
+  .cta-note a{color:var(--jade);font-weight:700;border-bottom:1px solid var(--jade);}
+
+  /* ---- Inline CTA band inside article ---- */
+  .inline-cta{
+    margin:44px 0;border:1px solid var(--line);border-radius:12px;padding:26px 28px;background:#fff;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:var(--shadow-sm);
+  }
+  .inline-cta .txt h3{font-size:20px;color:var(--karst);}
+  .inline-cta .txt p{font-family:'Inter',sans-serif;font-size:13.5px;color:var(--ink-soft);margin:6px 0 0;max-width:400px;}
+  .btn-gold{
+    font-family:'Inter',sans-serif;font-weight:800;font-size:14px;color:#fff;background:var(--karst);
+    padding:13px 24px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+    box-shadow:0 12px 26px -10px rgba(23,40,26,.55);border:1px solid var(--karst);
+  }
+  .btn-gold:hover{background:var(--karst-2);}
+  .btn-gold svg{width:15px;height:15px;}
+
+  /* ---- Floating booking button ---- */
+  .floating-cta{
+    position:fixed;right:22px;bottom:22px;z-index:120;font-family:'Inter',sans-serif;font-weight:800;font-size:13.5px;
+    background:var(--gold);color:var(--karst);padding:14px 20px;border-radius:999px;box-shadow:var(--shadow-lg);
+    display:flex;align-items:center;gap:8px;
+  }
+  .floating-cta:hover{background:var(--gold-soft);}
+  @media(max-width:640px){.floating-cta{left:16px;right:16px;justify-content:center;}}
+
+  /* ================= FOOTER ================= */
+  footer{background:var(--karst);color:#B9C9C2;margin-top:64px;}
+  .footer-inner{max-width:1160px;margin:0 auto;padding:44px 24px 26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:12.5px;}
+  .footer-inner .fnp{font-family:'Newsreader',serif;font-size:19px;color:#fff;}
+  .footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+  .footer-bottom{border-top:1px solid var(--line-invert);padding:16px 24px;text-align:center;font-family:'Inter',sans-serif;font-size:11.5px;color:#8FA39C;}
+
+  @media(max-width:640px){
+    .masthead-nav{gap:16px;flex-wrap:wrap;}
+    article p, .lede{font-size:16.5px;}
+    .essay-grid{grid-template-columns:1fr;}
+    .essay-grid .ph.tall{min-height:220px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <span>Thứ Sáu, 31 Tháng 7, 2026</span>
+    <span>Chuyên mục: Núi Rừng &amp; Trekking</span>
+  </div>
+  <div class="masthead-main">
+    <div class="nameplate">TẠP CHÍ LỮ HÀNH</div>
+    <div class="tagline">Phóng sự du lịch Việt Nam</div>
+    <nav class="masthead-nav">
+      <a href="#bai-viet">Bài viết</a>
+      <a href="#cam-nang">Cẩm nang nhanh</a>
+      <a href="#dat-tour">Đặt tour</a>
+      <a class="tour-link" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=10" target="_blank" rel="noopener">Đặt tour Sapa →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-img">
+    <div class="hero-content">
+      <div class="kicker-row">
+        <span class="badge-unesco">Nóc nhà Đông Dương</span>
+        <span class="kicker">Miền Bắc · Lào Cai</span>
+      </div>
+      <h1>Thị trấn sương mù Sapa</h1>
+      <p class="dek">Lơ lửng ở độ cao 1.600m, Sapa quyến rũ lữ khách bằng những thửa ruộng bậc thang kỳ vĩ uốn lượn sát tầng mây và bản sắc văn hóa vùng cao đậm đà.</p>
+      <div class="byline">
+        <span>Bởi <b>Ban Biên Tập Lữ Hành</b></span>
+        <span>·</span>
+        <span>8 phút đọc</span>
+        <span>·</span>
+        <span>Cập nhật 31/07/2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-grid">
+
+    <article id="bai-viet">
+      <p class="lede">Gió rít qua những triền đồi, kéo theo từng đợt sương mù lạnh buốt phủ kín nhà thờ đá cổ. Chỉ vài phút sau, mây tan, để lộ ra những thung lũng sâu thẳm và dải lụa ruộng bậc thang lấp lánh dưới nắng vàng. Đó là "đặc sản" thời tiết đỏng đảnh của Sapa — nơi người ta có thể trải qua trọn vẹn bốn mùa xuân, hạ, thu, đông chỉ trong một ngày ngắn ngủi.</p>
+
+      <p>Nằm nép mình bên dãy Hoàng Liên Sơn hùng vĩ, Sapa từ lâu đã thoát khỏi cái mác của một "trạm nghỉ dưỡng" thời Pháp thuộc để trở thành điểm đến biểu tượng của du lịch Tây Bắc. Không chỉ có phong cảnh thiên nhiên thiên tạo kỳ vĩ, chính nụ cười của những người phụ nữ H'Mông, người Dao Đỏ trong bộ trang phục thổ cẩm rực rỡ mới là thứ níu chân du khách sâu lắng nhất.</p>
+
+      <h2 class="section-h"><span class="num">01</span>Kỳ quan ruộng bậc thang Mường Hoa</h2>
+      <p>Tháng 9, thung lũng Mường Hoa như được rót mật. Những thửa ruộng bậc thang trải dài từ đỉnh núi xuống tận bờ suối đồng loạt ngả màu vàng óng, tạo nên một bức tranh sơn thủy hữu tình mà không bút mực nào tả xiết. Đây là kết quả của hàng trăm năm kiến tạo địa hình từ đôi bàn tay cần mẫn của đồng bào dân tộc thiểu số, được tạp chí Travel+Leisure vinh danh là một trong những hệ thống ruộng bậc thang kỳ vĩ nhất thế giới.</p>
+
+      <div class="essay-grid">
+        <div class="ph tall duotone-a" style="background-image:url('https://images.unsplash.com/photo-1505832018823-50331d70d237?q=80&w=900&auto=format&fit=crop');">
+          <div class="cap">Thung lũng Mường Hoa bừng sáng trong mùa lúa chín</div>
+        </div>
+        <div class="ph short duotone-b" style="background-image:url('https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=700&h=500&auto=format&fit=crop');">
+          <div class="cap">Nét đẹp mộc mạc của phụ nữ dân tộc bản địa</div>
+        </div>
+        <div class="ph short duotone-c" style="background-image:url('https://images.unsplash.com/photo-1549488344-c09e3e3b3cbf?q=80&w=700&h=500&auto=format&fit=crop');">
+          <div class="cap">Chinh phục đỉnh Fansipan lộng gió giữa biển mây</div>
+        </div>
+      </div>
+
+      <blockquote class="pullquote">
+        Ruộng bậc thang ở Sapa không chỉ là phương thức canh tác, đó là một công trình nghệ thuật điêu khắc khổng lồ do con người tạc vào sườn núi.
+        <cite>— Tạp chí National Geographic</cite>
+      </blockquote>
+
+      <h2 class="section-h"><span class="num">02</span>Chinh phục nóc nhà Đông Dương</h2>
+      <p>Đỉnh Fansipan, cao 3.143m, từng là thử thách chỉ dành cho những nhà leo núi chuyên nghiệp với chuyến trekking kéo dài 2-3 ngày xuyên qua rừng trúc hoang sơ. Ngày nay, hệ thống cáp treo hiện đại đạt nhiều kỷ lục thế giới đã biến giấc mơ chạm tay vào "Nóc nhà Đông Dương" của mọi lứa tuổi thành hiện thực. Đứng trên đỉnh núi cao nhất bán đảo Đông Dương, thu vào tầm mắt biển mây cuồn cuộn bay dưới chân, bạn sẽ cảm nhận được sự nhỏ bé của con người trước thiên nhiên vĩ đại.</p>
+
+      <div class="inline-cta">
+        <div class="txt">
+          <h3>Đam mê bộ môn Trekking bản làng?</h3>
+          <p>Đừng bỏ lỡ các tour leo núi ngủ bản (homestay) tại Tả Van, Lao Chải để đi sâu vào nếp sống và văn hóa bản địa.</p>
+        </div>
+        <a class="btn-gold" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=10" target="_blank" rel="noopener">
+          Xem tour Sapa
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <h2 class="section-h"><span class="num">03</span>Bốn mùa thiên nhiên rực rỡ</h2>
+      <p>Mỗi mùa ở Sapa là một lời mời gọi riêng. Mùa xuân từ tháng 2 đến tháng 3, hoa đào rừng, hoa mận nở rợp các triền đồi, biến Sapa thành thiên đường hoa ngọt ngào. Mùa hè từ tháng 5 đến tháng 7 là mùa nước đổ, những thửa ruộng bậc thang phản chiếu bầu trời như hàng nghìn tấm gương khổng lồ. Mùa thu tháng 8-9 rực rỡ lúa chín vàng óng, và mùa đông tháng 12-1 mang đến không khí giá lạnh mộng mơ, đôi khi đón những đợt tuyết rơi hiếm hoi bao phủ các mái nhà cổ.</p>
+
+      <h2 class="section-h"><span class="num">04</span>Sắc màu bản địa và ẩm thực vùng cao</h2>
+      <p>Sapa là nơi hội tụ văn hóa đặc sắc của 5 dân tộc thiểu số: H'Mông, Dao Đỏ, Tày, Giáy và Xa Phó. Ghé thăm các phiên chợ vùng cao như chợ tình Sapa hay chợ Bắc Hà, du khách sẽ mê đắm trong tiếng khèn gọi bạn tình, những bộ thổ cẩm thêu tay tỉ mỉ và mùi thơm ngào ngạt của ẩm thực đại ngàn. Hãy thử thưởng thức nồi thắng cố nóng hổi bên cút rượu ngô ngâm lá rừng, hay ngâm mình trong bồn tắm lá thuốc người Dao Đỏ để cảm nhận sự thư thái trọn vẹn.</p>
+    </article>
+
+    <aside class="rail">
+      <div class="facts-card" id="cam-nang">
+        <h4>Cẩm nang nhanh</h4>
+        <div class="fact-row"><span class="k">Vị trí</span><span class="v">Lào Cai, Tây Bắc</span></div>
+        <div class="fact-row"><span class="k">Độ cao</span><span class="v">~1.600m so với mực nước biển</span></div>
+        <div class="fact-row"><span class="k">Đỉnh cao nhất</span><span class="v">Fansipan (3.143m)</span></div>
+        <div class="fact-row"><span class="k">Mùa lúa chín</span><span class="v">Cuối T8 – Giữa T9</span></div>
+        <div class="fact-row"><span class="k">Mùa hoa đào</span><span class="v">Tháng 2 – Tháng 3</span></div>
+        <div class="fact-row"><span class="k">Cách Hà Nội</span><span class="v">~315 km (5 giờ)</span></div>
+        <div class="fact-row"><span class="k">Khuyên dùng</span><span class="v">Tour 3–4 ngày</span></div>
+      </div>
+
+      <a class="book-card" id="dat-tour" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=10" target="_blank" rel="noopener" aria-label="Đặt tour Sapa">
+        <div class="bg"></div>
+        <span class="tag">TREKKING</span>
+        <div class="content">
+          <div class="loc">Miền Bắc · Lào Cai</div>
+          <h5>Thị trấn Sapa</h5>
+          <div class="cta-line">Đặt tour ngay
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+        </div>
+      </a>
+      <p class="cta-note">Bấm vào ảnh để chuyển đến trang <a href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=10" target="_blank" rel="noopener">đặt tour Sapa</a> trên Việt Nam — Hành Trình Huyền Diệu.</p>
+    </aside>
+
+  </div>
+</div>
+
+<a class="floating-cta" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=10" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" width="15" height="15"><path d="M19 21c0-4-3-7-7-7s-7 3-7 7M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+  Đặt tour Sapa
+</a>
+
+<footer>
+  <div class="footer-inner">
+    <div class="fnp">TẠP CHÍ LỮ HÀNH</div>
+    <div class="footer-links">
+      <a href="#bai-viet">Bài viết</a>
+      <a href="#cam-nang">Cẩm nang nhanh</a>
+      <a href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=10" target="_blank" rel="noopener">Đặt tour</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Tạp Chí Lữ Hành. Bài viết mang tính chất giới thiệu điểm đến; vui lòng đặt tour qua đối tác chính thức.</div>
+</footer>
+
+</body>
+</html>
