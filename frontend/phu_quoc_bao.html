@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đảo Ngọc Phú Quốc — Chạm vào thiên đường nhiệt đới | Tạp chí Lữ Hành</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1714;
+    --ink-soft:#5C554C;
+    --paper:#F4EFE4;
+    --paper-2:#EBE3D0;
+    --karst:#0C2B45;      /* Deep ocean blue */
+    --karst-2:#154165;
+    --gold:#B98A32;       /* UNESCO plaque gold */
+    --gold-soft:#E4C77E;
+    --jade:#2F6B5E;
+    --line:rgba(26,23,20,.14);
+    --line-invert:rgba(244,239,228,.22);
+    --shadow-lg:0 30px 70px -24px rgba(12,43,69,.45);
+    --shadow-sm:0 10px 26px -12px rgba(12,43,69,.3);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Newsreader',serif;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,.display{font-family:'Newsreader',serif;font-weight:600;letter-spacing:-.01em;margin:0;}
+  .sans{font-family:'Inter',sans-serif;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;}
+  ::selection{background:var(--gold-soft);color:var(--karst);}
+
+  /* ================= MASTHEAD ================= */
+  .masthead{background:var(--karst);color:var(--paper);}
+  .masthead-top{
+    max-width:1160px;margin:0 auto;padding:10px 24px;display:flex;justify-content:space-between;
+    font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--gold-soft);
+    border-bottom:1px solid var(--line-invert);
+  }
+  .masthead-main{max-width:1160px;margin:0 auto;padding:22px 24px 18px;text-align:center;}
+  .masthead-main .nameplate{
+    font-family:'Newsreader',serif;font-weight:600;font-size:clamp(30px,4.4vw,46px);letter-spacing:.01em;
+  }
+  .masthead-main .tagline{font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);margin-top:6px;}
+  .masthead-nav{
+    border-top:1px solid var(--line-invert);margin-top:16px;padding-top:12px;
+    display:flex;justify-content:center;gap:28px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+  }
+  .masthead-nav a{opacity:.8;padding-bottom:3px;border-bottom:2px solid transparent;}
+  .masthead-nav a:hover{opacity:1;border-color:var(--gold);}
+  .masthead-nav a.tour-link{color:var(--gold-soft);opacity:1;}
+
+  /* ================= HERO ================= */
+  .hero{position:relative;background:var(--karst);color:var(--paper);overflow:hidden;}
+  .hero-img{
+    position:relative;height:62vh;min-height:440px;
+    background-image:linear-gradient(180deg, rgba(12,43,69,.15) 0%, rgba(12,43,69,.45) 55%, rgba(5,20,35,.92) 100%),
+      url('https://images.unsplash.com/photo-1604107142478-f29e1eb10a9d?q=80&w=1800&auto=format&fit=crop');
+    background-size:cover;background-position:center 62%;
+  }
+  .hero-ridge{position:absolute;left:0;right:0;bottom:0;width:100%;opacity:.9;}
+  .hero-content{
+    position:absolute;left:0;right:0;bottom:0;max-width:900px;margin:0 auto;padding:0 24px 44px;text-align:center;
+  }
+  .kicker-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;}
+  .badge-unesco{
+    font-family:'Inter',sans-serif;font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--karst);
+    background:var(--gold-soft);padding:5px 12px;border-radius:3px;
+  }
+  .kicker{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.1em;color:#DCE6D8;text-transform:uppercase;}
+  .hero h1{font-size:clamp(38px,6.6vw,74px);line-height:1.02;color:#fff;}
+  .hero .dek{font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(16px,2vw,20px);color:#E7E1D2;margin-top:16px;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.55;}
+  .byline{
+    font-family:'Inter',sans-serif;font-size:12.5px;color:#B9C9C2;margin-top:20px;display:flex;gap:14px;
+    justify-content:center;flex-wrap:wrap;
+  }
+  .byline b{color:#fff;}
+
+  /* ================= LAYOUT ================= */
+  .article-wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  .article-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;margin-top:52px;align-items:start;}
+  @media(max-width:960px){.article-grid{grid-template-columns:1fr;}}
+
+  article{max-width:680px;}
+  .lede{font-size:21px;line-height:1.6;color:var(--ink);margin-bottom:8px;}
+  .lede::first-letter{
+    font-family:'Newsreader',serif;font-weight:600;font-size:74px;line-height:.78;float:left;padding:8px 10px 0 0;color:var(--karst);
+  }
+  article p{font-size:18px;line-height:1.75;color:#2A2620;margin:22px 0;}
+  article h2.section-h{
+    font-size:28px;margin-top:52px;margin-bottom:6px;color:var(--karst);
+    padding-top:20px;border-top:1px solid var(--line);
+  }
+  article h2.section-h .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gold);display:block;font-weight:600;letter-spacing:.05em;margin-bottom:8px;}
+
+  blockquote.pullquote{
+    margin:40px 0;padding:6px 0 6px 26px;border-left:3px solid var(--gold);
+    font-family:'Newsreader',serif;font-style:italic;font-size:25px;line-height:1.5;color:var(--karst);
+  }
+  blockquote.pullquote cite{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-top:10px;letter-spacing:.02em;}
+
+  .essay-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:10px;margin:36px 0;}
+  .essay-grid .ph{border-radius:4px;overflow:hidden;position:relative;background-size:cover;background-position:center;box-shadow:var(--shadow-sm);}
+  .essay-grid .ph.tall{grid-row:span 2;min-height:340px;}
+  .essay-grid .ph.short{min-height:165px;}
+  .essay-grid .ph .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:10px 12px;font-family:'Inter',sans-serif;font-size:11px;color:#fff;
+    background:linear-gradient(0deg, rgba(0,0,0,.65), transparent);letter-spacing:.02em;
+  }
+
+  .duotone-a{filter:sepia(.2) saturate(1.2) hue-rotate(170deg) brightness(.9);}
+  .duotone-b{filter:sepia(.1) saturate(1.3) hue-rotate(180deg) brightness(1.05);}
+  .duotone-c{filter:sepia(.25) saturate(1.4) hue-rotate(160deg) brightness(.85) contrast(1.1);}
+
+  /* ================= SIDEBAR ================= */
+  aside.rail{position:sticky;top:24px;display:flex;flex-direction:column;gap:22px;}
+  .facts-card{
+    background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px 22px 20px;box-shadow:var(--shadow-sm);
+  }
+  .facts-card h4{font-family:'Inter',sans-serif;font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .fact-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-family:'Inter',sans-serif;font-size:13.5px;}
+  .fact-row:first-of-type{border-top:none;}
+  .fact-row .k{color:var(--ink-soft);}
+  .fact-row .v{font-weight:700;text-align:right;}
+
+  /* ---- Destination booking card ---- */
+  .book-card{
+    border-radius:12px;overflow:hidden;position:relative;height:230px;display:block;
+    box-shadow:var(--shadow-lg);
+  }
+  .book-card .bg{
+    position:absolute;inset:0;background-size:cover;background-position:center 60%;
+    background-image:url('https://images.unsplash.com/photo-1550186981-d13c719e79b9?q=80&w=900&auto=format&fit=crop');
+    transition:transform .5s ease;
+  }
+  .book-card:hover .bg{transform:scale(1.06);}
+  .book-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(12,43,69,.05) 30%, rgba(5,20,35,.9));}
+  .book-card .tag{
+    position:absolute;top:12px;right:12px;z-index:2;background:var(--gold-soft);color:var(--karst);
+    font-family:'Inter',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.1em;padding:4px 10px;border-radius:3px;
+  }
+  .book-card .content{position:absolute;left:16px;right:16px;bottom:16px;z-index:2;color:#fff;}
+  .book-card .loc{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;color:var(--gold-soft);text-transform:uppercase;}
+  .book-card h5{font-size:23px;margin-top:4px;color:#fff;}
+  .book-card .cta-line{
+    font-family:'Inter',sans-serif;font-size:12px;font-weight:700;margin-top:8px;display:flex;align-items:center;gap:6px;color:#fff;
+  }
+  .book-card .cta-line svg{width:14px;height:14px;transition:transform .2s;}
+  .book-card:hover .cta-line svg{transform:translateX(4px);}
+
+  .cta-note{font-family:'Inter',sans-serif;font-size:11.5px;color:var(--ink-soft);text-align:center;line-height:1.6;}
+  .cta-note a{color:var(--jade);font-weight:700;border-bottom:1px solid var(--jade);}
+
+  /* ---- Inline CTA band inside article ---- */
+  .inline-cta{
+    margin:44px 0;border:1px solid var(--line);border-radius:12px;padding:26px 28px;background:#fff;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:var(--shadow-sm);
+  }
+  .inline-cta .txt h3{font-size:20px;color:var(--karst);}
+  .inline-cta .txt p{font-family:'Inter',sans-serif;font-size:13.5px;color:var(--ink-soft);margin:6px 0 0;max-width:400px;}
+  .btn-gold{
+    font-family:'Inter',sans-serif;font-weight:800;font-size:14px;color:#fff;background:var(--karst);
+    padding:13px 24px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+    box-shadow:0 12px 26px -10px rgba(12,43,69,.55);border:1px solid var(--karst);
+  }
+  .btn-gold:hover{background:var(--karst-2);}
+  .btn-gold svg{width:15px;height:15px;}
+
+  /* ---- Floating booking button ---- */
+  .floating-cta{
+    position:fixed;right:22px;bottom:22px;z-index:120;font-family:'Inter',sans-serif;font-weight:800;font-size:13.5px;
+    background:var(--gold);color:var(--karst);padding:14px 20px;border-radius:999px;box-shadow:var(--shadow-lg);
+    display:flex;align-items:center;gap:8px;
+  }
+  .floating-cta:hover{background:var(--gold-soft);}
+  @media(max-width:640px){.floating-cta{left:16px;right:16px;justify-content:center;}}
+
+  /* ================= FOOTER ================= */
+  footer{background:var(--karst);color:#B9C9C2;margin-top:64px;}
+  .footer-inner{max-width:1160px;margin:0 auto;padding:44px 24px 26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:12.5px;}
+  .footer-inner .fnp{font-family:'Newsreader',serif;font-size:19px;color:#fff;}
+  .footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+  .footer-bottom{border-top:1px solid var(--line-invert);padding:16px 24px;text-align:center;font-family:'Inter',sans-serif;font-size:11.5px;color:#8FA39C;}
+
+  @media(max-width:640px){
+    .masthead-nav{gap:16px;flex-wrap:wrap;}
+    article p, .lede{font-size:16.5px;}
+    .essay-grid{grid-template-columns:1fr;}
+    .essay-grid .ph.tall{min-height:220px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <span>Thứ Sáu, 31 Tháng 7, 2026</span>
+    <span>Chuyên mục: Biển Đảo &amp; Nghỉ Dưỡng</span>
+  </div>
+  <div class="masthead-main">
+    <div class="nameplate">TẠP CHÍ LỮ HÀNH</div>
+    <div class="tagline">Phóng sự du lịch Việt Nam</div>
+    <nav class="masthead-nav">
+      <a href="#bai-viet">Bài viết</a>
+      <a href="#cam-nang">Cẩm nang nhanh</a>
+      <a href="#dat-tour">Đặt tour</a>
+      <a class="tour-link" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=12" target="_blank" rel="noopener">Đặt tour Phú Quốc →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-img">
+    <div class="hero-content">
+      <div class="kicker-row">
+        <span class="badge-unesco">Thiên đường biển</span>
+        <span class="kicker">Miền Nam · Kiên Giang</span>
+      </div>
+      <h1>Đảo Ngọc Phú Quốc</h1>
+      <p class="dek">Nơi những bãi cát trắng mịn màng ôm trọn làn nước xanh màu ngọc bích, và khoảnh khắc hoàng hôn buông xuống làm say lòng bất kỳ người lữ khách nào.</p>
+      <div class="byline">
+        <span>Bởi <b>Ban Biên Tập Lữ Hành</b></span>
+        <span>·</span>
+        <span>8 phút đọc</span>
+        <span>·</span>
+        <span>Cập nhật 31/07/2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-grid">
+
+    <article id="bai-viet">
+      <p class="lede">Có một đặc quyền mà thiên nhiên đã hào phóng ban tặng cho Phú Quốc: ngắm mặt trời lặn sầm sập xuống mặt biển bao la. Ở hòn đảo lớn nhất Việt Nam này, hoàng hôn không chỉ là sự kết thúc của một ngày, mà là một màn trình diễn ánh sáng ngoạn mục lặp lại mỗi buổi chiều, nhuộm đỏ cả một vùng vịnh Thái Lan tĩnh lặng.</p>
+
+      <p>Nằm ngoài khơi tỉnh Kiên Giang, Phú Quốc vươn mình từ một đảo chài yên bình trở thành thiên đường nghỉ dưỡng đẳng cấp quốc tế. Tuy nhiên, đằng sau những khu nghỉ dưỡng xa hoa, Đảo Ngọc vẫn giữ trọn một tâm hồn nguyên sơ với những cánh rừng quốc gia rậm rạp, hệ sinh thái san hô rực rỡ và những nhà thùng nước mắm nhĩ thơm nức tiếng truyền đời qua bao thế hệ.</p>
+
+      <h2 class="section-h"><span class="num">01</span>Những bãi biển gọi tên mùa hè</h2>
+      <p>Từ Bãi Sao với dải cát trắng tinh khôi uốn lượn như một vầng trăng khuyết, đến Bãi Dài hoang sơ ôm trọn bãi biển phía Tây Bắc đảo. Mỗi bãi biển ở Phú Quốc mang một cá tính riêng biệt. Nếu Bãi Khem thu hút bởi sự biệt lập và nét thanh bình êm ả, thì Bãi Trường lại là tâm điểm của sự sôi động, nơi tọa lạc của hàng loạt quán bar bãi biển rực rỡ và là tọa độ ngắm hoàng hôn rực lửa đẹp nhất Việt Nam.</p>
+
+      <div class="essay-grid">
+        <div class="ph tall duotone-a" style="background-image:url('https://images.unsplash.com/photo-1550186981-d13c719e79b9?q=80&w=900&auto=format&fit=crop');">
+          <div class="cap">Cáp treo Hòn Thơm vượt biển dài nhất thế giới</div>
+        </div>
+        <div class="ph short duotone-b" style="background-image:url('https://images.unsplash.com/photo-1583416750470-965b2707b355?q=80&w=700&h=500&auto=format&fit=crop');">
+          <div class="cap">Làng chài Rạch Vẹm - vương quốc sao biển đỏ</div>
+        </div>
+        <div class="ph short duotone-c" style="background-image:url('https://images.unsplash.com/photo-1510444648756-11f8e1327179?q=80&w=700&h=500&auto=format&fit=crop');">
+          <div class="cap">Hoàng hôn rực lửa trên mặt biển Bãi Trường</div>
+        </div>
+      </div>
+
+      <blockquote class="pullquote">
+        Cát ở Bãi Sao mịn đến mức khi dẫm lên không có tiếng lạo xạo, mà êm ái như người ta đang bước chân trần trên thảm lụa dịu mát.
+        <cite>— Sổ tay Lữ hành biển đảo</cite>
+      </blockquote>
+
+      <h2 class="section-h"><span class="num">02</span>Hành trình dưới đáy đại dương</h2>
+      <p>Khu vực quần đảo An Thới ở phía Nam là tọa độ tuyệt vời nhất để lặn ngắm san hô. Với hệ sinh thái biển phong phú bậc nhất Việt Nam, du khách chỉ cần trang bị một chiếc kính lặn và ống thở là đã có thể đắm mình vào một thế giới rực rỡ sắc màu dưới lòng đại dương. Trải nghiệm đi bộ dưới đáy biển (seawalker) mang lại cảm giác ngắm nhìn những rạn san hô nấm, san hô sừng và từng đàn cá nhiệt đới bơi lội ngay trước mắt.</p>
+
+      <div class="inline-cta">
+        <div class="txt">
+          <h3>Sẵn sàng trải nghiệm tour đảo Phú Quốc?</h3>
+          <p>Tour cano 4 đảo kết hợp lặn ngắm san hô và quay flycam sống ảo đang là lựa chọn hàng đầu của du khách khi đến đảo ngọc.</p>
+        </div>
+        <a class="btn-gold" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=12" target="_blank" rel="noopener">
+          Xem tour Phú Quốc
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <h2 class="section-h"><span class="num">03</span>Khi nào nên đến Phú Quốc</h2>
+      <p>Thời điểm vàng để ghé thăm Phú Quốc là vào mùa khô, kéo dài từ tháng 11 đến tháng 4 năm sau. Đây là lúc vịnh Thái Lan êm ả nhất, sóng nhẹ, biển trong vút và nắng ấm dịu dàng — điều kiện lý tưởng cho các hoạt động tắm biển, chèo thuyền kayak và lặn biển ngắm san hô. Từ tháng 5 đến tháng 10 là mùa mưa, tuy nhiên khoảng thời gian này Phú Quốc lại mang vẻ đẹp tươi mới của những con suối nguồn mát lạnh như suối Tranh, suối Đá Bàn và không gian nghỉ dưỡng tĩnh lặng tại các resort cao cấp.</p>
+
+      <h2 class="section-h"><span class="num">04</span>Đặc sản truyền thống và nếp sống đảo ngọc</h2>
+      <p>Sẽ thật thiếu sót nếu rời Phú Quốc mà chưa nếm thử vị đậm đà thơm phức của mắm nhĩ cá cơm truyền thống tại các nhà thùng lâu đời, hay nhâm nhi vị cay nồng của hồ tiêu chín đỏ trồng trên đất đảo. Đêm về, ghé thăm Chợ đêm Phú Quốc để thưởng thức tô bún quậy Kiến Xây nóng hổi, nhum biển nướng mỡ hành thơm lừng và ngắm nhìn ánh đèn từ hàng nghìn chiếc tàu câu mực nhấp nhô xa bờ như một thành phố nổi trên mặt biển.</p>
+    </article>
+
+    <aside class="rail">
+      <div class="facts-card" id="cam-nang">
+        <h4>Cẩm nang nhanh</h4>
+        <div class="fact-row"><span class="k">Vị trí</span><span class="v">Kiên Giang, miền Nam</span></div>
+        <div class="fact-row"><span class="k">Biệt danh</span><span class="v">Đảo Ngọc</span></div>
+        <div class="fact-row"><span class="k">Diện tích</span><span class="v">~589 km²</span></div>
+        <div class="fact-row"><span class="k">Đặc sản</span><span class="v">Hồ tiêu, nước mắm, ngọc trai</span></div>
+        <div class="fact-row"><span class="k">Mùa đẹp nhất</span><span class="v">Tháng 11 – Tháng 4</span></div>
+        <div class="fact-row"><span class="k">Cách TP.HCM</span><span class="v">~50 phút bay</span></div>
+        <div class="fact-row"><span class="k">Khuyên dùng</span><span class="v">Tour 3–4 ngày</span></div>
+      </div>
+
+      <a class="book-card" id="dat-tour" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=12" target="_blank" rel="noopener" aria-label="Đặt tour Đảo Ngọc Phú Quốc">
+        <div class="bg"></div>
+        <span class="tag">HOT</span>
+        <div class="content">
+          <div class="loc">Miền Nam · Kiên Giang</div>
+          <h5>Đảo Ngọc Phú Quốc</h5>
+          <div class="cta-line">Đặt tour ngay
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+        </div>
+      </a>
+      <p class="cta-note">Bấm vào ảnh để chuyển đến trang <a href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=12" target="_blank" rel="noopener">đặt tour Phú Quốc</a> trên Việt Nam — Hành Trình Huyền Diệu.</p>
+    </aside>
+
+  </div>
+</div>
+
+<a class="floating-cta" href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=12" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" width="15" height="15"><path d="M19 21c0-4-3-7-7-7s-7 3-7 7M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+  Đặt tour Phú Quốc
+</a>
+
+<footer>
+  <div class="footer-inner">
+    <div class="fnp">TẠP CHÍ LỮ HÀNH</div>
+    <div class="footer-links">
+      <a href="#bai-viet">Bài viết</a>
+      <a href="#cam-nang">Cẩm nang nhanh</a>
+      <a href="https://du-lich-production.up.railway.app/chi_tiet_tour.html?id=12" target="_blank" rel="noopener">Đặt tour</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Tạp Chí Lữ Hành. Bài viết mang tính chất giới thiệu điểm đến; vui lòng đặt tour qua đối tác chính thức.</div>
+</footer>
+
+</body>
+</html>
