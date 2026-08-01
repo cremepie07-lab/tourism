@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản Trị Admin - VIET TRAVEL</title>
+  <meta name="description" content="Trang quản trị nội dung VIET TRAVEL">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+<div id="toast"></div>
+
+<div class="admin-layout">
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-logo">
+      <span class="brand">Việt Travel ✦</span>
+      <span class="badge-admin">Admin Portal</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Tổng Quan</div>
+      <div class="nav-item active" data-tab="dashboard" onclick="switchTab('dashboard')">
+        <span class="icon">📊</span>
+        <span>Dashboard</span>
+      </div>
+
+      <div class="nav-section-label">Quản Lý</div>
+      <div class="nav-item" data-tab="tours" onclick="switchTab('tours')">
+        <span class="icon">🗺️</span>
+        <span>Tour Du Lịch</span>
+      </div>
+      <div class="nav-item" data-tab="customers" onclick="switchTab('customers')">
+        <span class="icon">👥</span>
+        <span>Khách Hàng</span>
+      </div>
+      <div class="nav-item" data-tab="bookings" onclick="switchTab('bookings')">
+        <span class="icon">📋</span>
+        <span>Đặt Tour</span>
+      </div>
+
+      <div class="nav-section-label">Trang Chủ</div>
+      <a class="nav-item" href="/trang_chu.html" target="_blank">
+        <span class="icon">🌐</span>
+        <span>Xem Website</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="btn-logout-sidebar" onclick="logout()">
+        <span>🚪</span>
+        <span>Đăng Xuất</span>
+      </button>
+    </div>
+  </aside>
+
+  <div class="main-content">
+
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <h1 class="topbar-title" id="pageTitle">Dashboard</h1>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-admin">Xin chào, <strong>Admin</strong></span>
+      </div>
+    </header>
+
+    <main class="content-area">
+
+      <section id="tab-dashboard" class="tab-section active">
+        <div class="page-header">
+          <div>
+            <h2>Tổng Quan Hệ Thống</h2>
+            <p>Thống kê nhanh về dữ liệu của website</p>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card tours" onclick="switchTab('tours')" style="cursor:pointer">
+            <div class="stat-icon">🗺️</div>
+            <div class="stat-value" id="statTours">-</div>
+            <div class="stat-label">Tổng Tour</div>
+          </div>
+          <div class="stat-card users" onclick="switchTab('customers')" style="cursor:pointer">
+            <div class="stat-icon">👥</div>
+            <div class="stat-value" id="statUsers">-</div>
+            <div class="stat-label">Khách Hàng</div>
+          </div>
+          <div class="stat-card bookings" onclick="switchTab('bookings')" style="cursor:pointer">
+            <div class="stat-icon">📋</div>
+            <div class="stat-value" id="statBookings">-</div>
+            <div class="stat-label">Lượt Đặt</div>
+          </div>
+          <div class="stat-card revenue">
+            <div class="stat-icon">💰</div>
+            <div class="stat-value" id="statRevenue" style="font-size:1.4rem">-</div>
+            <div class="stat-label">Doanh Thu</div>
+          </div>
+        </div>
+
+        <div class="status-summary">
+          <div class="status-chip pending">
+            <span class="dot"></span>
+            <span>Chờ xử lý: <strong id="statPending">-</strong></span>
+          </div>
+          <div class="status-chip confirmed">
+            <span class="dot"></span>
+            <span>Đã xác nhận: <strong id="statConfirmed">-</strong></span>
+          </div>
+          <div class="status-chip completed">
+            <span class="dot"></span>
+            <span>Hoàn thành: <strong id="statCompleted">-</strong></span>
+          </div>
+          <div class="status-chip cancelled">
+            <span class="dot"></span>
+            <span>Đã hủy: <strong id="statCancelled">-</strong></span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">⚡ Thao Tác Nhanh</span>
+          </div>
+          <div style="padding:20px;display:flex;flex-wrap:wrap;gap:12px">
+            <button class="btn btn-primary" onclick="switchTab('tours');setTimeout(openAddTour,300)">
+              ➕ Thêm Tour Mới
+            </button>
+            <button class="btn btn-jade" onclick="switchTab('bookings')">
+              📋 Xem Booking
+            </button>
+            <button class="btn btn-jade" onclick="switchTab('customers')">
+              👥 Xem Khách Hàng
+            </button>
+            <a class="btn btn-ghost" href="/trang_chu.html" target="_blank">
+              🌐 Xem Website
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-tours" class="tab-section">
+        <div class="page-header">
+          <div>
+            <h2>Quản Lý Tour Du Lịch</h2>
+            <p>Thêm, sửa, xóa các tour trên hệ thống</p>
+          </div>
+          <button class="btn btn-primary" onclick="openAddTour()">➕ Thêm Tour Mới</button>
+        </div>
+
+        <div class="panel">
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ảnh</th>
+                  <th>Tên Tour</th>
+                  <th>Khởi Hành</th>
+                  <th>Giá</th>
+                  <th>Badge</th>
+                  <th style="text-align:center">Bookings</th>
+                  <th style="text-align:center">Đánh Giá</th>
+                  <th>Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody id="toursBody">
+                <tr class="loading-row"><td colspan="8"><span class="loading-text">Đang tải...</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-customers" class="tab-section">
+        <div class="page-header">
+          <div>
+            <h2>Danh Sách Khách Hàng</h2>
+            <p>Quản lý tài khoản đã đăng ký trên hệ thống</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Họ Tên</th>
+                  <th>Email</th>
+                  <th>Số ĐT</th>
+                  <th style="text-align:center">Số Booking</th>
+                  <th>Tổng Chi Tiêu</th>
+                  <th>Ngày ĐK</th>
+                  <th>Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody id="customersBody">
+                <tr class="loading-row"><td colspan="8"><span class="loading-text">Đang tải...</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-bookings" class="tab-section">
+        <div class="page-header">
+          <div>
+            <h2>Quản Lý Đặt Tour</h2>
+            <p>Xem và cập nhật trạng thái các booking</p>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-bottom:16px">
+          <div class="panel-header">
+            <span class="panel-title">Lọc theo trạng thái</span>
+          </div>
+          <div style="padding:12px 20px">
+            <div class="filter-tabs">
+              <button class="filter-tab active" data-status="all" onclick="loadBookings('all')">Tất Cả</button>
+              <button class="filter-tab" data-status="pending" onclick="loadBookings('pending')">Chờ Xử Lý</button>
+              <button class="filter-tab" data-status="confirmed" onclick="loadBookings('confirmed')">Đã Xác Nhận</button>
+              <button class="filter-tab" data-status="completed" onclick="loadBookings('completed')">Hoàn Thành</button>
+              <button class="filter-tab" data-status="cancelled" onclick="loadBookings('cancelled')">Đã Hủy</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>#ID</th>
+                  <th>Khách Hàng</th>
+                  <th>Tour</th>
+                  <th style="text-align:center">Khách</th>
+                  <th>Ngày KH</th>
+                  <th>Tổng Tiền</th>
+                  <th>Trạng Thái</th>
+                  <th>Ngày Đặt</th>
+                  <th>Xóa</th>
+                </tr>
+              </thead>
+              <tbody id="bookingsBody">
+                <tr class="loading-row"><td colspan="9"><span class="loading-text">Đang tải...</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div id="tourModal" class="modal-overlay" onclick="if(event.target===this)closeModal('tourModal')">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="tourModalTitle">Thêm Tour Mới</h3>
+      <button class="modal-close" onclick="closeModal('tourModal')">×</button>
+    </div>
+    <div class="modal-body">
+      <div id="tourFormAlert" class="form-alert"></div>
+      <form id="tourForm" onsubmit="event.preventDefault();submitTourForm()">
+        <div class="form-grid">
+
+          <div class="form-group-modal full">
+            <label class="form-label-modal">Tên Tour *</label>
+            <input id="tf_title" class="form-input-modal" type="text" placeholder="VD: Vịnh Hạ Long - Du Thuyền Ngắm Hoàng Hôn" required>
+          </div>
+
+          <div class="form-group-modal">
+            <label class="form-label-modal">Địa Điểm (Tỉnh/TP) *</label>
+            <input id="tf_location" class="form-input-modal" type="text" placeholder="VD: Quảng Ninh" required>
+          </div>
+          <div class="form-group-modal">
+            <label class="form-label-modal">Điểm Đến (slug) *</label>
+            <input id="tf_destination" class="form-input-modal" type="text" placeholder="VD: ha-long" required>
+          </div>
+
+          <div class="form-group-modal">
+            <label class="form-label-modal">Thời Gian *</label>
+            <input id="tf_duration" class="form-input-modal" type="text" placeholder="VD: 2 ngày 1 đêm" required>
+          </div>
+          <div class="form-group-modal">
+            <label class="form-label-modal">Điểm Khởi Hành *</label>
+            <input id="tf_departure" class="form-input-modal" type="text" placeholder="VD: Hà Nội" required>
+          </div>
+
+          <div class="form-group-modal">
+            <label class="form-label-modal">Giá (VNĐ) *</label>
+            <input id="tf_price" class="form-input-modal" type="text" placeholder="VD: 1.890.000" oninput="formatPriceInput(this)" required>
+          </div>
+          <div class="form-group-modal">
+            <label class="form-label-modal">Badge</label>
+            <select id="tf_badge" class="form-select-modal">
+              <option value="">-- Không có --</option>
+              <option value="HOT">HOT</option>
+              <option value="BESTSELLER">BESTSELLER</option>
+              <option value="SALE">SALE</option>
+              <option value="MỚI">MỚI</option>
+            </select>
+          </div>
+
+          <div class="form-group-modal">
+            <label class="form-label-modal">Loại Tour</label>
+            <select id="tf_type" class="form-select-modal">
+              <option value="">-- Chọn loại --</option>
+              <option value="beach">Biển</option>
+              <option value="culture">Văn hóa</option>
+              <option value="adventure">Phiêu lưu</option>
+              <option value="mountain">Núi</option>
+            </select>
+          </div>
+          <div class="form-group-modal">
+            <label class="form-label-modal">URL Ảnh</label>
+            <input id="tf_image" class="form-input-modal" type="url" placeholder="https://...">
+          </div>
+
+          <div class="form-group-modal full">
+            <label class="form-label-modal">Mô Tả</label>
+            <textarea id="tf_description" class="form-textarea-modal" placeholder="Mô tả ngắn về tour..."></textarea>
+          </div>
+
+          <div class="form-group-modal full">
+            <label class="form-label-modal">Chi Tiết Tour (mỗi dòng 1 mục)</label>
+            <textarea id="tf_details" class="form-textarea-modal" placeholder="VD:
+Du thuyền 4 sao qua đêm
+Kayak khám phá Hang Sửng Sốt
+Buffet hải sản trên tàu" style="min-height:100px"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('tourModal')">Hủy</button>
+      <button id="btnSubmitTour" class="btn btn-primary" onclick="submitTourForm()">Lưu Tour</button>
+    </div>
+  </div>
+</div>
+
+<div id="confirmOverlay" class="confirm-overlay" onclick="if(event.target===this)closeConfirm()">
+  <div class="confirm-dialog">
+    <div class="confirm-icon">⚠️</div>
+    <h4>Xác Nhận Xóa</h4>
+    <p id="confirmMsg">Bạn có chắc chắn muốn thực hiện thao tác này?</p>
+    <div class="btn-group">
+      <button class="btn btn-ghost" onclick="closeConfirm()">Hủy</button>
+      <button id="btnConfirmOk" class="btn btn-danger">Xóa</button>
+    </div>
+  </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
