@@ -4,18 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chi Tiết Tour - Việt Nam Hành Trình Huyền Diệu</title>
-  
-  <!-- NHÚNG GOOGLE FONTS ĐỒNG BỘ TRANG CHỦ -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  
-  <!-- LIÊN KẾT FILE CSS CHUNG -->
+
   <link rel="stylesheet" href="tour_detail.css">
 </head>
 <body>
 
-  <!-- 1. THANH ĐIỀU HƯỚNG ĐỒNG BỘ CHUẨN ĐẸP -->
   <nav id="navbar">
     <div class="nav-logo">Việt Nam</div>
     <ul class="nav-links">
@@ -28,16 +25,14 @@
     </ul>
   </nav>
 
-  <!-- 2. PHẦN ĐẦU TRANG CHI TIẾT (TOUR HEADER) -->
   <header class="tour-detail-header">
     <div class="tour-id-badge" id="detailId">Mã Tour: TOUR-MC01</div>
     <h1 class="tour-detail-title" id="detailTitle">Mộc Châu - Thung Lũng Mận Nà Ka - Cầu Kính Bạch Long</h1>
     <div class="tour-quick-rating" id="quickRating">
-      <!-- JS sẽ tự động chèn số sao trung bình + số lượt đánh giá THẬT từ database -->
+
     </div>
   </header>
 
-  <!-- 3. BỘ SƯU TẬP HÌNH ẢNH (GALLERY GRID) -->
   <section class="tour-image-gallery">
     <img id="mainGalleryImg" src="https://images.unsplash.com/photo-1570366583862-f91883984fde?q=80&w=1200" alt="Ảnh tour" class="main-gallery-img">
     <div class="sub-gallery-wrap">
@@ -46,13 +41,10 @@
     </div>
   </section>
 
-  <!-- 4. KHU VỰC NỘI DUNG CHÍNH & SIDEBAR -->
   <div class="tour-content-layout">
-    
-    <!-- KHỐI THÔNG TIN BÊN TRÁI -->
+
     <main class="tour-main-info">
-      
-      <!-- Khối Thông Tin Thêm -->
+
       <h2 class="section-detail-title">Thông tin thêm về chuyến đi</h2>
       <div class="additional-info-grid">
         <div class="info-card">
@@ -77,13 +69,11 @@
         </div>
       </div>
 
-      <!-- Khối Lịch Trình (Accordion) -->
       <h2 class="section-detail-title">Lịch trình chuyến đi</h2>
       <div id="itineraryGroup">
-        <!-- JS sẽ tự động chèn dữ liệu các ngày vào đây -->
+
       </div>
 
-      <!-- Khối Lưu Ý (Details/Summary Accordion) -->
       <h2 class="section-detail-title">Những thông tin cần lưu ý</h2>
       <div class="note-accordion">
         <details class="note-item" open>
@@ -163,7 +153,6 @@
           </div>
         </details>
 
-      <!-- Khối Đánh Giá Từ Khách Hàng (dữ liệu THẬT từ database, không phải dữ liệu ảo) -->
       <h2 class="section-detail-title">Đánh giá từ khách hàng</h2>
 
       <div class="review-summary" id="reviewSummary">
@@ -174,7 +163,6 @@
         </div>
       </div>
 
-      <!-- Form viết đánh giá: chỉ hiện khi khách đã đăng nhập -->
       <div class="write-review-card" id="writeReviewCard" style="display:none;">
         <h3 class="write-review-title">Viết đánh giá của bạn</h3>
         <div class="star-picker" id="starPicker">
@@ -189,22 +177,20 @@
         <p class="review-form-message" id="reviewFormMessage"></p>
       </div>
 
-      <!-- Nhắc đăng nhập nếu khách chưa có tài khoản -->
+      <div class="review-not-eligible" id="reviewNotEligible" style="display:none;"></div>
+
       <div class="login-to-review" id="loginToReview" style="display:none;">
         <a href="auth.html">Đăng nhập</a> để viết đánh giá cho tour này.
       </div>
 
-      <!-- Danh sách đánh giá -->
       <div class="review-list" id="reviewList">
         <p class="loading-text">Đang tải đánh giá...</p>
       </div>
 
     </main>
 
-    <!-- KHỐI ĐẶT TOUR BÊN PHẢI (SIDEBAR) -->
     <aside class="tour-booking-sidebar">
 
-      <!-- KHỐI ĐẶT TOUR GỘP (LỊCH TRÌNH - GIÁ - THÔNG TIN KHÁCH HÀNG) -->
       <div class="price-calc-card">
         <h3 class="price-calc-title">Đặt Tour</h3>
         <p class="price-calc-sub">Chọn ngày khởi hành và số lượng khách:</p>
@@ -282,17 +268,15 @@
 
   </div>
 
-  <!-- 5. POPUP MODAL LỊCH TRÌNH CHI TIẾT -->
   <div class="modal-overlay" id="itineraryModal">
     <div class="modal-container">
       <button class="modal-close-btn" onclick="closeModal()">✕</button>
       <div class="modal-body" id="modalDynamicBody">
-        <!-- Cấu trúc timeline được render tự động qua JS -->
+
       </div>
     </div>
   </div>
 
-  <!-- 6. FOOTER ĐỒNG BỘ -->
   <footer>
     <div class="footer-logo">Việt Nam ✦</div>
     <p class="footer-copy">© 2026 VIET TRAVEL. Tất cả quyền được bảo lưu.</p>
