@@ -277,13 +277,25 @@
 <!-- CUISINE -->
 
 <section class="cuisine" id="cuisine">
+
+  <!-- Script decorative heading -->
+  <div class="cuisine-script-deco reveal" style="text-align:center; font-family:'Dancing Script',cursive; font-size:clamp(2rem,5vw,3.5rem); color:var(--gold,#C9A84C); opacity:0.18; pointer-events:none; margin-bottom:-2.5rem; letter-spacing:0.05em;">
+    Ẩm thực ngàn năm
+  </div>
+
   <div class="cuisine-layout">
 
     <div class="cuisine-visual">
       <div class="cuisine-main-img">
-        <!-- Thay src bằng ảnh lớn của bạn -->
-        <img src="https://media.istockphoto.com/id/1460180025/vi/anh/c%C3%B4-g%C3%A1i-tr%E1%BA%BB-vi%E1%BB%87t-nam-n%E1%BA%A5u-c%C3%A1-h%E1%BA%A5p-tr%C3%AAn-l%E1%BB%ADa-m%E1%BB%9F-trong-nh%C3%A0-h%C3%A0ng.jpg?s=612x612&w=0&k=20&c=VD2ok3opzrbHuGfN2m78_QC0LOTL1jHE6PIoDHTq9ZM=" alt="Phở Hà Nội"
+        <img src="https://media.istockphoto.com/id/1460180025/vi/anh/c%C3%B4-g%C3%A1i-tr%E1%BA%BB-vi%E1%BB%87t-nam-n%E1%BA%A5u-c%C3%A1-h%E1%BA%A5p-tr%C3%AAn-l%E1%BB%ADa-m%E1%BB%9F-trong-nh%C3%A0-h%C3%A0ng.jpg?s=612x612&w=0&k=20&c=VD2ok3opzrbHuGfN2m78_QC0LOTL1jHE6PIoDHTq9ZM=" alt="Ẩm thực Việt Nam"
              onerror="this.style.display='none';this.parentElement.innerHTML+='<span style=\'font-size:100px\'>🍜</span>'">
+      </div>
+
+      <!-- Extra info badges dưới ảnh lớn -->
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.25rem;justify-content:center;">
+        <span style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.35);color:var(--gold,#C9A84C);padding:0.35rem 0.9rem;border-radius:999px;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;">🌿 Nguyên liệu tươi</span>
+        <span style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.35);color:var(--gold,#C9A84C);padding:0.35rem 0.9rem;border-radius:999px;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;">🏆 Top 10 thế giới</span>
+        <span style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.35);color:var(--gold,#C9A84C);padding:0.35rem 0.9rem;border-radius:999px;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;">🗺️ 3 miền đặc sắc</span>
       </div>
     </div>
 
@@ -291,79 +303,99 @@
       <div class="section-tag">Ẩm Thực Việt</div>
       <h2 class="section-title">Thiên Đường <em>Hương Vị</em></h2>
       <p class="cuisine-text">
-        Ẩm thực Việt Nam là sự hòa quyện tuyệt vời của nguyên liệu tươi, gia vị thơm và kỹ thuật nấu nướng tinh tế. Mỗi vùng miền mang một bản sắc riêng, từ phở thanh đạm của miền Bắc đến bún bò đậm đà miền Trung và hủ tiếu ngọt ngào phương Nam.
+        Ẩm thực Việt Nam là sự hòa quyện tuyệt vời của nguyên liệu tươi, gia vị thơm và kỹ thuật nấu nướng tinh tế. Mỗi vùng miền mang một bản sắc riêng — từ phở thanh đạm của miền Bắc đến bún bò đậm đà miền Trung và hủ tiếu ngọt ngào phương Nam. Ẩm thực Việt đã được <strong>CNN Travel</strong> bình chọn là một trong những nền ẩm thực hấp dẫn nhất thế giới.
       </p>
+
+      <!-- Quote script -->
+      <div class="reveal" style="font-family:'Dancing Script',cursive; font-size:1.35rem; color:var(--gold,#C9A84C); margin:1.25rem 0 1.5rem; line-height:1.6; border-left:3px solid var(--gold,#C9A84C); padding-left:1rem;">
+        "Mỗi bát phở là một câu chuyện, mỗi bữa ăn là một hành trình..."
+      </div>
 
       <div class="food-grid">
 
-        <div class="food-thumb">
+        <a href="pho.html" class="food-thumb" style="text-decoration:none;color:inherit;">
           <div class="food-thumb-img">
-            <!-- Thay src bằng ảnh phở -->
             <img src="https://media.istockphoto.com/id/1292715135/vi/anh/s%C3%BAp-vi%E1%BB%87t-nam-ph%E1%BB%9F-h%E1%BB%93-s%C3%BAp-rau-c%E1%BB%A7.jpg?s=612x612&w=0&k=20&c=KTOaH1znLAGYn4-yc5PSOjgseK60JuRdVewYH5gTfYA=" alt="Phở Hà Nội"
                  onerror="this.style.display='none';this.parentElement.innerHTML='🍜'">
           </div>
           <div class="food-thumb-label">Phở Hà Nội</div>
-        </div>
+        </a>
 
-        <div class="food-thumb">
+        <a href="bun_bo_hue.html" class="food-thumb" style="text-decoration:none;color:inherit;">
           <div class="food-thumb-img">
             <img src="https://t3.ftcdn.net/jpg/12/31/50/32/240_F_1231503262_q25Y0WHxkrIR5vSgBFQWSOAn4IwLR8No.jpg" alt="Bún Bò Huế"
                  onerror="this.style.display='none';this.parentElement.innerHTML='🍲'">
           </div>
           <div class="food-thumb-label">Bún Bò Huế</div>
-        </div>
+        </a>
 
-        <div class="food-thumb">
+        <a href="cao_lau.html" class="food-thumb" style="text-decoration:none;color:inherit;">
           <div class="food-thumb-img">
-            <img src="image/b5dd5585-1062-49da-8c75-eed33bbdfa38.jpg" alt="Cao Lầu Hội An"
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Cao_lau_Hoi_An.jpg/640px-Cao_lau_Hoi_An.jpg" alt="Cao Lầu Hội An"
                  onerror="this.style.display='none';this.parentElement.innerHTML='🥡'">
           </div>
           <div class="food-thumb-label">Cao Lầu</div>
-        </div>
+        </a>
 
-        <div class="food-thumb">
+        <a href="banh_xeo.html" class="food-thumb" style="text-decoration:none;color:inherit;">
           <div class="food-thumb-img">
-            <img src="YOUR_BANH_XEO_IMAGE.jpg" alt="Bánh Xèo"
+            <img src="https://images.unsplash.com/photo-1562802378-063ec186a863?q=80&w=400&auto=format&fit=crop" alt="Bánh Xèo"
                  onerror="this.style.display='none';this.parentElement.innerHTML='🥞'">
           </div>
           <div class="food-thumb-label">Bánh Xèo</div>
-        </div>
+        </a>
 
-        <div class="food-thumb">
+        <a href="banh_mi.html" class="food-thumb" style="text-decoration:none;color:inherit;">
           <div class="food-thumb-img">
-            <img src="YOUR_BANH_MI_IMAGE.jpg" alt="Bánh Mì Hội An"
+            <img src="https://static.vinwonders.com/production/banh-mi-hoi-an-thumb-1.jpg" alt="Bánh Mì Hội An"
                  onerror="this.style.display='none';this.parentElement.innerHTML='🥖'">
           </div>
           <div class="food-thumb-label">Bánh Mì Hội An</div>
-        </div>
+        </a>
 
-        <div class="food-thumb">
+        <a href="com_tam.html" class="food-thumb" style="text-decoration:none;color:inherit;">
           <div class="food-thumb-img">
-            <img src="YOUR_COM_TAM_IMAGE.jpg" alt="Cơm Tấm Sài Gòn"
+            <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?q=80&w=400&auto=format&fit=crop" alt="Cơm Tấm Sài Gòn"
                  onerror="this.style.display='none';this.parentElement.innerHTML='🍚'">
           </div>
           <div class="food-thumb-label">Cơm Tấm Sài Gòn</div>
-        </div>
+        </a>
 
-        <div class="food-thumb">
+        <a href="goi_cuon.html" class="food-thumb" style="text-decoration:none;color:inherit;">
           <div class="food-thumb-img">
-            <img src="YOUR_GOI_CUON_IMAGE.jpg" alt="Gỏi Cuốn"
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Bi_cuon.jpg/640px-Bi_cuon.jpg" alt="Gỏi Cuốn"
                  onerror="this.style.display='none';this.parentElement.innerHTML='🥗'">
           </div>
           <div class="food-thumb-label">Gỏi Cuốn</div>
-        </div>
+        </a>
 
-        <div class="food-thumb">
+        <a href="cha_ca.html" class="food-thumb" style="text-decoration:none;color:inherit;">
           <div class="food-thumb-img">
-            <img src="YOUR_CHA_CA_IMAGE.jpg" alt="Chả Cá Lã Vọng"
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Ch%E1%BA%A3_c%C3%A1_L%C3%A3_V%E1%BB%8Dng.jpg/640px-Ch%E1%BA%A3_c%C3%A1_L%C3%A3_V%E1%BB%8Dng.jpg" alt="Chả Cá Lã Vọng"
                  onerror="this.style.display='none';this.parentElement.innerHTML='🐟'">
           </div>
           <div class="food-thumb-label">Chả Cá Lã Vọng</div>
-        </div>
+        </a>
 
       </div>
 
-      <a href="#" class="btn-primary">Khám Phá Ẩm Thực →</a>
+      <!-- Mini stats -->
+      <div style="display:flex;gap:2rem;margin:1.5rem 0;flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold,#C9A84C);">500+</div>
+          <div style="font-size:0.78rem;opacity:0.65;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Món đặc sản</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold,#C9A84C);">63</div>
+          <div style="font-size:0.78rem;opacity:0.65;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Tỉnh thành</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold,#C9A84C);">#1</div>
+          <div style="font-size:0.78rem;opacity:0.65;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Châu Á</div>
+        </div>
+      </div>
+
+      <a href="pho.html" class="btn-primary">Khám Phá Ẩm Thực →</a>
     </div>
 
   </div>
