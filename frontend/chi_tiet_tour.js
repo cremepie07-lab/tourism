@@ -1,8 +1,4 @@
-// ===== JS XỬ LÝ TRANG CHI TIẾT TOUR =====
-// Tách riêng từ chi_tiet_tour.html để dễ bảo trì
-
-    // Lịch trình chi tiết theo từng điểm đến (destination slug khớp với dữ liệu trong database)
-    const itineraryByDestination = {
+const itineraryByDestination = {
       'ha-long': [
         {
           dayNum: "Ngày 1", title: "Hà Nội - Hạ Long - Du thuyền ngắm hoàng hôn",
@@ -204,7 +200,6 @@
       ]
     };
 
-    // Nội dung "Điểm tham quan nổi bật" theo điểm đến, dùng khi hiển thị info-card
     const highlightsByDestination = {
       'ha-long': 'Vịnh Hạ Long, Hang Sửng Sốt, Đảo Titop, Làng chài Cửa Vạn',
       'sapa': 'Bản Cát Cát, Đỉnh Fansipan, Thung lũng Mường Hoa, Thác Bạc',
@@ -219,7 +214,6 @@
     let activeTour = null;
     let activeItinerary = [];
 
-    // Lấy id tour từ URL (?id=...)
     function getTourIdFromUrl() {
       const params = new URLSearchParams(window.location.search);
       return params.get('id') || 1;
@@ -248,7 +242,6 @@
       document.getElementById("detailTitle").innerText = t.title;
       document.getElementById("infoDest").innerText = highlightsByDestination[t.destination] || t.location;
 
-      // Rating & số đánh giá THẬT tính từ bảng reviews (không dùng số ảo hardcode)
       const avg = t.avgRating || 0;
       const count = t.reviewCount || 0;
       const starsFull = Math.round(avg);
@@ -257,13 +250,11 @@
         <span>${count > 0 ? `${avg.toFixed(1)} (${count} đánh giá)` : 'Chưa có đánh giá'}</span>
       `;
 
-      // Ảnh gallery: ảnh chính từ database, 2 ảnh phụ lấy từ lịch trình nếu có
       document.getElementById('mainGalleryImg').src = t.image;
       document.getElementById('mainGalleryImg').alt = t.title;
       if (activeItinerary[0]) document.getElementById('subGalleryImg1').src = activeItinerary[0].img;
       if (activeItinerary[1]) document.getElementById('subGalleryImg2').src = activeItinerary[1].img;
 
-      // Lịch trình chi tiết
       const groupContainer = document.getElementById("itineraryGroup");
       groupContainer.innerHTML = '';
       if (activeItinerary.length === 0) {
@@ -284,7 +275,6 @@
         });
       }
 
-      // Khởi tạo giá theo từng loại khách và tính tổng lần đầu
       document.querySelectorAll('.pax-row').forEach(row => {
         const percent = parseFloat(row.dataset.percent);
         const type = row.dataset.type;
@@ -296,17 +286,15 @@
       });
       computeTotal();
 
-      // Ngày khởi hành: khách tự chọn, mặc định từ hôm nay trở đi
       const dateInput = document.getElementById('departureDate');
       const today = new Date().toISOString().split('T')[0];
       dateInput.min = today;
       dateInput.value = today;
       selectedDate = today;
-      // Tải danh sách đánh giá thật từ database
+
       loadReviews(t.id);
     }
 
-    // Tự điền sẵn tên/SĐT/email nếu khách đã đăng nhập
     function prefillCustomerInfo() {
       const userStr = localStorage.getItem('user');
       if (!userStr) return;
@@ -326,9 +314,6 @@
     document.addEventListener("DOMContentLoaded", loadTourDetail);
     document.addEventListener("DOMContentLoaded", prefillCustomerInfo);
 
-    // Khi quay lại trang bằng nút Back/Forward, trình duyệt có thể phục hồi
-    // trang từ bộ nhớ đệm (bfcache) mà KHÔNG chạy lại JS -> lịch trình/đánh giá
-    // vừa cập nhật sẽ không thấy. Tải lại dữ liệu khi đó.
     window.addEventListener("pageshow", function (event) {
       if (event.persisted) {
         loadTourDetail();
@@ -371,7 +356,7 @@
       const data = activeItinerary[index];
       const body = document.getElementById("modalDynamicBody");
       let bulletHtml = data.bullets.map(b => `<li>${b}</li>`).join('');
-      
+
       body.innerHTML = `
         <div class="modal-day-banner">
           <div class="modal-day-info">
@@ -381,7 +366,7 @@
           </div>
           <img src="${data.img}" class="modal-day-img" alt="Hình ảnh ngày">
         </div>
-        
+
         <div class="modal-timeline-content">
           <div class="modal-timeline-dot"></div>
           <div class="modal-section-title">Hoạt động chính: ${data.activitiesTitle}</div>
@@ -402,7 +387,6 @@
       e.preventDefault();
       if (!activeTour) return;
 
-      // Lấy user đang đăng nhập (nếu có) để gắn booking vào tài khoản của họ
       const userStr = localStorage.getItem('user');
       const loggedInUser = userStr ? JSON.parse(userStr) : null;
 
@@ -416,7 +400,7 @@
         infants: paxCounts.infant,
         departure_date: selectedDate,
         date: selectedDate,
-        user_id: loggedInUser ? loggedInUser.id : null   // ⭐ gắn booking với tài khoản đang đăng nhập
+        user_id: loggedInUser ? loggedInUser.id : null  
       };
 
       try {
@@ -437,25 +421,15 @@
         alert('Không kết nối được server. Vui lòng chắc chắn backend đang chạy.');
       }
     }
-    // ===== ĐÁNH GIÁ TỪ KHÁCH HÀNG (dữ liệu thật, gửi/lấy từ database) =====
 
     let selectedStarRating = 0;
 
-    // Hiện/ẩn form viết đánh giá tuỳ theo đã đăng nhập hay chưa
-    function setupReviewForm() {
+    async function setupReviewForm(tourId) {
       const userStr = localStorage.getItem('user');
       const writeCard = document.getElementById('writeReviewCard');
       const loginPrompt = document.getElementById('loginToReview');
+      const notEligible = document.getElementById('reviewNotEligible');
 
-      if (userStr) {
-        writeCard.style.display = 'block';
-        loginPrompt.style.display = 'none';
-      } else {
-        writeCard.style.display = 'none';
-        loginPrompt.style.display = 'block';
-      }
-
-      // Gắn sự kiện chọn sao (chỉ gắn 1 lần)
       const starPicker = document.getElementById('starPicker');
       if (starPicker && !starPicker.dataset.bound) {
         starPicker.dataset.bound = 'true';
@@ -465,6 +439,38 @@
             renderStarPicker();
           });
         });
+      }
+
+      if (!userStr) {
+        writeCard.style.display = 'none';
+        loginPrompt.style.display = 'block';
+        if (notEligible) notEligible.style.display = 'none';
+        return;
+      }
+
+      loginPrompt.style.display = 'none';
+
+      let canReview = true;
+      let reasonMsg = '';
+      try {
+        const user = JSON.parse(userStr);
+        const res = await fetch(`/api/tours/${tourId}/can-review?user_id=${user.id}`);
+        const data = await res.json();
+        canReview = data.canReview;
+        reasonMsg = data.message || '';
+      } catch (e) {
+        console.error('❌ Không kiểm tra được quyền đánh giá:', e);
+      }
+
+      if (canReview) {
+        writeCard.style.display = 'block';
+        if (notEligible) notEligible.style.display = 'none';
+      } else {
+        writeCard.style.display = 'none';
+        if (notEligible) {
+          notEligible.style.display = 'block';
+          notEligible.innerHTML = `⚠️ ${reasonMsg} Bạn cần <a href="tai_khoan.html">đặt và hoàn thành chuyến đi</a> để đánh giá tour này.`;
+        }
       }
     }
 
@@ -483,13 +489,12 @@
 
     async function loadReviews(tourId) {
       const listEl = document.getElementById('reviewList');
-      setupReviewForm();
+      setupReviewForm(tourId);
 
       try {
         const res = await fetch(`/api/tours/${tourId}/reviews`);
         const reviews = await res.json();
 
-        // Cập nhật tóm tắt điểm trung bình
         const count = reviews.length;
         const avg = count > 0 ? reviews.reduce((sum, r) => sum + r.rating, 0) / count : 0;
         const starsFull = Math.round(avg);
@@ -499,9 +504,6 @@
         document.getElementById('reviewCountText').textContent =
           count > 0 ? `Dựa trên ${count} đánh giá` : 'Chưa có đánh giá nào';
 
-        // Nếu người dùng đang đăng nhập đã từng đánh giá tour này -> điền lại
-        // sẵn đánh giá cũ vào form, để "Gửi đánh giá" trở thành "Cập nhật đánh giá"
-        // thay vì tạo thêm 1 bản ghi trùng cho cùng 1 tour.
         const userStr = localStorage.getItem('user');
         const btn = document.querySelector('.btn-submit-review');
         const commentInput = document.getElementById('reviewCommentInput');
@@ -608,3 +610,17 @@
         btn.textContent = 'Gửi đánh giá';
       }
     }
+
+function toggleBooking() {
+  const wrapper = document.getElementById('bookingContentWrapper');
+  const icon = document.getElementById('bookingToggleIcon');
+  if (wrapper.style.maxHeight === '0px') {
+    wrapper.style.maxHeight = '1000px';
+    wrapper.style.opacity = '1';
+    icon.style.transform = 'rotate(0deg)';
+  } else {
+    wrapper.style.maxHeight = '0px';
+    wrapper.style.opacity = '0';
+    icon.style.transform = 'rotate(180deg)';
+  }
+}
