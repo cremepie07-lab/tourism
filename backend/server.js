@@ -59,8 +59,9 @@ function initializeDatabase() {
       id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL,
       location TEXT NOT NULL, destination TEXT NOT NULL, durationLabel TEXT NOT NULL,
       departure TEXT NOT NULL, price REAL NOT NULL, description TEXT, image TEXT,
-      rating REAL DEFAULT 0, reviews INTEGER DEFAULT 0, badge TEXT, type TEXT, details TEXT
-    )`);
+      rating REAL DEFAULT 0, reviews INTEGER DEFAULT 0, badge TEXT, type TEXT, details TEXT,
+      itinerary TEXT, highlights TEXT, cuisine TEXT, ideal_time TEXT, transport TEXT, promotion TEXT
+    )`, () => { migrateToursTable(); });
     db.run(`CREATE TABLE IF NOT EXISTS bookings (
       id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL,
       email TEXT NOT NULL, phone TEXT NOT NULL, tour_id INTEGER NOT NULL,
@@ -75,6 +76,29 @@ function initializeDatabase() {
       comment TEXT NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (tour_id) REFERENCES tours(id), FOREIGN KEY (user_id) REFERENCES users(id)
     )`, () => { migrateReviewsTable(); });
+  });
+}
+
+function migrateToursTable() {
+  db.all(`PRAGMA table_info(tours)`, (err, columns) => {
+    if (err) { console.error('Schema error:', err); return; }
+    const cols = columns.map(c => c.name);
+    const migs = [];
+    if (!cols.includes('itinerary'))      migs.push(`ALTER TABLE tours ADD COLUMN itinerary TEXT`);
+    if (!cols.includes('highlights'))     migs.push(`ALTER TABLE tours ADD COLUMN highlights TEXT`);
+    if (!cols.includes('cuisine'))        migs.push(`ALTER TABLE tours ADD COLUMN cuisine TEXT`);
+    if (!cols.includes('ideal_time'))     migs.push(`ALTER TABLE tours ADD COLUMN ideal_time TEXT`);
+    if (!cols.includes('transport'))      migs.push(`ALTER TABLE tours ADD COLUMN transport TEXT`);
+    if (!cols.includes('promotion'))      migs.push(`ALTER TABLE tours ADD COLUMN promotion TEXT`);
+
+    if (migs.length === 0) {
+      console.log('Tours schema up to date');
+      return;
+    }
+    db.serialize(() => {
+      migs.forEach(sql => db.run(sql));
+      db.run('SELECT 1', () => console.log(`Migrated ${migs.length} new columns for tours`));
+    });
   });
 }
 
@@ -138,6 +162,23 @@ function insertSampleData() {
 
 // ===== API ENDPOINTS =====
 
+// Tour data: image cột luu nhieu URL cach nhau boi dau '|'
+function decorateTour(row) {
+  const images = row.image ? row.image.split('|').filter(Boolean) : [];
+  let itinerary = [];
+  if (row.itinerary) {
+    try { itinerary = JSON.parse(row.itinerary); } catch (e) { itinerary = []; }
+  }
+  return {
+    ...row,
+    image: images[0] || row.image || '',
+    images,
+    itinerary,
+    details: row.details ? row.details.split('|') : [],
+    avgRating: Math.round((row.avgRating || 0) * 10) / 10
+  };
+}
+
 app.post('/api/auth/register', (req, res) => {
   const { name, email, phone, password, confirmPassword } = req.body;
   if (!name || !email || !phone || !password || !confirmPassword)
@@ -182,7 +223,7 @@ app.get('/api/users/:id/bookings', (req, res) => {
 app.get('/api/tours', (req, res) => {
   db.all(`SELECT t.*, COALESCE(r.reviewCount,0) as reviewCount, COALESCE(r.avgRating,0) as avgRating FROM tours t LEFT JOIN (SELECT tour_id, COUNT(*) as reviewCount, AVG(rating) as avgRating FROM reviews GROUP BY tour_id) r ON r.tour_id = t.id ORDER BY t.id DESC`, (err, rows) => {
     if (err) res.status(500).json({ error: err.message });
-    else res.json(rows.map(row => ({ ...row, details: row.details ? row.details.split('|') : [], avgRating: Math.round(row.avgRating * 10) / 10 })));
+    else res.json(rows.map(decorateTour));
   });
 });
 
@@ -197,7 +238,7 @@ app.get('/api/tours/filter', (req, res) => {
   q += ' ORDER BY t.id DESC';
   db.all(q, p, (err, rows) => {
     if (err) res.status(500).json({ error: err.message });
-    else res.json(rows.map(row => ({ ...row, details: row.details ? row.details.split('|') : [], avgRating: Math.round(row.avgRating * 10) / 10 })));
+    else res.json(rows.map(decorateTour));
   });
 });
 
@@ -206,7 +247,7 @@ app.get('/api/tours/:id', (req, res) => {
     if (err) return res.status(500).json({ error: err.message });
     if (!row) return res.status(404).json({ error: 'Tour not found' });
     db.get('SELECT COUNT(*) as reviewCount, AVG(rating) as avgRating FROM reviews WHERE tour_id = ?', [req.params.id], (err2, stats) => {
-      res.json({ ...row, details: row.details ? row.details.split('|') : [], reviewCount: stats && stats.reviewCount ? stats.reviewCount : 0, avgRating: stats && stats.avgRating ? Math.round(stats.avgRating * 10) / 10 : 0 });
+      res.json({ ...decorateTour(row), reviewCount: stats && stats.reviewCount ? stats.reviewCount : 0, avgRating: stats && stats.avgRating ? Math.round(stats.avgRating * 10) / 10 : 0 });
     });
   });
 });
@@ -346,18 +387,19 @@ app.get('/api/admin/stats', requireAdmin, (req, res) => {
 app.get('/api/admin/tours', requireAdmin, (req, res) => {
   db.all(`SELECT t.*, COALESCE(b.bookingCount,0) as bookingCount, COALESCE(r.reviewCount,0) as reviewCount, COALESCE(r.avgRating,0) as avgRating FROM tours t LEFT JOIN (SELECT tour_id, COUNT(*) as bookingCount FROM bookings GROUP BY tour_id) b ON b.tour_id = t.id LEFT JOIN (SELECT tour_id, COUNT(*) as reviewCount, AVG(rating) as avgRating FROM reviews GROUP BY tour_id) r ON r.tour_id = t.id ORDER BY t.id DESC`, (err, rows) => {
     if (err) res.status(500).json({ error: err.message });
-    else res.json(rows);
+    else res.json(rows.map(decorateTour));
   });
 });
 
 // Them tour moi (admin)
 app.post('/api/admin/tours', requireAdmin, (req, res) => {
-  const { title, location, destination, durationLabel, departure, price, description, image, badge, type, details } = req.body;
+  const { title, location, destination, durationLabel, departure, price, description, image, badge, type, details, itinerary, highlights, cuisine, ideal_time, transport, promotion } = req.body;
   if (!title || !location || !destination || !durationLabel || !departure || !price)
     return res.status(400).json({ success: false, error: 'Vui long dien day du thong tin bat buoc' });
   const detailsStr = Array.isArray(details) ? details.join('|') : (details || '');
-  db.run(`INSERT INTO tours (title,location,destination,durationLabel,departure,price,description,image,badge,type,details,rating,reviews) VALUES (?,?,?,?,?,?,?,?,?,?,?,0,0)`,
-    [title, location, destination, durationLabel, departure, parseFloat(price), description||'', image||'', badge||'', type||'', detailsStr], function(err) {
+  const itineraryStr = Array.isArray(itinerary) && itinerary.length ? JSON.stringify(itinerary) : null;
+  db.run(`INSERT INTO tours (title,location,destination,durationLabel,departure,price,description,image,badge,type,details,itinerary,highlights,cuisine,ideal_time,transport,promotion,rating,reviews) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,0,0)`,
+    [title, location, destination, durationLabel, departure, parseFloat(price), description||'', image||'', badge||'', type||'', detailsStr, itineraryStr, highlights||'', cuisine||'', ideal_time||'', transport||'', promotion||''], function(err) {
       if (err) return res.status(500).json({ success: false, error: err.message });
       res.json({ success: true, message: 'Them tour thanh cong!', tour_id: this.lastID });
     });
@@ -366,12 +408,13 @@ app.post('/api/admin/tours', requireAdmin, (req, res) => {
 // Sua tour (admin)
 app.put('/api/admin/tours/:id', requireAdmin, (req, res) => {
   const { id } = req.params;
-  const { title, location, destination, durationLabel, departure, price, description, image, badge, type, details } = req.body;
+  const { title, location, destination, durationLabel, departure, price, description, image, badge, type, details, itinerary, highlights, cuisine, ideal_time, transport, promotion } = req.body;
   if (!title || !location || !destination || !durationLabel || !departure || !price)
     return res.status(400).json({ success: false, error: 'Vui long dien day du thong tin bat buoc' });
   const detailsStr = Array.isArray(details) ? details.join('|') : (details || '');
-  db.run(`UPDATE tours SET title=?,location=?,destination=?,durationLabel=?,departure=?,price=?,description=?,image=?,badge=?,type=?,details=? WHERE id=?`,
-    [title, location, destination, durationLabel, departure, parseFloat(price), description||'', image||'', badge||'', type||'', detailsStr, id], function(err) {
+  const itineraryStr = Array.isArray(itinerary) && itinerary.length ? JSON.stringify(itinerary) : null;
+  db.run(`UPDATE tours SET title=?,location=?,destination=?,durationLabel=?,departure=?,price=?,description=?,image=?,badge=?,type=?,details=?,itinerary=?,highlights=?,cuisine=?,ideal_time=?,transport=?,promotion=? WHERE id=?`,
+    [title, location, destination, durationLabel, departure, parseFloat(price), description||'', image||'', badge||'', type||'', detailsStr, itineraryStr, highlights||'', cuisine||'', ideal_time||'', transport||'', promotion||'', id], function(err) {
       if (err) return res.status(500).json({ success: false, error: err.message });
       if (this.changes === 0) return res.status(404).json({ success: false, error: 'Tour khong ton tai' });
       res.json({ success: true, message: 'Cap nhat tour thanh cong!' });
@@ -454,4 +497,3 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log('Admin login: admin@viettravel.vn / admin@2026');
 });
-
