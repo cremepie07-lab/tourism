@@ -38,4 +38,9 @@ PS D:\tourism-main\backend> node server.js
 📊 Database tables ready (bookings schema up to date)
 📊 Reviews table ready (unique per user/tour)
 
-**********link để vào sau khi chạy terminal: http://localhost:5000/trang_chu.html
+*************Trang thường:
+link để vào sau khi chạy terminal: http://localhost:5000/trang_chu.html
+
+*************Trang admin:
+Admin: http://localhost:5000/admin_login.html
+Email: admin@viettravel.vn | Mật khẩu: admin@2026
