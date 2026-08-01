@@ -189,7 +189,7 @@ async function loadTours() {
     }
     tbody.innerHTML = tours.map(t => `
       <tr>
-        <td><img src="${t.image || ''}" alt="" class="tour-img" onerror="this.style.display='none'"></td>
+        <td><img src="${firstImg(t) || ''}" alt="" class="tour-img" onerror="this.style.display='none'"></td>
         <td>
           <div class="tour-name-cell">
             <div>
@@ -220,11 +220,132 @@ function escHtml(str) {
   return String(str || '').replace(/&/g,'&amp;').replace(/'/g,"\\'").replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+function firstImg(t) {
+  const arr = Array.isArray(t.images) ? t.images : (t.image ? String(t.image).split('|') : []);
+  return arr[0] || '';
+}
+
+function addImageField(url) {
+  const list = document.getElementById('imageList');
+  const wrap = document.createElement('div');
+  wrap.className = 'image-url-row';
+  wrap.innerHTML = `
+    <input class="form-input-modal image-url-input" type="url" placeholder="https://..." value="${escAttr(url || '')}">
+    <button type="button" class="btn btn-danger btn-sm" title="Xóa ảnh" onclick="this.parentElement.remove()">✕</button>
+  `;
+  list.appendChild(wrap);
+  const input = wrap.querySelector('input');
+  input.addEventListener('input', () => updateImagePreview(wrap, input));
+}
+
+function escAttr(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function updateImagePreview(wrap, input) {
+  let prev = wrap.querySelector('.image-preview');
+  if (prev) prev.remove();
+  if (!input.value.trim()) return;
+  prev = document.createElement('img');
+  prev.className = 'image-preview';
+  prev.src = input.value.trim();
+  prev.alt = '';
+  prev.onerror = function() { this.style.display = 'none'; };
+  wrap.appendChild(prev);
+}
+
+function clearImageList() {
+  document.getElementById('imageList').innerHTML = '';
+}
+
+function addItineraryDay(day) {
+  const list = document.getElementById('itineraryList');
+  const d = day || {};
+  const wrap = document.createElement('div');
+  wrap.className = 'itinerary-day-block';
+  wrap.innerHTML = `
+    <div class="itinerary-day-header">
+      <span class="itinerary-day-label">Ngày ${list.children.length + 1}</span>
+      <button type="button" class="btn btn-danger btn-sm" title="Xóa ngày" onclick="this.closest('.itinerary-day-block').remove();updateDayLabels()">✕</button>
+    </div>
+    <div class="itinerary-grid">
+      <div class="form-group-modal">
+        <label class="form-label-modal">Ngày (VD: Ngày 1)</label>
+        <input class="form-input-modal it-daynum" placeholder="Ngày 1" value="${escAttr(d.dayNum || '')}">
+      </div>
+      <div class="form-group-modal">
+        <label class="form-label-modal">Bữa ăn</label>
+        <input class="form-input-modal it-meals" placeholder="Ăn trưa, tối" value="${escAttr(d.meals || '')}">
+      </div>
+      <div class="form-group-modal full">
+        <label class="form-label-modal">Tiêu đề ngày</label>
+        <input class="form-input-modal it-title" placeholder="Hà Nội - Hạ Long - Du thuyền ngắm hoàng hôn" value="${escAttr(d.title || '')}">
+      </div>
+      <div class="form-group-modal full">
+        <label class="form-label-modal">Hoạt động chính</label>
+        <input class="form-input-modal it-activities" placeholder="Lênh đênh trên Vịnh Di sản" value="${escAttr(d.activitiesTitle || '')}">
+      </div>
+      <div class="form-group-modal full">
+        <label class="form-label-modal">URL Ảnh minh họa</label>
+        <input class="form-input-modal it-img" placeholder="https://..." value="${escAttr(d.img || '')}">
+      </div>
+      <div class="form-group-modal full">
+        <label class="form-label-modal">Nội dung (mỗi dòng 1 mục)</label>
+        <textarea class="form-textarea-modal it-bullets" placeholder="Khởi hành từ Hà Nội...
+Tham quan Hang Sửng Sốt...
+Ngắm hoàng hôn trên du thuyền">${escAttr(bulletsToText(d.bullets))}</textarea>
+      </div>
+    </div>
+  `;
+  list.appendChild(wrap);
+  updateDayLabels();
+}
+
+function bulletsToText(bullets) {
+  return Array.isArray(bullets) ? bullets.join('\n') : String(bullets || '');
+}
+
+function updateDayLabels() {
+  document.querySelectorAll('#itineraryList .itinerary-day-label').forEach((el, i) => {
+    el.textContent = 'Ngày ' + (i + 1);
+  });
+}
+
+function clearItineraryList() {
+  document.getElementById('itineraryList').innerHTML = '';
+}
+
+function itineraryVal(block, sel) {
+  const el = block.querySelector(sel);
+  return el ? (el.value || '').trim() : '';
+}
+
+function collectItinerary() {
+  return Array.from(document.querySelectorAll('#itineraryList .itinerary-day-block')).map(block => {
+    const bullets = itineraryVal(block, '.it-bullets').split('\n').map(s => s.trim()).filter(Boolean);
+    const dayNum = itineraryVal(block, '.it-daynum');
+    const title  = itineraryVal(block, '.it-title');
+    if (!dayNum && !title && !bullets.length) return null;
+    return {
+      dayNum: dayNum,
+      title: title,
+      meals: itineraryVal(block, '.it-meals'),
+      activitiesTitle: itineraryVal(block, '.it-activities'),
+      img: itineraryVal(block, '.it-img'),
+      bullets: bullets
+    };
+  }).filter(Boolean);
+}
+
 function openAddTour() {
   editingTourId = null;
   document.getElementById('tourModalTitle').textContent = 'Thêm Tour Mới';
   document.getElementById('tourForm').reset();
   document.getElementById('tourFormAlert').className = 'form-alert';
+  clearImageList();
+  addImageField();
+  clearItineraryList();
+  addItineraryDay();
   openModal('tourModal');
 }
 
@@ -244,8 +365,22 @@ async function openEditTour(id) {
     document.getElementById('tf_price').value       = tour.price ? Number(tour.price).toLocaleString('vi-VN') : '';
     document.getElementById('tf_badge').value       = tour.badge || '';
     document.getElementById('tf_type').value        = tour.type || '';
-    document.getElementById('tf_image').value       = tour.image || '';
+    document.getElementById('tf_highlights').value  = tour.highlights || '';
+    document.getElementById('tf_cuisine').value     = tour.cuisine || '';
+    document.getElementById('tf_ideal_time').value  = tour.ideal_time || '';
+    document.getElementById('tf_transport').value   = tour.transport || '';
+    document.getElementById('tf_promotion').value   = tour.promotion || '';
     document.getElementById('tf_description').value = tour.description || '';
+
+    clearImageList();
+    const imgs = Array.isArray(tour.images) ? tour.images : (tour.image || '').split('|').filter(Boolean);
+    if (!imgs.length) addImageField();
+    else imgs.forEach(img => addImageField(img));
+
+    clearItineraryList();
+    const itArr = Array.isArray(tour.itinerary) ? tour.itinerary : [];
+    if (!itArr.length) addItineraryDay();
+    else itArr.forEach(d => addItineraryDay(d));
 
     const detailsArr = Array.isArray(tour.details) ? tour.details : (tour.details || '').split('|').filter(Boolean);
     document.getElementById('tf_details').value = detailsArr.join('\n');
@@ -271,14 +406,26 @@ async function submitTourForm() {
     price:       document.getElementById('tf_price').value.replace(/\D/g, ''),
     badge:       document.getElementById('tf_badge').value.trim(),
     type:        document.getElementById('tf_type').value,
-    image:       document.getElementById('tf_image').value.trim(),
+    highlights:  document.getElementById('tf_highlights').value.trim(),
+    cuisine:     document.getElementById('tf_cuisine').value.trim(),
+    ideal_time:  document.getElementById('tf_ideal_time').value.trim(),
+    transport:   document.getElementById('tf_transport').value.trim(),
+    promotion:   document.getElementById('tf_promotion').value.trim(),
+    image:       Array.from(document.querySelectorAll('#imageList .image-url-input'))
+      .map(i => i.value.trim()).filter(Boolean).join('|'),
     description: document.getElementById('tf_description').value.trim(),
-    details
+    details,
+    itinerary:   collectItinerary()
   };
 
   if (!payload.title || !payload.location || !payload.destination || !payload.durationLabel || !payload.departure || !payload.price) {
     alertEl.className = 'form-alert error';
     alertEl.textContent = 'Vui lòng điền đầy đủ các trường bắt buộc (*)';
+    return;
+  }
+  if (!payload.image) {
+    alertEl.className = 'form-alert error';
+    alertEl.textContent = 'Vui lòng nhập ít nhất 1 URL ảnh tour';
     return;
   }
 
