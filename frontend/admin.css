@@ -642,6 +642,47 @@ tr:hover td { background: #fdf9f2; }
 .form-select-modal { cursor: pointer; }
 .form-select-modal option { background: white; color: var(--text-dark); }
 
+.image-url-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.image-url-row .image-url-input { flex: 1; }
+.image-preview {
+  width: 56px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.itinerary-day-block {
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+  background: var(--warm-white);
+}
+.itinerary-day-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.itinerary-day-label {
+  font-weight: 700;
+  color: var(--jade);
+  letter-spacing: 0.04em;
+}
+.itinerary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.itinerary-grid .full { grid-column: 1 / -1; }
+
 .form-alert {
   padding: 10px 14px;
   border-radius: 8px;
