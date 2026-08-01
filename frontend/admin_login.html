@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Nhập Admin - VIET TRAVEL</title>
+  <meta name="description" content="Trang đăng nhập quản trị viên VIET TRAVEL">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='admin_login.css'>
+</head>
+<body>
+
+<div class="login-container">
+  <div class="login-card">
+
+    <div class="login-logo">
+      <span class="brand">Việt Travel ✦</span>
+      <span class="badge-admin">Admin Portal</span>
+    </div>
+
+    <h1 class="login-title">Đăng Nhập Quản Trị</h1>
+    <p class="login-subtitle">Nhập thông tin đăng nhập để truy cập bảng điều khiển</p>
+
+    <div id="alertBox" class="alert"></div>
+
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label class="form-label" for="adminEmail">Email Admin</label>
+        <input
+          id="adminEmail"
+          class="form-input"
+          type="email"
+          placeholder="admin@viettravel.vn"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="adminPassword">Mật Khẩu</label>
+        <input
+          id="adminPassword"
+          class="form-input"
+          type="password"
+          placeholder="••••••••"
+          autocomplete="current-password"
+          required
+        >
+      </div>
+
+      <button id="btnLogin" class="btn-login" type="submit">Đăng Nhập</button>
+    </form>
+
+    <div class="back-link">
+      <a href="/trang_chu.html">← Quay về trang chủ</a>
+    </div>
+
+  </div>
+</div>
+
+<script src='admin_login.js'></script>
+
+</body>
+</html>
