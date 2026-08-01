@@ -211,6 +211,57 @@ const itineraryByDestination = {
       'ha-giang': 'Đèo Mã Pì Lèng, Cột cờ Lũng Cú, Phố cổ Đồng Văn, Cao nguyên đá'
     };
 
+    const defaultInfoByDestination = {
+      'ha-long': {
+        cuisine: 'Hải sản tươi sống, chả mực, sam biển',
+        ideal_time: 'Mùa hè (tháng 5 - 9)',
+        transport: 'Xe du lịch + du thuyền 4 sao',
+        promotion: 'Giảm 5% khi đặt trước 30 ngày'
+      },
+      'sapa': {
+        cuisine: 'Thắng cố, lợn cắp nách, cá hồi vùng cao',
+        ideal_time: 'Tháng 9 - 11 (mùa lúa chín)',
+        transport: 'Xe du lịch + cáp treo Fansipan',
+        promotion: 'Miễn phí 1 trẻ em khi đặt 2 người lớn'
+      },
+      'hoi-an': {
+        cuisine: 'Cao lầu, mì Quảng, bánh bao bánh vạc',
+        ideal_time: 'Tháng 2 - 4, 8 - 10',
+        transport: 'Xe du lịch + thuyền trên sông Hoài',
+        promotion: 'Tặng 1 đêm khách sạn 4 sao'
+      },
+      'hue': {
+        cuisine: 'Bún bò Huế, cơm hến, chè cung đình',
+        ideal_time: 'Tháng 1 - 4',
+        transport: 'Xe du lịch + thuyền rồng sông Hương',
+        promotion: 'Giảm 8% khi đặt nhóm 4+ người'
+      },
+      'phu-quoc': {
+        cuisine: 'Hải sản tươi sống, gỏi cá trích, bún quậy',
+        ideal_time: 'Tháng 11 - 4 (mùa khô)',
+        transport: 'Máy bay + xe đưa đón khách sạn',
+        promotion: 'Tặng 1 đêm nghỉ dưỡng'
+      },
+      'hanoi': {
+        cuisine: 'Phở, bún chả, chả cá Lã Vọng, cà phê trứng',
+        ideal_time: 'Tháng 9 - 11, 3 - 4',
+        transport: 'Xe du lịch + đi bộ khám phá phố cổ',
+        promotion: 'Tặng nón lá + nước uống'
+      },
+      'da-nang': {
+        cuisine: 'Bánh xèo, mì Quảng, hải sản biển Mỹ Khê',
+        ideal_time: 'Tháng 2 - 8',
+        transport: 'Xe du lịch + cáp treo Bà Nà',
+        promotion: 'Giảm 10% khi đặt online'
+      },
+      'ha-giang': {
+        cuisine: 'Thắng cố, mèn mén, rượu ngô Đồng Văn',
+        ideal_time: 'Tháng 10 - 12 (mùa hoa tam giác mạch)',
+        transport: 'Xe du lịch 4x4 leo đèo',
+        promotion: 'Tặng bảo hiểm du lịch cao cấp'
+      }
+    };
+
     let activeTour = null;
     let activeItinerary = [];
 
@@ -226,7 +277,7 @@ const itineraryByDestination = {
         if (!res.ok) throw new Error('Tour not found');
         const tour = await res.json();
         activeTour = tour;
-        activeItinerary = itineraryByDestination[tour.destination] || [];
+        activeItinerary = (tour.itinerary && tour.itinerary.length) ? tour.itinerary : (itineraryByDestination[tour.destination] || []);
         renderTourDetail();
       } catch (err) {
         console.error('❌ Error loading tour detail:', err);
@@ -240,7 +291,12 @@ const itineraryByDestination = {
       document.title = `${t.title} - Việt Nam Hành Trình Huyền Diệu`;
       document.getElementById("detailId").innerText = `Mã Tour: TOUR-${String(t.id).padStart(4, '0')}`;
       document.getElementById("detailTitle").innerText = t.title;
-      document.getElementById("infoDest").innerText = highlightsByDestination[t.destination] || t.location;
+      const di = defaultInfoByDestination[t.destination] || {};
+      document.getElementById("infoDest").innerText = t.highlights || highlightsByDestination[t.destination] || t.location;
+      document.getElementById('infoCuisine').innerText = t.cuisine || di.cuisine || 'Buffet sáng, Thực đơn đặc sản phong phú';
+      document.getElementById('infoIdealTime').innerText = t.ideal_time || di.ideal_time || 'Quanh năm (Mỗi mùa một vẻ đẹp đặc trưng riêng)';
+      document.getElementById('infoTransport').innerText = t.transport || di.transport || 'Xe du lịch đời mới chỗ ngồi êm ái suốt tuyến';
+      document.getElementById('infoPromotion').innerText = t.promotion || di.promotion || 'Theo các chương trình ưu đãi hiện hành của công ty';
 
       const avg = t.avgRating || 0;
       const count = t.reviewCount || 0;
@@ -250,10 +306,22 @@ const itineraryByDestination = {
         <span>${count > 0 ? `${avg.toFixed(1)} (${count} đánh giá)` : 'Chưa có đánh giá'}</span>
       `;
 
-      document.getElementById('mainGalleryImg').src = t.image;
-      document.getElementById('mainGalleryImg').alt = t.title;
-      if (activeItinerary[0]) document.getElementById('subGalleryImg1').src = activeItinerary[0].img;
-      if (activeItinerary[1]) document.getElementById('subGalleryImg2').src = activeItinerary[1].img;
+      const galleryImgs = Array.isArray(t.images) && t.images.length ? t.images : (t.image ? [t.image] : []);
+      const mainGalleryImg = document.getElementById('mainGalleryImg');
+      mainGalleryImg.src = galleryImgs[0] || t.image;
+      mainGalleryImg.alt = t.title;
+
+      const sub1 = document.getElementById('subGalleryImg1');
+      const sub2 = document.getElementById('subGalleryImg2');
+      const subEls = [sub1, sub2];
+      galleryImgs.slice(1, 3).forEach((src, i) => {
+        const el = subEls[i];
+        el.src = src;
+        el.style.display = '';
+        el.onclick = () => swapMainGallery(el.src, el);
+      });
+      if (galleryImgs.length < 2 && activeItinerary[0]) { sub1.src = activeItinerary[0].img; sub1.onclick = null; }
+      if (galleryImgs.length < 3 && activeItinerary[1]) { sub2.src = activeItinerary[1].img; sub2.onclick = null; }
 
       const groupContainer = document.getElementById("itineraryGroup");
       groupContainer.innerHTML = '';
@@ -350,6 +418,13 @@ const itineraryByDestination = {
         total += price * paxCounts[type];
       });
       document.getElementById('calcTotal').innerText = total.toLocaleString('vi-VN') + "đ";
+    }
+
+    function swapMainGallery(src, thumbEl) {
+      const main = document.getElementById('mainGalleryImg');
+      const old = main.src;
+      main.src = src;
+      if (thumbEl) thumbEl.src = old;
     }
 
     function openItineraryDay(index) {
