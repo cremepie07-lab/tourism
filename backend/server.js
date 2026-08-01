@@ -218,14 +218,57 @@ app.get('/api/tours/:id/reviews', (req, res) => {
   });
 });
 
+// Kiem tra quyen danh gia cua 1 user tren 1 tour (da dat, da di xong)
+app.get('/api/tours/:id/can-review', (req, res) => {
+  const { id } = req.params;
+  const { user_id } = req.query;
+  if (!user_id) {
+    return res.json({ canReview: false, hasReviewed: false, reason: 'not_logged_in', message: 'Vui lòng đăng nhập để đánh giá tour.' });
+  }
+  db.get('SELECT id FROM reviews WHERE tour_id = ? AND user_id = ?', [id, user_id], (err, review) => {
+    if (err) return res.status(500).json({ error: err.message });
+    if (review) {
+      return res.json({ canReview: true, hasReviewed: true, reason: 'reviewed', message: 'Bạn đã đánh giá tour này.' });
+    }
+    db.get(`SELECT id, status, date(COALESCE(departure_date, date)) AS dep FROM bookings WHERE user_id = ? AND tour_id = ? ORDER BY created_at DESC LIMIT 1`, [user_id, id], (err2, booking) => {
+      if (err2) return res.status(500).json({ error: err2.message });
+      if (!booking) {
+        return res.json({ canReview: false, hasReviewed: false, reason: 'not_booked', message: 'Bạn chưa đặt tour này.' });
+      }
+      if (booking.status === 'cancelled') {
+        return res.json({ canReview: false, hasReviewed: false, reason: 'cancelled', message: 'Đặt tour của bạn đã bị hủy nên không thể đánh giá.' });
+      }
+      const todayStr = new Date().toISOString().split('T')[0];
+      const eligible = (booking.status === 'confirmed' || booking.status === 'completed') && booking.dep && booking.dep <= todayStr;
+      if (!eligible) {
+        return res.json({ canReview: false, hasReviewed: false, reason: 'not_eligible', message: 'Bạn chỉ có thể đánh giá tour sau khi chuyến đi đã hoàn thành.' });
+      }
+      res.json({ canReview: true, hasReviewed: false, reason: 'eligible', message: '' });
+    });
+  });
+});
+
 app.post('/api/reviews', (req, res) => {
   const { tour_id, user_id, rating, comment } = req.body;
-  if (!tour_id || !user_id || !rating || !comment || !comment.trim()) return res.status(400).json({ success: false, error: 'Vui long dien day du danh gia' });
-  const ratingNum = parseInt(rating, 10);
-  if (ratingNum < 1 || ratingNum > 5) return res.status(400).json({ success: false, error: 'So sao phai tu 1 den 5' });
-  db.run(`INSERT INTO reviews (tour_id, user_id, rating, comment) VALUES (?, ?, ?, ?) ON CONFLICT(tour_id, user_id) DO UPDATE SET rating = excluded.rating, comment = excluded.comment, created_at = CURRENT_TIMESTAMP`, [tour_id, user_id, ratingNum, comment.trim()], function(err) {
+  if (!tour_id || !user_id || !rating || !comment || !comment.trim()) return res.status(400).json({ success: false, error: 'Vui lòng điền đầy đủ thông tin đánh giá' });
+
+  // Kiểm tra khách đã đặt tour, booking được xác nhận/hoàn thành VÀ ngày khởi hành đã qua (đã đi xong)
+  const sqlCheck = `SELECT id FROM bookings WHERE user_id = ? AND tour_id = ? AND status IN ('confirmed','completed') AND date(COALESCE(departure_date, date)) <= date('now', 'localtime') LIMIT 1`;
+  
+  db.get(sqlCheck, [user_id, tour_id], (err, booking) => {
     if (err) return res.status(500).json({ success: false, error: err.message });
-    res.json({ success: true, message: 'Cam on ban da danh gia!', review_id: this.lastID });
+    if (!booking) {
+      return res.status(403).json({ success: false, error: 'Bạn chỉ có thể đánh giá sau khi đã tham gia và hoàn thành tour này.' });
+    }
+
+    const ratingNum = parseInt(rating, 10);
+    if (ratingNum < 1 || ratingNum > 5) return res.status(400).json({ success: false, error: 'Số sao phải từ 1 đến 5' });
+
+    db.run(`INSERT INTO reviews (tour_id, user_id, rating, comment) VALUES (?, ?, ?, ?) ON CONFLICT(tour_id, user_id) DO UPDATE SET rating = excluded.rating, comment = excluded.comment, created_at = CURRENT_TIMESTAMP`, 
+      [tour_id, user_id, ratingNum, comment.trim()], function(insertErr) {
+      if (insertErr) return res.status(500).json({ success: false, error: insertErr.message });
+      res.json({ success: true, message: 'Cảm ơn bạn đã chia sẻ trải nghiệm!', review_id: this.lastID });
+    });
   });
 });
 
@@ -411,3 +454,4 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log('Admin login: admin@viettravel.vn / admin@2026');
 });
+
