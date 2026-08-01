@@ -3,89 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cơm Tấm Sài Gòn — Ẩm Thực Việt Nam</title>
+  <title>Cơm Tấm — Ẩm Thực Việt Nam</title>
+  <meta name="description" content="Khám phá Cơm Tấm, món ăn biểu tượng miền Nam với sườn nướng, bì, chả và nước mắm chua ngọt.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-
   <style>
-    body {
-      background-color: var(--warm-white, #FAF7F0);
-      color: var(--text-dark, #1A1A1A);
-      font-family: 'Raleway', sans-serif;
-    }
-
-    .food-hero {
-      position: relative;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: url('https://images.unsplash.com/photo-1623192080816-75f8502f9011?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-    }
-
-    .food-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
-    }
-
-    .food-hero-content {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      color: #fff;
-    }
-
-    .food-hero-content h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      margin-bottom: 10px;
-    }
-
-    .food-detail {
-      padding: 80px 5%;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .food-detail h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: var(--deep-green, #1A3A2A);
-      margin-bottom: 30px;
-    }
-
-    .food-detail p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--text-muted, #5A5A5A);
-      margin-bottom: 20px;
-      text-align: justify;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 12px 30px;
-      border: 1px solid var(--deep-green, #1A3A2A);
-      color: var(--deep-green, #1A3A2A);
-      text-decoration: none;
-      border-radius: 30px;
-      transition: all 0.3s;
-    }
-
-    .back-btn:hover {
-      background: var(--deep-green, #1A3A2A);
-      color: #fff;
-    }
+    body { background-color: var(--warm-white, #FAF7F0); color: var(--text-dark, #1A1A1A); font-family: 'Raleway', sans-serif; }
+    .food-hero { position: relative; height: 60vh; display: flex; align-items: center; justify-content: center; background: url('https://images.unsplash.com/photo-1587680066956-6e1d77d7260c?q=80&w=1974&auto=format&fit=crop') no-repeat center/cover; }
+    .food-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2)); }
+    .food-hero-content { position: relative; z-index: 10; text-align: center; color: #fff; }
+    .food-hero-content h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 10px; }
+    .food-hero-content p { font-size: 1.2rem; letter-spacing: 2px; }
+    .food-detail { padding: 80px 5%; max-width: 900px; margin: 0 auto; text-align: left; }
+    .food-detail h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--deep-green, #1A3A2A); margin-bottom: 30px; }
+    .food-detail p { font-size: 1.1rem; line-height: 1.8; color: var(--text-muted, #5A5A5A); margin-bottom: 20px; text-align: justify; }
+    .ingredients, .steps, .places-list { margin-bottom: 30px; }
+    .ingredients ul, .steps ol { margin-left: 1.5rem; }
+    .gallery { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
+    .gallery img { width: 300px; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s; }
+    .gallery img:hover { transform: scale(1.05); }
+    .back-btn { display: inline-block; margin-top: 40px; padding: 12px 30px; border: 1px solid var(--deep-green, #1A3A2A); color: var(--deep-green, #1A3A2A); text-decoration: none; border-radius: 30px; transition: all 0.3s; }
+    .back-btn:hover { background: var(--deep-green, #1A3A2A); color: #fff; }
   </style>
 </head>
 <body>
-  <!-- NAVBAR -->
   <nav id="navbar" class="scrolled">
     <div class="nav-logo" onclick="window.location.href='trang_chu.html'" style="cursor:pointer;">Việt Nam</div>
     <ul class="nav-links">
@@ -100,26 +44,54 @@
   <section class="food-hero">
     <div class="food-hero-overlay"></div>
     <div class="food-hero-content">
-      <h1>Cơm Tấm Sài Gòn</h1>
-      <p style="font-size: 1.2rem; letter-spacing: 2px;">Linh hồn ẩm thực miền Nam</p>
+      <h1>Cơm Tấm</h1>
+      <p>Hương vị miền Nam, tấm gối ấm áp</p>
     </div>
   </section>
 
   <section class="food-detail">
-    <h2>Món ăn sáng quen thuộc</h2>
-    <p>Cơm tấm là món ăn sáng quen thuộc và mang đậm phong vị nhất của người Sài Gòn. Tên gọi xuất phát từ nguyên liệu chính là những hạt gạo bị vỡ (tấm), qua bàn tay khéo léo của người nấu trở thành những hạt cơm tơi xốp, thơm mùi gạo mới.</p>
-    <p>Đĩa cơm tấm chuẩn vị thường đi kèm với miếng sườn heo nướng xém cạnh thơm lừng nức mũi, một phần bì heo trộn thính dai dai, và miếng chả trứng hấp béo ngậy. Rưới thêm chút mỡ hành béo thơm và không thể thiếu chén nước mắm tỏi ớt chua ngọt, kẹo sánh, tạo nên hương vị mộc mạc mà vô cùng lôi cuốn.</p>
-    <a href="trang_chu.html#cuisine" class="back-btn"><i class="ri-arrow-left-line"></i> Trở về Ẩm thực</a>
+    <h2>Giới thiệu</h2>
+    <p>Cơm tấm, còn gọi là “cơm gạo tấm”, là món ăn biểu tượng của Sài Gòn và miền Nam. Được làm từ gạo tấm ngắn, kết hợp sườn nướng, bì, chả trứng và nước mắm chua ngọt, đây là bữa ăn đầy đủ dinh dưỡng, vừa nhanh gọn vừa ngon miệng.</p>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=400&auto=format&fit=crop" alt="Cơm tấm sườn nướng">
+      <img src="https://images.unsplash.com/photo-1589149093005-711b6b333710?q=80&w=400&auto=format&fit=crop" alt="Bì và chả">
+      <img src="https://images.unsplash.com/photo-1595875471049-03ed912ec0b5?q=80&w=400&auto=format&fit=crop" alt="Cơm tấm trứng">
+    </div>
+    <h2>Thành phần chính</h2>
+    <div class="ingredients">
+      <ul>
+        <li>Gạo tấm – 200g</li>
+        <li>Sườn nướng – 150g</li>
+        <li>Bì (thịt heo xay) – 80g</li>
+        <li>Chả trứng – 1 quả</li>
+        <li>Dưa leo, cà chua – mỗi 30g</li>
+        <li>Nước mắm chua ngọt, tỏi, ớt băm – để chấm</li>
+      </ul>
+    </div>
+    <h2>Cách chế biến</h2>
+    <div class="steps">
+      <ol>
+        <li>Rửa sạch gạo tấm, hấp chín mềm.</li>
+        <li>Ướp sườn với tỏi, nước mắm, đường, tiêu 30 phút, sau đó nướng tới khi hơi cháy xém.</li>
+        <li>Trộn bì với gia vị (muối, tiêu, đường, tỏi băm) và hấp nhẹ.</li>
+        <li>Chiên trứng ốp la vừa chín tới.</li>
+        <li>Bày cơm, sườn, bì, chả và trứng trên đĩa, kèm dưa leo, cà chua.</li>
+        <li>Thêm nước mắm chua ngọt, ớt, tỏi băm để chấm.</li>
+      </ol>
+    </div>
+    <h2>Địa điểm ăn Cơm Tấm nổi tiếng</h2>
+    <ul class="places-list">
+      <li><span class="pl-icon">📍</span><div><div class="pl-name">Cơm Tấm Ba Giáp – 245 Đ. Bùi Thị Xuân, TP.HCM</div><div class="pl-note">Sườn bít tết và bì heo giòn tan.</div></div></li>
+      <li><span class="pl-icon">📍</span><div><div class="pl-name">Cơm Tấm Ông Bảo – 113 Lê Văn Sỹ, TP.HCM</div><div class="pl-note">Bì hầm 5 tiếng, vị ngậy sâu.</div></div></li>
+      <li><span class="pl-icon">📍</span><div><div class="pl-name">Cơm Tấm Mộc – 90 Đ. Phan Định, TP.HCM</div><div class="pl-note">Phiên bản 3 món (sườn+bì+chả).</div></div></li>
+    </ul>
+    <a href="trang_chu.html#cuisine" class="back-btn"><i class="ri-arrow-left-line"></i> Trở về Ẩm Thực</a>
   </section>
 
   <script>
     window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      const nb = document.getElementById('navbar');
+      nb.classList.toggle('scrolled', window.scrollY > 50);
     });
   </script>
 </body>

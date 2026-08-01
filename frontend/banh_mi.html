@@ -1,126 +1,181 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bánh Mì Hội An — Ẩm Thực Việt Nam</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-
-  <style>
-    body {
-      background-color: var(--warm-white, #FAF7F0);
-      color: var(--text-dark, #1A1A1A);
-      font-family: 'Raleway', sans-serif;
-    }
-
-    .food-hero {
-      position: relative;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: url('https://images.unsplash.com/photo-1627308595229-7830f5c9c66e?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
-    }
-
-    .food-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
-    }
-
-    .food-hero-content {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      color: #fff;
-    }
-
-    .food-hero-content h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      margin-bottom: 10px;
-    }
-
-    .food-detail {
-      padding: 80px 5%;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .food-detail h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: var(--deep-green, #1A3A2A);
-      margin-bottom: 30px;
-    }
-
-    .food-detail p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--text-muted, #5A5A5A);
-      margin-bottom: 20px;
-      text-align: justify;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 12px 30px;
-      border: 1px solid var(--deep-green, #1A3A2A);
-      color: var(--deep-green, #1A3A2A);
-      text-decoration: none;
-      border-radius: 30px;
-      transition: all 0.3s;
-    }
-
-    .back-btn:hover {
-      background: var(--deep-green, #1A3A2A);
-      color: #fff;
-    }
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bánh Mì Hội An — Huyền Thoại Street Food Thế Giới</title>
+<meta name="description" content="Bánh Mì Việt Nam - được CNN bình chọn là món ăn đường phố ngon nhất thế giới. Vỏ bánh giòn tan, nhân phong phú, hương vị không đâu sánh bằng.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+:root{--gold:#C9A84C;--deep-green:#1A3A2A;--warm-white:#FAF7F0;--text-dark:#1A1A1A;--text-muted:#5A5A5A;}
+*{box-sizing:border-box;margin:0;padding:0;}body{background:var(--warm-white);color:var(--text-dark);font-family:'Raleway',sans-serif;}
+.food-hero{position:relative;height:90vh;min-height:560px;display:flex;align-items:flex-end;overflow:hidden;}
+.food-hero-bg{position:absolute;inset:0;background:url('https://static.vinwonders.com/production/banh-mi-hoi-an-thumb-1.jpg') center/cover no-repeat;transform:scale(1.05);transition:transform 8s;}
+.food-hero:hover .food-hero-bg{transform:scale(1);}
+.food-hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(120,60,10,0.78) 0%,rgba(0,0,0,0.15) 65%,transparent 100%);}
+.food-hero-content{position:relative;z-index:2;padding:0 6% 7%;max-width:700px;color:#fff;}
+.food-hero-tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;background:rgba(201,168,76,.25);border:1px solid rgba(201,168,76,.5);color:var(--gold);padding:.35rem 1rem;border-radius:999px;margin-bottom:1.5rem;}
+.food-hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:900;line-height:1.1;margin-bottom:1rem;text-shadow:0 2px 30px rgba(0,0,0,.3);}
+.food-hero-sub{font-size:1.15rem;font-weight:300;opacity:.9;margin-bottom:2rem;font-style:italic;}
+.food-hero-meta{display:flex;gap:2rem;flex-wrap:wrap;}
+.hero-meta-item{text-align:center;}
+.hero-meta-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;}
+.hero-meta-label{font-size:.7rem;opacity:.7;text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem;}
+.food-intro-strip{background:var(--deep-green);color:#fff;display:flex;flex-wrap:wrap;}
+.food-intro-stat{flex:1;min-width:140px;padding:1.5rem 2rem;border-right:1px solid rgba(255,255,255,.1);text-align:center;}
+.food-intro-stat:last-child{border-right:none;}
+.food-intro-stat .val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);}
+.food-intro-stat .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;opacity:.65;margin-top:.25rem;}
+.food-article{max-width:820px;margin:0 auto;padding:5rem 5%;}
+.food-article h2{font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--deep-green);margin-bottom:1.25rem;}
+.food-article h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--deep-green);margin:2.5rem 0 1rem;}
+.food-article p{font-size:1.05rem;line-height:1.9;color:var(--text-muted);margin-bottom:1.25rem;text-align:justify;}
+.food-article strong{color:var(--text-dark);}
+.food-quote{border-left:4px solid var(--gold);padding:1rem 1.75rem;margin:2.5rem 0;background:rgba(201,168,76,.06);border-radius:0 12px 12px 0;font-family:'Dancing Script',cursive;font-size:1.5rem;color:var(--deep-green);line-height:1.6;}
+.food-gallery{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:280px 280px;gap:12px;margin:3rem 0;}
+.food-gallery-item{overflow:hidden;border-radius:16px;position:relative;}
+.food-gallery-item:first-child{grid-row:1/3;}
+.food-gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block;}
+.food-gallery-item:hover img{transform:scale(1.05);}
+.food-gallery-item .gal-label{position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,.55);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .8rem;border-radius:999px;}
+.food-section-label{display:flex;align-items:center;gap:.75rem;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+.food-section-label::before{content:'';display:inline-block;width:36px;height:2px;background:var(--gold);}
+.ingredients-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;margin:1.5rem 0 2.5rem;}
+.ingredient-card{background:#fff;border:1px solid rgba(201,168,76,.2);border-radius:16px;padding:1.25rem 1rem;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.04);transition:transform .25s,box-shadow .25s;}
+.ingredient-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.08);}
+.ingredient-card .ic-icon{font-size:2rem;margin-bottom:.5rem;}
+.ingredient-card .ic-name{font-weight:600;font-size:.88rem;color:var(--deep-green);}
+.ingredient-card .ic-note{font-size:.75rem;color:var(--text-muted);margin-top:.25rem;}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1.5rem 0 2.5rem;}
+.tip-card{background:linear-gradient(135deg,var(--deep-green),#2C5E46);color:#fff;border-radius:16px;padding:1.5rem;}
+.tip-card .tip-icon{font-size:1.75rem;margin-bottom:.75rem;}
+.tip-card .tip-title{font-weight:700;font-size:.95rem;margin-bottom:.5rem;}
+.tip-card .tip-text{font-size:.82rem;opacity:.8;line-height:1.6;}
+.places-list{list-style:none;margin:1rem 0 2.5rem;display:flex;flex-direction:column;gap:.75rem;}
+.places-list li{display:flex;align-items:flex-start;gap:.75rem;background:#fff;border-radius:12px;padding:1rem 1.25rem;box-shadow:0 2px 10px rgba(0,0,0,.04);}
+.places-list li .pl-icon{font-size:1.3rem;flex-shrink:0;}
+.places-list li .pl-name{font-weight:700;color:var(--deep-green);}
+.places-list li .pl-note{font-size:.8rem;color:var(--text-muted);margin-top:.2rem;}
+.back-bar{text-align:center;padding:3rem 0 5rem;}
+.back-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border:2px solid var(--deep-green);color:var(--deep-green);text-decoration:none;border-radius:999px;font-weight:600;font-size:.9rem;transition:all .3s;}
+.back-btn:hover{background:var(--deep-green);color:#fff;}
+.food-related{background:#fff;padding:4rem 5%;border-top:1px solid rgba(0,0,0,.06);}
+.food-related h3{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--deep-green);text-align:center;margin-bottom:2rem;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem;max-width:900px;margin:0 auto;}
+.related-card{border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;background:var(--warm-white);border:1px solid rgba(0,0,0,.06);transition:transform .25s,box-shadow .25s;}
+.related-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,0,0,.1);}
+.related-card img{width:100%;height:140px;object-fit:cover;display:block;}
+.related-card .rc-info{padding:.85rem 1rem;}
+.related-card .rc-name{font-weight:700;font-size:.95rem;color:var(--deep-green);}
+.related-card .rc-tag{font-size:.75rem;color:var(--text-muted);margin-top:.2rem;}
+@media(max-width:600px){.food-gallery{grid-template-columns:1fr;grid-template-rows:auto;}.food-gallery-item:first-child{grid-row:auto;}.food-gallery-item{height:220px;}.food-hero h1{font-size:2.8rem;}}
+</style>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav id="navbar" class="scrolled">
-    <div class="nav-logo" onclick="window.location.href='trang_chu.html'" style="cursor:pointer;">Việt Nam</div>
-    <ul class="nav-links">
-      <li><a href="trang_chu.html#destinations">Điểm Đến</a></li>
-      <li><a href="trang_chu.html#experiences">Trải Nghiệm</a></li>
-      <li><a href="trang_chu.html#cuisine">Ẩm Thực</a></li>
-      <li><a href="trang_chu.html#seasons">Mùa Du Lịch</a></li>
-      <li><a href="dat_tour.html" style="color:var(--gold);">Đặt Tour</a></li>
-    </ul>
-  </nav>
+<nav id="navbar" class="scrolled">
+  <div class="nav-logo" onclick="window.location.href='trang_chu.html'" style="cursor:pointer;">Việt Nam</div>
+  <ul class="nav-links">
+    <li><a href="trang_chu.html#destinations">Điểm Đến</a></li>
+    <li><a href="trang_chu.html#experiences">Trải Nghiệm</a></li>
+    <li><a href="trang_chu.html#cuisine">Ẩm Thực</a></li>
+    <li><a href="dat_tour.html" style="color:var(--gold);">Đặt Tour</a></li>
+  </ul>
+</nav>
 
-  <section class="food-hero">
-    <div class="food-hero-overlay"></div>
-    <div class="food-hero-content">
-      <h1>Bánh Mì Hội An</h1>
-      <p style="font-size: 1.2rem; letter-spacing: 2px;">Món ăn đường phố vươn tầm thế giới</p>
+<section class="food-hero">
+  <div class="food-hero-bg"></div>
+  <div class="food-hero-overlay"></div>
+  <div class="food-hero-content">
+    <div class="food-hero-tag">✦ Street Food · Di sản ẩm thực thế giới</div>
+    <h1>Bánh Mì<br>Hội An</h1>
+    <p class="food-hero-sub">Huyền thoại vỏ giòn tan — món ăn đường phố ngon nhất thế giới</p>
+    <div class="food-hero-meta">
+      <div class="hero-meta-item"><div class="hero-meta-num">#1</div><div class="hero-meta-label">Street food thế giới</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-num">50+</div><div class="hero-meta-label">Quốc gia có bánh mì VN</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-num">100 năm</div><div class="hero-meta-label">Lịch sử</div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="food-detail">
-    <h2>Sự giao thoa ẩm thực hoàn hảo</h2>
-    <p>Bánh mì Hội An được mệnh danh là một trong những loại bánh mì ngon nhất thế giới. Điều làm nên sự khác biệt nằm ở chiếc bánh mì nhỏ hơn bánh mì Sài Gòn nhưng vỏ mỏng, giòn rụm và đặc ruột hơn.</p>
-    <p>Bên trong lớp vỏ giòn ấy là sự kết hợp phong phú của vô vàn loại nhân: thịt xíu mềm ngọt, chả lụa, pate gan béo ngậy, bơ tươi, thêm chút dưa leo, đu đủ chua ngọt và rau thơm các loại. Bí quyết cuối cùng chính là loại nước sốt gia truyền đặc biệt, liên kết tất cả các nguyên liệu lại với nhau tạo nên một bản giao hưởng hương vị tuyệt hảo.</p>
-    <a href="trang_chu.html#cuisine" class="back-btn"><i class="ri-arrow-left-line"></i> Trở về Ẩm thực</a>
-  </section>
+<div class="food-intro-strip">
+  <div class="food-intro-stat"><div class="val">Vỏ giòn</div><div class="lbl">Đặc điểm</div></div>
+  <div class="food-intro-stat"><div class="val">Giao thoa</div><div class="lbl">Pháp - Việt</div></div>
+  <div class="food-intro-stat"><div class="val">10+</div><div class="lbl">Loại nhân</div></div>
+  <div class="food-intro-stat"><div class="val">Toàn quốc</div><div class="lbl">Phổ biến</div></div>
+</div>
 
-  <script>
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-  </script>
+<article class="food-article">
+  <h2>Bánh Mì — Từ baguette Pháp đến kiệt tác Việt</h2>
+  <p>Nếu được hỏi đâu là món ăn Việt Nam được thế giới biết đến nhiều nhất sau phở, câu trả lời chắc chắn là <strong>bánh mì</strong>. Từ điển Oxford đã bổ sung từ "banh mi" vào năm 2011 — sự công nhận rằng đây không chỉ là biến thể của baguette Pháp mà là một thực thể ẩm thực hoàn toàn độc lập của người Việt.</p>
+  <p>Bánh mì du nhập vào Việt Nam theo chân người Pháp vào cuối thế kỷ 19. Nhưng người Việt đã biến tấu hoàn toàn: vỏ bánh mỏng giòn hơn (ít gluten hơn), nhân được Việt hóa với pâté, chả lụa, dưa cải, rau thơm, ớt tươi — những thứ không bao giờ có trong baguette Pháp. Kết quả là một sản phẩm vượt xa bản gốc về độ phong phú hương vị.</p>
+
+  <div class="food-quote">"Bánh mì Hội An không cần đến Paris để chứng minh mình ngon — thế giới đã tìm đến Hội An..."</div>
+
+  <div class="food-gallery">
+    <div class="food-gallery-item">
+      <img src="https://static.vinwonders.com/production/banh-mi-hoi-an-thumb-1.jpg" alt="Bánh mì Hội An nổi tiếng">
+      <span class="gal-label">Bánh mì Phượng huyền thoại</span>
+    </div>
+    <div class="food-gallery-item">
+      <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?q=80&w=800&auto=format&fit=crop" alt="Cắt đôi bánh mì">
+      <span class="gal-label">Nhân phong phú bên trong</span>
+    </div>
+    <div class="food-gallery-item">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop" alt="Xe bánh mì đường phố">
+      <span class="gal-label">Xe bánh mì vỉa hè</span>
+    </div>
+  </div>
+
+  <h3>Bánh Mì Phượng — Biểu tượng Hội An</h3>
+  <p>Trong hàng trăm quán bánh mì nổi tiếng khắp Việt Nam, <strong>Bánh Mì Phượng tại Hội An</strong> giữ vị trí đặc biệt nhất. Năm 2000, đầu bếp Anthony Bourdain trong chương trình "No Reservations" đã gọi đây là <em>"chiếc bánh mì ngon nhất tôi từng ăn"</em> — và từ đó tên tuổi bánh mì Hội An được biết đến toàn cầu.</p>
+  <p>Điều làm nên sự khác biệt của bánh mì Hội An là <strong>kết hợp giữa pâté gan thủ công, thịt xá xíu kiểu Hoa, chả lụa Việt, dưa góp giòn, ngò rí và nước sốt pha chế bí truyền</strong>. Mỗi nguyên liệu đại diện cho một nền văn hóa đã góp phần tạo nên bản sắc đặc biệt của thương cảng Hội An.</p>
+
+  <div class="food-section-label">Nguyên liệu nhân bánh đặc trưng</div>
+  <div class="ingredients-grid">
+    <div class="ingredient-card"><div class="ic-icon">🥖</div><div class="ic-name">Vỏ bánh mì</div><div class="ic-note">Giòn nhẹ, ruột mềm</div></div>
+    <div class="ingredient-card"><div class="ic-icon">🍖</div><div class="ic-name">Pâté gan</div><div class="ic-note">Béo ngậy, thủ công</div></div>
+    <div class="ingredient-card"><div class="ic-icon">🥩</div><div class="ic-name">Chả lụa</div><div class="ic-note">Giò lụa thơm</div></div>
+    <div class="ingredient-card"><div class="ic-icon">🥩</div><div class="ic-name">Xá xíu</div><div class="ic-note">Thịt ngũ vị hương</div></div>
+    <div class="ingredient-card"><div class="ic-icon">🥒</div><div class="ic-name">Dưa góp</div><div class="ic-note">Cà rốt, củ cải</div></div>
+    <div class="ingredient-card"><div class="ic-icon">🌿</div><div class="ic-name">Ngò rí & hành</div><div class="ic-note">Tươi mát</div></div>
+    <div class="ingredient-card"><div class="ic-icon">🌶️</div><div class="ic-name">Ớt tươi</div><div class="ic-note">Thêm theo khẩu vị</div></div>
+    <div class="ingredient-card"><div class="ic-icon">🧴</div><div class="ic-name">Nước sốt bí truyền</div><div class="ic-note">Bí quyết riêng</div></div>
+  </div>
+
+  <h3>Các phong cách bánh mì theo vùng miền</h3>
+  <p><strong>Bánh mì Hà Nội:</strong> Thường đơn giản hơn, vỏ dày hơn, nhân chủ yếu là pâté, bơ, ruốc thịt. Người Hà Nội thích ăn bánh mì kẹp ốp la buổi sáng.</p>
+  <p><strong>Bánh mì Hội An:</strong> Phong phú nhất, kết hợp nhiều loại nhân, nước sốt đặc biệt, dưa góp chua ngọt. Được toàn thế giới biết đến qua các chương trình ẩm thực quốc tế.</p>
+  <p><strong>Bánh mì Sài Gòn:</strong> Đa dạng kiểu nhân nhất — từ bánh mì thịt nướng, bánh mì chảo (ốp la + thịt nguội + pâté), đến bánh mì chay. Ăn nhanh, giá rẻ, phổ biến khắp hang cùng ngõ hẻm.</p>
+
+  <div class="food-section-label">Mẹo thưởng thức</div>
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-icon">🌅</div><div class="tip-title">Ăn buổi sáng sớm</div><div class="tip-text">Bánh mì ngon nhất khi vỏ còn nóng giòn vừa lấy ra từ lò. Mua sáng sớm để có bánh tươi nhất.</div></div>
+    <div class="tip-card"><div class="tip-icon">🌶️</div><div class="tip-title">Đừng bỏ ớt</div><div class="tip-text">Ớt tươi hoặc tương ớt là thứ làm bánh mì "sống" hơn. Thêm từng chút nếu bạn sợ cay.</div></div>
+    <div class="tip-card"><div class="tip-icon">🥖</div><div class="tip-title">Ăn ngay, đừng mang về</div><div class="tip-text">Bánh mì mất độ giòn sau 15–20 phút. Hãy đứng ngay tại quán mà thưởng thức.</div></div>
+    <div class="tip-card"><div class="tip-icon">📸</div><div class="tip-title">Chụp trước khi cắn</div><div class="tip-text">Chiếc bánh mì đầy ắp nhân là thứ không thể thiếu trong album ảnh du lịch Việt Nam!</div></div>
+  </div>
+
+  <h3>Địa điểm ăn bánh mì nổi tiếng nhất Việt Nam</h3>
+  <ul class="places-list">
+    <li><span class="pl-icon">🏆</span><div><div class="pl-name">Bánh Mì Phượng — 2B Phan Châu Trinh, Hội An</div><div class="pl-note">Nổi tiếng toàn cầu, Anthony Bourdain gọi đây là "bánh mì ngon nhất thế giới". Xếp hàng từ 6h sáng.</div></div></li>
+    <li><span class="pl-icon">📍</span><div><div class="pl-name">Bánh Mì Bà Lan — 38 Phan Bội Châu, Hội An</div><div class="pl-note">Ít khách du lịch hơn, giá bình dân hơn, chất lượng không thua kém.</div></div></li>
+    <li><span class="pl-icon">📍</span><div><div class="pl-name">Bánh Mì 25 — 25 Lý Thường Kiệt, Hà Nội</div><div class="pl-note">Điểm đến yêu thích của khách Tây tại Hà Nội, vỏ bánh giòn đặc trưng Bắc.</div></div></li>
+    <li><span class="pl-icon">📍</span><div><div class="pl-name">Bánh Mì Huỳnh Hoa — 26 Lê Thị Riêng, TP.HCM</div><div class="pl-note">Nổi tiếng nhất Sài Gòn, nhân chả lụa dày, thịt nguội phong phú, luôn có hàng dài.</div></div></li>
+  </ul>
+</article>
+
+<div class="food-related">
+  <h3>Khám Phá Thêm Ẩm Thực Việt</h3>
+  <div class="related-grid">
+    <a href="pho.html" class="related-card"><img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?q=80&w=400&auto=format&fit=crop" alt="Phở"><div class="rc-info"><div class="rc-name">Phở Hà Nội</div><div class="rc-tag">Miền Bắc · Thanh đạm</div></div></a>
+    <a href="cao_lau.html" class="related-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Cao_lau_Hoi_An.jpg/640px-Cao_lau_Hoi_An.jpg" alt="Cao Lầu"><div class="rc-info"><div class="rc-name">Cao Lầu</div><div class="rc-tag">Hội An · Độc đáo</div></div></a>
+    <a href="goi_cuon.html" class="related-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Bi_cuon.jpg/640px-Bi_cuon.jpg" alt="Gỏi Cuốn"><div class="rc-info"><div class="rc-name">Gỏi Cuốn</div><div class="rc-tag">Nam Bộ · Thanh mát</div></div></a>
+    <a href="com_tam.html" class="related-card"><img src="https://images.unsplash.com/photo-1555126634-323283e090fa?q=80&w=400&auto=format&fit=crop" alt="Cơm Tấm"><div class="rc-info"><div class="rc-name">Cơm Tấm</div><div class="rc-tag">Sài Gòn · Đặc sản</div></div></a>
+  </div>
+</div>
+
+<div class="back-bar"><a href="trang_chu.html#cuisine" class="back-btn">← Quay lại Ẩm Thực</a></div>
+<script>window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});</script>
 </body>
 </html>

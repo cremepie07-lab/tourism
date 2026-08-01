@@ -1,126 +1,182 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cao Lầu Hội An — Ẩm Thực Việt Nam</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-
-  <style>
-    body {
-      background-color: var(--warm-white, #FAF7F0);
-      color: var(--text-dark, #1A1A1A);
-      font-family: 'Raleway', sans-serif;
-    }
-
-    .food-hero {
-      position: relative;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: url('https://images.unsplash.com/photo-1596489370617-6d60c49b06a5?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-    }
-
-    .food-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
-    }
-
-    .food-hero-content {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      color: #fff;
-    }
-
-    .food-hero-content h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      margin-bottom: 10px;
-    }
-
-    .food-detail {
-      padding: 80px 5%;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .food-detail h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: var(--deep-green, #1A3A2A);
-      margin-bottom: 30px;
-    }
-
-    .food-detail p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--text-muted, #5A5A5A);
-      margin-bottom: 20px;
-      text-align: justify;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 12px 30px;
-      border: 1px solid var(--deep-green, #1A3A2A);
-      color: var(--deep-green, #1A3A2A);
-      text-decoration: none;
-      border-radius: 30px;
-      transition: all 0.3s;
-    }
-
-    .back-btn:hover {
-      background: var(--deep-green, #1A3A2A);
-      color: #fff;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cao Lầu Hội An — Món Ăn Chỉ Có Một Nơi Trên Thế Giới</title>
+<meta name="description" content="Cao Lầu Hội An - món mì đặc biệt chỉ có tại phố cổ Hội An, làm từ nước giếng Bá Lễ và tro cây củi lấy từ đảo Cham. Khám phá hương vị độc đáo không thể tìm thấy nơi nào khác.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+:root{--gold:#C9A84C;--deep-green:#1A3A2A;--warm-white:#FAF7F0;--text-dark:#1A1A1A;--text-muted:#5A5A5A;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--warm-white);color:var(--text-dark);font-family:'Raleway',sans-serif;}
+.food-hero{position:relative;height:90vh;min-height:560px;display:flex;align-items:flex-end;justify-content:flex-start;overflow:hidden;}
+.food-hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1526139334526-f591a54b477c?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;transform:scale(1.05);transition:transform 8s ease;}
+.food-hero:hover .food-hero-bg{transform:scale(1);}
+.food-hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(90,60,20,0.75) 0%,rgba(0,0,0,0.2) 60%,transparent 100%);}
+.food-hero-content{position:relative;z-index:2;padding:0 6% 7%;max-width:700px;color:#fff;}
+.food-hero-tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;background:rgba(201,168,76,.25);border:1px solid rgba(201,168,76,.5);color:var(--gold);padding:.35rem 1rem;border-radius:999px;margin-bottom:1.5rem;}
+.food-hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:900;line-height:1.1;margin-bottom:1rem;text-shadow:0 2px 30px rgba(0,0,0,.3);}
+.food-hero-sub{font-size:1.15rem;font-weight:300;letter-spacing:.05em;opacity:.9;margin-bottom:2rem;font-style:italic;}
+.food-hero-meta{display:flex;gap:2rem;flex-wrap:wrap;}
+.hero-meta-item{text-align:center;}
+.hero-meta-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;}
+.hero-meta-label{font-size:.7rem;opacity:.7;text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem;}
+.food-intro-strip{background:var(--deep-green);color:#fff;display:flex;flex-wrap:wrap;}
+.food-intro-stat{flex:1;min-width:140px;padding:1.5rem 2rem;border-right:1px solid rgba(255,255,255,.1);text-align:center;}
+.food-intro-stat:last-child{border-right:none;}
+.food-intro-stat .val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);}
+.food-intro-stat .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;opacity:.65;margin-top:.25rem;}
+.food-article{max-width:820px;margin:0 auto;padding:5rem 5%;}
+.food-article h2{font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--deep-green);margin-bottom:1.25rem;line-height:1.25;}
+.food-article h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--deep-green);margin:2.5rem 0 1rem;}
+.food-article p{font-size:1.05rem;line-height:1.9;color:var(--text-muted);margin-bottom:1.25rem;text-align:justify;}
+.food-article strong{color:var(--text-dark);}
+.food-quote{border-left:4px solid var(--gold);padding:1rem 1.75rem;margin:2.5rem 0;background:rgba(201,168,76,.06);border-radius:0 12px 12px 0;font-family:'Dancing Script',cursive;font-size:1.5rem;color:var(--deep-green);line-height:1.6;}
+.food-gallery{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:280px 280px;gap:12px;margin:3rem 0;}
+.food-gallery-item{overflow:hidden;border-radius:16px;position:relative;}
+.food-gallery-item:first-child{grid-row:1/3;}
+.food-gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;display:block;}
+.food-gallery-item:hover img{transform:scale(1.05);}
+.food-gallery-item .gal-label{position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,.55);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .8rem;border-radius:999px;}
+.food-section-label{display:flex;align-items:center;gap:.75rem;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+.food-section-label::before{content:'';display:inline-block;width:36px;height:2px;background:var(--gold);flex-shrink:0;}
+.ingredients-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;margin:1.5rem 0 2.5rem;}
+.ingredient-card{background:#fff;border:1px solid rgba(201,168,76,.2);border-radius:16px;padding:1.25rem 1rem;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.04);transition:transform .25s,box-shadow .25s;}
+.ingredient-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.08);}
+.ingredient-card .ic-icon{font-size:2rem;margin-bottom:.5rem;}
+.ingredient-card .ic-name{font-weight:600;font-size:.88rem;color:var(--deep-green);}
+.ingredient-card .ic-note{font-size:.75rem;color:var(--text-muted);margin-top:.25rem;}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1.5rem 0 2.5rem;}
+.tip-card{background:linear-gradient(135deg,var(--deep-green),#2C5E46);color:#fff;border-radius:16px;padding:1.5rem;}
+.tip-card .tip-icon{font-size:1.75rem;margin-bottom:.75rem;}
+.tip-card .tip-title{font-weight:700;font-size:.95rem;margin-bottom:.5rem;}
+.tip-card .tip-text{font-size:.82rem;opacity:.8;line-height:1.6;}
+.places-list{list-style:none;margin:1rem 0 2.5rem;display:flex;flex-direction:column;gap:.75rem;}
+.places-list li{display:flex;align-items:flex-start;gap:.75rem;background:#fff;border-radius:12px;padding:1rem 1.25rem;box-shadow:0 2px 10px rgba(0,0,0,.04);font-size:.95rem;}
+.places-list li .pl-icon{font-size:1.3rem;flex-shrink:0;}
+.places-list li .pl-name{font-weight:700;color:var(--deep-green);}
+.places-list li .pl-note{font-size:.8rem;color:var(--text-muted);margin-top:.2rem;}
+.back-bar{text-align:center;padding:3rem 0 5rem;}
+.back-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border:2px solid var(--deep-green);color:var(--deep-green);text-decoration:none;border-radius:999px;font-weight:600;font-size:.9rem;transition:all .3s;}
+.back-btn:hover{background:var(--deep-green);color:#fff;}
+.food-related{background:#fff;padding:4rem 5%;border-top:1px solid rgba(0,0,0,.06);}
+.food-related h3{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--deep-green);text-align:center;margin-bottom:2rem;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem;max-width:900px;margin:0 auto;}
+.related-card{border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;background:var(--warm-white);border:1px solid rgba(0,0,0,.06);transition:transform .25s,box-shadow .25s;}
+.related-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,0,0,.1);}
+.related-card img{width:100%;height:140px;object-fit:cover;display:block;}
+.related-card .rc-info{padding:.85rem 1rem;}
+.related-card .rc-name{font-weight:700;font-size:.95rem;color:var(--deep-green);}
+.related-card .rc-tag{font-size:.75rem;color:var(--text-muted);margin-top:.2rem;}
+@media(max-width:600px){.food-gallery{grid-template-columns:1fr;grid-template-rows:auto;}.food-gallery-item:first-child{grid-row:auto;}.food-gallery-item{height:220px;}.food-hero h1{font-size:2.8rem;}}
+</style>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav id="navbar" class="scrolled">
-    <div class="nav-logo" onclick="window.location.href='trang_chu.html'" style="cursor:pointer;">Việt Nam</div>
-    <ul class="nav-links">
-      <li><a href="trang_chu.html#destinations">Điểm Đến</a></li>
-      <li><a href="trang_chu.html#experiences">Trải Nghiệm</a></li>
-      <li><a href="trang_chu.html#cuisine">Ẩm Thực</a></li>
-      <li><a href="trang_chu.html#seasons">Mùa Du Lịch</a></li>
-      <li><a href="dat_tour.html" style="color:var(--gold);">Đặt Tour</a></li>
-    </ul>
-  </nav>
+<nav id="navbar" class="scrolled">
+  <div class="nav-logo" onclick="window.location.href='trang_chu.html'" style="cursor:pointer;">Việt Nam</div>
+  <ul class="nav-links">
+    <li><a href="trang_chu.html#destinations">Điểm Đến</a></li>
+    <li><a href="trang_chu.html#experiences">Trải Nghiệm</a></li>
+    <li><a href="trang_chu.html#cuisine">Ẩm Thực</a></li>
+    <li><a href="dat_tour.html" style="color:var(--gold);">Đặt Tour</a></li>
+  </ul>
+</nav>
 
-  <section class="food-hero">
-    <div class="food-hero-overlay"></div>
-    <div class="food-hero-content">
-      <h1>Cao Lầu Hội An</h1>
-      <p style="font-size: 1.2rem; letter-spacing: 2px;">Đặc sản phố cổ</p>
+<section class="food-hero">
+  <div class="food-hero-bg"></div>
+  <div class="food-hero-overlay"></div>
+  <div class="food-hero-content">
+    <div class="food-hero-tag">✦ Ẩm Thực Việt Nam · Hội An</div>
+    <h1>Cao Lầu</h1>
+    <p class="food-hero-sub">Món mì huyền thoại chỉ có thể nấu đúng vị ở đất Hội An</p>
+    <div class="food-hero-meta">
+      <div class="hero-meta-item"><div class="hero-meta-num">400+</div><div class="hero-meta-label">Năm lịch sử</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-num">Duy nhất</div><div class="hero-meta-label">Chỉ ở Hội An</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-num">UNESCO</div><div class="hero-meta-label">Phố cổ di sản</div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="food-detail">
-    <h2>Niềm tự hào ẩm thực Hội An</h2>
-    <p>Cao Lầu là một món mì đặc trưng và là niềm tự hào của ẩm thực phố cổ Hội An. Điểm làm nên sự khác biệt của Cao Lầu chính là sợi mì màu vàng ươm, dai giòn sần sật, được làm từ loại bột gạo ngâm với nước tro lấy từ Cù Lao Chàm, sau đó nhào với nước giếng Bá Lễ nổi tiếng.</p>
-    <p>Món ăn này không có nhiều nước dùng như phở hay bún, thay vào đó là một ít nước sốt đậm đà, ăn kèm với những lát thịt heo xíu mềm thơm, tép mỡ giòn rụm và các loại rau thơm tươi mát từ làng rau Trà Quế. Hương vị hòa quyện tạo nên một trải nghiệm ẩm thực đặc biệt.</p>
-    <a href="trang_chu.html#cuisine" class="back-btn"><i class="ri-arrow-left-line"></i> Trở về Ẩm thực</a>
-  </section>
+<div class="food-intro-strip">
+  <div class="food-intro-stat"><div class="val">Giếng Bá Lễ</div><div class="lbl">Nước đặc biệt</div></div>
+  <div class="food-intro-stat"><div class="val">Tro củi Cham</div><div class="lbl">Bí quyết sợi mì</div></div>
+  <div class="food-intro-stat"><div class="val">Không nước dùng</div><div class="lbl">Trộn khô</div></div>
+  <div class="food-intro-stat"><div class="val">Hội An</div><div class="lbl">Quê hương duy nhất</div></div>
+</div>
 
-  <script>
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-  </script>
+<article class="food-article">
+  <h2>Cao Lầu — Bí ẩn của đất Hội An</h2>
+  <p>Cao lầu là một trong những món ăn bí ẩn và độc đáo nhất của ẩm thực Việt Nam. Điều thú vị là <strong>cao lầu chỉ có thể nấu đúng vị tại Hội An</strong> — không phải vì thiếu nguyên liệu, mà vì hai yếu tố không thể sao chép: nước từ <strong>giếng Bá Lễ</strong> (giếng cổ hàng trăm tuổi của người Chăm) và tro từ củi cây trên đảo Cù Lao Chàm dùng để ngâm gạo.</p>
+  <p>Nếu mang công thức và nguyên liệu cao lầu ra Hà Nội hay vào Sài Gòn nấu, sợi mì sẽ không có được màu vàng ánh và kết cấu dai giòn đặc trưng. Đây là lý do tại sao giới ẩm thực quốc tế gọi cao lầu là <strong>"món ăn gắn liền với một vùng đất"</strong>.</p>
+
+  <div class="food-quote">"Cao lầu không chỉ là món ăn — đó là cách Hội An giữ lại linh hồn của mình trong từng sợi mì vàng ươm..."</div>
+
+  <div class="food-gallery">
+    <div class="food-gallery-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Cao_lau_Hoi_An.jpg/640px-Cao_lau_Hoi_An.jpg" alt="Cao lầu Hội An">
+      <span class="gal-label">Tô cao lầu chính thống</span>
+    </div>
+    <div class="food-gallery-item">
+      <img src="https://images.unsplash.com/photo-1526139334526-f591a54b477c?q=80&w=800&auto=format&fit=crop" alt="Phố cổ Hội An">
+      <span class="gal-label">Phố cổ Hội An về đêm</span>
+    </div>
+    <div class="food-gallery-item">
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop" alt="Không gian quán ăn Hội An">
+      <span class="gal-label">Không gian ẩm thực Hội An</span>
+    </div>
+  </div>
+
+  <h3>Nguồn gốc đa văn hóa</h3>
+  <p>Cao lầu ra đời từ sự giao thoa văn hóa đặc biệt của Hội An — thương cảng quốc tế sầm uất nhất Đông Nam Á thế kỷ 16–17. Sợi mì cao lầu được cho là chịu ảnh hưởng từ mì udon của người Nhật (thương nhân Nhật từng lập khu phố tại Hội An), trong khi phần thịt xá xíu đặm hương vị Trung Hoa, và nước chấm mang bản sắc Việt.</p>
+  <p>Tên gọi "cao lầu" theo một số nghiên cứu xuất phát từ "cao lầu" trong tiếng Hoa, nghĩa là "nhà hàng tầng cao" — vì xưa kia món này chỉ được phục vụ ở các nhà hàng sang trọng nhiều tầng trong khu phố Hoa.</p>
+
+  <div class="food-section-label">Nguyên liệu chính</div>
+  <div class="ingredients-grid">
+    <div class="ingredient-card"><div class="ic-icon">🍜</div><div class="ic-name">Sợi cao lầu</div><div class="ic-note">Gạo ngâm tro củi</div></div>
+    <div class="ingredient-card"><div class="ic-icon">💧</div><div class="ic-name">Nước giếng Bá Lễ</div><div class="ic-note">Bí quyết duy nhất</div></div>
+    <div class="ingredient-card"><div class="ic-icon">🥩</div><div class="ic-name">Thịt xá xíu</div><div class="ic-note">Ướp ngũ vị hương</div></div>
+    <div class="ingredient-card"><div class="ic-icon">🦐</div><div class="ic-name">Tép khô</div><div class="ic-note">Xào thơm</div></div>
+    <div class="ingredient-card"><div class="ic-icon">🥬</div><div class="ic-name">Giá trụng</div><div class="ic-note">Tươi mát</div></div>
+    <div class="ingredient-card"><div class="ic-icon">🌿</div><div class="ic-name">Rau húng</div><div class="ic-note">Thơm đặc biệt</div></div>
+    <div class="ingredient-card"><div class="ic-icon">🍘</div><div class="ic-name">Bánh đa giòn</div><div class="ic-note">Rắc lên trên</div></div>
+    <div class="ingredient-card"><div class="ic-icon">🧄</div><div class="ic-name">Tỏi phi</div><div class="ic-note">Thơm nồng</div></div>
+  </div>
+
+  <h3>Điều làm nên sợi cao lầu đặc biệt</h3>
+  <p>Gạo làm sợi cao lầu phải được ngâm với <strong>tro từ cây củi đốt trên đảo Cù Lao Chàm</strong>, sau đó xay, ép và hấp nhiều lần. Quá trình này khiến sợi mì có màu vàng nhạt đặc trưng, dai nhưng không cứng, có mùi hơi đặc biệt. Nước giếng Bá Lễ (xây từ thời Chiêm Thành) với độ pH và khoáng chất đặc biệt là yếu tố then chốt giúp sợi mì đạt được kết cấu không thể tái tạo.</p>
+
+  <div class="food-section-label">Mẹo thưởng thức</div>
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-icon">🥢</div><div class="tip-title">Trộn đều trước</div><div class="tip-text">Cao lầu là món trộn, hãy đảo đều tất cả nguyên liệu trước khi ăn để thấm đều gia vị.</div></div>
+    <div class="tip-card"><div class="tip-icon">🍘</div><div class="tip-title">Ăn kèm bánh đa</div><div class="tip-text">Bánh đa giòn rắc lên trên tạo độ giòn tương phản thú vị với sợi mì dai.</div></div>
+    <div class="tip-card"><div class="tip-icon">📍</div><div class="tip-title">Chỉ ăn ở Hội An</div><div class="tip-text">Đừng tiếc khi thấy cao lầu ở nơi khác — hương vị thật sự chỉ có tại phố cổ.</div></div>
+    <div class="tip-card"><div class="tip-icon">🌿</div><div class="tip-title">Rau thơm Trà Quế</div><div class="tip-text">Yêu cầu thêm rau sống từ làng rau Trà Quế — loại rau ngon nổi tiếng cạnh Hội An.</div></div>
+  </div>
+
+  <h3>Địa điểm ăn cao lầu ngon tại Hội An</h3>
+  <ul class="places-list">
+    <li><span class="pl-icon">📍</span><div><div class="pl-name">Cao Lầu Bà Bé — 26 Thái Phiên, Hội An</div><div class="pl-note">Gia truyền hơn 60 năm, được Michelin Guide đề xuất, sợi mì tự tay làm mỗi ngày.</div></div></li>
+    <li><span class="pl-icon">📍</span><div><div class="pl-name">Cao Lầu Thanh — 26 Thái Phiên</div><div class="pl-note">Quán nhỏ nhưng đông khách, sợi mì vàng đẹp, thịt xá xíu thơm đậm.</div></div></li>
+    <li><span class="pl-icon">📍</span><div><div class="pl-name">Chợ Hội An — Khu ẩm thực trong chợ</div><div class="pl-note">Trải nghiệm ăn cao lầu trong không gian chợ truyền thống, giá bình dân.</div></div></li>
+    <li><span class="pl-icon">📍</span><div><div class="pl-name">Morning Glory Restaurant — 106 Nguyễn Thái Học</div><div class="pl-note">Nhà hàng cao cấp, phục vụ cao lầu theo phong cách hiện đại, có hướng dẫn tiếng Anh.</div></div></li>
+  </ul>
+</article>
+
+<div class="food-related">
+  <h3>Khám Phá Thêm Ẩm Thực Việt</h3>
+  <div class="related-grid">
+    <a href="pho.html" class="related-card"><img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?q=80&w=400&auto=format&fit=crop" alt="Phở"><div class="rc-info"><div class="rc-name">Phở Hà Nội</div><div class="rc-tag">Miền Bắc · Thanh đạm</div></div></a>
+    <a href="bun_bo_hue.html" class="related-card"><img src="https://t3.ftcdn.net/jpg/12/31/50/32/240_F_1231503262_q25Y0WHxkrIR5vSgBFQWSOAn4IwLR8No.jpg" alt="Bún Bò Huế"><div class="rc-info"><div class="rc-name">Bún Bò Huế</div><div class="rc-tag">Miền Trung · Đậm đà</div></div></a>
+    <a href="banh_mi.html" class="related-card"><img src="https://static.vinwonders.com/production/banh-mi-hoi-an-thumb-1.jpg" alt="Bánh Mì"><div class="rc-info"><div class="rc-name">Bánh Mì Hội An</div><div class="rc-tag">Hội An · Street food</div></div></a>
+    <a href="com_tam.html" class="related-card"><img src="https://images.unsplash.com/photo-1555126634-323283e090fa?q=80&w=400&auto=format&fit=crop" alt="Cơm Tấm"><div class="rc-info"><div class="rc-name">Cơm Tấm</div><div class="rc-tag">Sài Gòn · Đặc sản</div></div></a>
+  </div>
+</div>
+
+<div class="back-bar"><a href="trang_chu.html#cuisine" class="back-btn">← Quay lại Ẩm Thực</a></div>
+<script>window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});</script>
 </body>
 </html>
