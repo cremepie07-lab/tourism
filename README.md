@@ -2,6 +2,8 @@ tool: node.js + database: sqlite
 chạy trên terminal: bước 1: nhập cd backend
                     bước 2: nhập node server.js
                     kết quả:
+
+                
 PS D:\tourism-main> cd backend 
 PS D:\tourism-main\backend> node server.js
 Frontend: D:\tourism-main\frontend exists: true
