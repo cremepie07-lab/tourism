@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin.css?v=2">
 </head>
 <body>
 
@@ -320,9 +320,38 @@
               <option value="mountain">Núi</option>
             </select>
           </div>
-          <div class="form-group-modal">
-            <label class="form-label-modal">URL Ảnh</label>
-            <input id="tf_image" class="form-input-modal" type="url" placeholder="https://...">
+
+          <div class="form-group-modal full">
+            <label class="form-label-modal">Thông Tin Thêm Về Chuyến Đi</label>
+            <p style="font-size:0.72rem;color:var(--text-muted);margin-bottom:8px">Nếu bỏ trống, sẽ dùng thông tin mặc định chung.</p>
+            <div class="form-grid">
+              <div class="form-group-modal full">
+                <label class="form-label-modal">Điểm Tham Quan</label>
+                <input id="tf_highlights" class="form-input-modal" type="text" placeholder="VD: Vịnh Hạ Long, Hang Sửng Sốt, Đảo Titop">
+              </div>
+              <div class="form-group-modal">
+                <label class="form-label-modal">Ẩm Thực</label>
+                <input id="tf_cuisine" class="form-input-modal" type="text" placeholder="VD: Hải sản tươi sống">
+              </div>
+              <div class="form-group-modal">
+                <label class="form-label-modal">Thời Gian Lý Tưởng</label>
+                <input id="tf_ideal_time" class="form-input-modal" type="text" placeholder="VD: Quanh năm">
+              </div>
+              <div class="form-group-modal">
+                <label class="form-label-modal">Phương Tiện</label>
+                <input id="tf_transport" class="form-input-modal" type="text" placeholder="VD: Xe du lịch đời mới">
+              </div>
+              <div class="form-group-modal">
+                <label class="form-label-modal">Khuyến Mãi</label>
+                <input id="tf_promotion" class="form-input-modal" type="text" placeholder="VD: Giảm 10% khi đặt sớm">
+              </div>
+            </div>
+          </div>
+          <div class="form-group-modal full">
+            <label class="form-label-modal">Hình Ảnh Tour (URL) *</label>
+            <div id="imageList"></div>
+            <button type="button" class="btn btn-jade btn-sm" onclick="addImageField()">➕ Thêm Ảnh</button>
+            <p style="font-size:0.72rem;color:var(--text-muted);margin-top:5px">Ảnh đầu tiên sẽ là ảnh bìa. Dán URL ảnh, mỗi ảnh một ô.</p>
           </div>
 
           <div class="form-group-modal full">
@@ -336,6 +365,12 @@
 Du thuyền 4 sao qua đêm
 Kayak khám phá Hang Sửng Sốt
 Buffet hải sản trên tàu" style="min-height:100px"></textarea>
+          </div>
+
+          <div class="form-group-modal full">
+            <label class="form-label-modal">Lịch Trình Chuyến Đi</label>
+            <div id="itineraryList"></div>
+            <button type="button" class="btn btn-jade btn-sm" onclick="addItineraryDay()">➕ Thêm Ngày</button>
           </div>
         </div>
       </form>
@@ -359,6 +394,7 @@ Buffet hải sản trên tàu" style="min-height:100px"></textarea>
   </div>
 </div>
 
-<script src="admin.js"></script>
+<script src="admin.js?v=4"></script>
 </body>
 </html>
+
