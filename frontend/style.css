@@ -179,6 +179,7 @@ nav.scrolled {
 }
 
 .btn-primary {
+  display: inline-block;
   padding: 1rem 2.8rem;
   background: var(--gold);
   color: var(--deep-green);
@@ -187,31 +188,36 @@ nav.scrolled {
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  border-radius: 2px;
+  border-radius: 4px;
+  border: 2px solid var(--gold);
   transition: all 0.3s;
 }
 .btn-primary:hover {
   background: var(--gold-light);
+  border-color: var(--gold-light);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(201,168,76,0.35);
+  box-shadow: 0 12px 30px rgba(201,168,76,0.4);
 }
 
 .btn-outline {
+  display: inline-block;
   padding: 1rem 2.8rem;
   background: transparent;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.9);
   text-decoration: none;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  border-radius: 2px;
-  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 4px;
+  border: 2px solid rgba(255,255,255,0.6);
   transition: all 0.3s;
 }
 .btn-outline:hover {
-  border-color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,1);
   color: #fff;
+  transform: translateY(-2px);
 }
 
 /* Scroll indicator */
