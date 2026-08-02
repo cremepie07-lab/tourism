@@ -470,32 +470,100 @@ async function deleteTour(id) {
   }
 }
 
-async function loadCustomers() {
+let custPage = 1;
+let custTotal = 0;
+const custLimit = 8;
+let custSearchTimer = null;
+
+function onCustSearch(val) {
+  clearTimeout(custSearchTimer);
+  custSearchTimer = setTimeout(() => {
+    custPage = 1;
+    loadCustomers(val.trim());
+  }, 300);
+}
+
+function changeCustPage(p) {
+  const totalPages = Math.max(1, Math.ceil(custTotal / custLimit));
+  if (p < 1 || p > totalPages) return;
+  custPage = p;
+  loadCustomers(document.getElementById('custSearch').value.trim());
+}
+
+async function loadCustomers(search = '') {
   const tbody = document.getElementById('customersBody');
-  tbody.innerHTML = '<tr class="loading-row"><td colspan="6"><span class="loading-text">Đang tải dữ liệu...</span></td></tr>';
+  tbody.innerHTML = '<tr class="loading-row"><td colspan="8"><span class="loading-text">Đang tải dữ liệu...</span></td></tr>';
 
   try {
-    const users = await apiRequest('GET', '/api/admin/users');
+    const params = new URLSearchParams({ page: custPage, limit: custLimit });
+    if (search) params.set('q', search);
+    const data = await apiRequest('GET', '/api/admin/users?' + params.toString());
+    const users = Array.isArray(data) ? data : (data.rows || []);
+    custTotal = Array.isArray(data) ? data.length : (data.total || 0);
+
     if (!users.length) {
-      tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state"><div class="empty-icon">👥</div><p>Chưa có khách hàng nào</p></div></td></tr>';
-      return;
+      tbody.innerHTML = '<tr><td colspan="8"><div class="empty-state"><div class="empty-icon">👥</div><p>Chưa có khách hàng nào</p></div></td></tr>';
+    } else {
+      tbody.innerHTML = users.map(u => `
+        <tr>
+          <td>${u.id}</td>
+          <td><strong>${escHtml(u.name)}</strong></td>
+          <td>${escHtml(u.email)}</td>
+          <td>${escHtml(u.phone || '-')}</td>
+          <td style="text-align:center">${u.totalBookings || 0}</td>
+          <td>${fmtMoney(u.totalSpent)}</td>
+          <td>${fmtDate(u.created_at)}</td>
+          <td>
+            <div style="display:flex;gap:6px">
+              <button class="btn btn-ghost btn-sm" onclick="openCustomerBookings(${u.id}, '${escHtml(u.name)}')">📋 Xem</button>
+              <button class="btn btn-danger btn-sm" onclick="confirmDeleteUser(${u.id}, '${escHtml(u.name)}')">🗑️ Xóa</button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
     }
-    tbody.innerHTML = users.map(u => `
-      <tr>
-        <td>${u.id}</td>
-        <td><strong>${escHtml(u.name)}</strong></td>
-        <td>${escHtml(u.email)}</td>
-        <td>${escHtml(u.phone || '-')}</td>
-        <td style="text-align:center">${u.totalBookings || 0}</td>
-        <td>${fmtMoney(u.totalSpent)}</td>
-        <td>${fmtDate(u.created_at)}</td>
-        <td>
-          <button class="btn btn-danger btn-sm" onclick="confirmDeleteUser(${u.id}, '${escHtml(u.name)}')">🗑️ Xóa</button>
-        </td>
-      </tr>
-    `).join('');
+    renderCustPagination();
   } catch(e) {
     tbody.innerHTML = `<tr><td colspan="8" style="color:var(--status-cancelled);padding:20px">${e.message}</td></tr>`;
+  }
+}
+
+function renderCustPagination() {
+  const el = document.getElementById('customersPagination');
+  const totalPages = Math.max(1, Math.ceil(custTotal / custLimit));
+  const btn = (p, label, disabled) => `<button class="btn btn-ghost btn-sm" ${disabled ? 'disabled' : ''} onclick="changeCustPage(${p})">${label}</button>`;
+  el.innerHTML =
+    `<span class="pagination-info">${custTotal} khách hàng</span>` +
+    btn(custPage - 1, '← Trước', custPage <= 1) +
+    `<span class="pagination-page">${custPage} / ${totalPages}</span>` +
+    btn(custPage + 1, 'Sau →', custPage >= totalPages);
+}
+
+async function openCustomerBookings(id, name) {
+  document.getElementById('customerModalTitle').textContent = `Lịch Sử Đặt Tour - ${name}`;
+  document.getElementById('customerBookingsBody').innerHTML = '<p style="padding:20px;text-align:center;color:var(--text-muted)">Đang tải...</p>';
+  openModal('customerModal');
+  try {
+    const bookings = await apiRequest('GET', `/api/admin/users/${id}/bookings`);
+    const box = document.getElementById('customerBookingsBody');
+    if (!bookings.length) {
+      box.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><p>Khách hàng chưa có booking nào</p></div>';
+      return;
+    }
+    box.innerHTML = bookings.map(b => `
+      <div class="cust-booking-card">
+        <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+          <strong>#${b.id} · ${escHtml(b.tour_name)}</strong>
+          ${fmtStatus(b.status)}
+        </div>
+        <div style="margin-top:6px;color:var(--text-muted);font-size:0.8rem">
+          ${escHtml(b.location || '')} · Khởi hành: ${escHtml(b.departure_date || b.date || '-')} · Khách: ${fmtPax(b)}
+        </div>
+        <div style="margin-top:6px;color:var(--deep-green);font-weight:700">${fmtMoney(b.total_price)}</div>
+      </div>
+    `).join('');
+  } catch(e) {
+    document.getElementById('customerBookingsBody').innerHTML = `<p style="padding:20px;color:var(--status-cancelled)">${e.message}</p>`;
   }
 }
 

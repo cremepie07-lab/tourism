@@ -368,7 +368,7 @@ app.get('/api/admin/stats', requireAdmin, (req, res) => {
       db.get('SELECT COUNT(*) as total FROM bookings', (e3, r3) => {
         if (e3) return res.status(500).json({ error: e3.message });
         stats.totalBookings = r3.total;
-        db.get(`SELECT COALESCE(SUM(total_price),0) as revenue FROM bookings WHERE status != 'cancelled'`, (e4, r4) => {
+        db.get(`SELECT COALESCE(SUM(total_price),0) as revenue FROM bookings WHERE status IN ('confirmed','completed')`, (e4, r4) => {
           if (e4) return res.status(500).json({ error: e4.message });
           stats.totalRevenue = r4.revenue;
           db.all('SELECT status, COUNT(*) as count FROM bookings GROUP BY status', (e5, rows5) => {
@@ -435,9 +435,37 @@ app.delete('/api/admin/tours/:id', requireAdmin, (req, res) => {
   });
 });
 
-// Lay danh sach khach hang (admin, kem tong booking & chi tieu)
+// Lay danh sach khach hang (admin, kem tong booking & chi tieu - chi tieu chi tinh booking con hieu luc)
 app.get('/api/admin/users', requireAdmin, (req, res) => {
-  db.all(`SELECT u.id, u.name, u.email, u.phone, u.created_at, COUNT(b.id) as totalBookings, COALESCE(SUM(b.total_price),0) as totalSpent FROM users u LEFT JOIN bookings b ON b.user_id = u.id GROUP BY u.id ORDER BY u.created_at DESC`, (err, rows) => {
+  const page = Math.max(1, parseInt(req.query.page) || 1);
+  const limit = Math.min(100, Math.max(1, parseInt(req.query.limit) || 10));
+  const q = (req.query.q || '').trim();
+  const where = q ? 'WHERE (u.name LIKE ? OR u.email LIKE ? OR u.phone LIKE ?)' : '';
+  const args = q ? [`%${q}%`, `%${q}%`, `%${q}%`] : [];
+
+  db.get(`SELECT COUNT(*) as total FROM users u ${where}`, args, (err, cnt) => {
+    if (err) return res.status(500).json({ error: err.message });
+    const offset = (page - 1) * limit;
+    db.all(`
+      SELECT u.id, u.name, u.email, u.phone, u.created_at,
+        COUNT(b.id) as totalBookings,
+        COALESCE(SUM(CASE WHEN b.status IN ('confirmed','completed') THEN b.total_price ELSE 0 END),0) as totalSpent
+      FROM users u
+      LEFT JOIN bookings b ON b.user_id = u.id
+      ${where}
+      GROUP BY u.id
+      ORDER BY u.created_at DESC
+      LIMIT ? OFFSET ?
+    `, [...args, limit, offset], (err2, rows) => {
+      if (err2) res.status(500).json({ error: err2.message });
+      else res.json({ rows, total: cnt.total, page, limit });
+    });
+  });
+});
+
+// Lich su booking cua 1 khach hang (admin)
+app.get('/api/admin/users/:id/bookings', requireAdmin, (req, res) => {
+  db.all(`SELECT b.*, t.title as tour_name, t.image, t.location FROM bookings b JOIN tours t ON b.tour_id = t.id WHERE b.user_id = ? ORDER BY b.created_at DESC`, [req.params.id], (err, rows) => {
     if (err) res.status(500).json({ error: err.message });
     else res.json(rows);
   });
@@ -497,3 +525,4 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log('Admin login: admin@viettravel.vn / admin@2026');
 });
+

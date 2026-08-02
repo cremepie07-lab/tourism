@@ -351,6 +351,52 @@ body {
   font-weight: 700;
 }
 
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.search-input {
+  min-width: 260px;
+  background: var(--warm-white);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 9px 13px;
+  color: var(--text-dark);
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.22s, box-shadow 0.22s, background 0.22s;
+}
+.search-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12);
+  background: white;
+}
+.search-input::placeholder { color: #b8b0a0; }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+}
+.pagination .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.pagination-info { font-size: 0.8rem; color: var(--text-muted); margin-right: auto; }
+.pagination-page { font-size: 0.82rem; font-weight: 700; color: var(--deep-green); }
+
+.cust-booking-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  background: var(--warm-white);
+}
+.cust-booking-card:last-child { margin-bottom: 0; }
+
 .btn {
   display: inline-flex;
   align-items: center;
