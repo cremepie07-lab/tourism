@@ -181,42 +181,44 @@ nav.scrolled {
 .btn-primary {
   display: inline-block;
   padding: 1rem 2.8rem;
-  background: var(--gold);
-  color: var(--deep-green);
+  background: #C9A84C !important;
+  color: #1A3A2A !important;
   text-decoration: none;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
   border-radius: 4px;
-  border: 2px solid var(--gold);
+  border: 2px solid #C9A84C !important;
   transition: all 0.3s;
+  cursor: pointer;
 }
 .btn-primary:hover {
-  background: var(--gold-light);
-  border-color: var(--gold-light);
+  background: #E8C97A !important;
+  border-color: #E8C97A !important;
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(201,168,76,0.4);
+  box-shadow: 0 12px 30px rgba(201,168,76,0.45);
 }
 
 .btn-outline {
   display: inline-block;
   padding: 1rem 2.8rem;
-  background: transparent;
-  color: rgba(255,255,255,0.9);
+  background: transparent !important;
+  color: #ffffff !important;
   text-decoration: none;
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
   border-radius: 4px;
-  border: 2px solid rgba(255,255,255,0.6);
+  border: 2px solid rgba(255,255,255,0.85) !important;
   transition: all 0.3s;
+  cursor: pointer;
 }
 .btn-outline:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,1);
-  color: #fff;
+  background: rgba(255,255,255,0.15) !important;
+  border-color: #ffffff !important;
+  color: #fff !important;
   transform: translateY(-2px);
 }
 
