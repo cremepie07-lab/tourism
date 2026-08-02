@@ -212,7 +212,6 @@ app.post('/api/auth/login', (req, res) => {
   });
 });
 
-// Lich su dat tour cua 1 user (kem trang thai booking)
 app.get('/api/users/:id/bookings', (req, res) => {
   db.all(`SELECT b.*, t.title as tour_name, t.image, t.location FROM bookings b JOIN tours t ON b.tour_id = t.id WHERE b.user_id = ? ORDER BY b.created_at DESC`, [req.params.id], (err, rows) => {
     if (err) res.status(500).json({ error: err.message });
@@ -259,7 +258,6 @@ app.get('/api/tours/:id/reviews', (req, res) => {
   });
 });
 
-// Kiem tra quyen danh gia cua 1 user tren 1 tour (da dat, da di xong)
 app.get('/api/tours/:id/can-review', (req, res) => {
   const { id } = req.params;
   const { user_id } = req.query;
@@ -293,7 +291,7 @@ app.post('/api/reviews', (req, res) => {
   const { tour_id, user_id, rating, comment } = req.body;
   if (!tour_id || !user_id || !rating || !comment || !comment.trim()) return res.status(400).json({ success: false, error: 'Vui lòng điền đầy đủ thông tin đánh giá' });
 
-  // Kiểm tra khách đã đặt tour, booking được xác nhận/hoàn thành VÀ ngày khởi hành đã qua (đã đi xong)
+
   const sqlCheck = `SELECT id FROM bookings WHERE user_id = ? AND tour_id = ? AND status IN ('confirmed','completed') AND date(COALESCE(departure_date, date)) <= date('now', 'localtime') LIMIT 1`;
   
   db.get(sqlCheck, [user_id, tour_id], (err, booking) => {
@@ -337,9 +335,6 @@ app.get('/api/bookings', (req, res) => {
   });
 });
 
-// ===== ADMIN API ENDPOINTS =====
-
-// Dang nhap admin
 app.post('/api/admin/login', (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) return res.status(400).json({ success: false, error: 'Vui long nhap email va mat khau' });
@@ -350,13 +345,11 @@ app.post('/api/admin/login', (req, res) => {
   res.json({ success: true, message: 'Dang nhap admin thanh cong!', token: adminToken });
 });
 
-// Dang xuat admin
 app.post('/api/admin/logout', requireAdmin, (req, res) => {
   adminToken = null;
   res.json({ success: true, message: 'Da dang xuat' });
 });
 
-// Thong ke tong quan
 app.get('/api/admin/stats', requireAdmin, (req, res) => {
   const stats = {};
   db.get('SELECT COUNT(*) as total FROM tours', (e1, r1) => {
@@ -383,7 +376,6 @@ app.get('/api/admin/stats', requireAdmin, (req, res) => {
   });
 });
 
-// Lay danh sach tour (admin)
 app.get('/api/admin/tours', requireAdmin, (req, res) => {
   db.all(`SELECT t.*, COALESCE(b.bookingCount,0) as bookingCount, COALESCE(r.reviewCount,0) as reviewCount, COALESCE(r.avgRating,0) as avgRating FROM tours t LEFT JOIN (SELECT tour_id, COUNT(*) as bookingCount FROM bookings GROUP BY tour_id) b ON b.tour_id = t.id LEFT JOIN (SELECT tour_id, COUNT(*) as reviewCount, AVG(rating) as avgRating FROM reviews GROUP BY tour_id) r ON r.tour_id = t.id ORDER BY t.id DESC`, (err, rows) => {
     if (err) res.status(500).json({ error: err.message });
@@ -405,7 +397,7 @@ app.post('/api/admin/tours', requireAdmin, (req, res) => {
     });
 });
 
-// Sua tour (admin)
+
 app.put('/api/admin/tours/:id', requireAdmin, (req, res) => {
   const { id } = req.params;
   const { title, location, destination, durationLabel, departure, price, description, image, badge, type, details, itinerary, highlights, cuisine, ideal_time, transport, promotion } = req.body;
@@ -421,7 +413,7 @@ app.put('/api/admin/tours/:id', requireAdmin, (req, res) => {
     });
 });
 
-// Xoa tour (kèm cascade xoa bookings & reviews)
+
 app.delete('/api/admin/tours/:id', requireAdmin, (req, res) => {
   const { id } = req.params;
   db.serialize(() => {
@@ -435,7 +427,7 @@ app.delete('/api/admin/tours/:id', requireAdmin, (req, res) => {
   });
 });
 
-// Lay danh sach khach hang (admin, kem tong booking & chi tieu - chi tieu chi tinh booking con hieu luc)
+
 app.get('/api/admin/users', requireAdmin, (req, res) => {
   const page = Math.max(1, parseInt(req.query.page) || 1);
   const limit = Math.min(100, Math.max(1, parseInt(req.query.limit) || 10));
@@ -463,7 +455,6 @@ app.get('/api/admin/users', requireAdmin, (req, res) => {
   });
 });
 
-// Lich su booking cua 1 khach hang (admin)
 app.get('/api/admin/users/:id/bookings', requireAdmin, (req, res) => {
   db.all(`SELECT b.*, t.title as tour_name, t.image, t.location FROM bookings b JOIN tours t ON b.tour_id = t.id WHERE b.user_id = ? ORDER BY b.created_at DESC`, [req.params.id], (err, rows) => {
     if (err) res.status(500).json({ error: err.message });
@@ -471,7 +462,6 @@ app.get('/api/admin/users/:id/bookings', requireAdmin, (req, res) => {
   });
 });
 
-// Xoa khach hang (admin)
 app.delete('/api/admin/users/:id', requireAdmin, (req, res) => {
   const { id } = req.params;
   db.serialize(() => {
@@ -485,7 +475,6 @@ app.delete('/api/admin/users/:id', requireAdmin, (req, res) => {
   });
 });
 
-// Lay tat ca bookings (admin, co filter theo status)
 app.get('/api/admin/bookings', requireAdmin, (req, res) => {
   const { status } = req.query;
   let q = `SELECT b.*, t.title as tour_name, t.location as tour_location FROM bookings b JOIN tours t ON b.tour_id = t.id WHERE 1=1`;
@@ -498,7 +487,6 @@ app.get('/api/admin/bookings', requireAdmin, (req, res) => {
   });
 });
 
-// Doi trang thai booking (admin)
 app.put('/api/admin/bookings/:id/status', requireAdmin, (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
