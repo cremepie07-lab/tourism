@@ -151,7 +151,7 @@ nav.scrolled {
   font-family: 'Playfair Display', serif;
   font-size: clamp(3.5rem, 8vw, 7.5rem);
   color: #fff;
-  line-height: 1.0;
+  line-height: 1.15;
   font-weight: 900;
   margin-bottom: 1rem;
   animation: fadeUp 1s ease 0.4s both;
