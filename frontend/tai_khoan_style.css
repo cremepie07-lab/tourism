@@ -1,10 +1,9 @@
-.account-wrapper {
+﻿.account-wrapper {
   max-width: 900px;
   margin: 0 auto;
   padding: 140px 2rem 4rem;
 }
 
-/* HERO */
 .account-hero {
   display: flex;
   align-items: center;
@@ -67,7 +66,6 @@
   border-color: #C0392B;
 }
 
-/* CARDS */
 .account-card {
   background: white;
   border-radius: 16px;
@@ -86,7 +84,6 @@
   padding-left: 0.8rem;
 }
 
-/* INFO GRID */
 .account-info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -113,7 +110,6 @@
   font-weight: 500;
 }
 
-/* BOOKINGS LIST */
 .loading-text {
   color: var(--text-muted);
   text-align: center;

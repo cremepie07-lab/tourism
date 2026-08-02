@@ -1,7 +1,6 @@
-// Biến global để lưu tours từ API
+﻿
 let allTours = [];
 
-// Hàm fetch tours từ API
 async function fetchTours() {
   try {
     const response = await fetch('/api/tours');
@@ -15,7 +14,6 @@ async function fetchTours() {
   }
 }
 
-// Render tours (giữ nguyên code cũ)
 function renderTours(toursToRender) {
   const container = document.getElementById('toursContainer');
   container.innerHTML = '';
@@ -73,24 +71,22 @@ function renderTours(toursToRender) {
   });
 }
 
-// Redirect to tour detail page
 function viewTourDetail(tourId) {
   window.location.href = `chi_tiet_tour.html?id=${tourId}`;
 }
 
-// Apply filters (SỬA ĐỔI - gọi API filter)
 async function applyFilters() {
   const destination = document.getElementById('sidebarDestination').value;
   const maxPrice = document.getElementById('priceRange').value;
   
-  // Get selected departures
+  
   const departures = [];
   const departureCheckboxes = document.querySelectorAll('#departureGroup input[type="checkbox"]:checked');
   departureCheckboxes.forEach(cb => {
     departures.push(cb.value);
   });
 
-  // Get selected durations
+  
   const durations = [];
   const durationCheckboxes = document.querySelectorAll('#durationGroup input[type="checkbox"]:checked');
   durationCheckboxes.forEach(cb => {
@@ -98,7 +94,7 @@ async function applyFilters() {
   });
 
   try {
-    // Gọi API filter
+    
     let url = '/api/tours/filter?';
     if (destination) url += `destination=${destination}&`;
     if (maxPrice) url += `maxPrice=${maxPrice}&`;
@@ -106,7 +102,7 @@ async function applyFilters() {
     const response = await fetch(url);
     let filtered = await response.json();
 
-    // Client-side filter cho departure và duration
+    
     if (departures.length > 0) {
       filtered = filtered.filter(tour => departures.includes(tour.departure));
     }
@@ -122,7 +118,6 @@ async function applyFilters() {
   }
 }
 
-// Toggle filter group
 function toggleFilterGroup(element) {
   element.classList.toggle('collapsed');
   const group = element.nextElementSibling;
@@ -131,7 +126,6 @@ function toggleFilterGroup(element) {
   }
 }
 
-// Update price display
 function updateMaxPrice() {
   const priceRange = document.getElementById('priceRange');
   const maxPriceSpan = document.getElementById('maxPrice');
@@ -139,11 +133,10 @@ function updateMaxPrice() {
   maxPriceSpan.textContent = value.toLocaleString('vi-VN');
 }
 
-// Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
   const priceRange = document.getElementById('priceRange');
   
-  // Fetch tours từ API khi trang load
+  
   fetchTours();
 
   priceRange.addEventListener('input', function() {
@@ -151,13 +144,10 @@ document.addEventListener('DOMContentLoaded', function() {
     applyFilters();
   });
 
-  // Update max price display on load
+  
   updateMaxPrice();
 });
 
-// Khi quay lại trang bằng nút Back/Forward, trình duyệt có thể phục hồi
-// trang từ bộ nhớ đệm (bfcache) mà KHÔNG chạy lại JS -> dữ liệu tour
-// (đặc biệt rating/reviewCount vừa cập nhật) sẽ bị cũ. Refetch lại khi đó.
 window.addEventListener('pageshow', function(event) {
   if (event.persisted) {
     fetchTours();

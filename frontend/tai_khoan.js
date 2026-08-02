@@ -1,4 +1,4 @@
-// ===== QUẢN LÝ TRANG TÀI KHOẢN CÁ NHÂN =====
+﻿
 
 document.addEventListener('DOMContentLoaded', () => {
   initAccountPage();
@@ -25,7 +25,7 @@ async function initAccountPage() {
     return;
   }
 
-  // Hiển thị thông tin cá nhân
+  
   const initial = user.name ? user.name.charAt(0).toUpperCase() : '?';
   const avatarElem = document.getElementById('avatarInitial');
   if (avatarElem) avatarElem.textContent = initial;
@@ -42,7 +42,7 @@ async function initAccountPage() {
   const infoPhone = document.getElementById('infoPhone');
   if (infoPhone) infoPhone.textContent = user.phone || '-';
 
-  // Tải lịch sử đặt tour
+  
   await fetchUserBookings(user.id);
 }
 

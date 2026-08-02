@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --gold: #C9A84C;
   --gold-light: #E8C97A;
   --deep-green: #1A3A2A;
@@ -17,8 +17,6 @@
   box-sizing: border-box;
 }
 
-/* Ép chữ số dùng "lining figures" cùng chiều cao/baseline, tránh số bị
-   lệch lên/xuống (oldstyle figures) khi hiển thị giá tiền, ngày, số lượng... */
 html {
   font-variant-numeric: lining-nums tabular-nums;
   font-feature-settings: "lnum" 1, "tnum" 1;
@@ -35,7 +33,6 @@ body {
   overflow-x: hidden;
 }
 
-/* NAV */
 nav {
   position: fixed;
   top: 0;
@@ -78,7 +75,6 @@ nav {
   color: var(--gold);
 }
 
-/* HERO SECTION */
 .hero-tour {
   background: linear-gradient(135deg, var(--deep-green) 0%, #0F2A1C 100%);
   padding: 140px 4rem 3rem;
@@ -116,7 +112,6 @@ nav {
   margin-bottom: 2rem;
 }
 
-/* SEARCH SECTION */
 .search-section {
   background: white;
   margin: -70px 4rem 0;
@@ -283,7 +278,6 @@ nav {
   filter: brightness(0) invert(1);
 }
 
-/* MAIN CONTENT */
 .main-content {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -291,7 +285,6 @@ nav {
   padding: 3rem 4rem;
 }
 
-/* SIDEBAR FILTERS */
 .sidebar {
   background: white;
   padding: 1.5rem;
@@ -465,7 +458,6 @@ input[type="range"] {
   accent-color: var(--gold);
 }
 
-/* TOUR GRID */
 .tours-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -651,7 +643,6 @@ input[type="range"] {
   box-shadow: 0 6px 16px rgba(201, 168, 76, 0.3);
 }
 
-/* NO RESULTS */
 .no-results {
   grid-column: 1 / -1;
   text-align: center;
@@ -659,7 +650,6 @@ input[type="range"] {
   color: var(--text-muted);
 }
 
-/* FOOTER */
 footer {
   background: #0A1A10;
   padding: 3rem 4rem;
@@ -701,7 +691,6 @@ footer {
   color: var(--gold);
 }
 
-/* RESPONSIVE */
 @media (max-width: 1200px) {
   .search-container {
     gap: 0.8rem;

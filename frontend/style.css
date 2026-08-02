@@ -1,8 +1,5 @@
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+﻿*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Ép chữ số dùng kiểu "lining figures" cùng chiều cao, cùng baseline,
-   tránh hiện tượng số bị lệch lên/xuống (oldstyle figures) khi dùng
-   các font như Playfair Display / Raleway ở những nơi hiển thị giá tiền, ngày... */
 html {
   font-variant-numeric: lining-nums tabular-nums;
   font-feature-settings: "lnum" 1, "tnum" 1;
@@ -30,7 +27,6 @@ body {
   overflow-x: hidden;
 }
 
-/* NAV */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -67,7 +63,6 @@ nav.scrolled {
 }
 .nav-links a:hover { color: var(--gold); }
 
-/* HERO */
 .hero {
   height: 100vh;
   position: relative;
@@ -86,7 +81,6 @@ nav.scrolled {
     linear-gradient(160deg, #0D2118 0%, #1A3A2A 40%, #0F2A1C 100%);
 }
 
-/* Floating orbs */
 .orb {
   position: absolute;
   border-radius: 50%;
@@ -110,7 +104,6 @@ nav.scrolled {
   50% { transform: translateY(-30px) scale(1.05); }
 }
 
-/* Rice field pattern overlay */
 .hero-pattern {
   position: absolute; inset: 0;
   opacity: 0.04;
@@ -222,7 +215,6 @@ nav.scrolled {
   transform: translateY(-2px);
 }
 
-/* Scroll indicator */
 .scroll-down {
   position: absolute;
   bottom: 2.5rem;
@@ -256,7 +248,6 @@ nav.scrolled {
   to { opacity:1; transform:translateY(0); }
 }
 
-/* STATS STRIP */
 .stats-strip {
   background: var(--deep-green);
   padding: 2.5rem 4rem;
@@ -286,7 +277,6 @@ nav.scrolled {
   margin-top: 0.5rem;
 }
 
-/* SECTION COMMON */
 section { padding: 7rem 4rem; }
 .section-tag {
   font-size: 0.72rem;
@@ -316,7 +306,6 @@ section { padding: 7rem 4rem; }
   font-style: italic;
 }
 
-/* DESTINATIONS */
 .destinations { background: var(--warm-white); }
 .dest-header {
   display: flex;
@@ -365,12 +354,12 @@ section { padding: 7rem 4rem; }
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 300px;                    /* ← thêm dòng này */
+  height: 300px;                    
   display: block;
   transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .dest-card:first-child .dest-photo-wrap { 
-  height: 640px;                    /* ← thay min-height thành height */
+  height: 640px;                    
 
 }
 .dest-photo-wrap { min-height: 300px; }
@@ -393,15 +382,15 @@ section { padding: 7rem 4rem; }
   font-size: 0.75rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  font-weight: 800;             /* Tăng lên 800 (Extra Bold) để nét chữ dày nhất có thể */
+  font-weight: 800;             
   color: var(--gold);
   margin-bottom: 0.4rem;
 
-  /* CÁC THUỘC TÍNH CHỐNG MỜ CHỮ */
-  text-shadow: 0 0 8px rgba(0,0,0,0.9); /* Bóng đổ lan tỏa giúp chữ tách biệt khỏi nền */
-  -webkit-font-smoothing: antialiased;   /* Ép trình duyệt render chữ mượt mà trên macOS */
-  -moz-osx-font-smoothing: grayscale;    /* Ép trình duyệt render chữ rõ nét trên macOS */
-  text-rendering: optimizeLegibility;    /* Ưu tiên độ rõ nét của chữ thay vì tốc độ load */
+  
+  text-shadow: 0 0 8px rgba(0,0,0,0.9); 
+  -webkit-font-smoothing: antialiased;   
+  -moz-osx-font-smoothing: grayscale;    
+  text-rendering: optimizeLegibility;    
 }
 
 .dest-name {
@@ -437,7 +426,6 @@ section { padding: 7rem 4rem; }
   z-index: 4;
 }
 
-/* EXPERIENCES */
 .experiences {
   background: var(--deep-green);
   position: relative;
@@ -508,7 +496,6 @@ section { padding: 7rem 4rem; }
   line-height: 1.8;
 }
 
-/* GALLERY STRIP */
 .gallery-strip {
   padding: 0;
   display: flex;
@@ -547,7 +534,6 @@ section { padding: 7rem 4rem; }
 .bg-4 { background: linear-gradient(140deg, #784212, #D4AC0D, #B7950B, #784212); }
 .bg-5 { background: linear-gradient(160deg, #0B5345, #1D8A6E, #48C9B0, #0B5345); }
 
-/* CUISINE */
 .cuisine { background: var(--cream); }
 .cuisine-layout {
   display: grid;
@@ -633,7 +619,6 @@ section { padding: 7rem 4rem; }
   flex-shrink: 0;
 }
 
-/* SEASONS */
 .seasons { background: var(--warm-white); }
 .seasons-grid {
   display: grid;
@@ -673,7 +658,6 @@ section { padding: 7rem 4rem; }
   line-height: 1.7;
 }
 
-/* CTA SECTION */
 .cta-section {
   background: var(--deep-green);
   padding: 8rem 4rem;
@@ -711,7 +695,6 @@ section { padding: 7rem 4rem; }
   line-height: 1.8;
 }
 
-/* FOOTER */
 footer {
   background: #0A1A10;
   padding: 3rem 4rem;
@@ -745,7 +728,6 @@ footer {
 }
 .footer-links a:hover { color: var(--gold); }
 
-/* ANIMATE ON SCROLL */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -760,7 +742,6 @@ footer {
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
-/* Lotus deco */
 .lotus-deco {
   position: absolute;
   right: 5%;
@@ -787,26 +768,24 @@ footer {
   .gallery-strip { height: 250px; }
   footer { flex-direction: column; gap: 1.5rem; text-align: center; }
 }
-/* KHUNG THẺ: Phối màu Xanh đậm (Green) - Vàng (Gold) */
+
 .exp-card {
-  background-color: #123524; /* Nền xanh lá cực đậm (bạn có thể thay bằng mã màu nền thực tế của bạn) */
-  border: 1px solid rgba(212, 175, 55, 0.25); /* Viền màu Vàng Gold mờ để định hình khối thẻ */
+  background-color: #123524; 
+  border: 1px solid rgba(212, 175, 55, 0.25); 
   border-radius: 16px;
-  overflow: hidden; /* Cắt góc ảnh khớp với viền */
+  overflow: hidden; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.4s ease, border-color 0.4s ease;
   display: flex;
   flex-direction: column;
 }
 
-/* HIỆU ỨNG HOVER: Nhấc thẻ lên và viền sáng bừng màu Gold */
 .exp-card:hover {
   transform: translateY(-6px);
-  border-color: var(--gold, #d4af37); /* Sáng viền vàng */
-  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15); /* Bóng đổ phớt vàng nhẹ */
+  border-color: var(--gold, #d4af37); 
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15); 
 }
 
-/* HÌNH ẢNH: Vẫn ép tỷ lệ chuẩn 16:10 để ảnh không bị dẹt/méo như ảnh cũ của bạn */
 .exp-img {
   width: 100%;
   aspect-ratio: 16 / 10; 
@@ -814,7 +793,6 @@ footer {
   display: block;
 }
 
-/* KHỐI NỘI DUNG */
 .exp-content {
   padding: 24px;
   display: flex;
@@ -822,24 +800,21 @@ footer {
   flex-grow: 1;
 }
 
-/* TIÊU ĐỀ: Bắt buộc dùng màu Vàng Gold */
 .exp-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--gold, #d4af37); /* Gọi biến màu vàng của bạn ra */
+  color: var(--gold, #d4af37); 
   margin-bottom: 10px;
-  text-transform: uppercase; /* In hoa nhẹ cho sang trọng */
+  text-transform: uppercase; 
   letter-spacing: 0.5px;
 }
 
-/* ĐOẠN VĂN MÔ TẢ: Màu sáng để nổi bật trên nền xanh đậm */
 .exp-text {
   font-size: 0.95rem;
-  color: #e5e7eb; /* Trắng ngà/xám sáng, TUYỆT ĐỐI không dùng màu đen hay xám đậm ở đây */
+  color: #e5e7eb; 
   line-height: 1.6;
 }
 
-/* ICON: Chỉnh khoảng cách */
 .exp-icon {
   font-size: 1.8rem;
   margin-bottom: 12px;

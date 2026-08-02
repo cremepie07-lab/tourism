@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
@@ -20,7 +20,6 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: var(--warm-white); color: var(--text-dark); font-family: 'Raleway', sans-serif; }
 
-/* ===== HERO ===== */
 .food-hero {
   position: relative;
   height: 90vh;
@@ -94,7 +93,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
 }
 .hero-meta-label { font-size: 0.7rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.25rem; }
 
-/* ===== INTRO STRIP ===== */
 .food-intro-strip {
   background: var(--deep-green);
   color: #fff;
@@ -118,7 +116,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
 }
 .food-intro-stat .lbl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.65; margin-top: 0.25rem; }
 
-/* ===== ARTICLE ===== */
 .food-article {
   max-width: 820px;
   margin: 0 auto;
@@ -146,7 +143,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
 }
 .food-article strong { color: var(--text-dark); }
 
-/* Pull-quote */
 .food-quote {
   border-left: 4px solid var(--gold);
   padding: 1rem 1.75rem;
@@ -159,7 +155,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
   line-height: 1.6;
 }
 
-/* ===== IMAGE GALLERY ===== */
 .food-gallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -197,7 +192,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
   border-radius: 999px;
 }
 
-/* ===== INGREDIENTS GRID ===== */
 .food-section-label {
   display: flex;
   align-items: center;
@@ -237,7 +231,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
 .ingredient-card .ic-name { font-weight: 600; font-size: 0.88rem; color: var(--deep-green); }
 .ingredient-card .ic-note { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem; }
 
-/* ===== TIPS CARDS ===== */
 .tips-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -254,7 +247,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
 .tip-card .tip-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; }
 .tip-card .tip-text { font-size: 0.82rem; opacity: 0.8; line-height: 1.6; }
 
-/* ===== PLACES ===== */
 .places-list {
   list-style: none;
   margin: 1rem 0 2.5rem;
@@ -276,7 +268,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
 .places-list li .pl-name { font-weight: 700; color: var(--deep-green); }
 .places-list li .pl-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; }
 
-/* ===== BACK ===== */
 .back-bar {
   text-align: center;
   padding: 3rem 0 5rem;
@@ -296,7 +287,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
 }
 .back-btn:hover { background: var(--deep-green); color: #fff; }
 
-/* ===== RELATED ===== */
 .food-related {
   background: #fff;
   padding: 4rem 5%;
@@ -331,7 +321,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
 .related-card .rc-name { font-weight: 700; font-size: 0.95rem; color: var(--deep-green); }
 .related-card .rc-tag { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
   .food-gallery { grid-template-columns: 1fr; grid-template-rows: auto; }
   .food-gallery-item:first-child { grid-row: auto; }
@@ -343,7 +332,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav id="navbar" class="scrolled">
   <div class="nav-logo" onclick="window.location.href='trang_chu.html'" style="cursor:pointer;">Việt Nam</div>
   <ul class="nav-links">
@@ -354,7 +342,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="food-hero">
   <div class="food-hero-bg"></div>
   <div class="food-hero-overlay"></div>
@@ -379,7 +366,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
   </div>
 </section>
 
-<!-- INTRO STRIP -->
 <div class="food-intro-strip">
   <div class="food-intro-stat"><div class="val">8h+</div><div class="lbl">Ninh xương</div></div>
   <div class="food-intro-stat"><div class="val">10+</div><div class="lbl">Loại gia vị</div></div>
@@ -387,7 +373,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
   <div class="food-intro-stat"><div class="val">UNESCO</div><div class="lbl">Di sản phi vật thể</div></div>
 </div>
 
-<!-- ARTICLE -->
 <article class="food-article">
   <h2>Phở — Biểu tượng ẩm thực Việt</h2>
   <p>Phở là món ăn quốc hồn quốc túy của Việt Nam, được cả thế giới biết đến và yêu mến. Xuất hiện lần đầu vào khoảng đầu thế kỷ 20 tại vùng Nam Định — Hà Nội, phở đã trải qua hơn một thế kỷ phát triển để trở thành di sản ẩm thực không thể thay thế của người Việt.</p>
@@ -395,7 +380,7 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
 
   <div class="food-quote">"Không có tô phở nào giống tô phở nào — mỗi quán mang một tâm hồn, mỗi thìa nước dùng là một bí quyết gia truyền..."</div>
 
-  <!-- Gallery -->
+  
   <div class="food-gallery">
     <div class="food-gallery-item">
       <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?q=80&w=1974&auto=format&fit=crop" alt="Tô phở bò Hà Nội">
@@ -418,7 +403,7 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
   <h3>Bí quyết nước dùng chuẩn vị</h3>
   <p>Linh hồn của một tô phở nằm ở nước dùng. Xương bò (hoặc xương gà) được chần qua nước sôi để loại bỏ tạp chất, sau đó ninh ít nhất <strong>6–8 giờ</strong> ở nhiệt độ thấp. Điều tạo nên hương thơm đặc trưng chính là bộ gia vị được nướng thơm trực tiếp trên than: gừng già nướng cháy vỏ, hành tím nướng thơm, cùng hoa hồi, quế chi, thảo quả, đinh hương và hạt ngò.</p>
 
-  <!-- Ingredients -->
+  
   <div class="food-section-label">Nguyên liệu chính</div>
   <div class="ingredients-grid">
     <div class="ingredient-card"><div class="ic-icon">🦴</div><div class="ic-name">Xương bò</div><div class="ic-note">Ninh 8 giờ</div></div>
@@ -435,7 +420,7 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
   <p><strong>Phở Hà Nội</strong> (phở Bắc) có nước dùng trong, vị thanh, ít ngọt, tập trung vào độ thơm tự nhiên của xương và gia vị. Không dùng giá đỗ, rau húng lủi. Sợi phở nhỏ hơn, ăn kèm hành lá thái nhỏ và tiêu xay.</p>
   <p><strong>Phở Sài Gòn</strong> ngọt hơn (có thêm đường phèn), nước dùng màu đậm hơn, ăn kèm đĩa rau đa dạng: giá đỗ, húng quế, rau quế, ngò gai. Phần nhân phong phú: bò viên, gân bò, sách bò, tái...</p>
 
-  <!-- Tips -->
+  
   <div class="food-section-label">Mẹo thưởng thức đúng cách</div>
   <div class="tips-grid">
     <div class="tip-card">
@@ -481,7 +466,6 @@ body { background: var(--warm-white); color: var(--text-dark); font-family: 'Ral
   </ul>
 </article>
 
-<!-- RELATED FOODS -->
 <div class="food-related">
   <h3>Khám Phá Thêm Ẩm Thực Việt</h3>
   <div class="related-grid">

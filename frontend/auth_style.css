@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --gold: #C9A84C;
   --deep-green: #1A3A2A;
   --jade: #3D8B6F;
@@ -15,8 +15,6 @@
   box-sizing: border-box;
 }
 
-/* Ép chữ số dùng "lining figures" cùng chiều cao/baseline, tránh số bị
-   lệch lên/xuống (oldstyle figures) khi hiển thị số điện thoại, mật khẩu... */
 html {
   font-variant-numeric: lining-nums tabular-nums;
   font-feature-settings: "lnum" 1, "tnum" 1;
@@ -44,7 +42,6 @@ body {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-/* HEADER */
 .auth-header {
   text-align: center;
   margin-bottom: 2.5rem;
@@ -70,7 +67,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* TABS */
 .auth-tabs {
   display: flex;
   gap: 1rem;
@@ -103,7 +99,6 @@ body {
   color: var(--jade);
 }
 
-/* FORMS */
 .auth-form {
   display: none;
 }
@@ -124,7 +119,6 @@ body {
   }
 }
 
-/* FORM GROUPS */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -141,7 +135,6 @@ body {
   line-height: 1.2;
 }
 
-/* INPUT FIELDS - FIX VERTICAL ALIGNMENT */
 .form-group input {
   padding: 0.85rem 1.2rem;
   border: 1.5px solid #e5e0d2;
@@ -155,7 +148,6 @@ body {
   color: var(--text-dark);
 }
 
-/* FIX PLACEHOLDER */
 .form-group input::placeholder {
   color: #999;
   font-size: 1rem;
@@ -170,14 +162,12 @@ body {
   box-shadow: 0 0 0 3px rgba(61, 139, 111, 0.1);
 }
 
-/* Chrome, Safari, Edge placeholder color */
 .form-group input::-webkit-input-placeholder {
   color: #999;
   font-size: 1rem;
   line-height: 1.5;
 }
 
-/* Firefox placeholder color */
 .form-group input::-moz-placeholder {
   color: #999;
   font-size: 1rem;
@@ -185,7 +175,6 @@ body {
   opacity: 0.8;
 }
 
-/* CHECKBOX */
 .form-group-checkbox {
   display: flex;
   align-items: center;
@@ -223,7 +212,6 @@ body {
   text-decoration: underline;
 }
 
-/* MESSAGES */
 .form-message {
   padding: 1rem;
   border-radius: 8px;
@@ -249,7 +237,6 @@ body {
   border-left: 4px solid var(--jade);
 }
 
-/* BUTTONS */
 .auth-button {
   width: 100%;
   padding: 1rem;
@@ -307,7 +294,6 @@ body {
   }
 }
 
-/* FOOTER */
 .auth-footer {
   text-align: center;
   font-size: 0.9rem;
@@ -326,7 +312,6 @@ body {
   color: var(--gold);
 }
 
-/* FORGOT PASSWORD */
 .forgot-password {
   text-align: right;
   margin-bottom: 1rem;
@@ -343,7 +328,6 @@ body {
   color: var(--jade);
 }
 
-/* RESPONSIVE */
 @media (max-width: 480px) {
   .auth-card {
     padding: 2rem 1.5rem;

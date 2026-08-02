@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -10,7 +10,7 @@
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Remix Icon for icons -->
+  
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
   <style>
@@ -21,7 +21,7 @@
       overflow-x: hidden;
     }
 
-    /* --- HERO SECTION --- */
+    
     .sp-hero {
       position: relative;
       height: 100vh;
@@ -41,7 +41,7 @@
       background: url('https://images.unsplash.com/photo-1570366583862-f91883984fde?q=100&w=2000&auto=format&fit=crop') no-repeat center center;
       background-size: cover;
       background-attachment: fixed;
-      /* Parallax effect */
+      
       transform: scale(1.05);
       animation: slowZoom 20s ease-out infinite alternate;
     }
@@ -120,7 +120,7 @@
       background: linear-gradient(to bottom, var(--gold, #C9A84C), transparent);
     }
 
-    /* --- INTRO SECTION --- */
+    
     .sp-intro {
       padding: 100px 5%;
       display: grid;
@@ -194,7 +194,7 @@
       transform: translate(10px, 10px);
     }
 
-    /* --- EXPERIENCES --- */
+    
     .sp-experiences {
       padding: 100px 5%;
       background-color: var(--cream, #F5EED8);
@@ -272,7 +272,7 @@
       font-size: 0.95rem;
     }
 
-    /* --- CTA SECTION --- */
+    
     .sp-cta {
       padding: 120px 5%;
       text-align: center;
@@ -328,7 +328,7 @@
       color: #fff;
     }
 
-    /* Animations */
+    
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -359,7 +359,7 @@
       }
     }
 
-    /* Responsive */
+    
     @media (max-width: 900px) {
       .sp-intro {
         grid-template-columns: 1fr;
@@ -375,7 +375,7 @@
 
 <body>
 
-  <!-- NAVBAR -->
+  
   <nav id="navbar">
     <div class="nav-logo" onclick="window.location.href='trang_chu.html'" style="cursor:pointer;">Việt Nam</div>
     <ul class="nav-links">
@@ -387,7 +387,7 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
+  
   <section class="sp-hero">
     <div class="sp-hero-bg"></div>
     <div class="sp-hero-overlay"></div>
@@ -405,7 +405,7 @@
     </div>
   </section>
 
-  <!-- INTRO -->
+  
   <section class="sp-intro">
     <div class="sp-intro-text">
       <h2>Bản Giao Hưởng<br>Của Núi Rừng</h2>
@@ -424,7 +424,7 @@
     </div>
   </section>
 
-  <!-- EXPERIENCES -->
+  
   <section class="sp-experiences">
     <div class="sp-section-header">
       <h2>Trải Nghiệm <span>Độc Bản</span></h2>
@@ -432,7 +432,7 @@
     </div>
 
     <div class="sp-exp-grid">
-      <!-- Card 1 -->
+      
       <div class="sp-exp-card">
         <div class="sp-exp-img">
           <img
@@ -444,7 +444,7 @@
           <p>Đi bộ xuyên qua những bản làng yên bình như Cát Cát, Tả Van, Lao Chải để khám phá vẻ đẹp hoang sơ của ruộng bậc thang và cuộc sống người dân bản địa.</p>
         </div>
       </div>
-      <!-- Card 2 -->
+      
       <div class="sp-exp-card">
         <div class="sp-exp-img">
           <img
@@ -456,7 +456,7 @@
           <p>Trải nghiệm cảm giác đứng trên đỉnh núi cao nhất Đông Dương, ngắm nhìn biển mây cuồn cuộn dưới chân mình với hệ thống cáp treo hiện đại.</p>
         </div>
       </div>
-      <!-- Card 3 -->
+      
       <div class="sp-exp-card">
         <div class="sp-exp-img">
           <img
@@ -471,7 +471,7 @@
     </div>
   </section>
 
-  <!-- CTA -->
+  
   <section class="sp-cta">
     <h2>Bạn Đã Sẵn Sàng Bắt Đầu?</h2>
     <p>Hãy để chúng tôi đồng hành cùng bạn trên hành trình khám phá Sapa – Nơi mọi khoảnh khắc đều trở nên vô giá.</p>
@@ -481,7 +481,7 @@
   </section>
 
   <script>
-    // Navbar scroll effect
+    
     window.addEventListener('scroll', () => {
       const navbar = document.getElementById('navbar');
       if (window.scrollY > 50) {

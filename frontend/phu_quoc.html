@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <!-- Remix Icon for icons -->
+    
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -25,7 +25,7 @@
         overflow-x: hidden;
       }
 
-      /* --- HERO SECTION --- */
+      
       .pq-hero {
         position: relative;
         height: 100vh;
@@ -46,7 +46,7 @@
           no-repeat center center;
         background-size: cover;
         background-attachment: fixed;
-        /* Parallax effect */
+        
         transform: scale(1.05);
         animation: slowZoom 20s ease-out infinite alternate;
       }
@@ -136,7 +136,7 @@
         );
       }
 
-      /* --- INTRO SECTION --- */
+      
       .pq-intro {
         padding: 100px 5%;
         display: grid;
@@ -210,7 +210,7 @@
         transform: translate(10px, 10px);
       }
 
-      /* --- EXPERIENCES --- */
+      
       .pq-experiences {
         padding: 100px 5%;
         background-color: var(--cream, #f5eed8);
@@ -290,7 +290,7 @@
         font-size: 0.95rem;
       }
 
-      /* --- CTA SECTION --- */
+      
       .pq-cta {
         padding: 120px 5%;
         text-align: center;
@@ -349,7 +349,7 @@
         color: #fff;
       }
 
-      /* Animations */
+      
       @keyframes fadeUp {
         from {
           opacity: 0;
@@ -380,7 +380,7 @@
         }
       }
 
-      /* Responsive */
+      
       @media (max-width: 900px) {
         .pq-intro {
           grid-template-columns: 1fr;
@@ -395,7 +395,7 @@
   </head>
 
   <body>
-    <!-- NAVBAR -->
+    
     <nav id="navbar">
       <div
         class="nav-logo"
@@ -413,7 +413,7 @@
       </ul>
     </nav>
 
-    <!-- HERO -->
+    
     <section class="pq-hero">
       <div class="pq-hero-bg"></div>
       <div class="pq-hero-overlay"></div>
@@ -440,7 +440,7 @@
       </div>
     </section>
 
-    <!-- INTRO -->
+    
     <section class="pq-intro">
       <div class="pq-intro-text">
         <h2>Hòn Đảo Dành Cho<br />Những Giấc Mơ</h2>
@@ -478,7 +478,7 @@
       </div>
     </section>
 
-    <!-- EXPERIENCES -->
+    
     <section class="pq-experiences">
       <div class="pq-section-header">
         <h2>Trải Nghiệm <span>Độc Bản</span></h2>
@@ -488,7 +488,7 @@
       </div>
 
       <div class="pq-exp-grid">
-        <!-- Card 1 -->
+        
         <div class="pq-exp-card">
           <div class="pq-exp-img">
             <img
@@ -504,7 +504,7 @@
             </p>
           </div>
         </div>
-        <!-- Card 2 -->
+        
         <div class="pq-exp-card">
           <div class="pq-exp-img">
             <img
@@ -520,7 +520,7 @@
             </p>
           </div>
         </div>
-        <!-- Card 3 -->
+        
         <div class="pq-exp-card">
           <div class="pq-exp-img">
             <img
@@ -539,7 +539,7 @@
       </div>
     </section>
 
-    <!-- CTA -->
+    
     <section class="pq-cta">
       <h2>Bạn Đã Sẵn Sàng Bắt Đầu?</h2>
       <p>
@@ -552,7 +552,7 @@
     </section>
 
     <script>
-      // Navbar scroll effect
+      
       window.addEventListener("scroll", () => {
         const navbar = document.getElementById("navbar");
         if (window.scrollY > 50) {
