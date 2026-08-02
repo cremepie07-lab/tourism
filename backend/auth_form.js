@@ -1,9 +1,7 @@
-// ===== AUTHENTICATION FORM HANDLER =====
-
 document.addEventListener('DOMContentLoaded', initializeAuth);
 
 function initializeAuth() {
-  // Đã đăng nhập rồi -> vào thẳng trang tài khoản
+
   const user = localStorage.getItem('user');
   if (user) {
     window.location.href = 'tai_khoan.html';
@@ -61,7 +59,6 @@ function clearMessages() {
   });
 }
 
-// ===== ĐĂNG NHẬP =====
 async function handleLogin(e) {
   e.preventDefault();
   clearMessages();
@@ -87,11 +84,10 @@ async function handleLogin(e) {
     const result = await response.json();
 
     if (result.success) {
-      // Lưu thông tin khách hàng vào trình duyệt
+
       localStorage.setItem('user', JSON.stringify(result.user));
       showMessage('loginMessage', 'success', '✅ ' + result.message);
 
-      // ĐĂNG NHẬP THÀNH CÔNG -> chuyển sang MÀN HÌNH KHÁCH HÀNG
       setTimeout(() => {
         window.location.href = 'tai_khoan.html';
       }, 1000);
@@ -106,7 +102,6 @@ async function handleLogin(e) {
   }
 }
 
-// ===== ĐĂNG KÝ =====
 async function handleRegister(e) {
   e.preventDefault();
   clearMessages();
@@ -154,7 +149,6 @@ async function handleRegister(e) {
       localStorage.setItem('user', JSON.stringify(result.user));
       showMessage('registerMessage', 'success', '✅ ' + result.message);
 
-      // ĐĂNG KÝ THÀNH CÔNG -> cũng chuyển sang MÀN HÌNH KHÁCH HÀNG
       setTimeout(() => {
         window.location.href = 'tai_khoan.html';
       }, 1000);
