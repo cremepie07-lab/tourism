@@ -11,7 +11,8 @@
 :root{--gold:#C9A84C;--deep-green:#1A3A2A;--warm-white:#FAF7F0;--text-dark:#1A1A1A;--text-muted:#5A5A5A;}
 *{box-sizing:border-box;margin:0;padding:0;}body{background:var(--warm-white);color:var(--text-dark);font-family:'Raleway',sans-serif;}
 .food-hero{position:relative;height:90vh;min-height:560px;display:flex;align-items:flex-end;overflow:hidden;}
-.food-hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1562802378-063ec186a863?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;transform:scale(1.05);transition:transform 8s;}
+.food-hero-bg{position:absolute;inset:0;background:none center/cover no-repeat;transform:scale(1.05);transition:transform 8s;}
+.food-hero-bg img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block;transform:scale(1.05);transition:transform 8s;}
 .food-hero:hover .food-hero-bg{transform:scale(1);}
 .food-hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(180,100,10,0.72) 0%,rgba(0,0,0,0.15) 70%,transparent 100%);}
 .food-hero-content{position:relative;z-index:2;padding:0 6% 7%;max-width:700px;color:#fff;}
@@ -84,7 +85,9 @@
 </nav>
 
 <section class="food-hero">
-  <div class="food-hero-bg"></div>
+  <div class="food-hero-bg">
+    <img src="https://images.unsplash.com/photo-1512058564366-c9e3f6a3b8b8?q=80&w=2070&auto=format&fit=crop" alt="Bánh xèo" onerror="this.onerror=null;this.src='../image/b5dd5585-1062-49da-8c75-eed33bbdfa38.jpg'">
+  </div>
   <div class="food-hero-overlay"></div>
   <div class="food-hero-content">
     <div class="food-hero-tag">✦ Ẩm Thực Việt Nam · Miền Trung & Nam</div>
@@ -114,15 +117,15 @@
 
   <div class="food-gallery">
     <div class="food-gallery-item">
-      <img src="https://images.unsplash.com/photo-1562802378-063ec186a863?q=80&w=1974&auto=format&fit=crop" alt="Bánh xèo vàng giòn">
+      <img src="https://images.unsplash.com/photo-1512058564366-c9e3f6a3b8b8?q=80&w=1974&auto=format&fit=crop" alt="Bánh xèo vàng giòn" onerror="this.onerror=null;this.src='../image/b5dd5585-1062-49da-8c75-eed33bbdfa38.jpg'">
       <span class="gal-label">Bánh xèo vàng giòn</span>
     </div>
     <div class="food-gallery-item">
-      <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=800&auto=format&fit=crop" alt="Nhân bánh xèo">
+      <img src="https://images.unsplash.com/photo-1604908177522-5b3d6b5d0d9d?q=80&w=800&auto=format&fit=crop" alt="Nhân bánh xèo" onerror="this.onerror=null;this.src='../image/b5dd5585-1062-49da-8c75-eed33bbdfa38.jpg'">
       <span class="gal-label">Nhân tôm thịt giá đỗ</span>
     </div>
     <div class="food-gallery-item">
-      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=800&auto=format&fit=crop" alt="Rau cuốn bánh xèo">
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Rau cuốn bánh xèo" onerror="this.onerror=null;this.src='../image/b5dd5585-1062-49da-8c75-eed33bbdfa38.jpg'">
       <span class="gal-label">Cuốn với rau sống</span>
     </div>
   </div>
@@ -166,10 +169,10 @@
 <div class="food-related">
   <h3>Khám Phá Thêm Ẩm Thực Việt</h3>
   <div class="related-grid">
-    <a href="pho.html" class="related-card"><img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?q=80&w=400&auto=format&fit=crop" alt="Phở"><div class="rc-info"><div class="rc-name">Phở Hà Nội</div><div class="rc-tag">Miền Bắc · Thanh đạm</div></div></a>
-    <a href="bun_bo_hue.html" class="related-card"><img src="https://t3.ftcdn.net/jpg/12/31/50/32/240_F_1231503262_q25Y0WHxkrIR5vSgBFQWSOAn4IwLR8No.jpg" alt="Bún Bò Huế"><div class="rc-info"><div class="rc-name">Bún Bò Huế</div><div class="rc-tag">Miền Trung · Đậm đà</div></div></a>
-    <a href="goi_cuon.html" class="related-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Bi_cuon.jpg/640px-Bi_cuon.jpg" alt="Gỏi Cuốn"><div class="rc-info"><div class="rc-name">Gỏi Cuốn</div><div class="rc-tag">Nam Bộ · Thanh mát</div></div></a>
-    <a href="com_tam.html" class="related-card"><img src="https://images.unsplash.com/photo-1555126634-323283e090fa?q=80&w=400&auto=format&fit=crop" alt="Cơm Tấm"><div class="rc-info"><div class="rc-name">Cơm Tấm</div><div class="rc-tag">Sài Gòn · Đặc sản</div></div></a>
+    <a href="pho.html" class="related-card"><img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?q=80&w=400&auto=format&fit=crop" alt="Phở" onerror="this.onerror=null;this.src='../image/b5dd5585-1062-49da-8c75-eed33bbdfa38.jpg'"><div class="rc-info"><div class="rc-name">Phở Hà Nội</div><div class="rc-tag">Miền Bắc · Thanh đạm</div></div></a>
+    <a href="bun_bo_hue.html" class="related-card"><img src="https://t3.ftcdn.net/jpg/12/31/50/32/240_F_1231503262_q25Y0WHxkrIR5vSgBFQWSOAn4IwLR8No.jpg" alt="Bún Bò Huế" onerror="this.onerror=null;this.src='../image/b5dd5585-1062-49da-8c75-eed33bbdfa38.jpg'"><div class="rc-info"><div class="rc-name">Bún Bò Huế</div><div class="rc-tag">Miền Trung · Đậm đà</div></div></a>
+    <a href="goi_cuon.html" class="related-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Bi_cuon.jpg/640px-Bi_cuon.jpg" alt="Gỏi Cuốn" onerror="this.onerror=null;this.src='../image/b5dd5585-1062-49da-8c75-eed33bbdfa38.jpg'"><div class="rc-info"><div class="rc-name">Gỏi Cuốn</div><div class="rc-tag">Nam Bộ · Thanh mát</div></div></a>
+    <a href="com_tam.html" class="related-card"><img src="https://images.unsplash.com/photo-1555126634-323283e090fa?q=80&w=400&auto=format&fit=crop" alt="Cơm Tấm" onerror="this.onerror=null;this.src='../image/b5dd5585-1062-49da-8c75-eed33bbdfa38.jpg'"><div class="rc-info"><div class="rc-name">Cơm Tấm</div><div class="rc-tag">Sài Gòn · Đặc sản</div></div></a>
   </div>
 </div>
 
