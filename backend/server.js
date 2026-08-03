@@ -15,7 +15,6 @@ function verifyPassword(password, stored) {
   return crypto.timingSafeEqual(Buffer.from(hash, 'hex'), Buffer.from(hashToVerify, 'hex'));
 }
 
-// ===== CAU HINH ADMIN =====
 const ADMIN_EMAIL    = 'admin@viettravel.vn';
 const ADMIN_PASSWORD = 'admin@2026';
 let adminToken = null;
@@ -122,7 +121,6 @@ function migrateBookingsTable() {
     if (!cols.includes('infants'))       migs.push(`ALTER TABLE bookings ADD COLUMN infants INTEGER DEFAULT 0`);
     if (!cols.includes('departure_date'))migs.push(`ALTER TABLE bookings ADD COLUMN departure_date TEXT`);
     if (!cols.includes('user_id'))       migs.push(`ALTER TABLE bookings ADD COLUMN user_id INTEGER`);
-    // MIGRATION: them cot trang thai booking (default 'pending' cho tat ca booking cu)
     if (!cols.includes('status'))        migs.push(`ALTER TABLE bookings ADD COLUMN status TEXT DEFAULT 'pending'`);
 
     if (migs.length === 0) {
@@ -160,9 +158,6 @@ function insertSampleData() {
   });
 }
 
-// ===== API ENDPOINTS =====
-
-// Tour data: image cột luu nhieu URL cach nhau boi dau '|'
 function decorateTour(row) {
   const images = row.image ? row.image.split('|').filter(Boolean) : [];
   let itinerary = [];
@@ -309,7 +304,7 @@ app.post('/api/reviews', (req, res) => {
       res.json({ success: true, message: 'Cảm ơn bạn đã chia sẻ trải nghiệm!', review_id: this.lastID });
     });
   });
-});
+}); 
 
 app.post('/api/bookings', (req, res) => {
   const { name, email, phone, tour_id, adults, children, infants, departure_date, date, user_id } = req.body;
@@ -383,7 +378,6 @@ app.get('/api/admin/tours', requireAdmin, (req, res) => {
   });
 });
 
-// Them tour moi (admin)
 app.post('/api/admin/tours', requireAdmin, (req, res) => {
   const { title, location, destination, durationLabel, departure, price, description, image, badge, type, details, itinerary, highlights, cuisine, ideal_time, transport, promotion } = req.body;
   if (!title || !location || !destination || !durationLabel || !departure || !price)
@@ -499,7 +493,6 @@ app.put('/api/admin/bookings/:id/status', requireAdmin, (req, res) => {
   });
 });
 
-// Xoa booking (admin)
 app.delete('/api/admin/bookings/:id', requireAdmin, (req, res) => {
   db.run(`DELETE FROM bookings WHERE id = ?`, [req.params.id], function(err) {
     if (err) return res.status(500).json({ success: false, error: err.message });
